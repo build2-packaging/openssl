@@ -1,0 +1,97 @@
+# file      : openssl/buildfile
+# copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
+# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+
+import libs  = libssl%lib{ssl}
+import libs += libcrypto%lib{crypto}
+
+exe{openssl}: {h c}{** -vms_* -apps/win32_init} $libs
+
+tclass = $c.target.class
+
+i686 = ($c.target.cpu == 'i686')
+
+linux   = ($tclass == 'linux')
+bsd     = ($tclass == 'bsd')
+macos   = ($tclass == 'macos')
+windows = ($tclass == 'windows')
+
+gcc   = ($c.class == 'gcc')
+msvc  = ($c.class == 'msvc')
+mingw = ($c.target.system == 'mingw32')
+
+exe{openssl}: apps/c{win32_init}: include = $windows
+
+if! $windows
+{
+  # Note that the upstream package uses -pthread compiler/linker option on
+  # Linux and FreeBSD. The option is currently unsupported by build2, so we
+  # use -D_REENTRANT and -lpthread preprocessor/linker options instead.
+  #
+  # Also note that on FreeBSD and Mac OS the upstream package passes
+  # -D_REENTRANT.
+  #
+  c.poptions += -D_REENTRANT
+
+  if $bsd
+    c.poptions += -D_THREAD_SAFE
+}
+else
+{
+  c.poptions += -DWIN32_LEAN_AND_MEAN -DUNICODE -D_UNICODE
+
+  # Note that upstream also passes -DOPENSSL_USE_APPLINK if compiled with VC.
+  # We drop this option (see libcrypto/buildfile) for details.
+  #
+  if $msvc
+  {
+    c.poptions += -DOPENSSL_SYS_WIN32 -D_CRT_SECURE_NO_DEPRECATE \
+                  -D_WINSOCK_DEPRECATED_NO_WARNINGS
+
+    c.coptions += /Gs0 /GF /Gy
+  }
+  else
+    c.poptions += -D_MT
+}
+
+if ($i686 && $gcc)
+  c.coptions += -fomit-frame-pointer
+
+# Disable compiler warnings.
+#
+if $msvc
+{
+  # Disable warnings that pop up with /W3.
+  #
+  c.coptions += /wd4090 /wd4244 /wd4267
+}
+else
+{
+  # Disable warnings that pop up with -Wall -Wextra. Upstream doesn't seem to
+  # care about these and it is not easy to disable specific warnings in a way
+  # that works across compilers/versions (some -Wno-* options are only
+  # recognized in newer versions). There are still some warnings left that
+  # appear for certain platforms/compilers. We pass them through but disable
+  # treating them as errors.
+  #
+  c.coptions += -Wno-all -Wno-extra -Wno-error
+}
+
+c.poptions =+ "-I$src_base"
+
+if! $windows
+{
+  if $linux
+    c.libs += -ldl
+
+  if ($linux || $bsd)
+    c.libs += -lpthread
+}
+else
+{
+  c.libs += $regex.apply(ws2_32 gdi32 crypt32,      \
+                         '(.+)',                    \
+                         $msvc ? '\1.lib' : '-l\1')
+  if $msvc
+    c.libs += advapi32.lib
+}

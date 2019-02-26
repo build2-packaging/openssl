@@ -1,0 +1,249 @@
+# file      : libcrypto/buildfile
+# copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
+# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+
+# Exclude source code of unused features (engines, disabled algorithms, etc).
+#
+# Note: crypto/LPdir_*.c and crypto/des/ncbc_enc.c are actually headers.
+#
+lib{crypto}:    {h   }{** -buildinf-body}              \
+                {h   }{buildinf-body}                  \
+         crypto/{   c}{** -LPdir_* -*cap               \
+                          -aes/aes_x86core             \
+                          -bn/asm/x86_64-gcc           \
+                          -des/ncbc_enc                \
+                          -ec/ecp_nistz256*            \
+                          -engine/eng_devcrypto        \
+                          -mdc2/**                     \
+                          -poly1305/poly1305_ieee754   \
+                          -poly1305/poly1305_base2_44} \
+         crypto/{file}{LPdir_*.c des/ncbc_enc.c}       \
+                {file}{libcrypto.map}
+
+# Symlinked where appropriate.
+#
+downstream/internal/h{platform}@./downstream/internal/: dist = false
+
+tclass = $c.target.class
+
+i686 = ($c.target.cpu == 'i686')
+
+linux   = ($tclass == 'linux')
+bsd     = ($tclass == 'bsd')
+macos   = ($tclass == 'macos')
+windows = ($tclass == 'windows')
+
+gcc   = ($c.class == 'gcc')
+msvc  = ($c.class == 'msvc')
+mingw = ($c.target.system == 'mingw32')
+
+lib{crypto}: def{libcrypto}: include = $windows
+
+# See bootstrap.build for details.
+#
+lib_version = ($version.pre_release ? "$version.project_id" : "$abi_version")
+lib{crypto}: bin.lib.version = @"-$lib_version"
+
+# Drop -DOPENSSL_PIC and -D{L|B}_ENDIAN preprocessor options and define
+# OPENSSL_PIC and {L|B}_ENDIAN macros in downstream/openssl/opensslconf.h.
+# Pass -DLIBCRYPTO_BUILD to define the above macros only while building the
+# libcrypto library.
+#
+c.poptions += -DLIBCRYPTO_BUILD
+
+if! $windows
+{
+  # Note that the upstream package uses -pthread compiler/linker option on
+  # Linux and FreeBSD. The option is currently unsupported by build2, so we
+  # use -D_REENTRANT and -lpthread preprocessor/linker options instead.
+  #
+  # Also note that on FreeBSD and Mac OS the upstream package also passes
+  # -D_REENTRANT.
+  #
+  c.poptions += -D_REENTRANT
+
+  if $linux
+    c.poptions += -DOPENSSL_USE_NODELETE
+
+  if $bsd
+    c.poptions += -D_THREAD_SAFE
+}
+else
+{
+  c.poptions += -DWIN32_LEAN_AND_MEAN -DUNICODE -D_UNICODE
+
+  # Note that upstream also adds Applink support if compiled with VC. This is
+  # something about being able to use the library with application compiled
+  # with a different compiler (see ../../upstream/Configurations/10-main.conf
+  # for details). We drop this for now as it requires ASM support. In
+  # particular, we don't pass -DOPENSSL_USE_APPLINK preprocessor option no
+  # compile uplink.c and auto-generated uplink-x86_64.asm.
+  #
+  if $msvc
+  {
+    c.poptions += -DOPENSSL_SYS_WIN32 -D_CRT_SECURE_NO_DEPRECATE \
+                  -D_WINSOCK_DEPRECATED_NO_WARNINGS
+
+    c.coptions += /Gs0 /GF /Gy
+  }
+  else
+    c.poptions += -D_MT
+}
+
+if ($i686 && $gcc)
+  c.coptions += -fomit-frame-pointer
+
+# Disable compiler warnings.
+#
+if $msvc
+{
+  # Disable warnings that pop up with /W3.
+  #
+  c.coptions += /wd4090 /wd4129 /wd4164 /wd4244 /wd4267 /wd4311
+}
+else
+{
+  # Disable warnings that pop up with -Wall -Wextra. Upstream doesn't seem to
+  # care about these and it is not easy to disable specific warnings in a way
+  # that works across compilers/versions (some -Wno-* options are only
+  # recognized in newer versions). There are still some warnings left that
+  # appear for certain platforms/compilers. We pass them through but disable
+  # treating them as errors.
+  #
+  c.coptions += -Wno-all -Wno-extra -Wno-error
+}
+
+# Define the OPENSSLDIR and ENGINESDIR macros as the upstream package does it
+# in the most of cases.
+#
+# Note that upstream defines them differently for some
+# platforms/distributions. For example, it defines ENGINESDIR as
+# /usr/local/lib64/engines-1.1 on Fedora and /usr/local/lib/engines-1_1 for
+# MinGW GCC (which doesn't make much sense).
+#
+# Also note that Linux distributions may define them differently. For example:
+#
+# Debian/Ubuntu: /usr/lib/ssl and /usr/lib/x86_64-linux-gnu/engines-1.1
+# Fedora/RHEL:   /etc/pki/tls and /usr/lib64/engines-1.1
+#
+# Overall, the thinking is that if any of these directories are actually
+# needed, then one should probably be using the system-installed OpenSSL.
+#
+if! $windows
+{
+  root = ($install.root != [null]           \
+          ? $install.resolve($install.root) \
+          : [dir_path] /usr/local)
+
+  lib = ($install.root != [null]          \
+         ? $install.resolve($install.lib) \
+         : $root/lib)
+
+  openssldir = "$root/ssl"
+  enginesdir = "$lib/engines-$lib_version"
+}
+else
+{
+  arc = ($i686 ? ' (x86)' : '')
+
+  root = ($install.root != [null]                           \
+          ? $install.resolve($install.root)                 \
+          : [dir_path] "C:/Program Files$arc/Common Files")
+
+  lib = ($install.root != [null]                          \
+         ? $install.resolve($install.lib)                 \
+         : [dir_path] "C:/Program Files$arc/OpenSSL/lib")
+
+  openssldir = "$root/SSL"
+  enginesdir = "$lib/engines-$regex.replace($lib_version, '-', '_')"
+}
+
+# Escape backslashes and quotes in the directory paths prior to representing
+# them as C string literals.
+#
+od = $regex.replace($openssldir, '(\\|")', '\\\1')
+ed = $regex.replace($enginesdir, '(\\|")', '\\\1')
+
+c.poptions += -DOPENSSLDIR="\"$od\"" -DENGINESDIR="\"$ed\""
+
+# Escape backslashes and quotes in the compilation flags and substitute them
+# into internal/buildinf-body.h as string literals, one per line.
+#
+# Note: the flag list will not reflect compiler options that build2 adds
+# implicitly (-fPIC, etc).
+#
+cflags =
+for f: $c.poptions $c.coptions
+  cflags += $regex.replace($f, '(\\|")', '\\\1')
+
+# @@ Get rid of this when we add support for '\n' in regex substitution alone
+#    '\1', etc.
+#
+nl='
+'
+
+h{buildinf-body}: in{buildinf-body}
+h{buildinf-body}: cflags = $regex.merge($cflags, '(.+)', "$nl  \" \\1\"")
+
+# Note that we have to add "-I$src_root" for the headers auto-generating
+# machinery to work properly.
+#
+c.poptions =+ "-I$out_root" "-I$src_root"            \
+              "-I$src_base/downstream" "-I$src_base"
+
+crypto/             c.poptions =+ "-I$src_base/include"
+crypto/evp/         c.poptions =+ "-I$src_root/libcrypto/crypto/modes"
+crypto/ec/curve448/ c.poptions =+ "-I$src_base" "-I$src_base/arch_32"
+
+crypto/obj{cversion}: c.poptions =+ "-I$src_root/libcrypto/downstream/internal"
+
+if! $windows
+{
+  if $linux
+  {
+    libs{crypto}: c.loptions += -Wl,-znodelete
+    c.libs += -ldl
+  }
+
+  if ($linux || $bsd)
+  {
+    libs{crypto}: c.loptions += -Wl,-Bsymbolic                               \
+                                "-Wl,--version-script=$src_base/libcrypto.map"
+    c.libs += -lpthread
+  }
+}
+else
+{
+  # Note that for MinGW GCC the upstream package also passes -static-libgcc.
+  # We normally don't link GCC run-time statically when packaging other C
+  # libraries, so let's not do that here either and see how it goes.
+  #
+  if $mingw
+    libs{crypto}: c.loptions += -Wl,--enable-auto-image-base
+
+  c.libs += $regex.apply(ws2_32 gdi32 crypt32,      \
+                         '(.+)',                    \
+                         $msvc ? '\1.lib' : '-l\1')
+
+  # @@ To suppress the 'object file does not define any public symbols'
+  #    warning we also need to pass /ignore:4221 option to lib.exe. Currently
+  #    there is no way to do this.
+  #
+  if $msvc
+    c.libs += advapi32.lib
+}
+
+lib{crypto}: cc.export.poptions = "-I$src_base/downstream" "-I$src_base"
+
+# Install headers from the upstream and downstream openssl/ subdirectories
+# only.
+#
+h{*}:                                install = false
+openssl/h{*}:                        install = include/openssl/
+downstream/openssl/h{*}:             install = include/openssl/
+downstream/openssl/opensslconf/h{*}: install = include/openssl/opensslconf/
+
+# Disable libssl headers installation (see ../README-DEV for details).
+#
+for h: dtls1 srtp ssl2 ssl3 sslerr ssl
+  openssl/h{$h}@./openssl/: install = false

@@ -1,0 +1,10 @@
+This document describes how the openssl program was packaged for build2. In
+particular, this understanding will be useful when upgrading to a new upstream
+version. See ../README-DEV for general notes on OpenSSL packaging.
+
+Symlink the required upstream files and directories into openssl/:
+
+$ ln -s ../../upstream/{apps,include/internal,e_os.h} openssl
+
+Copy upstream's auto-generated apps/progs.h into openssl/. Note that this
+header is not platform-specific.

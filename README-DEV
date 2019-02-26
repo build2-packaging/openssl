@@ -1,0 +1,81 @@
+This document describes an approach applied to packaging OpenSSL for build2.
+In particular, this understanding will be useful when upgrading to a new
+upstream version.
+
+The upstream package contains the libcrypto and libssl libraries and the
+openssl program that we all package separately (see respective README-DEV
+files for details). It also contains dynamically loaded engines and tests that
+we currently don't package.
+
+We add the upstream package as a git submodule and symlink the required files
+and subdirectories into the build2 package subdirectories. Then, when required,
+we "overlay" the upstream with our own headers, placing them into the
+library/program directories and their downstream/ subdirectories.
+
+Normally, when packaging a project, we need to replace some auto-generated
+headers with our own implementations and deduce compilation/linking options.
+For autoconf/cmake-based projects we rely on the Makefile.am, CMakeList.txt
+and .in/.cmake files for that. For OpenSSL, using its own Perl scripts-based
+build infrastructure, that's not an option. Instead, we analyze the
+auto-generated files (headers, makefiles, configdata.pm, etc.) and build logs,
+produced for multiple platforms/architectures, and use some of them build-time.
+For convenience, we have also stashed some of them in upstream-platform/.
+
+The upstream package can be configured to contain a specific feature set. We
+reproduce the union of features configured for the upstream source package in
+Debian and Fedora distributions. The configuration options defining these sets
+are specified in the Debian's rules and Fedora's RPM .spec files. These files
+can be obtained as follows:
+
+$ wget https://kojipkgs.fedoraproject.org//packages/openssl/1.1.1a/1.fc29/src/openssl-1.1.1a-1.fc29.src.rpm
+$ rpm2cpio openssl-1.1.1a-1.fc29.src.rpm | cpio -civ '*.spec'
+
+$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_1.1.1a-1.debian.tar.xz
+$ tar xf openssl_1.1.1a-1.debian.tar.xz debian/rules
+
+Here are the discovered configuration options.
+
+Debian:
+
+  no-idea no-mdc2 no-rc5 no-zlib no-ssl3 enable-unit-test no-ssl3-method
+  enable-rfc3779 enable-cms
+
+Fedora:
+
+  zlib enable-camellia enable-seed enable-rfc3779 enable-sctp
+  enable-cms enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method
+  enable-weak-ssl-ciphers no-mdc2 no-ec2m no-sm2 no-sm4
+
+The union of these feature sets translates into the following options, after
+suppressing the defaults:
+
+  enable-md2 enable-rc5 enable-sctp enable-ssl3 enable-ssl3-method
+  enable-weak-ssl-ciphers no-mdc2 enable-zlib
+
+We drop enable-zlib (compress before encryption) and enable-sctp (both used by
+Fedora only) not to create external dependencies. Besides that, we add no-asm
+to suppress replacing C code with auto-generated ASM code for some algorithms.
+Later, we will possibly pre-generate ASM code for architectures we support and
+get rid of this option. So the resulting options are:
+
+  enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-weak-ssl-ciphers
+  no-mdc2 no-asm
+
+Note that while we can use the upstream/INSTALL file to understand which of
+the 'enable-<feature>' or 'no-<feature>' options are the default ones, it is a
+good idea to verify the effective option set printed by the
+`./configdata.pm --options` command run in the configuration directory.
+
+Also note that on Windows you would need to additionally pass VC-WIN32 or
+VC-WIN64A as a first argument to the Configure script when configuring for
+building with VC (see upstream/INSTALL for details).
+
+When the packaging is complete, build all the project packages in source tree
+and make sure that no OpenSSL headers are included from the system, running
+the following command from the project root:
+
+$ fgrep -a -e /usr/include/openssl `find . -type f -name '*.d'`
+
+As a side note, on Debian and Fedora libcrypto is packaged together with
+libssl under the libssl1.1 and openssl-libs package names respectively. The
+headers-containing development packages are libssl-dev and openssl-devel.

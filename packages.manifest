@@ -1,0 +1,6 @@
+: 1
+location: libcrypto/
+:
+location: libssl/
+:
+location: openssl/

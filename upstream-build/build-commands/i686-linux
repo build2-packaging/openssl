@@ -1,0 +1,56 @@
+libcrypto -------------------------------------------------------------------
+
+gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include \
+-fPIC -pthread -m32 -Wall -O3 -fomit-frame-pointer -DOPENSSL_USE_NODELETE \
+-DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" \
+-DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -DNDEBUG  -MMD -MF \
+crypto/aes/aes_cbc.d.tmp -MT crypto/aes/aes_cbc.o -c -o crypto/aes/aes_cbc.o \
+../crypto/aes/aes_cbc.c
+
+gcc -fPIC -pthread -m32 -Wall -O3 -fomit-frame-pointer -L. -Wl,-znodelete \
+-shared -Wl,-Bsymbolic  -Wl,-soname=libcrypto.so.1.1  -o libcrypto.so.1.1 \
+-Wl,--version-script=libcrypto.map crypto/aes/aes_cbc.o ... \
+crypto/x509v3/v3err.o -ldl -pthread
+
+ar r libcrypto.a crypto/aes/aes_cbc.o ... crypto/x509v3/v3err.o
+
+
+libssl ----------------------------------------------------------------------
+
+gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m32 -Wall -O3 \
+-fomit-frame-pointer -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC \
+-DOPENSSLDIR="\"/usr/local/ssl\"" \
+-DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -DNDEBUG  -MMD -MF \
+ssl/bio_ssl.d.tmp -MT ssl/bio_ssl.o -c -o ssl/bio_ssl.o ../ssl/bio_ssl.c
+
+gcc -fPIC -pthread -m32 -Wall -O3 -fomit-frame-pointer -L. -Wl,-znodelete \
+-shared -Wl,-Bsymbolic   -Wl,-soname=libssl.so.1.1 -o libssl.so.1.1 \
+-Wl,--version-script=libssl.map ssl/bio_ssl.o ... ssl/tls_srp.o \
+-lcrypto -ldl -pthread
+
+ar r libssl.a ssl/bio_ssl.o ... ssl/tls_srp.o
+
+
+libapps ---------------------------------------------------------------------
+
+Is also used for tests.
+
+gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m32 -Wall -O3 \
+-fomit-frame-pointer -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC \
+-DOPENSSLDIR="\"/usr/local/ssl\"" \
+-DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -DNDEBUG  -MMD -MF \
+apps/app_rand.d.tmp -MT apps/app_rand.o -c -o apps/app_rand.o \
+../apps/app_rand.c
+
+ar r apps/libapps.a apps/app_rand.o ... apps/s_socket.o
+
+
+openssl ---------------------------------------------------------------------
+
+gcc  -I. -Iinclude -Iapps -I.. -I../include -pthread -m32 -Wall -O3 \
+-fomit-frame-pointer -DNDEBUG  -MMD -MF apps/asn1pars.d.tmp -MT \
+apps/asn1pars.o -c -o apps/asn1pars.o ../apps/asn1pars.c
+
+${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L. \
+-o apps/openssl apps/asn1pars.o ... apps/x509.o apps/libapps.a \
+-lssl -lcrypto -ldl -pthread

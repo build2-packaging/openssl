@@ -1,0 +1,15 @@
+This document describes how libssl was packaged for build2. In particular,
+this understanding will be useful when upgrading to a new upstream version.
+See ../README-DEV for general notes on OpenSSL packaging.
+
+Symlink the required upstream files and directories into libssl/:
+
+$ mkdir libssl/openssl
+$ ln -s ../../../upstream/include/openssl/{dtls1,srtp,ssl2,ssl3,sslerr,ssl}.h \
+  libssl/openssl
+$ ln -s ../../upstream/{ssl,include/internal,e_os.h} libssl
+
+Note that we take the libssl headers list from ../libcrypto/README-DEV.
+
+Copy upstream's auto-generated libssl.map and libssl.def into libssl/. Comment
+out the "LIBRARY libssl-1_1-x64" line in libssl.def.

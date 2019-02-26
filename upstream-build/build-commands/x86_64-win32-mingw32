@@ -1,0 +1,51 @@
+libcrypto -------------------------------------------------------------------
+
+gcc -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 \
+-Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" \
+-DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE \
+-DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/aes/aes_cbc.d.tmp -MT \
+crypto/aes/aes_cbc.o -c -o crypto/aes/aes_cbc.o ../crypto/aes/aes_cbc.c
+
+gcc -m64 -Wall -O3 -L. -static-libgcc -shared -Wl,--enable-auto-image-base \
+-Wl,--out-implib=libcrypto.dll.a -o libcrypto-1_1-x64.dll libcrypto.def \
+crypto/dllmain.o ... crypto/x509v3/v3err.o -lws2_32 -lgdi32 -lcrypt32
+
+ar r libcrypto.a crypto/aes/aes_cbc.o ... crypto/x509v3/v3err.o
+
+
+libssl ----------------------------------------------------------------------
+
+gcc -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC
+-DOPENSSLDIR="\"/usr/local/ssl\""
+-DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE
+-DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF ssl/bio_ssl.d.tmp -MT
+ssl/bio_ssl.o -c -o ssl/bio_ssl.o ../ssl/bio_ssl.c
+
+gcc -m64 -Wall -O3 -L. -static-libgcc -shared -Wl,--enable-auto-image-base \
+-Wl,--out-implib=libssl.dll.a -o libssl-1_1-x64.dll libssl.def libssl.res.o
+ssl/bio_ssl.o ... enc.o ssl/tls_srp.o -lcrypto -lws2_32 -lgdi32 -lcrypt32
+
+ar r libssl.a ssl/bio_ssl.o ... ssl/tls_srp.o
+
+
+libapps ---------------------------------------------------------------------
+
+Is also used for tests.
+
+gcc -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC
+-DOPENSSLDIR="\"/usr/local/ssl\""
+-DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE
+-DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF apps/app_rand.d.tmp
+-MT apps/app_rand.o -c -o apps/app_rand.o ../apps/app_rand.c
+
+ar r apps/libapps.a apps/app_rand.o ... apps/win32_init.o
+
+
+openssl ---------------------------------------------------------------------
+
+gcc -I. -Iinclude -Iapps -I.. -I../include -m64 -Wall -O3 -DUNICODE \
+-D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG -MMD -MF apps/asn1pars.d.tmp \
+-MT apps/asn1pars.o -c -o apps/asn1pars.o ../apps/asn1pars.c
+
+${LDCMD:-gcc} -m64 -Wall -O3 -L. -o apps/openssl.exe apps/asn1pars.o ...
+apps/x509.o apps/libapps.a -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32

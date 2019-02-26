@@ -1,0 +1,23 @@
+: 1
+name: libssl
+
+# Note: remember to update summary and doc-url below!
+#
+version: 1.1.1-a.0.z
+
+project: openssl
+summary: C library providing SSLv3 and TLS implementations, version 1.1.1a
+license: OpenSSL License, SSLeay License; Copyleft free dual software license.
+tags: SSLv3, TLS, cryptography, library, c, api, interface
+description-file: README
+url: https://www.openssl.org/
+doc-url: https://www.openssl.org/docs/man1.1.1/man3/
+src-url: https://git.build2.org/cgit/packaging/openssl/openssl/tree/libssl/
+package-url: https://git.build2.org/cgit/packaging/openssl/
+email: openssl-users@openssl.org     ; Mailing list.
+package-email: packaging@build2.org  ; Mailing list.
+build-error-email: builds@build2.org
+builds: all
+depends: * build2 >= 0.10.0-
+depends: * bpkg >= 0.10.0-
+depends: libcrypto == $

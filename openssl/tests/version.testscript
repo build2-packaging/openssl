@@ -1,0 +1,14 @@
+# file      : tests/version.testscript
+# copyright : Copyright (c) 2016-2019 Code Synthesis Ltd
+# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+
+$* version -a >>~"%EOO%"
+  OpenSSL 1.1.1a  20 Nov 2018
+  %built on: .+ UTC%
+  %platform: $c.target.class-$c.target.cpu%
+  %options: .+%
+  %compiler: $c.class .*-DLIBCRYPTO_BUILD.*%
+  %OPENSSLDIR: ".+"%
+  %ENGINESDIR: ".+"%
+  %Seeding source: .+%
+  EOO

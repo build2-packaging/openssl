@@ -1,0 +1,88 @@
+libcrypto -------------------------------------------------------------------
+
+cl /Zi /Fdossl_static.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /I "." /I \
+"crypto\include" /I "include" /I ".." /I "..\crypto\include" /I "..\include" \
+-D"L_ENDIAN" -D"OPENSSL_PIC"
+-D"OPENSSLDIR=\"C:\\Program Files\\Common Files\\SSL\"" \
+-D"ENGINESDIR=\"C:\\Program Files\\OpenSSL\\lib\\engines-1_1\"" \
+-D"OPENSSL_SYS_WIN32" -D"WIN32_LEAN_AND_MEAN" -D"UNICODE" -D"_UNICODE" \
+-D"_CRT_SECURE_NO_DEPRECATE" -D"_WINSOCK_DEPRECATED_NO_WARNINGS" \
+-D"OPENSSL_USE_APPLINK" -D"NDEBUG"  -c /Focrypto\aes\aes_cbc.obj \
+"..\crypto\aes\aes_cbc.c" aes_cbc.c
+
+# Grep ../makefile/x86_64-win32-msvc for libcrypto.lib and CNF_EX_LIBS to see
+# what are the object files and libraries.
+#
+link /nologo /debug /dll /nologo /debug /implib:libcrypto.lib \
+/out:libcrypto-1_1-x64.dll /def:libcrypto.def \
+@C:\Users\build\AppData\Local\Temp\nm4970.tmp
+
+# Grep ../makefile/x86_64-win32-msvc for libcrypto_static.lib to see what are
+# the object files.
+#
+lib /nologo /out:libcrypto_static.lib \
+@C:\Users\build\AppData\Local\Temp\nm4C01.tmp
+
+
+libssl ----------------------------------------------------------------------
+
+cl /Zi /Fdossl_static.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /I "." /I \
+"include" /I ".." /I "..\include" -D"L_ENDIAN" -D"OPENSSL_PIC" \
+-D"OPENSSLDIR=\"C:\\Program Files\\Common Files\\SSL\"" \
+-D"ENGINESDIR=\"C:\\Program Files\\OpenSSL\\lib\\engines-1_1\"" \
+-D"OPENSSL_SYS_WIN32" -D"WIN32_LEAN_AND_MEAN" -D"UNICODE" -D"_UNICODE" \
+-D"_CRT_SECURE_NO_DEPRECATE" -D"_WINSOCK_DEPRECATED_NO_WARNINGS" \
+-D"OPENSSL_USE_APPLINK" -D"NDEBUG"  -c /Fossl\bio_ssl.obj "..\ssl\bio_ssl.c" \
+bio_ssl.c
+
+link /nologo /debug /dll /nologo /debug  /implib:libssl.lib \
+/out:libssl-1_1-x64.dll /def:libssl.def \
+@C:\Users\build\AppData\Local\Temp\nm9C26.tmp
+
+lib /nologo /out:libssl_static.lib \
+@C:\Users\build\AppData\Local\Temp\nm9DEC.tmp
+
+
+libapps ---------------------------------------------------------------------
+
+Is also used for tests.
+
+cl  /Zi /Fdossl_static.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /I "." /I \
+"include" /I ".." /I "..\include" -D"L_ENDIAN" -D"OPENSSL_PIC" \
+-D"OPENSSLDIR=\"C:\\Program Files\\Common Files\\SSL\"" \
+-D"ENGINESDIR=\"C:\\Program Files\\OpenSSL\\lib\\engines-1_1\"" \
+-D"OPENSSL_SYS_WIN32" -D"WIN32_LEAN_AND_MEAN" -D"UNICODE" -D"_UNICODE" \
+-D"_CRT_SECURE_NO_DEPRECATE" -D"_WINSOCK_DEPRECATED_NO_WARNINGS" \
+-D"OPENSSL_USE_APPLINK" -D"NDEBUG"  -c /Foapps\app_rand.obj \
+"..\apps\app_rand.c" app_rand.c
+
+lib /nologo /out:apps\libapps.lib @C:\Users\build\AppData\Local\Temp\nm852A.tmp
+
+nm852A.tmp:
+apps\app_rand.obj
+apps\apps.obj
+apps\bf_prefix.obj
+apps\opt.obj
+apps\s_cb.obj
+apps\s_socket.obj
+apps\win32_init.obj
+
+
+openssl ---------------------------------------------------------------------
+
+cl  /Zi /Fdapp.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /I "." /I "include" \
+/I "apps" /I ".." /I "..\include" -D"OPENSSL_SYS_WIN32" \
+-D"WIN32_LEAN_AND_MEAN" -D"UNICODE" -D"_UNICODE" -D"_CRT_SECURE_NO_DEPRECATE" \
+-D"_WINSOCK_DEPRECATED_NO_WARNINGS" -D"OPENSSL_USE_APPLINK" -D"NDEBUG"  \
+-c /Foapps\asn1pars.obj "..\apps\asn1pars.c" asn1pars.c
+
+link /nologo /debug /subsystem:console /opt:ref  /nologo /debug \
+/out:apps\openssl.exe @C:\Users\build\AppData\Local\Temp\nmFCA0.tmp
+
+nmFCA0.tmp:
+apps\asn1pars.obj
+...
+apps\libapps.lib
+libssl.lib
+libcrypto.lib
+ws2_32.lib gdi32.lib advapi32.lib crypt32.lib user32.lib

@@ -1,0 +1,61 @@
+# file      : tests/rsa.testscript
+# copyright : Copyright (c) 2016-2019 Code Synthesis Ltd
+# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+
++cat <<EOI >=openssl.cnf
+repository = build2.org
+company    = Code Synthesis
+email      = info@build2.org
+
+[ req ]
+
+distinguished_name = req_distinguished_name
+x509_extensions    = v3_req
+prompt             = no
+utf8               = yes
+
+[ req_distinguished_name ]
+
+O  = $company
+CN = name:$repository
+
+[ v3_req ]
+
+keyUsage         = critical,digitalSignature
+extendedKeyUsage = critical,codeSigning
+subjectAltName   = email:$email
+EOI
+
++$* genrsa 4096 >=key.pem 2>>~%EOO%
+  %Generating RSA private key, 4096 bit long modulus.*%
+  %.*
+  EOO
+
++cat key.pem >>~%EOO%
+  -----BEGIN RSA PRIVATE KEY-----
+  %.{1,64}%.+
+  -----END RSA PRIVATE KEY-----
+  EOO
+
++$* req -x509 -new -key key.pem -days 1825 -config openssl.cnf >=cert.pem
+
++cat cert.pem >>~%EOO%
+  -----BEGIN CERTIFICATE-----
+  %.{1,64}%.+
+  -----END CERTIFICATE-----
+  EOO
+
+: cert-fingerprint
+:
+{
+  $* x509 -sha256 -noout -fingerprint <<<../cert.pem >>~%EOO%
+    %SHA256 Fingerprint=([[:xdigit:]]{2}:){31}[[:xdigit:]]{2}%
+    EOO
+}
+
+: sign-verify
+:
+{
+  $* rsautl -sign -inkey ../key.pem <'test' | \
+  $* rsautl -verify -certin -inkey ../cert.pem >'test'
+}

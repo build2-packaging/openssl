@@ -1,0 +1,53 @@
+libcrypto -------------------------------------------------------------------
+
+clang  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include \
+-fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC \
+-DOPENSSLDIR="\"/usr/local/ssl\"" \
+-DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF \
+crypto/aes/aes_cbc.d.tmp -MT crypto/aes/aes_cbc.o -c -o crypto/aes/aes_cbc.o \
+../crypto/aes/aes_cbc.c
+
+clang -fPIC -arch x86_64 -O3 -Wall -L. -dynamiclib -current_version 1.1 \
+-compatibility_version 1.1 -Wl,-search_paths_first \
+-install_name /usr/local/lib/libcrypto.1.1.dylib -o libcrypto.1.1.dylib
+crypto/aes/aes_cbc.o ... crypto/x509v3/v3err.o
+
+ar r libcrypto.a crypto/aes/aes_cbc.o ... crypto/x509v3/v3err.o
+
+
+libssl ----------------------------------------------------------------------
+
+clang  -I. -Iinclude -I.. -I../include -fPIC -arch x86_64 -O3 -Wall \
+-DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" \
+-DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD \
+-MF ssl/bio_ssl.d.tmp -MT ssl/bio_ssl.o -c -o ssl/bio_ssl.o ../ssl/bio_ssl.c
+
+clang -fPIC -arch x86_64 -O3 -Wall -L. -dynamiclib -current_version 1.1 \
+-compatibility_version 1.1 -Wl,-search_paths_first -install_name \
+/usr/local/lib/libssl.1.1.dylib -o libssl.1.1.dylib ssl/bio_ssl.o ... \
+ssl/tls_srp.o -lcrypto
+
+ar r libssl.a ssl/bio_ssl.o ... ssl/tls_srp.o
+
+
+libapps ---------------------------------------------------------------------
+
+Is also used for tests.
+
+clang -I. -Iinclude -I.. -I../include -fPIC -arch x86_64 -O3 -Wall \
+-DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" \
+-DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF \
+apps/app_rand.d.tmp -MT apps/app_rand.o -c -o apps/app_rand.o \
+../apps/app_rand.c
+
+ar r apps/libapps.a apps/app_rand.o ... apps/s_socket.o
+
+
+openssl ---------------------------------------------------------------------
+
+clang  -I. -Iinclude -Iapps -I.. -I../include -arch x86_64 -O3 -Wall \
+-D_REENTRANT -DNDEBUG  -MMD -MF apps/asn1pars.d.tmp -MT apps/asn1pars.o -c -o \
+apps/asn1pars.o ../apps/asn1pars.c
+
+${LDCMD:-clang} -arch x86_64 -O3 -Wall -L. -Wl,-search_paths_first \
+-o apps/openssl apps/asn1pars.o ... apps/x509.o apps/libapps.a -lssl -lcrypto

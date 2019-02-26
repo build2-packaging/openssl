@@ -1,0 +1,7 @@
+# file      : tests/basic/buildfile
+# copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
+# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+
+import libs = libssl%lib{ssl}
+
+exe{driver}: {h c}{**} $libs testscript
