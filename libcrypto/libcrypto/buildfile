@@ -176,14 +176,8 @@ cflags =
 for f: $c.poptions $c.coptions
   cflags += $regex.replace($f, '(\\|")', '\\\1')
 
-# @@ Get rid of this when we add support for '\n' in regex substitution alone
-#    '\1', etc.
-#
-nl='
-'
-
 h{buildinf-body}: in{buildinf-body}
-h{buildinf-body}: cflags = $regex.merge($cflags, '(.+)', "$nl  \" \\1\"")
+h{buildinf-body}: cflags = $regex.merge($cflags, '(.+)', '\n  " \1"')
 
 # Note that we have to add "-I$src_root" for the headers auto-generating
 # machinery to work properly.
