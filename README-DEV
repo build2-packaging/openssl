@@ -19,7 +19,7 @@ and .in/.cmake files for that. For OpenSSL, using its own Perl scripts-based
 build infrastructure, that's not an option. Instead, we analyze the
 auto-generated files (headers, makefiles, configdata.pm, etc.) and build logs,
 produced for multiple platforms/architectures, and use some of them build-time.
-For convenience, we have also stashed some of them in upstream-platform/.
+For convenience, we have also stashed some of them in upstream-build/.
 
 The upstream package can be configured to contain a specific feature set. We
 reproduce the union of features configured for the upstream source package in
