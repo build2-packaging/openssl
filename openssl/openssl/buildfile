@@ -22,6 +22,8 @@ mingw = ($c.target.system == 'mingw32')
 
 exe{openssl}: apps/c{win32_init}: include = $windows
 
+# Build options.
+#
 if! $windows
 {
   # Note that the upstream package uses -pthread compiler/linker option on
@@ -65,7 +67,7 @@ if $msvc
   #
   c.coptions += /wd4090 /wd4244 /wd4267
 }
-else
+elif $gcc
 {
   # Disable warnings that pop up with -Wall -Wextra. Upstream doesn't seem to
   # care about these and it is not easy to disable specific warnings in a way

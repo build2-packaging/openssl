@@ -17,6 +17,7 @@ lib{crypto}:    {h   }{** -buildinf-body}              \
                           -mdc2/**                     \
                           -poly1305/poly1305_ieee754   \
                           -poly1305/poly1305_base2_44} \
+                { def}{libcrypto}                      \
          crypto/{file}{LPdir_*.c des/ncbc_enc.c}       \
                 {file}{libcrypto.map}
 
@@ -37,13 +38,8 @@ gcc   = ($c.class == 'gcc')
 msvc  = ($c.class == 'msvc')
 mingw = ($c.target.system == 'mingw32')
 
-lib{crypto}: def{libcrypto}: include = $windows
-
-# See bootstrap.build for details.
+# Build options.
 #
-lib_version = ($version.pre_release ? "$version.project_id" : "$abi_version")
-lib{crypto}: bin.lib.version = @"-$lib_version"
-
 # Drop -DOPENSSL_PIC and -D{L|B}_ENDIAN preprocessor options and define
 # OPENSSL_PIC and {L|B}_ENDIAN macros in downstream/openssl/opensslconf.h.
 # Pass -DLIBCRYPTO_BUILD to define the above macros only while building the
@@ -101,7 +97,7 @@ if $msvc
   #
   c.coptions += /wd4090 /wd4129 /wd4164 /wd4244 /wd4267 /wd4311
 }
-else
+elif $gcc
 {
   # Disable warnings that pop up with -Wall -Wextra. Upstream doesn't seem to
   # care about these and it is not easy to disable specific warnings in a way
@@ -129,6 +125,8 @@ else
 # Overall, the thinking is that if any of these directories are actually
 # needed, then one should probably be using the system-installed OpenSSL.
 #
+lib_version = ($version.pre_release ? "$version.project_id" : "$abi_version")
+
 if! $windows
 {
   root = ($install.root != [null]           \
@@ -227,7 +225,13 @@ else
     c.libs += advapi32.lib
 }
 
+# Export options.
+#
 lib{crypto}: cc.export.poptions = "-I$src_base/downstream" "-I$src_base"
+
+# See bootstrap.build for details.
+#
+lib{crypto}: bin.lib.version = @"-$lib_version"
 
 # Install headers from the upstream and downstream openssl/ subdirectories
 # only.

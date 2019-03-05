@@ -4,7 +4,7 @@
 
 import int_libs = libcrypto%lib{crypto}
 
-lib{ssl}: {h c}{**} file{libssl.map} $int_libs
+lib{ssl}: {h c}{**} def{libssl} file{libssl.map} $int_libs
 
 tclass = $c.target.class
 
@@ -19,15 +19,8 @@ gcc   = ($c.class == 'gcc')
 msvc  = ($c.class == 'msvc')
 mingw = ($c.target.system == 'mingw32')
 
-lib{ssl}: def{libssl}: include = $windows
-
-# See bootstrap.build for details.
+# Build options.
 #
-if $version.pre_release
-  lib{ssl}: bin.lib.version = @"-$version.project_id"
-else
-  lib{ssl}: bin.lib.version = @"-$abi_version"
-
 # Drop -DOPENSSL_PIC, -D{L|B}_ENDIAN, -DOPENSSLDIR and -DENGINESDIR as they
 # are not used in the libssl source code nor in the libcrypto public headers.
 #
@@ -77,7 +70,7 @@ if $msvc
   #
   c.coptions += /wd4090 /wd4133 /wd4244 /wd4267
 }
-else
+elif $gcc
 {
   # Disable warnings that pop up with -Wall -Wextra. Upstream doesn't seem to
   # care about these and it is not easy to disable specific warnings in a way
@@ -123,11 +116,20 @@ else
     c.libs += advapi32.lib
 }
 
+# Export options.
+#
 lib{ssl}:
 {
   cc.export.poptions = "-I$src_base"
   cc.export.libs = $int_libs
 }
+
+# See bootstrap.build for details.
+#
+if $version.pre_release
+  lib{ssl}: bin.lib.version = @"-$version.project_id"
+else
+  lib{ssl}: bin.lib.version = @"-$abi_version"
 
 # Install headers from the upstream openssl/ subdirectory only.
 #
