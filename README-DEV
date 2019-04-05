@@ -12,6 +12,15 @@ and subdirectories into the build2 package subdirectories. Then, when required,
 we "overlay" the upstream with our own headers, placing them into the
 library/program directories and their downstream/ subdirectories.
 
+Note that symlinking upstream submodule subdirectories into a build2 package
+subdirectory results in creating intermediate build files (.d, .o, etc) inside
+upstream directory while building the package in source tree. That's why we
+need to make sure that packages do not share upstream source files via
+subdirectory symlinks, not to also share the related intermediate files. If
+several packages need to compile the same upstream source file, then only one
+of them can symlink it via the parent directory while others must symlink it
+directly.
+
 Normally, when packaging a project, we need to replace some auto-generated
 headers with our own implementations and deduce compilation/linking options.
 For autoconf/cmake-based projects we rely on the Makefile.am, CMakeList.txt

@@ -3,7 +3,7 @@ name: openssl
 
 # Note: remember to update summary and doc-url below!
 #
-version: 1.1.1
+version: 1.1.1+1
 
 summary: Command line tool providing various cryptography functions, version 1.1.1a
 license: OpenSSL License, SSLeay License; Copyleft free dual software license.
