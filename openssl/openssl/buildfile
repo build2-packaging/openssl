@@ -13,12 +13,10 @@ i686 = ($c.target.cpu == 'i686')
 
 linux   = ($tclass == 'linux')
 bsd     = ($tclass == 'bsd')
-macos   = ($tclass == 'macos')
 windows = ($tclass == 'windows')
 
 gcc   = ($c.class == 'gcc')
 msvc  = ($c.class == 'msvc')
-mingw = ($c.target.system == 'mingw32')
 
 exe{openssl}: apps/c{win32_init}: include = $windows
 

@@ -31,7 +31,6 @@ i686 = ($c.target.cpu == 'i686')
 
 linux   = ($tclass == 'linux')
 bsd     = ($tclass == 'bsd')
-macos   = ($tclass == 'macos')
 windows = ($tclass == 'windows')
 
 gcc   = ($c.class == 'gcc')
