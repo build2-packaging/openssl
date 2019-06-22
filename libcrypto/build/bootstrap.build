@@ -24,8 +24,7 @@ using dist
 # version. Not to mess with such a version, it seems reasonable for us to
 # start with 1.1.1-a.0.z, release as 1.1.1 and, if required, followup with
 # revisions, even for further letter-based upstream patches (that contain
-# nothing more than just fixes). We also mention the "lettered" release in
-# the package summary for information.
+# nothing more than just fixes).
 #
 # There is no way to deduce the ABI version from the release version, so we
 # obtain it from the SHLIB_VERSION_NUMBER macro definition in

@@ -216,12 +216,14 @@ else
                          '(.+)',                    \
                          $msvc ? '\1.lib' : '-l\1')
 
-  # @@ To suppress the 'object file does not define any public symbols'
-  #    warning we also need to pass /ignore:4221 option to lib.exe. Currently
-  #    there is no way to do this.
-  #
   if $msvc
+  {
+    # Suppress the 'object file does not define any public symbols' warning.
+    #
+    c.aoptions += /ignore:4221
+
     c.libs += advapi32.lib
+  }
 }
 
 # Export options.
