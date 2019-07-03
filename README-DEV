@@ -32,17 +32,17 @@ auto-generated files (headers, makefiles, configdata.pm, etc.) and build logs,
 produced for multiple platforms/architectures, and use some of them build-time.
 For convenience, we have also stashed some of them in upstream-build/.
 
-The upstream package can be configured to contain a specific feature set. We
+The upstream package can be configured to expose a specific feature set. We
 reproduce the union of features configured for the upstream source package in
 Debian and Fedora distributions. The configuration options defining these sets
 are specified in the Debian's rules and Fedora's RPM .spec files. These files
 can be obtained as follows:
 
-$ wget https://kojipkgs.fedoraproject.org//packages/openssl/1.1.1a/1.fc29/src/openssl-1.1.1a-1.fc29.src.rpm
-$ rpm2cpio openssl-1.1.1a-1.fc29.src.rpm | cpio -civ '*.spec'
+$ wget https://kojipkgs.fedoraproject.org/packages/openssl/1.1.1c/4.fc31/src/openssl-1.1.1c-4.fc31.src.rpm
+$ rpm2cpio openssl-1.1.1c-4.fc31.src.rpm | cpio -civ '*.spec'
 
-$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_1.1.1a-1.debian.tar.xz
-$ tar xf openssl_1.1.1a-1.debian.tar.xz debian/rules
+$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_1.1.1c-1.debian.tar.xz
+$ tar xf openssl_1.1.1c-1.debian.tar.xz debian/rules
 
 Here are the discovered configuration options.
 
@@ -67,19 +67,44 @@ We drop enable-zlib (compress before encryption) and enable-sctp (both used by
 Fedora only) not to create external dependencies. Besides that, we add no-asm
 to suppress replacing C code with auto-generated ASM code for some algorithms.
 Later, we will possibly pre-generate ASM code for architectures we support and
-get rid of this option. So the resulting options are:
+get rid of this option. Also we add no-devcryptoeng as devcryptoeng is
+automatically enabled on BSDs. So the resulting options are:
 
   enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-weak-ssl-ciphers
-  no-mdc2 no-asm
+  no-mdc2 no-asm no-devcryptoeng
 
 Note that while we can use the upstream/INSTALL file to understand which of
 the 'enable-<feature>' or 'no-<feature>' options are the default ones, it is a
 good idea to verify the effective option set printed by the
 `./configdata.pm --options` command run in the configuration directory.
 
-Also note that on Windows you would need to additionally pass VC-WIN32 or
-VC-WIN64A as a first argument to the Configure script when configuring for
-building with VC (see upstream/INSTALL for details).
+Also note that on Windows you would need to additionally pass VC-WIN32 (i386)
+or VC-WIN64A (x86_64) as a first argument to the Configure script when
+configuring for building with VC (see upstream/INSTALL for details).
+
+To build the upstream package and obtain the build log, run the following
+commands in its root directory.
+
+On POSIX and for MinGW GCC:
+
+$ mkdir build
+$ cd build
+$ ../config enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method \
+  enable-weak-ssl-ciphers no-mdc2 no-asm no-devcryptoeng >build.log 2>&1
+$ make VERBOSE=1 >>build.log 2>&1
+
+For MSVC:
+
+> mkdir build
+> cd build
+> perl ../Configure VC-WIN64A enable-md2 enable-rc5 enable-ssl3 ^
+  enable-ssl3-method enable-weak-ssl-ciphers no-mdc2 no-asm no-devcryptoeng ^
+  >build.log 2>&1
+> nmake VERBOSE=1 >>build.log 2>&1
+
+Note that when building with MSVC (as of 15.5) you may need to remove the
+/O2 option from the makefile prior to running nmake, to prevent the compiler
+from hanging.
 
 When the packaging is complete, build all the project packages in source tree
 and make sure that no OpenSSL headers are included from the system, running
@@ -87,6 +112,12 @@ the following command from the project root:
 
 $ fgrep -a -e /usr/include/openssl `find . -type f -name '*.d'`
 
-As a side note, on Debian and Fedora libcrypto is packaged together with
-libssl under the libssl1.1 and openssl-libs package names respectively. The
-headers-containing development packages are libssl-dev and openssl-devel.
+As a side note, on Debian and Fedora the libraries, headers and utility are
+packaged as follows:
+
+                libcrypto+libssl  headers        openssl
+Debian/Ubuntu:  libssl1.1         libssl-dev     openssl
+Fedora/RHEL:    openssl-libs      openssl-devel  openssl
+
+Search for the Debian and Fedora packages at https://packages.debian.org/search
+and https://apps.fedoraproject.org/packages/.

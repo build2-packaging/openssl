@@ -10,7 +10,7 @@ PLATFORM=VC-WIN64A
 SRCDIR=..
 BLDDIR=.
 
-VERSION=1.1.1a
+VERSION=1.1.1c
 MAJOR=1
 MINOR=1.1
 
@@ -21,11 +21,11 @@ SHLIBS=libcrypto-1_1-x64.dll libssl-1_1-x64.dll
 SHLIBPDBS=libcrypto-1_1-x64.pdb libssl-1_1-x64.pdb
 ENGINES=engines\capi.dll engines\dasync.dll engines\ossltest.dll engines\padlock.dll
 ENGINEPDBS=engines\capi.pdb engines\dasync.pdb engines\ossltest.pdb engines\padlock.pdb
-PROGRAMS=apps\openssl.exe fuzz\asn1-test.exe fuzz\asn1parse-test.exe fuzz\bignum-test.exe fuzz\bndiv-test.exe fuzz\client-test.exe fuzz\cms-test.exe fuzz\conf-test.exe fuzz\crl-test.exe fuzz\ct-test.exe fuzz\server-test.exe fuzz\x509-test.exe test\aborttest.exe test\afalgtest.exe test\asn1_decode_test.exe test\asn1_encode_test.exe test\asn1_internal_test.exe test\asn1_string_table_test.exe test\asn1_time_test.exe test\asynciotest.exe test\asynctest.exe test\bad_dtls_test.exe test\bftest.exe test\bio_callback_test.exe test\bio_enc_test.exe test\bioprinttest.exe test\bntest.exe test\buildtest_aes.exe test\buildtest_asn1.exe test\buildtest_asn1t.exe test\buildtest_async.exe test\buildtest_bio.exe test\buildtest_blowfish.exe test\buildtest_bn.exe test\buildtest_buffer.exe test\buildtest_camellia.exe test\buildtest_cast.exe test\buildtest_cmac.exe test\buildtest_cms.exe test\buildtest_comp.exe test\buildtest_conf.exe test\buildtest_conf_api.exe test\buildtest_crypto.exe test\buildtest_ct.exe test\buildtest_des.exe test\buildtest_dh.exe test\buildtest_dsa.exe test\buildtest_dtls1.exe test\buildtest_e_os2.exe test\buildtest_ebcdic.exe test\buildtest_ec.exe test\buildtest_ecdh.exe test\buildtest_ecdsa.exe test\buildtest_engine.exe test\buildtest_evp.exe test\buildtest_hmac.exe test\buildtest_idea.exe test\buildtest_kdf.exe test\buildtest_lhash.exe test\buildtest_md2.exe test\buildtest_md4.exe test\buildtest_md5.exe test\buildtest_modes.exe test\buildtest_obj_mac.exe test\buildtest_objects.exe test\buildtest_ocsp.exe test\buildtest_opensslv.exe test\buildtest_ossl_typ.exe test\buildtest_pem.exe test\buildtest_pem2.exe test\buildtest_pkcs12.exe test\buildtest_pkcs7.exe test\buildtest_rand.exe test\buildtest_rand_drbg.exe test\buildtest_rc2.exe test\buildtest_rc4.exe test\buildtest_rc5.exe test\buildtest_ripemd.exe test\buildtest_rsa.exe test\buildtest_safestack.exe test\buildtest_seed.exe test\buildtest_sha.exe test\buildtest_srp.exe test\buildtest_srtp.exe test\buildtest_ssl.exe test\buildtest_ssl2.exe test\buildtest_ssl3.exe test\buildtest_stack.exe test\buildtest_store.exe test\buildtest_symhacks.exe test\buildtest_tls1.exe test\buildtest_ts.exe test\buildtest_txt_db.exe test\buildtest_ui.exe test\buildtest_whrlpool.exe test\buildtest_x509.exe test\buildtest_x509_vfy.exe test\buildtest_x509v3.exe test\casttest.exe test\chacha_internal_test.exe test\cipherbytes_test.exe test\cipherlist_test.exe test\ciphername_test.exe test\clienthellotest.exe test\cmsapitest.exe test\conf_include_test.exe test\constant_time_test.exe test\crltest.exe test\ct_test.exe test\ctype_internal_test.exe test\curve448_internal_test.exe test\d2i_test.exe test\danetest.exe test\destest.exe test\dhtest.exe test\drbg_cavs_test.exe test\drbgtest.exe test\dsa_no_digest_size_test.exe test\dsatest.exe test\dtls_mtu_test.exe test\dtlstest.exe test\dtlsv1listentest.exe test\ecdsatest.exe test\ecstresstest.exe test\ectest.exe test\enginetest.exe test\errtest.exe test\evp_extra_test.exe test\evp_test.exe test\exdatatest.exe test\exptest.exe test\fatalerrtest.exe test\gmdifftest.exe test\gosttest.exe test\hmactest.exe test\ideatest.exe test\igetest.exe test\lhash_test.exe test\md2test.exe test\mdc2test.exe test\memleaktest.exe test\modes_internal_test.exe test\ocspapitest.exe test\packettest.exe test\pbelutest.exe test\pemtest.exe test\pkey_meth_kdf_test.exe test\pkey_meth_test.exe test\poly1305_internal_test.exe test\rc2test.exe test\rc4test.exe test\rc5test.exe test\rdrand_sanitytest.exe test\recordlentest.exe test\rsa_complex.exe test\rsa_mp_test.exe test\rsa_test.exe test\sanitytest.exe test\secmemtest.exe test\servername_test.exe test\shlibloadtest.exe test\siphash_internal_test.exe test\sm2_internal_test.exe test\sm4_internal_test.exe test\srptest.exe test\ssl_cert_table_internal_test.exe test\ssl_test.exe test\ssl_test_ctx_test.exe test\sslapitest.exe test\sslbuffertest.exe test\sslcorrupttest.exe test\ssltest_old.exe test\stack_test.exe test\sysdefaulttest.exe test\test_test.exe test\threadstest.exe test\time_offset_test.exe test\tls13ccstest.exe test\tls13encryptiontest.exe test\tls13secretstest.exe test\uitest.exe test\v3ext.exe test\v3nametest.exe test\verify_extra_test.exe test\versions.exe test\wpackettest.exe test\x509_check_cert_pkey_test.exe test\x509_dup_cert_test.exe test\x509_internal_test.exe test\x509_time_test.exe test\x509aux.exe
-PROGRAMPDBS=apps\openssl.pdb fuzz\asn1-test.pdb fuzz\asn1parse-test.pdb fuzz\bignum-test.pdb fuzz\bndiv-test.pdb fuzz\client-test.pdb fuzz\cms-test.pdb fuzz\conf-test.pdb fuzz\crl-test.pdb fuzz\ct-test.pdb fuzz\server-test.pdb fuzz\x509-test.pdb test\aborttest.pdb test\afalgtest.pdb test\asn1_decode_test.pdb test\asn1_encode_test.pdb test\asn1_internal_test.pdb test\asn1_string_table_test.pdb test\asn1_time_test.pdb test\asynciotest.pdb test\asynctest.pdb test\bad_dtls_test.pdb test\bftest.pdb test\bio_callback_test.pdb test\bio_enc_test.pdb test\bioprinttest.pdb test\bntest.pdb test\buildtest_aes.pdb test\buildtest_asn1.pdb test\buildtest_asn1t.pdb test\buildtest_async.pdb test\buildtest_bio.pdb test\buildtest_blowfish.pdb test\buildtest_bn.pdb test\buildtest_buffer.pdb test\buildtest_camellia.pdb test\buildtest_cast.pdb test\buildtest_cmac.pdb test\buildtest_cms.pdb test\buildtest_comp.pdb test\buildtest_conf.pdb test\buildtest_conf_api.pdb test\buildtest_crypto.pdb test\buildtest_ct.pdb test\buildtest_des.pdb test\buildtest_dh.pdb test\buildtest_dsa.pdb test\buildtest_dtls1.pdb test\buildtest_e_os2.pdb test\buildtest_ebcdic.pdb test\buildtest_ec.pdb test\buildtest_ecdh.pdb test\buildtest_ecdsa.pdb test\buildtest_engine.pdb test\buildtest_evp.pdb test\buildtest_hmac.pdb test\buildtest_idea.pdb test\buildtest_kdf.pdb test\buildtest_lhash.pdb test\buildtest_md2.pdb test\buildtest_md4.pdb test\buildtest_md5.pdb test\buildtest_modes.pdb test\buildtest_obj_mac.pdb test\buildtest_objects.pdb test\buildtest_ocsp.pdb test\buildtest_opensslv.pdb test\buildtest_ossl_typ.pdb test\buildtest_pem.pdb test\buildtest_pem2.pdb test\buildtest_pkcs12.pdb test\buildtest_pkcs7.pdb test\buildtest_rand.pdb test\buildtest_rand_drbg.pdb test\buildtest_rc2.pdb test\buildtest_rc4.pdb test\buildtest_rc5.pdb test\buildtest_ripemd.pdb test\buildtest_rsa.pdb test\buildtest_safestack.pdb test\buildtest_seed.pdb test\buildtest_sha.pdb test\buildtest_srp.pdb test\buildtest_srtp.pdb test\buildtest_ssl.pdb test\buildtest_ssl2.pdb test\buildtest_ssl3.pdb test\buildtest_stack.pdb test\buildtest_store.pdb test\buildtest_symhacks.pdb test\buildtest_tls1.pdb test\buildtest_ts.pdb test\buildtest_txt_db.pdb test\buildtest_ui.pdb test\buildtest_whrlpool.pdb test\buildtest_x509.pdb test\buildtest_x509_vfy.pdb test\buildtest_x509v3.pdb test\casttest.pdb test\chacha_internal_test.pdb test\cipherbytes_test.pdb test\cipherlist_test.pdb test\ciphername_test.pdb test\clienthellotest.pdb test\cmsapitest.pdb test\conf_include_test.pdb test\constant_time_test.pdb test\crltest.pdb test\ct_test.pdb test\ctype_internal_test.pdb test\curve448_internal_test.pdb test\d2i_test.pdb test\danetest.pdb test\destest.pdb test\dhtest.pdb test\drbg_cavs_test.pdb test\drbgtest.pdb test\dsa_no_digest_size_test.pdb test\dsatest.pdb test\dtls_mtu_test.pdb test\dtlstest.pdb test\dtlsv1listentest.pdb test\ecdsatest.pdb test\ecstresstest.pdb test\ectest.pdb test\enginetest.pdb test\errtest.pdb test\evp_extra_test.pdb test\evp_test.pdb test\exdatatest.pdb test\exptest.pdb test\fatalerrtest.pdb test\gmdifftest.pdb test\gosttest.pdb test\hmactest.pdb test\ideatest.pdb test\igetest.pdb test\lhash_test.pdb test\md2test.pdb test\mdc2test.pdb test\memleaktest.pdb test\modes_internal_test.pdb test\ocspapitest.pdb test\packettest.pdb test\pbelutest.pdb test\pemtest.pdb test\pkey_meth_kdf_test.pdb test\pkey_meth_test.pdb test\poly1305_internal_test.pdb test\rc2test.pdb test\rc4test.pdb test\rc5test.pdb test\rdrand_sanitytest.pdb test\recordlentest.pdb test\rsa_complex.pdb test\rsa_mp_test.pdb test\rsa_test.pdb test\sanitytest.pdb test\secmemtest.pdb test\servername_test.pdb test\shlibloadtest.pdb test\siphash_internal_test.pdb test\sm2_internal_test.pdb test\sm4_internal_test.pdb test\srptest.pdb test\ssl_cert_table_internal_test.pdb test\ssl_test.pdb test\ssl_test_ctx_test.pdb test\sslapitest.pdb test\sslbuffertest.pdb test\sslcorrupttest.pdb test\ssltest_old.pdb test\stack_test.pdb test\sysdefaulttest.pdb test\test_test.pdb test\threadstest.pdb test\time_offset_test.pdb test\tls13ccstest.pdb test\tls13encryptiontest.pdb test\tls13secretstest.pdb test\uitest.pdb test\v3ext.pdb test\v3nametest.pdb test\verify_extra_test.pdb test\versions.pdb test\wpackettest.pdb test\x509_check_cert_pkey_test.pdb test\x509_dup_cert_test.pdb test\x509_internal_test.pdb test\x509_time_test.pdb test\x509aux.pdb
+PROGRAMS=apps\openssl.exe fuzz\asn1-test.exe fuzz\asn1parse-test.exe fuzz\bignum-test.exe fuzz\bndiv-test.exe fuzz\client-test.exe fuzz\cms-test.exe fuzz\conf-test.exe fuzz\crl-test.exe fuzz\ct-test.exe fuzz\server-test.exe fuzz\x509-test.exe test\aborttest.exe test\afalgtest.exe test\asn1_decode_test.exe test\asn1_encode_test.exe test\asn1_internal_test.exe test\asn1_string_table_test.exe test\asn1_time_test.exe test\asynciotest.exe test\asynctest.exe test\bad_dtls_test.exe test\bftest.exe test\bio_callback_test.exe test\bio_enc_test.exe test\bio_memleak_test.exe test\bioprinttest.exe test\bntest.exe test\buildtest_c_aes.exe test\buildtest_c_asn1.exe test\buildtest_c_asn1t.exe test\buildtest_c_async.exe test\buildtest_c_bio.exe test\buildtest_c_blowfish.exe test\buildtest_c_bn.exe test\buildtest_c_buffer.exe test\buildtest_c_camellia.exe test\buildtest_c_cast.exe test\buildtest_c_cmac.exe test\buildtest_c_cms.exe test\buildtest_c_comp.exe test\buildtest_c_conf.exe test\buildtest_c_conf_api.exe test\buildtest_c_crypto.exe test\buildtest_c_ct.exe test\buildtest_c_des.exe test\buildtest_c_dh.exe test\buildtest_c_dsa.exe test\buildtest_c_dtls1.exe test\buildtest_c_e_os2.exe test\buildtest_c_ebcdic.exe test\buildtest_c_ec.exe test\buildtest_c_ecdh.exe test\buildtest_c_ecdsa.exe test\buildtest_c_engine.exe test\buildtest_c_evp.exe test\buildtest_c_hmac.exe test\buildtest_c_idea.exe test\buildtest_c_kdf.exe test\buildtest_c_lhash.exe test\buildtest_c_md2.exe test\buildtest_c_md4.exe test\buildtest_c_md5.exe test\buildtest_c_modes.exe test\buildtest_c_obj_mac.exe test\buildtest_c_objects.exe test\buildtest_c_ocsp.exe test\buildtest_c_opensslv.exe test\buildtest_c_ossl_typ.exe test\buildtest_c_pem.exe test\buildtest_c_pem2.exe test\buildtest_c_pkcs12.exe test\buildtest_c_pkcs7.exe test\buildtest_c_rand.exe test\buildtest_c_rand_drbg.exe test\buildtest_c_rc2.exe test\buildtest_c_rc4.exe test\buildtest_c_rc5.exe test\buildtest_c_ripemd.exe test\buildtest_c_rsa.exe test\buildtest_c_safestack.exe test\buildtest_c_seed.exe test\buildtest_c_sha.exe test\buildtest_c_srp.exe test\buildtest_c_srtp.exe test\buildtest_c_ssl.exe test\buildtest_c_ssl2.exe test\buildtest_c_ssl3.exe test\buildtest_c_stack.exe test\buildtest_c_store.exe test\buildtest_c_symhacks.exe test\buildtest_c_tls1.exe test\buildtest_c_ts.exe test\buildtest_c_txt_db.exe test\buildtest_c_ui.exe test\buildtest_c_whrlpool.exe test\buildtest_c_x509.exe test\buildtest_c_x509_vfy.exe test\buildtest_c_x509v3.exe test\casttest.exe test\chacha_internal_test.exe test\cipherbytes_test.exe test\cipherlist_test.exe test\ciphername_test.exe test\clienthellotest.exe test\cmsapitest.exe test\conf_include_test.exe test\constant_time_test.exe test\crltest.exe test\ct_test.exe test\ctype_internal_test.exe test\curve448_internal_test.exe test\d2i_test.exe test\danetest.exe test\destest.exe test\dhtest.exe test\drbg_cavs_test.exe test\drbgtest.exe test\dsa_no_digest_size_test.exe test\dsatest.exe test\dtls_mtu_test.exe test\dtlstest.exe test\dtlsv1listentest.exe test\ec_internal_test.exe test\ecdsatest.exe test\ecstresstest.exe test\ectest.exe test\enginetest.exe test\errtest.exe test\evp_extra_test.exe test\evp_test.exe test\exdatatest.exe test\exptest.exe test\fatalerrtest.exe test\gmdifftest.exe test\gosttest.exe test\hmactest.exe test\ideatest.exe test\igetest.exe test\lhash_test.exe test\md2test.exe test\mdc2test.exe test\memleaktest.exe test\modes_internal_test.exe test\ocspapitest.exe test\packettest.exe test\pbelutest.exe test\pemtest.exe test\pkey_meth_kdf_test.exe test\pkey_meth_test.exe test\poly1305_internal_test.exe test\rc2test.exe test\rc4test.exe test\rc5test.exe test\rdrand_sanitytest.exe test\recordlentest.exe test\rsa_complex.exe test\rsa_mp_test.exe test\rsa_test.exe test\sanitytest.exe test\secmemtest.exe test\servername_test.exe test\shlibloadtest.exe test\siphash_internal_test.exe test\sm2_internal_test.exe test\sm4_internal_test.exe test\srptest.exe test\ssl_cert_table_internal_test.exe test\ssl_test.exe test\ssl_test_ctx_test.exe test\sslapitest.exe test\sslbuffertest.exe test\sslcorrupttest.exe test\ssltest_old.exe test\stack_test.exe test\sysdefaulttest.exe test\test_test.exe test\threadstest.exe test\time_offset_test.exe test\tls13ccstest.exe test\tls13encryptiontest.exe test\tls13secretstest.exe test\uitest.exe test\v3ext.exe test\v3nametest.exe test\verify_extra_test.exe test\versions.exe test\wpackettest.exe test\x509_check_cert_pkey_test.exe test\x509_dup_cert_test.exe test\x509_internal_test.exe test\x509_time_test.exe test\x509aux.exe
+PROGRAMPDBS=apps\openssl.pdb fuzz\asn1-test.pdb fuzz\asn1parse-test.pdb fuzz\bignum-test.pdb fuzz\bndiv-test.pdb fuzz\client-test.pdb fuzz\cms-test.pdb fuzz\conf-test.pdb fuzz\crl-test.pdb fuzz\ct-test.pdb fuzz\server-test.pdb fuzz\x509-test.pdb test\aborttest.pdb test\afalgtest.pdb test\asn1_decode_test.pdb test\asn1_encode_test.pdb test\asn1_internal_test.pdb test\asn1_string_table_test.pdb test\asn1_time_test.pdb test\asynciotest.pdb test\asynctest.pdb test\bad_dtls_test.pdb test\bftest.pdb test\bio_callback_test.pdb test\bio_enc_test.pdb test\bio_memleak_test.pdb test\bioprinttest.pdb test\bntest.pdb test\buildtest_c_aes.pdb test\buildtest_c_asn1.pdb test\buildtest_c_asn1t.pdb test\buildtest_c_async.pdb test\buildtest_c_bio.pdb test\buildtest_c_blowfish.pdb test\buildtest_c_bn.pdb test\buildtest_c_buffer.pdb test\buildtest_c_camellia.pdb test\buildtest_c_cast.pdb test\buildtest_c_cmac.pdb test\buildtest_c_cms.pdb test\buildtest_c_comp.pdb test\buildtest_c_conf.pdb test\buildtest_c_conf_api.pdb test\buildtest_c_crypto.pdb test\buildtest_c_ct.pdb test\buildtest_c_des.pdb test\buildtest_c_dh.pdb test\buildtest_c_dsa.pdb test\buildtest_c_dtls1.pdb test\buildtest_c_e_os2.pdb test\buildtest_c_ebcdic.pdb test\buildtest_c_ec.pdb test\buildtest_c_ecdh.pdb test\buildtest_c_ecdsa.pdb test\buildtest_c_engine.pdb test\buildtest_c_evp.pdb test\buildtest_c_hmac.pdb test\buildtest_c_idea.pdb test\buildtest_c_kdf.pdb test\buildtest_c_lhash.pdb test\buildtest_c_md2.pdb test\buildtest_c_md4.pdb test\buildtest_c_md5.pdb test\buildtest_c_modes.pdb test\buildtest_c_obj_mac.pdb test\buildtest_c_objects.pdb test\buildtest_c_ocsp.pdb test\buildtest_c_opensslv.pdb test\buildtest_c_ossl_typ.pdb test\buildtest_c_pem.pdb test\buildtest_c_pem2.pdb test\buildtest_c_pkcs12.pdb test\buildtest_c_pkcs7.pdb test\buildtest_c_rand.pdb test\buildtest_c_rand_drbg.pdb test\buildtest_c_rc2.pdb test\buildtest_c_rc4.pdb test\buildtest_c_rc5.pdb test\buildtest_c_ripemd.pdb test\buildtest_c_rsa.pdb test\buildtest_c_safestack.pdb test\buildtest_c_seed.pdb test\buildtest_c_sha.pdb test\buildtest_c_srp.pdb test\buildtest_c_srtp.pdb test\buildtest_c_ssl.pdb test\buildtest_c_ssl2.pdb test\buildtest_c_ssl3.pdb test\buildtest_c_stack.pdb test\buildtest_c_store.pdb test\buildtest_c_symhacks.pdb test\buildtest_c_tls1.pdb test\buildtest_c_ts.pdb test\buildtest_c_txt_db.pdb test\buildtest_c_ui.pdb test\buildtest_c_whrlpool.pdb test\buildtest_c_x509.pdb test\buildtest_c_x509_vfy.pdb test\buildtest_c_x509v3.pdb test\casttest.pdb test\chacha_internal_test.pdb test\cipherbytes_test.pdb test\cipherlist_test.pdb test\ciphername_test.pdb test\clienthellotest.pdb test\cmsapitest.pdb test\conf_include_test.pdb test\constant_time_test.pdb test\crltest.pdb test\ct_test.pdb test\ctype_internal_test.pdb test\curve448_internal_test.pdb test\d2i_test.pdb test\danetest.pdb test\destest.pdb test\dhtest.pdb test\drbg_cavs_test.pdb test\drbgtest.pdb test\dsa_no_digest_size_test.pdb test\dsatest.pdb test\dtls_mtu_test.pdb test\dtlstest.pdb test\dtlsv1listentest.pdb test\ec_internal_test.pdb test\ecdsatest.pdb test\ecstresstest.pdb test\ectest.pdb test\enginetest.pdb test\errtest.pdb test\evp_extra_test.pdb test\evp_test.pdb test\exdatatest.pdb test\exptest.pdb test\fatalerrtest.pdb test\gmdifftest.pdb test\gosttest.pdb test\hmactest.pdb test\ideatest.pdb test\igetest.pdb test\lhash_test.pdb test\md2test.pdb test\mdc2test.pdb test\memleaktest.pdb test\modes_internal_test.pdb test\ocspapitest.pdb test\packettest.pdb test\pbelutest.pdb test\pemtest.pdb test\pkey_meth_kdf_test.pdb test\pkey_meth_test.pdb test\poly1305_internal_test.pdb test\rc2test.pdb test\rc4test.pdb test\rc5test.pdb test\rdrand_sanitytest.pdb test\recordlentest.pdb test\rsa_complex.pdb test\rsa_mp_test.pdb test\rsa_test.pdb test\sanitytest.pdb test\secmemtest.pdb test\servername_test.pdb test\shlibloadtest.pdb test\siphash_internal_test.pdb test\sm2_internal_test.pdb test\sm4_internal_test.pdb test\srptest.pdb test\ssl_cert_table_internal_test.pdb test\ssl_test.pdb test\ssl_test_ctx_test.pdb test\sslapitest.pdb test\sslbuffertest.pdb test\sslcorrupttest.pdb test\ssltest_old.pdb test\stack_test.pdb test\sysdefaulttest.pdb test\test_test.pdb test\threadstest.pdb test\time_offset_test.pdb test\tls13ccstest.pdb test\tls13encryptiontest.pdb test\tls13secretstest.pdb test\uitest.pdb test\v3ext.pdb test\v3nametest.pdb test\verify_extra_test.pdb test\versions.pdb test\wpackettest.pdb test\x509_check_cert_pkey_test.pdb test\x509_dup_cert_test.pdb test\x509_internal_test.pdb test\x509_time_test.pdb test\x509aux.pdb
 SCRIPTS=apps\CA.pl apps\tsget.pl tools\c_rehash.pl
 
-DEPS=test\buildtest_ec.d crypto\pkcs12\p12_kiss.d crypto\siphash\siphash.d crypto\ec\ecp_nistp224.d crypto\dso\dso_dlfcn.d crypto\sm3\m_sm3.d crypto\camellia\cmll_misc.d crypto\pkcs7\pk7_asn1.d test\enginetest.d test\siphash_internal_test.d ssl\t1_lib.d test\x509_check_cert_pkey_test.d crypto\rsa\rsa_x931.d test\testutil\tests.d crypto\pkcs12\p12_p8e.d crypto\pem\pem_oth.d crypto\x509\x_x509.d crypto\x509v3\v3_bitst.d crypto\dh\dh_depr.d crypto\x509\x_exten.d test\buildtest_cms.d test\cmsapitest.d ssl\pqueue.d crypto\x509v3\v3_tlsf.d crypto\comp\c_zlib.d crypto\evp\e_camellia.d test\buildtest_safestack.d crypto\x509v3\pcy_node.d ssl\s3_enc.d crypto\evp\bio_enc.d test\buildtest_evp.d crypto\asn1\asn_pack.d test\gmdifftest.d test\rc5test.d apps\gendsa.d crypto\threads_pthread.d crypto\engine\eng_table.d crypto\ec\ecdh_ossl.d ssl\ssl_txt.d ssl\record\dtls1_bitmap.d crypto\asn1\a_dup.d apps\bf_prefix.d test\clienthellotest.d crypto\cms\cms_enc.d crypto\x509\t_x509.d crypto\evp\e_rc4.d fuzz\server.d crypto\x509v3\v3_int.d crypto\dsa\dsa_pmeth.d crypto\asn1\asn1_item_list.d crypto\engine\tb_digest.d crypto\modes\ctr128.d test\rc2test.d crypto\ec\curve448\f_generic.d crypto\dh\dh_lib.d crypto\engine\eng_cnf.d crypto\conf\conf_api.d crypto\pem\pem_sign.d crypto\bn\bn_x931p.d test\ssltest_old.d test\buildtest_ssl.d crypto\des\ecb3_enc.d apps\pkcs7.d test\buildtest_camellia.d crypto\pkcs12\p12_p8d.d crypto\rc5\rc5_ecb.d test\asn1_time_test.d test\servername_test.d test\buildtest_kdf.d crypto\pkcs7\pk7_attr.d crypto\bio\b_addr.d crypto\x509\x509_ext.d crypto\x509v3\v3_crld.d crypto\evp\names.d crypto\asn1\a_utf8.d crypto\cast\c_ecb.d crypto\evp\evp_enc.d crypto\modes\gcm128.d crypto\des\des_enc.d crypto\cms\cms_env.d crypto\evp\m_md5.d crypto\ec\ec2_oct.d test\buildtest_tls1.d test\testutil\driver.d test\d2i_test.d crypto\des\ecb_enc.d crypto\x509v3\v3_utl.d crypto\cms\cms_cd.d crypto\engine\tb_rsa.d crypto\bn\bn_shift.d ssl\statem\extensions_srvr.d test\ssl_test_ctx_test.d apps\verify.d crypto\pkcs12\p12_utl.d test\verify_extra_test.d crypto\evp\e_bf.d fuzz\crl.d test\buildtest_asn1t.d crypto\ec\ec_key.d test\buildtest_opensslv.d crypto\rsa\rsa_asn1.d crypto\x509v3\v3_bcons.d crypto\aria\aria.d crypto\cmac\cm_pmeth.d test\time_offset_test.d ssl\bio_ssl.d crypto\pkcs12\p12_attr.d crypto\cast\c_skey.d crypto\x509v3\v3_akeya.d test\evp_test.d crypto\bn\bn_srp.d crypto\bio\bf_lbuf.d crypto\rsa\rsa_saos.d crypto\seed\seed.d fuzz\ct.d crypto\dh\dh_rfc5114.d fuzz\conf.d ssl\tls_srp.d crypto\idea\i_cbc.d crypto\err\err.d crypto\asn1\asn1_lib.d apps\crl2p7.d engines\e_padlock.d crypto\ec\ecp_oct.d crypto\rsa\rsa_err.d crypto\bn\bn_kron.d crypto\x509v3\v3_cpols.d crypto\x509\x509_req.d test\mdc2_internal_test.d test\buildtest_x509_vfy.d crypto\x509v3\v3_admis.d test\buildtest_crypto.d test\testutil\format_output.d crypto\asn1\a_digest.d crypto\dso\dso_openssl.d crypto\asn1\asn_mime.d crypto\ct\ct_x509v3.d crypto\asn1\a_sign.d crypto\asn1\a_int.d crypto\pem\pem_err.d crypto\ocsp\ocsp_prn.d test\buildtest_rc5.d crypto\rand\rand_vms.d crypto\dsa\dsa_ameth.d crypto\store\store_err.d crypto\err\err_all.d crypto\pkcs7\pkcs7err.d crypto\async\arch\async_win.d crypto\ocsp\ocsp_vfy.d crypto\ripemd\rmd_dgst.d crypto\bn\bn_err.d crypto\dso\dso_lib.d crypto\conf\conf_lib.d crypto\x509v3\v3_purp.d crypto\conf\conf_sap.d test\buildtest_rc4.d crypto\rsa\rsa_prn.d apps\pkeyparam.d test\tls13secretstest.d crypto\bio\bss_bio.d crypto\evp\e_seed.d crypto\rc5\rc5_enc.d crypto\evp\e_rc2.d crypto\des\set_key.d crypto\rc2\rc2_skey.d test\testutil\tap_bio.d crypto\x509v3\pcy_cache.d crypto\ec\ecdh_kdf.d crypto\des\ofb64enc.d apps\rand.d crypto\x509\x509rset.d crypto\lhash\lh_stats.d test\drbgtest.d crypto\modes\ccm128.d crypto\evp\digest.d crypto\ui\ui_err.d test\buildtest_dh.d crypto\ct\ct_policy.d crypto\bn\bn_div.d crypto\bio\b_sock2.d crypto\cast\c_ofb64.d ssl\record\ssl3_record_tls13.d crypto\dsa\dsa_lib.d ssl\d1_srtp.d apps\dsaparam.d crypto\bio\bss_conn.d crypto\bf\bf_ofb64.d crypto\evp\e_rc5.d crypto\md4\md4_one.d crypto\evp\m_mdc2.d crypto\asn1\a_strex.d crypto\sha\keccak1600.d crypto\des\cbc_cksm.d crypto\ts\ts_rsp_verify.d apps\enc.d test\buildtest_lhash.d ssl\ssl_asn1.d crypto\rsa\rsa_gen.d crypto\engine\tb_asnmth.d crypto\rsa\rsa_mp.d test\buildtest_pkcs7.d crypto\cms\cms_ess.d crypto\engine\tb_pkmeth.d crypto\kdf\kdf_err.d crypto\evp\encode.d fuzz\asn1.d crypto\ct\ct_sct_ctx.d crypto\evp\m_sigver.d crypto\kdf\hkdf.d crypto\dsa\dsa_vrf.d test\ssl_test.d test\bioprinttest.d crypto\x509\t_crl.d fuzz\cms.d crypto\ctype.d test\lhash_test.d ssl\record\ssl3_buffer.d crypto\camellia\cmll_ofb.d test\uitest.d apps\srp.d crypto\ocsp\ocsp_srv.d test\sm2_internal_test.d crypto\aes\aes_misc.d crypto\rand\rand_egd.d test\rsa_mp_test.d crypto\getenv.d crypto\x509v3\pcy_lib.d crypto\asn1\tasn_new.d crypto\asn1\a_time.d crypto\x509\x509_lu.d crypto\x509v3\v3_conf.d crypto\asn1\tasn_fre.d test\asn1_internal_test.d ssl\ssl_mcnf.d crypto\store\store_lib.d crypto\siphash\siphash_ameth.d crypto\ts\ts_req_print.d crypto\rc2\rc2ofb64.d crypto\seed\seed_ofb.d crypto\dh\dh_rfc7919.d test\buildtest_ts.d crypto\engine\tb_eckey.d crypto\asn1\x_pkey.d crypto\evp\p_seal.d crypto\ec\ecp_mont.d crypto\ec\ec_print.d test\testutil\basic_output.d ssl\ssl_sess.d crypto\x509\x_x509a.d crypto\ui\ui_util.d test\crltest.d crypto\bio\b_sock.d apps\sess_id.d crypto\evp\e_old.d crypto\x509\x509_txt.d crypto\asn1\tasn_prn.d crypto\pem\pem_info.d test\tls13encryptiontest.d crypto\bn\bn_gcd.d crypto\objects\o_names.d crypto\cms\cms_lib.d test\mdc2test.d test\buildtest_dsa.d crypto\dh\dh_key.d crypto\md2\md2_one.d test\buildtest_idea.d crypto\modes\cfb128.d ssl\statem\statem_lib.d crypto\x509\x_name.d crypto\threads_win.d ssl\ssl_err.d crypto\cms\cms_att.d test\asynciotest.d crypto\dh\dh_meth.d test\chacha_internal_test.d crypto\pkcs12\p12_add.d test\buildtest_e_os2.d test\test_test.d crypto\x509v3\v3_pmaps.d crypto\o_init.d crypto\engine\tb_cipher.d crypto\ocsp\ocsp_ext.d crypto\evp\bio_md.d crypto\asn1\a_i2d_fp.d crypto\asn1\p5_pbe.d crypto\cms\cms_sd.d crypto\objects\obj_lib.d ssl\statem\statem_dtls.d test\sslapitest.d crypto\ec\ecp_nistp521.d crypto\evp\p_dec.d crypto\x509\x_req.d crypto\pkcs12\p12_npas.d apps\spkac.d crypto\ec\ec_ameth.d crypto\init.d apps\genrsa.d crypto\evp\m_sha1.d crypto\aes\aes_ecb.d crypto\rsa\rsa_pss.d test\buildtest_async.d test\stack_test.d crypto\ec\curve25519.d crypto\dsa\dsa_depr.d crypto\bio\b_print.d crypto\x509\x509_vpm.d test\ecstresstest.d test\buildtest_pem2.d crypto\bn\bn_intern.d crypto\x509\x509_set.d crypto\engine\eng_list.d crypto\evp\evp_lib.d crypto\cms\cms_smime.d crypto\o_str.d crypto\rsa\rsa_meth.d test\gosttest.d test\rsa_complex.d crypto\asn1\n_pkey.d test\x509aux.d ssl\ssl_conf.d crypto\asn1\asn1_gen.d crypto\pkcs7\pk7_lib.d crypto\ct\ct_oct.d crypto\bf\bf_skey.d crypto\cversion.d engines\e_dasync.d test\buildtest_rsa.d test\buildtest_md5.d crypto\asn1\p5_scrypt.d crypto\dso\dso_err.d crypto\asn1\a_print.d crypto\rc5\rc5_skey.d crypto\evp\p5_crpt2.d test\ocspapitest.d crypto\dh\dh_ameth.d crypto\x509\x509cset.d ssl\statem\extensions_clnt.d crypto\buffer\buf_err.d crypto\sha\sha512.d crypto\threads_none.d test\sslbuffertest.d crypto\evp\c_allc.d test\dtls_mtu_test.d crypto\x509v3\v3_skey.d crypto\dsa\dsa_err.d crypto\x509\by_dir.d crypto\bio\bio_err.d test\buildtest_hmac.d crypto\rand\drbg_ctr.d crypto\cms\cms_err.d crypto\ec\ecp_nistputil.d test\testutil\main.d test\dsa_no_digest_size_test.d crypto\sm2\sm2_sign.d crypto\aes\aes_ige.d crypto\pem\pem_xaux.d crypto\asn1\bio_asn1.d crypto\asn1\asn_moid.d crypto\rc2\rc2cfb64.d test\poly1305_internal_test.d crypto\x509\x509name.d crypto\asn1\i2d_pu.d crypto\evp\e_cast.d crypto\siphash\siphash_pmeth.d test\x509_dup_cert_test.d test\buildtest_x509v3.d crypto\pem\pem_x509.d test\casttest.d crypto\asn1\d2i_pr.d crypto\asn1\asn1_par.d ssl\statem\statem_clnt.d crypto\srp\srp_vfy.d crypto\rc2\rc2_cbc.d test\igetest.d crypto\pem\pem_pk8.d apps\win32_init.d apps\s_time.d ssl\record\rec_layer_d1.d crypto\evp\evp_pbe.d test\x509_time_test.d crypto\asn1\a_verify.d crypto\pkcs12\p12_decr.d crypto\des\cfb64ede.d crypto\asn1\x_int64.d crypto\conf\conf_mall.d crypto\asn1\x_val.d fuzz\client.d crypto\rsa\rsa_depr.d fuzz\asn1parse.d crypto\kdf\scrypt.d crypto\x509\x_crl.d test\ssl_test_ctx.d crypto\idea\i_ofb64.d crypto\ct\ct_prn.d test\sanitytest.d crypto\dh\dh_asn1.d crypto\ts\ts_err.d apps\nseq.d crypto\engine\eng_openssl.d crypto\x509\x509spki.d crypto\store\store_init.d crypto\evp\c_alld.d crypto\asn1\d2i_pu.d ssl\tls13_enc.d crypto\rsa\rsa_pk1.d crypto\x509\x_pubkey.d crypto\bio\bss_dgram.d crypto\ocsp\ocsp_ht.d crypto\x509\x509_obj.d crypto\bio\b_dump.d test\dhtest.d test\buildtest_aes.d crypto\asn1\nsseq.d engines\e_ossltest.d test\buildtest_ocsp.d crypto\poly1305\poly1305.d test\buildtest_blowfish.d crypto\camellia\camellia.d crypto\camellia\cmll_cfb.d test\ssl_cert_table_internal_test.d crypto\objects\obj_err.d crypto\x509v3\v3_ia5.d fuzz\test-corpus.d test\buildtest_pem.d test\memleaktest.d crypto\pkcs12\p12_mutl.d crypto\bio\bio_lib.d crypto\conf\conf_mod.d crypto\cmac\cm_ameth.d crypto\ex_data.d crypto\evp\m_md2.d test\buildtest_whrlpool.d crypto\ct\ct_vfy.d test\rsa_test.d crypto\ec\ecdsa_vrf.d crypto\ec\ec_check.d crypto\des\cbc_enc.d crypto\engine\eng_pkey.d crypto\asn1\f_string.d crypto\bio\bss_sock.d crypto\ec\ecdsa_sign.d test\buildtest_rand_drbg.d crypto\rc5\rc5cfb64.d test\buildtest_md4.d crypto\engine\tb_dsa.d crypto\aes\aes_core.d crypto\bn\bn_dh.d apps\ocsp.d crypto\ocsp\ocsp_cl.d crypto\asn1\x_algor.d test\buildtest_x509.d crypto\o_fips.d ssl\statem\statem_srvr.d crypto\bn\bn_mont.d crypto\x509v3\pcy_tree.d crypto\idea\i_cfb64.d apps\rsa.d crypto\x509v3\v3_alt.d test\v3nametest.d test\buildtest_modes.d crypto\ec\curve448\curve448.d apps\s_server.d ssl\statem\extensions.d crypto\asn1\f_int.d crypto\ec\ec_asn1.d test\cipherlist_test.d test\secmemtest.d crypto\evp\e_xcbc_d.d crypto\md5\md5_one.d crypto\asn1\tasn_dec.d apps\pkcs8.d crypto\objects\obj_dat.d crypto\ec\ec_curve.d crypto\ocsp\ocsp_lib.d test\buildtest_store.d test\rc4test.d test\buildtest_des.d crypto\pem\pvkfmt.d apps\cms.d test\aborttest.d crypto\pem\pem_pkey.d crypto\evp\e_des.d test\errtest.d crypto\des\qud_cksm.d apps\s_client.d test\buildtest_bn.d crypto\rand\rand_win.d crypto\asn1\a_bitstr.d crypto\ec\ec_lib.d crypto\ec\curve448\scalar.d crypto\asn1\a_mbstr.d crypto\poly1305\poly1305_pmeth.d test\buildtest_dtls1.d crypto\async\async.d crypto\bf\bf_cfb64.d ssl\ssl_ciph.d crypto\bn\bn_depr.d test\drbg_cavs_test.d crypto\ec\ec2_smpl.d test\buildtest_rc2.d test\testutil\test_cleanup.d apps\pkcs12.d crypto\ec\ec_mult.d crypto\blake2\m_blake2s.d crypto\idea\i_skey.d crypto\cms\cms_pwri.d test\buildtest_comp.d crypto\evp\evp_err.d crypto\dh\dh_prn.d crypto\bn\bn_rand.d crypto\sha\sha1_one.d crypto\x509\x509_att.d crypto\ts\ts_rsp_print.d crypto\engine\eng_err.d test\bad_dtls_test.d crypto\x509v3\pcy_data.d crypto\engine\eng_lib.d crypto\hmac\hm_pmeth.d crypto\mem_dbg.d test\md2test.d crypto\rsa\rsa_sign.d crypto\pem\pem_all.d test\buildtest_ecdsa.d test\buildtest_cmac.d test\bio_callback_test.d test\buildtest_objects.d crypto\ec\ec_kmeth.d crypto\x509\x_all.d crypto\x509v3\v3_pcia.d test\sysdefaulttest.d crypto\store\store_strings.d crypto\conf\conf_ssl.d test\x509_internal_test.d crypto\evp\evp_cnf.d crypto\ts\ts_conf.d test\asn1_encode_test.d crypto\evp\e_aes.d crypto\cmac\cmac.d crypto\ripemd\rmd_one.d test\versions.d crypto\engine\eng_all.d apps\rehash.d crypto\rsa\rsa_x931g.d crypto\dso\dso_win32.d crypto\rand\randfile.d crypto\md2\md2_dgst.d crypto\x509v3\v3_akey.d apps\pkey.d test\pbelutest.d test\buildtest_ssl2.d test\destest.d crypto\cpt_err.d test\bntest.d crypto\rsa\rsa_oaep.d crypto\ts\ts_lib.d crypto\bf\bf_ecb.d crypto\bn\bn_mpi.d crypto\x509v3\v3_lib.d crypto\evp\e_aes_cbc_hmac_sha1.d test\buildtest_cast.d test\shlibloadtest.d apps\asn1pars.d crypto\asn1\tasn_typ.d crypto\bio\bf_nbio.d crypto\poly1305\poly1305_ameth.d crypto\x509\x509_r2x.d ssl\statem\extensions_cust.d crypto\camellia\cmll_ctr.d crypto\rand\drbg_lib.d test\asn1_string_table_test.d crypto\cms\cms_kari.d test\buildtest_asn1.d apps\app_rand.d crypto\bn\bn_asm.d test\buildtest_ssl3.d test\buildtest_buffer.d test\exdatatest.d crypto\objects\obj_xref.d crypto\seed\seed_ecb.d crypto\comp\comp_err.d crypto\evp\m_md4.d apps\ciphers.d crypto\x509\t_req.d crypto\conf\conf_def.d crypto\dso\dso_dl.d test\buildtest_txt_db.d test\buildtest_bio.d crypto\bio\bf_null.d test\buildtest_md2.d crypto\asn1\a_gentm.d apps\pkeyutl.d test\danetest.d crypto\x509\x509_trs.d ssl\ssl_rsa.d crypto\cast\c_enc.d crypto\ec\ecp_smpl.d crypto\rsa\rsa_ameth.d test\ctype_internal_test.d test\buildtest_ripemd.d crypto\evp\m_sha3.d test\buildtest_conf_api.d crypto\modes\ofb128.d crypto\bn\bn_word.d crypto\asn1\tasn_enc.d ssl\ssl_cert.d crypto\sm3\sm3.d test\ssltestlib.d crypto\evp\e_sm4.d crypto\rsa\rsa_chk.d crypto\modes\cts128.d crypto\bio\bss_fd.d fuzz\x509.d crypto\asn1\t_spki.d crypto\asn1\tasn_scn.d crypto\asn1\a_type.d crypto\bn\bn_lib.d crypto\evp\e_rc4_hmac_md5.d test\buildtest_conf.d crypto\ui\ui_null.d apps\smime.d crypto\conf\conf_err.d crypto\async\async_wait.d crypto\pkcs7\pk7_mime.d test\ectest.d crypto\dsa\dsa_prn.d crypto\asn1\x_bignum.d crypto\bn\bn_add.d crypto\sha\sha256.d crypto\ec\ec_pmeth.d crypto\ct\ct_b64.d crypto\x509v3\pcy_map.d apps\apps.d crypto\camellia\cmll_cbc.d crypto\ec\ec_cvt.d crypto\cms\cms_dd.d test\buildtest_ui.d crypto\async\arch\async_null.d crypto\des\xcbc_enc.d crypto\stack\stack.d test\buildtest_symhacks.d crypto\bio\bss_acpt.d crypto\cryptlib.d crypto\engine\eng_ctrl.d crypto\bio\bss_null.d test\testutil\init.d crypto\ec\ecdsa_ossl.d apps\engine.d crypto\buffer\buffer.d test\handshake_helper.d test\buildtest_ossl_typ.d test\ideatest.d crypto\pkcs12\p12_sbag.d ssl\s3_cbc.d crypto\dh\dh_kdf.d crypto\ui\ui_lib.d crypto\engine\eng_init.d ssl\d1_lib.d apps\s_socket.d crypto\evp\e_null.d crypto\x509v3\v3_pku.d crypto\x509v3\v3_prn.d ssl\d1_msg.d crypto\x509\x509_vfy.d fuzz\bignum.d crypto\whrlpool\wp_block.d crypto\x509v3\v3_genn.d test\pemtest.d ssl\methods.d crypto\dsa\dsa_meth.d crypto\evp\e_chacha20_poly1305.d crypto\bn\bn_exp2.d ssl\ssl_utst.d crypto\pkcs12\p12_init.d test\buildtest_engine.d crypto\des\fcrypt_b.d test\sm4_internal_test.d crypto\evp\evp_key.d crypto\asn1\x_sig.d crypto\evp\e_idea.d crypto\evp\p_sign.d crypto\dsa\dsa_asn1.d crypto\evp\p_verify.d test\cipherbytes_test.d crypto\x509v3\v3_asid.d apps\openssl.d crypto\bn\bn_ctx.d crypto\chacha\chacha_enc.d crypto\ec\ecx_meth.d test\packettest.d crypto\rand\rand_err.d apps\version.d crypto\asn1\evp_asn1.d test\conf_include_test.d crypto\bn\bn_blind.d test\hmactest.d test\testutil\cb.d test\v3ext.d apps\speed.d crypto\dsa\dsa_ossl.d crypto\x509v3\v3err.d crypto\ec\curve448\arch_32\f_impl.d crypto\dso\dso_vms.d test\bio_enc_test.d crypto\rc2\rc2_ecb.d crypto\evp\pmeth_gn.d crypto\dh\dh_pmeth.d test\testutil\stanza.d ssl\ssl_stat.d crypto\engine\tb_rand.d crypto\bn\bn_nist.d crypto\seed\seed_cfb.d crypto\mem.d crypto\aes\aes_wrap.d crypto\sm2\sm2_crypt.d crypto\rsa\rsa_none.d crypto\rc4\rc4_enc.d test\asn1_decode_test.d test\recordlentest.d crypto\dllmain.d crypto\ct\ct_err.d crypto\engine\tb_dh.d crypto\bn\bn_gf2m.d test\dsatest.d crypto\evp\e_aes_cbc_hmac_sha256.d ssl\t1_trce.d ssl\packet.d test\buildtest_srp.d crypto\whrlpool\wp_dgst.d crypto\des\cfb64enc.d crypto\asn1\asn_mstbl.d crypto\asn1\a_octet.d crypto\dsa\dsa_key.d crypto\cms\cms_io.d crypto\modes\xts128.d test\buildtest_rand.d ssl\record\ssl3_record.d crypto\bn\bn_sqrt.d crypto\o_time.d crypto\sm4\sm4.d ssl\record\rec_layer_s3.d crypto\rc4\rc4_skey.d crypto\asn1\asn1_err.d crypto\ec\curve448\eddsa.d crypto\ocsp\ocsp_err.d crypto\asn1\p5_pbev2.d crypto\evp\pmeth_lib.d test\modes_internal_test.d crypto\des\rand_key.d crypto\evp\pbe_scrypt.d test\dtlstest.d apps\crl.d crypto\rsa\rsa_ssl.d crypto\evp\p5_crpt.d crypto\asn1\x_long.d crypto\evp\m_md5_sha1.d test\asynctest.d apps\genpkey.d crypto\hmac\hmac.d crypto\ui\ui_openssl.d crypto\lhash\lhash.d crypto\evp\p_enc.d apps\opt.d test\ciphername_test.d crypto\x509\x509_err.d crypto\x509\x509_meth.d crypto\ec\curve448\curve448_tables.d crypto\pem\pem_lib.d test\ct_test.d apps\ecparam.d test\pkey_meth_test.d test\fatalerrtest.d crypto\mem_clr.d crypto\engine\eng_rdrand.d crypto\comp\comp_lib.d crypto\pkcs12\pk12err.d crypto\sm2\sm2_err.d test\afalgtest.d crypto\bio\bio_cb.d test\dtlsv1listentest.d crypto\x509\x_attrib.d test\sslcorrupttest.d crypto\asn1\t_bitst.d crypto\modes\wrap128.d crypto\evp\e_aria.d crypto\dsa\dsa_sign.d crypto\dh\dh_check.d crypto\evp\p_open.d crypto\asn1\p8_pkey.d crypto\rand\rand_unix.d crypto\asn1\x_spki.d crypto\engine\eng_fat.d crypto\aes\aes_ofb.d test\exptest.d crypto\asn1\a_d2i_fp.d crypto\evp\bio_ok.d crypto\mem_sec.d apps\rsautl.d crypto\camellia\cmll_ecb.d crypto\ec\ec_oct.d crypto\bio\bss_file.d crypto\o_dir.d crypto\asn1\bio_ndef.d test\ecdsatest.d fuzz\bndiv.d crypto\des\str2key.d crypto\asn1\x_info.d apps\ts.d crypto\bn\bn_mod.d crypto\ts\ts_rsp_utils.d ssl\ssl_init.d crypto\kdf\tls1_prf.d crypto\ct\ct_sct.d crypto\sm2\sm2_pmeth.d engines\e_capi.d crypto\asn1\ameth_lib.d crypto\seed\seed_cbc.d test\buildtest_srtp.d test\srptest.d crypto\ec\ecp_nist.d crypto\asn1\a_utctm.d apps\req.d crypto\dh\dh_err.d crypto\x509v3\v3_ncons.d crypto\rsa\rsa_lib.d crypto\pkcs12\p12_asn.d crypto\engine\eng_dyn.d crypto\asn1\a_strnid.d crypto\ec\eck_prn.d crypto\idea\i_ecb.d ms\applink.d test\buildtest_stack.d apps\s_cb.d crypto\rc5\rc5ofb64.d crypto\pkcs12\p12_key.d crypto\cast\c_cfb64.d crypto\blake2\blake2s.d apps\dhparam.d test\buildtest_seed.d crypto\async\async_err.d crypto\ts\ts_asn1.d crypto\x509v3\v3_pci.d crypto\ts\ts_req_utils.d test\evp_extra_test.d ssl\statem\statem.d crypto\bio\bf_buff.d crypto\bn\bn_const.d crypto\des\cfb_enc.d test\rdrand_sanitytest.d apps\dgst.d crypto\bio\bss_log.d crypto\asn1\i2d_pr.d crypto\x509v3\v3_info.d crypto\x509v3\v3_pcons.d crypto\evp\m_wp.d crypto\evp\e_des3.d crypto\md5\md5_dgst.d crypto\bio\bio_meth.d apps\errstr.d test\pkey_meth_kdf_test.d crypto\hmac\hm_ameth.d crypto\x509\x509_cmp.d crypto\ocsp\ocsp_asn.d ms\uplink.d test\drbg_cavs_data.d apps\x509.d crypto\x509v3\v3_addr.d crypto\evp\pmeth_fn.d crypto\md4\md4_dgst.d crypto\bf\bf_enc.d crypto\evp\p_lib.d crypto\pkcs7\pk7_smime.d crypto\evp\cmeth_lib.d crypto\cms\cms_asn1.d ssl\ssl_lib.d crypto\o_fopen.d crypto\dh\dh_gen.d crypto\des\fcrypt.d crypto\bn\bn_mul.d crypto\des\ofb_enc.d test\testutil\output_helpers.d crypto\x509\x509_d2.d crypto\x509\x509_def.d crypto\dsa\dsa_gen.d crypto\bn\bn_print.d apps\prime.d crypto\aes\aes_cbc.d crypto\rsa\rsa_pmeth.d ssl\t1_enc.d crypto\x509\x509type.d apps\ca.d crypto\modes\cbc128.d crypto\pkcs7\pk7_doit.d ssl\s3_lib.d crypto\x509v3\v3_enum.d crypto\ec\ec_err.d crypto\bio\bss_mem.d crypto\evp\evp_pkey.d crypto\x509\by_file.d crypto\evp\bio_b64.d crypto\pkcs12\p12_crpt.d crypto\sha\sha1dgst.d crypto\rand\rand_lib.d crypto\pkcs7\bio_pk7.d crypto\evp\m_ripemd.d test\buildtest_ct.d crypto\err\err_prn.d test\curve448_internal_test.d apps\ec.d test\bftest.d crypto\bn\bn_recp.d crypto\bn\bn_sqr.d crypto\asn1\a_object.d crypto\des\pcbc_enc.d crypto\modes\ocb128.d crypto\store\store_register.d crypto\blake2\blake2b.d crypto\des\ofb64ede.d crypto\uid.d ssl\s3_msg.d crypto\store\loader_file.d test\tls13ccstest.d test\constant_time_test.d crypto\blake2\m_blake2b.d crypto\ec\ecp_nistp256.d apps\dsa.d crypto\ebcdic.d crypto\ocsp\v3_ocsp.d crypto\evp\m_null.d crypto\ts\ts_rsp_sign.d crypto\x509v3\v3_sxnet.d test\buildtest_sha.d crypto\rsa\rsa_crpt.d crypto\x509\x509_v3.d crypto\txt_db\txt_db.d apps\passwd.d test\threadstest.d test\buildtest_obj_mac.d crypto\ct\ct_log.d crypto\bn\bn_prime.d test\buildtest_pkcs12.d crypto\bn\bn_exp.d test\buildtest_ebcdic.d test\wpackettest.d crypto\rsa\rsa_ossl.d apps\storeutl.d crypto\pkcs12\p12_crt.d crypto\aes\aes_cfb.d crypto\srp\srp_lib.d crypto\ts\ts_verify_ctx.d crypto\async\arch\async_posix.d crypto\asn1\tasn_utl.d crypto\x509v3\v3_extku.d test\buildtest_ecdh.d crypto\asn1\t_pkey.d
+DEPS=crypto\engine\tb_dsa.d test\pkey_meth_test.d test\ct_test.d apps\rand.d test\buildtest_ebcdic.d crypto\x509\x509_d2.d test\sslcorrupttest.d test\ssl_test_ctx.d crypto\srp\srp_lib.d crypto\pkcs7\pk7_asn1.d crypto\asn1\bio_ndef.d ssl\s3_lib.d test\buildtest_ct.d test\x509aux.d crypto\des\cbc_cksm.d crypto\pkcs7\pkcs7err.d crypto\x509\x_crl.d crypto\store\store_lib.d crypto\x509\x509_meth.d crypto\ec\ecp_nist.d crypto\pem\pem_oth.d crypto\async\async_err.d crypto\poly1305\poly1305_pmeth.d crypto\x509\x509type.d crypto\init.d crypto\rc2\rc2cfb64.d crypto\bn\bn_blind.d crypto\kdf\kdf_err.d crypto\evp\pmeth_gn.d crypto\x509\x509rset.d crypto\rc2\rc2_skey.d crypto\bio\bss_mem.d apps\version.d crypto\pem\pem_x509.d crypto\evp\bio_ok.d crypto\conf\conf_ssl.d crypto\dh\dh_key.d test\cmsapitest.d apps\cms.d crypto\asn1\a_type.d crypto\dh\dh_meth.d crypto\asn1\nsseq.d apps\s_socket.d crypto\ct\ct_log.d crypto\ec\curve448\f_generic.d test\buildtest_x509_vfy.d crypto\x509\x509_att.d crypto\cversion.d crypto\seed\seed_cbc.d crypto\bn\bn_asm.d test\v3nametest.d crypto\dsa\dsa_depr.d crypto\ocsp\ocsp_srv.d crypto\rsa\rsa_meth.d crypto\store\store_register.d crypto\asn1\asn_moid.d test\pkey_meth_kdf_test.d crypto\asn1\a_octet.d crypto\bn\bn_word.d crypto\objects\o_names.d test\d2i_test.d apps\ocsp.d engines\e_dasync.d crypto\ec\eck_prn.d crypto\bn\bn_lib.d crypto\x509v3\pcy_tree.d crypto\sha\sha1dgst.d crypto\evp\p_seal.d test\modes_internal_test.d crypto\conf\conf_def.d crypto\buffer\buf_err.d crypto\dh\dh_rfc5114.d ms\uplink.d apps\rsa.d test\dsa_no_digest_size_test.d test\buildtest_buffer.d crypto\store\store_strings.d crypto\ocsp\v3_ocsp.d crypto\dso\dso_vms.d test\buildtest_txt_db.d crypto\asn1\d2i_pu.d crypto\evp\evp_err.d ssl\ssl_init.d crypto\evp\digest.d crypto\ct\ct_prn.d apps\dsa.d crypto\x509v3\pcy_cache.d crypto\evp\m_sha1.d crypto\evp\p_sign.d ssl\record\ssl3_buffer.d crypto\ocsp\ocsp_asn.d test\ecdsatest.d crypto\hmac\hmac.d ssl\t1_lib.d crypto\des\cfb64ede.d crypto\pem\pem_err.d crypto\bn\bn_div.d fuzz\asn1parse.d test\sm4_internal_test.d test\poly1305_internal_test.d crypto\bn\bn_print.d test\bio_memleak_test.d crypto\x509\x_all.d test\buildtest_rc5.d ssl\ssl_conf.d crypto\pkcs7\pk7_attr.d crypto\x509\x_x509.d apps\pkcs12.d crypto\buffer\buffer.d ssl\statem\statem_srvr.d test\lhash_test.d crypto\modes\wrap128.d ssl\statem\statem.d crypto\ct\ct_sct.d crypto\ec\ec_err.d fuzz\bignum.d crypto\ec\ec_pmeth.d apps\crl2p7.d test\asynciotest.d crypto\engine\eng_openssl.d ssl\d1_msg.d crypto\cast\c_enc.d test\gmdifftest.d crypto\sm4\sm4.d crypto\bio\bf_lbuf.d crypto\modes\xts128.d crypto\srp\srp_vfy.d crypto\evp\e_old.d crypto\engine\eng_cnf.d test\x509_check_cert_pkey_test.d crypto\evp\pmeth_lib.d crypto\engine\eng_fat.d fuzz\cms.d crypto\ocsp\ocsp_prn.d crypto\ocsp\ocsp_lib.d crypto\evp\evp_pkey.d test\x509_time_test.d crypto\asn1\x_algor.d test\buildtest_camellia.d crypto\engine\eng_ctrl.d crypto\ts\ts_lib.d crypto\sha\sha512.d ssl\bio_ssl.d crypto\cast\c_cfb64.d test\buildtest_tls1.d crypto\asn1\a_sign.d crypto\idea\i_cbc.d crypto\dsa\dsa_err.d crypto\md5\md5_dgst.d ssl\statem\statem_clnt.d crypto\x509\x509cset.d crypto\asn1\a_print.d ssl\tls13_enc.d crypto\rand\rand_egd.d fuzz\bndiv.d crypto\asn1\p5_pbe.d crypto\asn1\t_spki.d crypto\ec\ec_oct.d ssl\ssl_err.d crypto\dsa\dsa_key.d crypto\evp\e_rc2.d crypto\pkcs7\pk7_doit.d crypto\cmac\cm_pmeth.d test\buildtest_seed.d crypto\x509v3\v3err.d crypto\asn1\t_pkey.d crypto\pkcs12\p12_crpt.d test\rdrand_sanitytest.d test\buildtest_engine.d crypto\seed\seed_ecb.d test\time_offset_test.d test\bntest.d test\buildtest_ec.d crypto\engine\tb_pkmeth.d crypto\o_time.d crypto\pem\pem_pk8.d crypto\x509v3\v3_pci.d crypto\engine\eng_err.d test\ocspapitest.d crypto\bn\bn_shift.d crypto\objects\obj_lib.d test\buildtest_rc4.d crypto\asn1\a_i2d_fp.d crypto\evp\m_md5.d crypto\evp\p_open.d crypto\bio\bss_fd.d crypto\evp\e_des.d crypto\evp\e_null.d crypto\cms\cms_io.d crypto\rc2\rc2_ecb.d test\curve448_internal_test.d test\asn1_internal_test.d apps\rehash.d crypto\modes\gcm128.d test\exptest.d crypto\ocsp\ocsp_cl.d crypto\des\des_enc.d test\buildtest_des.d crypto\asn1\tasn_scn.d crypto\asn1\a_digest.d crypto\threads_win.d crypto\x509\x_pubkey.d crypto\ripemd\rmd_one.d crypto\asn1\asn1_lib.d crypto\conf\conf_api.d crypto\x509\x509_txt.d ssl\s3_msg.d crypto\async\arch\async_win.d crypto\engine\tb_rand.d crypto\des\xcbc_enc.d crypto\pkcs12\p12_add.d crypto\asn1\f_string.d crypto\ui\ui_util.d crypto\x509v3\v3_ncons.d test\buildtest_kdf.d crypto\asn1\a_bitstr.d crypto\bn\bn_err.d crypto\ex_data.d crypto\bio\bss_null.d crypto\ts\ts_asn1.d crypto\rsa\rsa_pmeth.d crypto\engine\tb_rsa.d apps\engine.d test\buildtest_ui.d fuzz\asn1.d test\mdc2test.d crypto\conf\conf_lib.d crypto\asn1\a_gentm.d test\recordlentest.d test\testutil\test_cleanup.d ssl\ssl_ciph.d crypto\comp\comp_lib.d crypto\evp\e_cast.d crypto\x509\x509_trs.d apps\x509.d test\test_test.d crypto\x509v3\v3_pcia.d crypto\evp\p5_crpt.d crypto\evp\m_mdc2.d ssl\ssl_rsa.d crypto\bn\bn_const.d crypto\rsa\rsa_mp.d apps\pkcs7.d test\ecstresstest.d crypto\conf\conf_mod.d crypto\store\store_err.d crypto\rsa\rsa_depr.d test\buildtest_rand.d crypto\bn\bn_mpi.d crypto\dso\dso_openssl.d test\buildtest_ssl2.d crypto\bn\bn_exp.d apps\app_rand.d crypto\ts\ts_rsp_verify.d ssl\t1_trce.d crypto\asn1\a_utctm.d crypto\evp\p_lib.d crypto\evp\p_enc.d test\sslbuffertest.d crypto\evp\e_aes_cbc_hmac_sha1.d crypto\bn\bn_mod.d crypto\ec\ecp_mont.d crypto\pkcs12\p12_sbag.d apps\opt.d crypto\evp\m_sha3.d crypto\asn1\asn1_gen.d crypto\asn1\asn1_par.d crypto\asn1\a_utf8.d test\asn1_string_table_test.d test\testutil\basic_output.d ssl\ssl_sess.d crypto\bio\bio_lib.d crypto\camellia\cmll_cbc.d crypto\x509\x_req.d crypto\kdf\scrypt.d crypto\o_dir.d crypto\x509v3\v3_lib.d crypto\engine\eng_list.d apps\genrsa.d crypto\x509v3\v3_addr.d crypto\bio\bss_dgram.d crypto\rand\rand_unix.d test\conf_include_test.d crypto\engine\tb_cipher.d crypto\ec\curve448\arch_32\f_impl.d crypto\x509\x_name.d crypto\poly1305\poly1305_ameth.d crypto\dh\dh_lib.d test\mdc2_internal_test.d apps\s_server.d crypto\ui\ui_null.d crypto\asn1\a_dup.d crypto\conf\conf_sap.d crypto\err\err_prn.d test\testutil\tap_bio.d test\pemtest.d crypto\poly1305\poly1305.d crypto\asn1\asn_mstbl.d test\buildtest_x509v3.d crypto\modes\ccm128.d crypto\asn1\bio_asn1.d test\gosttest.d test\md2test.d test\buildtest_ossl_typ.d crypto\asn1\asn_mime.d crypto\engine\eng_table.d crypto\x509v3\v3_enum.d crypto\asn1\p5_scrypt.d crypto\pkcs12\p12_attr.d crypto\cms\cms_pwri.d crypto\x509\x509_set.d crypto\evp\evp_key.d crypto\rsa\rsa_ossl.d crypto\aes\aes_cfb.d crypto\sha\sha1_one.d crypto\dso\dso_dl.d crypto\evp\m_md5_sha1.d crypto\dh\dh_depr.d crypto\engine\eng_pkey.d test\dhtest.d crypto\ec\ecp_nistputil.d crypto\x509v3\v3_pku.d test\sanitytest.d crypto\x509v3\v3_int.d crypto\seed\seed_cfb.d test\servername_test.d apps\openssl.d crypto\bn\bn_dh.d crypto\mem_sec.d crypto\bn\bn_prime.d crypto\evp\c_alld.d crypto\idea\i_ecb.d crypto\ct\ct_vfy.d crypto\rc5\rc5_enc.d apps\ec.d fuzz\crl.d crypto\o_str.d test\sysdefaulttest.d apps\verify.d crypto\camellia\cmll_ofb.d test\buildtest_conf.d crypto\asn1\a_time.d crypto\dh\dh_asn1.d crypto\bio\bf_null.d engines\e_capi.d crypto\aes\aes_ofb.d test\buildtest_aes.d crypto\modes\cts128.d crypto\ec\ecp_nistp256.d crypto\x509v3\v3_bitst.d crypto\bf\bf_ecb.d crypto\cast\c_skey.d test\testutil\tests.d crypto\asn1\a_d2i_fp.d crypto\asn1\tasn_typ.d crypto\evp\e_aria.d crypto\err\err.d crypto\o_init.d test\dtls_mtu_test.d crypto\pkcs12\p12_mutl.d test\buildtest_srp.d crypto\asn1\tasn_dec.d crypto\siphash\siphash_pmeth.d crypto\ts\ts_conf.d crypto\asn1\asn1_item_list.d crypto\engine\eng_init.d crypto\evp\e_camellia.d test\testutil\stanza.d test\buildtest_obj_mac.d apps\srp.d crypto\ct\ct_err.d crypto\dso\dso_err.d crypto\ec\ecdh_kdf.d test\buildtest_idea.d test\memleaktest.d crypto\async\async_wait.d crypto\rsa\rsa_prn.d crypto\camellia\cmll_cfb.d ssl\record\rec_layer_d1.d apps\storeutl.d ms\applink.d crypto\rsa\rsa_ssl.d crypto\bio\bf_nbio.d crypto\bio\bss_acpt.d crypto\x509\x509name.d test\buildtest_blowfish.d crypto\getenv.d test\testutil\init.d crypto\x509v3\v3_sxnet.d test\dtlstest.d crypto\store\store_init.d crypto\engine\eng_lib.d crypto\bn\bn_sqr.d test\asynctest.d crypto\dsa\dsa_meth.d test\buildtest_crypto.d crypto\x509v3\v3_akeya.d test\buildtest_ripemd.d test\bftest.d crypto\x509\t_req.d crypto\x509\x509_cmp.d crypto\bio\b_print.d crypto\des\fcrypt.d test\rc5test.d crypto\x509v3\v3_pcons.d crypto\rc5\rc5_skey.d test\buildtest_hmac.d test\testutil\main.d apps\nseq.d crypto\pem\pem_info.d crypto\dsa\dsa_pmeth.d crypto\x509v3\v3_admis.d crypto\modes\ofb128.d test\buildtest_srtp.d crypto\sm2\sm2_err.d crypto\cms\cms_ess.d crypto\rand\drbg_lib.d test\buildtest_stack.d ssl\s3_enc.d crypto\asn1\i2d_pu.d apps\dgst.d test\ssltest_old.d crypto\kdf\hkdf.d test\testutil\output_helpers.d crypto\des\set_key.d crypto\ctype.d apps\win32_init.d crypto\x509\x509_ext.d crypto\asn1\tasn_utl.d crypto\sm2\sm2_pmeth.d test\bio_callback_test.d apps\s_time.d crypto\cms\cms_enc.d crypto\threads_none.d crypto\comp\comp_err.d test\buildtest_dsa.d crypto\des\ecb_enc.d crypto\bf\bf_cfb64.d crypto\bio\bss_conn.d crypto\ui\ui_openssl.d crypto\ts\ts_err.d crypto\des\ofb64enc.d crypto\x509\x_exten.d apps\crl.d crypto\ec\ecp_nistp521.d crypto\evp\evp_lib.d crypto\evp\pbe_scrypt.d crypto\bio\b_dump.d crypto\evp\m_null.d test\buildtest_ecdsa.d test\ec_internal_test.d crypto\cms\cms_lib.d crypto\bio\bss_sock.d ssl\statem\extensions.d crypto\dh\dh_kdf.d crypto\bio\bf_buff.d test\buildtest_store.d crypto\dh\dh_err.d test\drbg_cavs_test.d crypto\asn1\n_pkey.d crypto\pkcs7\pk7_smime.d crypto\ec\ecdsa_vrf.d crypto\x509v3\pcy_map.d crypto\o_fopen.d test\ectest.d test\buildtest_ssl.d ssl\ssl_txt.d crypto\blake2\m_blake2s.d test\bad_dtls_test.d test\crltest.d test\buildtest_asn1.d crypto\cms\cms_env.d crypto\x509\x509_req.d test\rsa_complex.d crypto\pkcs12\p12_decr.d ssl\d1_srtp.d crypto\des\fcrypt_b.d crypto\x509v3\v3_pmaps.d crypto\rand\rand_err.d crypto\ct\ct_sct_ctx.d crypto\asn1\evp_asn1.d crypto\dh\dh_check.d apps\ca.d test\dtlsv1listentest.d crypto\x509v3\v3_purp.d crypto\des\rand_key.d ssl\statem\extensions_cust.d crypto\o_fips.d test\buildtest_md2.d test\errtest.d test\ssl_test_ctx_test.d crypto\mem_clr.d crypto\evp\p_dec.d test\destest.d test\siphash_internal_test.d crypto\x509v3\v3_prn.d crypto\rand\rand_win.d crypto\evp\e_aes_cbc_hmac_sha256.d crypto\ocsp\ocsp_ht.d test\rsa_mp_test.d crypto\evp\e_idea.d crypto\bn\bn_mont.d test\srptest.d crypto\x509v3\v3_tlsf.d crypto\aes\aes_ecb.d crypto\bio\bio_cb.d crypto\evp\evp_enc.d crypto\sm2\sm2_sign.d test\secmemtest.d crypto\ec\ecdsa_sign.d test\buildtest_evp.d crypto\ct\ct_x509v3.d crypto\dh\dh_pmeth.d test\buildtest_safestack.d crypto\engine\tb_asnmth.d crypto\ts\ts_rsp_print.d crypto\evp\e_chacha20_poly1305.d crypto\aes\aes_misc.d test\buildtest_ocsp.d test\hmactest.d crypto\async\async.d crypto\uid.d test\drbg_cavs_data.d apps\enc.d crypto\bio\b_sock2.d crypto\asn1\a_object.d test\buildtest_pkcs12.d test\buildtest_symhacks.d crypto\idea\i_cfb64.d crypto\evp\e_sm4.d crypto\ct\ct_oct.d crypto\dsa\dsa_asn1.d apps\dsaparam.d crypto\ts\ts_rsp_utils.d apps\pkeyparam.d crypto\md2\md2_one.d ssl\statem\extensions_srvr.d test\constant_time_test.d crypto\x509v3\v3_akey.d crypto\bio\b_addr.d test\evp_extra_test.d crypto\evp\m_wp.d crypto\dh\dh_gen.d test\buildtest_asn1t.d crypto\threads_pthread.d crypto\asn1\p5_pbev2.d crypto\dh\dh_prn.d test\danetest.d crypto\seed\seed.d test\ideatest.d test\bio_enc_test.d crypto\rsa\rsa_x931g.d ssl\s3_cbc.d crypto\engine\eng_rdrand.d crypto\rc2\rc2ofb64.d crypto\ec\ec_key.d test\rsa_test.d crypto\x509\x_x509a.d apps\gendsa.d test\tls13ccstest.d crypto\lhash\lhash.d crypto\md2\md2_dgst.d crypto\evp\e_rc5.d test\x509_internal_test.d crypto\bn\bn_recp.d crypto\rc4\rc4_skey.d crypto\bn\bn_nist.d crypto\dsa\dsa_prn.d fuzz\server.d crypto\bn\bn_ctx.d crypto\pkcs12\p12_kiss.d test\buildtest_async.d ssl\ssl_asn1.d crypto\rsa\rsa_lib.d crypto\x509v3\v3_alt.d crypto\pkcs12\p12_utl.d crypto\cmac\cmac.d crypto\des\str2key.d crypto\lhash\lh_stats.d apps\ts.d crypto\pkcs12\p12_key.d crypto\asn1\x_info.d crypto\x509v3\v3_bcons.d apps\spkac.d ssl\statem\statem_lib.d test\chacha_internal_test.d crypto\engine\tb_digest.d crypto\ec\ecp_nistp224.d crypto\ec\curve448\curve448_tables.d crypto\md5\md5_one.d crypto\hmac\hm_pmeth.d ssl\packet.d crypto\bio\bio_err.d crypto\x509v3\v3_genn.d crypto\x509v3\pcy_lib.d crypto\cryptlib.d apps\pkey.d ssl\pqueue.d crypto\ec\curve448\curve448.d crypto\x509v3\v3_utl.d crypto\rsa\rsa_oaep.d test\buildtest_modes.d crypto\seed\seed_ofb.d crypto\hmac\hm_ameth.d crypto\x509\x509_obj.d crypto\des\ecb3_enc.d apps\smime.d ssl\tls_srp.d ssl\record\ssl3_record_tls13.d test\buildtest_ecdh.d crypto\evp\m_sigver.d crypto\x509v3\v3_asid.d crypto\pem\pem_lib.d apps\s_client.d crypto\x509v3\v3_info.d fuzz\x509.d ssl\ssl_cert.d crypto\bn\bn_x931p.d crypto\evp\e_des3.d fuzz\ct.d test\buildtest_rsa.d crypto\dsa\dsa_ameth.d crypto\ec\ec_lib.d crypto\bio\bss_bio.d crypto\asn1\x_val.d crypto\mem_dbg.d apps\ciphers.d apps\pkeyutl.d crypto\engine\tb_eckey.d test\exdatatest.d crypto\x509v3\pcy_data.d crypto\ocsp\ocsp_err.d crypto\pkcs12\p12_npas.d crypto\evp\names.d test\buildtest_lhash.d crypto\bn\bn_kron.d crypto\x509\by_dir.d crypto\dso\dso_win32.d crypto\x509\t_x509.d crypto\evp\m_md2.d crypto\x509\x509_def.d crypto\idea\i_skey.d crypto\engine\tb_dh.d test\buildtest_cmac.d crypto\whrlpool\wp_dgst.d test\buildtest_opensslv.d crypto\pkcs12\p12_crt.d apps\sess_id.d test\handshake_helper.d test\sm2_internal_test.d crypto\txt_db\txt_db.d crypto\x509\x509_vfy.d crypto\ec\ec_cvt.d crypto\x509v3\v3_crld.d test\buildtest_rand_drbg.d fuzz\client.d crypto\rc5\rc5_ecb.d test\cipherbytes_test.d ssl\record\ssl3_record.d crypto\camellia\cmll_ctr.d crypto\aes\aes_ige.d crypto\asn1\x_long.d crypto\bn\bn_depr.d crypto\camellia\cmll_ecb.d crypto\aria\aria.d crypto\rc5\rc5ofb64.d apps\s_cb.d crypto\aes\aes_wrap.d crypto\pkcs7\bio_pk7.d test\drbgtest.d crypto\pem\pem_pkey.d crypto\aes\aes_cbc.d crypto\mem.d test\ctype_internal_test.d crypto\bf\bf_skey.d test\testutil\cb.d crypto\dsa\dsa_ossl.d crypto\x509\x_attrib.d test\versions.d crypto\asn1\a_strnid.d crypto\ebcdic.d crypto\objects\obj_xref.d crypto\ec\ecdsa_ossl.d crypto\bio\bio_meth.d crypto\pkcs7\pk7_lib.d crypto\evp\p5_crpt2.d apps\genpkey.d test\testutil\format_output.d crypto\asn1\a_int.d test\rc2test.d crypto\dsa\dsa_vrf.d crypto\bn\bn_rand.d test\buildtest_ts.d crypto\x509v3\pcy_node.d apps\ecparam.d test\uitest.d crypto\modes\ctr128.d test\buildtest_conf_api.d crypto\rand\drbg_ctr.d apps\prime.d crypto\pem\pem_xaux.d test\cipherlist_test.d crypto\asn1\t_bitst.d crypto\des\ofb64ede.d crypto\evp\p_verify.d crypto\cms\cms_kari.d test\ssltestlib.d crypto\bn\bn_add.d crypto\evp\encode.d crypto\objects\obj_err.d crypto\asn1\x_pkey.d crypto\pkcs12\p12_init.d crypto\camellia\cmll_misc.d test\dsatest.d ssl\record\dtls1_bitmap.d crypto\chacha\chacha_enc.d test\buildtest_md4.d test\buildtest_pem.d crypto\ts\ts_req_print.d crypto\rsa\rsa_pk1.d crypto\whrlpool\wp_block.d ssl\ssl_mcnf.d crypto\ec\ec_mult.d ssl\methods.d crypto\ec\ec_curve.d crypto\pem\pem_all.d crypto\rsa\rsa_saos.d apps\passwd.d crypto\ec\ec_check.d test\rc4test.d crypto\evp\e_aes.d crypto\x509\t_crl.d crypto\rc2\rc2_cbc.d crypto\ec\ec2_oct.d crypto\asn1\asn1_err.d test\buildtest_cms.d crypto\x509v3\v3_cpols.d engines\e_padlock.d test\buildtest_comp.d crypto\rc4\rc4_enc.d crypto\bf\bf_ofb64.d crypto\asn1\d2i_pr.d crypto\evp\e_rc4_hmac_md5.d crypto\x509\x509_r2x.d crypto\bn\bn_exp2.d crypto\asn1\tasn_prn.d ssl\ssl_lib.d crypto\asn1\i2d_pr.d crypto\x509\by_file.d test\pbelutest.d apps\dhparam.d crypto\pkcs12\pk12err.d crypto\dh\dh_rfc7919.d crypto\ts\ts_verify_ctx.d crypto\cms\cms_sd.d test\v3ext.d crypto\evp\cmeth_lib.d crypto\blake2\m_blake2b.d crypto\x509v3\v3_ia5.d crypto\ts\ts_req_utils.d crypto\x509\x509_vpm.d crypto\bn\bn_mul.d test\buildtest_dh.d crypto\cms\cms_asn1.d crypto\modes\ocb128.d crypto\des\pcbc_enc.d apps\speed.d crypto\dh\dh_ameth.d crypto\dllmain.d crypto\des\qud_cksm.d test\buildtest_x509.d test\asn1_time_test.d crypto\asn1\ameth_lib.d crypto\ec\ec2_smpl.d crypto\ec\ec_kmeth.d crypto\pkcs12\p12_p8d.d crypto\asn1\x_spki.d test\asn1_encode_test.d test\buildtest_pem2.d test\buildtest_pkcs7.d crypto\des\ofb_enc.d crypto\evp\c_allc.d crypto\rsa\rsa_chk.d crypto\evp\bio_md.d crypto\blake2\blake2b.d crypto\ui\ui_lib.d test\buildtest_whrlpool.d fuzz\conf.d test\buildtest_md5.d test\enginetest.d crypto\evp\pmeth_fn.d crypto\pkcs12\p12_p8e.d crypto\ec\ecx_meth.d crypto\evp\e_rc4.d crypto\x509\x509_lu.d crypto\bf\bf_enc.d crypto\ocsp\ocsp_ext.d crypto\modes\cfb128.d test\bioprinttest.d crypto\rand\rand_vms.d crypto\ec\ecp_smpl.d crypto\bio\bss_file.d crypto\dsa\dsa_gen.d test\clienthellotest.d crypto\asn1\x_sig.d crypto\ui\ui_err.d apps\apps.d crypto\rsa\rsa_asn1.d crypto\asn1\f_int.d crypto\dsa\dsa_sign.d crypto\bio\bss_log.d test\stack_test.d crypto\cast\c_ofb64.d crypto\des\cfb_enc.d crypto\pem\pvkfmt.d crypto\rc5\rc5cfb64.d crypto\modes\cbc128.d ssl\record\rec_layer_s3.d apps\rsautl.d crypto\ct\ct_policy.d apps\req.d crypto\asn1\x_int64.d engines\e_ossltest.d crypto\pkcs7\pk7_mime.d test\x509_dup_cert_test.d test\wpackettest.d crypto\ec\ecdh_ossl.d crypto\ripemd\rmd_dgst.d crypto\x509v3\v3_extku.d crypto\evp\evp_pbe.d test\verify_extra_test.d crypto\bn\bn_intern.d crypto\siphash\siphash_ameth.d crypto\asn1\x_bignum.d test\shlibloadtest.d crypto\ct\ct_b64.d crypto\rsa\rsa_gen.d crypto\dsa\dsa_lib.d crypto\conf\conf_mall.d crypto\sha\keccak1600.d crypto\asn1\tasn_enc.d crypto\pkcs12\p12_asn.d ssl\ssl_stat.d crypto\cmac\cm_ameth.d crypto\x509v3\v3_conf.d test\aborttest.d ssl\statem\statem_dtls.d crypto\evp\e_xcbc_d.d crypto\asn1\a_mbstr.d test\buildtest_bio.d apps\errstr.d crypto\bn\bn_gcd.d crypto\comp\c_zlib.d crypto\async\arch\async_posix.d test\afalgtest.d test\buildtest_objects.d crypto\rsa\rsa_x931.d crypto\ec\ecp_oct.d crypto\x509\x509_v3.d crypto\md4\md4_dgst.d crypto\aes\aes_core.d crypto\sha\sha256.d crypto\cms\cms_err.d crypto\cms\cms_dd.d crypto\evp\e_bf.d crypto\rsa\rsa_sign.d crypto\rand\rand_lib.d crypto\asn1\a_verify.d crypto\asn1\tasn_new.d crypto\evp\bio_b64.d test\buildtest_sha.d crypto\evp\m_ripemd.d crypto\evp\m_md4.d crypto\cast\c_ecb.d crypto\ocsp\ocsp_vfy.d crypto\asn1\asn_pack.d crypto\cms\cms_smime.d test\threadstest.d test\buildtest_rc2.d crypto\siphash\siphash.d test\sslapitest.d crypto\sm3\sm3.d crypto\store\loader_file.d apps\bf_prefix.d crypto\ts\ts_rsp_sign.d fuzz\test-corpus.d crypto\ec\ec_print.d ssl\statem\extensions_clnt.d crypto\pem\pem_sign.d crypto\rsa\rsa_err.d ssl\ssl_utst.d crypto\evp\evp_cnf.d crypto\evp\bio_enc.d crypto\x509\x509_err.d crypto\cms\cms_att.d test\packettest.d crypto\camellia\camellia.d crypto\des\cfb64enc.d crypto\x509\x509spki.d crypto\cms\cms_cd.d test\casttest.d crypto\conf\conf_err.d crypto\md4\md4_one.d crypto\bio\b_sock.d test\ciphername_test.d test\evp_test.d test\buildtest_e_os2.d crypto\bn\bn_gf2m.d test\ssl_cert_table_internal_test.d test\buildtest_ssl3.d test\igetest.d test\asn1_decode_test.d crypto\engine\eng_all.d crypto\des\cbc_enc.d test\tls13secretstest.d crypto\blake2\blake2s.d crypto\rand\randfile.d crypto\rsa\rsa_crpt.d crypto\stack\stack.d test\testutil\driver.d crypto\rsa\rsa_pss.d crypto\ec\ec_asn1.d test\fatalerrtest.d crypto\bn\bn_srp.d crypto\sm3\m_sm3.d ssl\t1_enc.d crypto\dso\dso_dlfcn.d crypto\bn\bn_sqrt.d crypto\x509v3\v3_skey.d crypto\err\err_all.d test\buildtest_dtls1.d crypto\async\arch\async_null.d crypto\engine\eng_dyn.d crypto\ec\curve448\scalar.d crypto\sm2\sm2_crypt.d crypto\dso\dso_lib.d crypto\ec\ec_ameth.d crypto\ec\curve25519.d crypto\rsa\rsa_none.d crypto\asn1\tasn_fre.d crypto\evp\e_seed.d test\buildtest_cast.d test\tls13encryptiontest.d ssl\d1_lib.d crypto\objects\obj_dat.d crypto\rsa\rsa_ameth.d test\ssl_test.d crypto\idea\i_ofb64.d test\buildtest_bn.d crypto\kdf\tls1_prf.d crypto\cpt_err.d crypto\asn1\a_strex.d apps\asn1pars.d crypto\asn1\p8_pkey.d apps\pkcs8.d crypto\ec\curve448\eddsa.d
 
 GENERATED_MANDATORY=crypto\include\internal\bn_conf.h crypto\include\internal\dso_conf.h include\openssl\opensslconf.h
 GENERATED=apps\CA.pl apps\openssl.rc apps\progs.h apps\tsget.pl crypto\buildinf.h crypto\uplink-x86_64.asm libcrypto.def libcrypto.rc libssl.def libssl.rc test\buildtest_aes.c test\buildtest_asn1.c test\buildtest_asn1t.c test\buildtest_async.c test\buildtest_bio.c test\buildtest_blowfish.c test\buildtest_bn.c test\buildtest_buffer.c test\buildtest_camellia.c test\buildtest_cast.c test\buildtest_cmac.c test\buildtest_cms.c test\buildtest_comp.c test\buildtest_conf.c test\buildtest_conf_api.c test\buildtest_crypto.c test\buildtest_ct.c test\buildtest_des.c test\buildtest_dh.c test\buildtest_dsa.c test\buildtest_dtls1.c test\buildtest_e_os2.c test\buildtest_ebcdic.c test\buildtest_ec.c test\buildtest_ecdh.c test\buildtest_ecdsa.c test\buildtest_engine.c test\buildtest_evp.c test\buildtest_hmac.c test\buildtest_idea.c test\buildtest_kdf.c test\buildtest_lhash.c test\buildtest_md2.c test\buildtest_md4.c test\buildtest_md5.c test\buildtest_modes.c test\buildtest_obj_mac.c test\buildtest_objects.c test\buildtest_ocsp.c test\buildtest_opensslv.c test\buildtest_ossl_typ.c test\buildtest_pem.c test\buildtest_pem2.c test\buildtest_pkcs12.c test\buildtest_pkcs7.c test\buildtest_rand.c test\buildtest_rand_drbg.c test\buildtest_rc2.c test\buildtest_rc4.c test\buildtest_rc5.c test\buildtest_ripemd.c test\buildtest_rsa.c test\buildtest_safestack.c test\buildtest_seed.c test\buildtest_sha.c test\buildtest_srp.c test\buildtest_srtp.c test\buildtest_ssl.c test\buildtest_ssl2.c test\buildtest_ssl3.c test\buildtest_stack.c test\buildtest_store.c test\buildtest_symhacks.c test\buildtest_tls1.c test\buildtest_ts.c test\buildtest_txt_db.c test\buildtest_ui.c test\buildtest_whrlpool.c test\buildtest_x509.c test\buildtest_x509_vfy.c test\buildtest_x509v3.c tools\c_rehash.pl
@@ -88,6 +88,7 @@ AS=ml64
 ASFLAGS=/nologo /Zi
 
 RC=rc
+RCFLAGS=
 
 ECHO="$(PERL)" "$(SRCDIR)\util\echo.pl"
 
@@ -228,79 +229,80 @@ clean: libclean
 	-del /Q /F test\bftest.exe
 	-del /Q /F test\bio_callback_test.exe
 	-del /Q /F test\bio_enc_test.exe
+	-del /Q /F test\bio_memleak_test.exe
 	-del /Q /F test\bioprinttest.exe
 	-del /Q /F test\bntest.exe
-	-del /Q /F test\buildtest_aes.exe
-	-del /Q /F test\buildtest_asn1.exe
-	-del /Q /F test\buildtest_asn1t.exe
-	-del /Q /F test\buildtest_async.exe
-	-del /Q /F test\buildtest_bio.exe
-	-del /Q /F test\buildtest_blowfish.exe
-	-del /Q /F test\buildtest_bn.exe
-	-del /Q /F test\buildtest_buffer.exe
-	-del /Q /F test\buildtest_camellia.exe
-	-del /Q /F test\buildtest_cast.exe
-	-del /Q /F test\buildtest_cmac.exe
-	-del /Q /F test\buildtest_cms.exe
-	-del /Q /F test\buildtest_comp.exe
-	-del /Q /F test\buildtest_conf.exe
-	-del /Q /F test\buildtest_conf_api.exe
-	-del /Q /F test\buildtest_crypto.exe
-	-del /Q /F test\buildtest_ct.exe
-	-del /Q /F test\buildtest_des.exe
-	-del /Q /F test\buildtest_dh.exe
-	-del /Q /F test\buildtest_dsa.exe
-	-del /Q /F test\buildtest_dtls1.exe
-	-del /Q /F test\buildtest_e_os2.exe
-	-del /Q /F test\buildtest_ebcdic.exe
-	-del /Q /F test\buildtest_ec.exe
-	-del /Q /F test\buildtest_ecdh.exe
-	-del /Q /F test\buildtest_ecdsa.exe
-	-del /Q /F test\buildtest_engine.exe
-	-del /Q /F test\buildtest_evp.exe
-	-del /Q /F test\buildtest_hmac.exe
-	-del /Q /F test\buildtest_idea.exe
-	-del /Q /F test\buildtest_kdf.exe
-	-del /Q /F test\buildtest_lhash.exe
-	-del /Q /F test\buildtest_md2.exe
-	-del /Q /F test\buildtest_md4.exe
-	-del /Q /F test\buildtest_md5.exe
-	-del /Q /F test\buildtest_modes.exe
-	-del /Q /F test\buildtest_obj_mac.exe
-	-del /Q /F test\buildtest_objects.exe
-	-del /Q /F test\buildtest_ocsp.exe
-	-del /Q /F test\buildtest_opensslv.exe
-	-del /Q /F test\buildtest_ossl_typ.exe
-	-del /Q /F test\buildtest_pem.exe
-	-del /Q /F test\buildtest_pem2.exe
-	-del /Q /F test\buildtest_pkcs12.exe
-	-del /Q /F test\buildtest_pkcs7.exe
-	-del /Q /F test\buildtest_rand.exe
-	-del /Q /F test\buildtest_rand_drbg.exe
-	-del /Q /F test\buildtest_rc2.exe
-	-del /Q /F test\buildtest_rc4.exe
-	-del /Q /F test\buildtest_rc5.exe
-	-del /Q /F test\buildtest_ripemd.exe
-	-del /Q /F test\buildtest_rsa.exe
-	-del /Q /F test\buildtest_safestack.exe
-	-del /Q /F test\buildtest_seed.exe
-	-del /Q /F test\buildtest_sha.exe
-	-del /Q /F test\buildtest_srp.exe
-	-del /Q /F test\buildtest_srtp.exe
-	-del /Q /F test\buildtest_ssl.exe
-	-del /Q /F test\buildtest_ssl2.exe
-	-del /Q /F test\buildtest_ssl3.exe
-	-del /Q /F test\buildtest_stack.exe
-	-del /Q /F test\buildtest_store.exe
-	-del /Q /F test\buildtest_symhacks.exe
-	-del /Q /F test\buildtest_tls1.exe
-	-del /Q /F test\buildtest_ts.exe
-	-del /Q /F test\buildtest_txt_db.exe
-	-del /Q /F test\buildtest_ui.exe
-	-del /Q /F test\buildtest_whrlpool.exe
-	-del /Q /F test\buildtest_x509.exe
-	-del /Q /F test\buildtest_x509_vfy.exe
-	-del /Q /F test\buildtest_x509v3.exe
+	-del /Q /F test\buildtest_c_aes.exe
+	-del /Q /F test\buildtest_c_asn1.exe
+	-del /Q /F test\buildtest_c_asn1t.exe
+	-del /Q /F test\buildtest_c_async.exe
+	-del /Q /F test\buildtest_c_bio.exe
+	-del /Q /F test\buildtest_c_blowfish.exe
+	-del /Q /F test\buildtest_c_bn.exe
+	-del /Q /F test\buildtest_c_buffer.exe
+	-del /Q /F test\buildtest_c_camellia.exe
+	-del /Q /F test\buildtest_c_cast.exe
+	-del /Q /F test\buildtest_c_cmac.exe
+	-del /Q /F test\buildtest_c_cms.exe
+	-del /Q /F test\buildtest_c_comp.exe
+	-del /Q /F test\buildtest_c_conf.exe
+	-del /Q /F test\buildtest_c_conf_api.exe
+	-del /Q /F test\buildtest_c_crypto.exe
+	-del /Q /F test\buildtest_c_ct.exe
+	-del /Q /F test\buildtest_c_des.exe
+	-del /Q /F test\buildtest_c_dh.exe
+	-del /Q /F test\buildtest_c_dsa.exe
+	-del /Q /F test\buildtest_c_dtls1.exe
+	-del /Q /F test\buildtest_c_e_os2.exe
+	-del /Q /F test\buildtest_c_ebcdic.exe
+	-del /Q /F test\buildtest_c_ec.exe
+	-del /Q /F test\buildtest_c_ecdh.exe
+	-del /Q /F test\buildtest_c_ecdsa.exe
+	-del /Q /F test\buildtest_c_engine.exe
+	-del /Q /F test\buildtest_c_evp.exe
+	-del /Q /F test\buildtest_c_hmac.exe
+	-del /Q /F test\buildtest_c_idea.exe
+	-del /Q /F test\buildtest_c_kdf.exe
+	-del /Q /F test\buildtest_c_lhash.exe
+	-del /Q /F test\buildtest_c_md2.exe
+	-del /Q /F test\buildtest_c_md4.exe
+	-del /Q /F test\buildtest_c_md5.exe
+	-del /Q /F test\buildtest_c_modes.exe
+	-del /Q /F test\buildtest_c_obj_mac.exe
+	-del /Q /F test\buildtest_c_objects.exe
+	-del /Q /F test\buildtest_c_ocsp.exe
+	-del /Q /F test\buildtest_c_opensslv.exe
+	-del /Q /F test\buildtest_c_ossl_typ.exe
+	-del /Q /F test\buildtest_c_pem.exe
+	-del /Q /F test\buildtest_c_pem2.exe
+	-del /Q /F test\buildtest_c_pkcs12.exe
+	-del /Q /F test\buildtest_c_pkcs7.exe
+	-del /Q /F test\buildtest_c_rand.exe
+	-del /Q /F test\buildtest_c_rand_drbg.exe
+	-del /Q /F test\buildtest_c_rc2.exe
+	-del /Q /F test\buildtest_c_rc4.exe
+	-del /Q /F test\buildtest_c_rc5.exe
+	-del /Q /F test\buildtest_c_ripemd.exe
+	-del /Q /F test\buildtest_c_rsa.exe
+	-del /Q /F test\buildtest_c_safestack.exe
+	-del /Q /F test\buildtest_c_seed.exe
+	-del /Q /F test\buildtest_c_sha.exe
+	-del /Q /F test\buildtest_c_srp.exe
+	-del /Q /F test\buildtest_c_srtp.exe
+	-del /Q /F test\buildtest_c_ssl.exe
+	-del /Q /F test\buildtest_c_ssl2.exe
+	-del /Q /F test\buildtest_c_ssl3.exe
+	-del /Q /F test\buildtest_c_stack.exe
+	-del /Q /F test\buildtest_c_store.exe
+	-del /Q /F test\buildtest_c_symhacks.exe
+	-del /Q /F test\buildtest_c_tls1.exe
+	-del /Q /F test\buildtest_c_ts.exe
+	-del /Q /F test\buildtest_c_txt_db.exe
+	-del /Q /F test\buildtest_c_ui.exe
+	-del /Q /F test\buildtest_c_whrlpool.exe
+	-del /Q /F test\buildtest_c_x509.exe
+	-del /Q /F test\buildtest_c_x509_vfy.exe
+	-del /Q /F test\buildtest_c_x509v3.exe
 	-del /Q /F test\casttest.exe
 	-del /Q /F test\chacha_internal_test.exe
 	-del /Q /F test\cipherbytes_test.exe
@@ -325,6 +327,7 @@ clean: libclean
 	-del /Q /F test\dtls_mtu_test.exe
 	-del /Q /F test\dtlstest.exe
 	-del /Q /F test\dtlsv1listentest.exe
+	-del /Q /F test\ec_internal_test.exe
 	-del /Q /F test\ecdsatest.exe
 	-del /Q /F test\ecstresstest.exe
 	-del /Q /F test\ectest.exe
@@ -504,7 +507,7 @@ uninstall_html_docs:
 
 # Building targets ###################################################
 
-configdata.pm: "$(SRCDIR)\Configure" "..\Configurations\common0.tmpl" "..\Configurations\windows-makefile.tmpl" "..\Configurations\common.tmpl" "..\build.info" "..\crypto\build.info" "..\ssl\build.info" "..\engines\build.info" "..\apps\build.info" "..\test\build.info" "..\util\build.info" "..\tools\build.info" "..\fuzz\build.info" "..\crypto\objects\build.info" "..\crypto\md2\build.info" "..\crypto\md4\build.info" "..\crypto\md5\build.info" "..\crypto\sha\build.info" "..\crypto\hmac\build.info" "..\crypto\ripemd\build.info" "..\crypto\whrlpool\build.info" "..\crypto\poly1305\build.info" "..\crypto\blake2\build.info" "..\crypto\siphash\build.info" "..\crypto\sm3\build.info" "..\crypto\des\build.info" "..\crypto\aes\build.info" "..\crypto\rc2\build.info" "..\crypto\rc4\build.info" "..\crypto\rc5\build.info" "..\crypto\idea\build.info" "..\crypto\aria\build.info" "..\crypto\bf\build.info" "..\crypto\cast\build.info" "..\crypto\camellia\build.info" "..\crypto\seed\build.info" "..\crypto\sm4\build.info" "..\crypto\chacha\build.info" "..\crypto\modes\build.info" "..\crypto\bn\build.info" "..\crypto\ec\build.info" "..\crypto\rsa\build.info" "..\crypto\dsa\build.info" "..\crypto\dh\build.info" "..\crypto\sm2\build.info" "..\crypto\dso\build.info" "..\crypto\engine\build.info" "..\crypto\buffer\build.info" "..\crypto\bio\build.info" "..\crypto\stack\build.info" "..\crypto\lhash\build.info" "..\crypto\rand\build.info" "..\crypto\err\build.info" "..\crypto\evp\build.info" "..\crypto\asn1\build.info" "..\crypto\pem\build.info" "..\crypto\x509\build.info" "..\crypto\x509v3\build.info" "..\crypto\conf\build.info" "..\crypto\txt_db\build.info" "..\crypto\pkcs7\build.info" "..\crypto\pkcs12\build.info" "..\crypto\comp\build.info" "..\crypto\ocsp\build.info" "..\crypto\ui\build.info" "..\crypto\cms\build.info" "..\crypto\ts\build.info" "..\crypto\srp\build.info" "..\crypto\cmac\build.info" "..\crypto\ct\build.info" "..\crypto\async\build.info" "..\crypto\kdf\build.info" "..\crypto\store\build.info" "..\test\ossl_shim\build.info" "..\Configurations\00-base-templates.conf" "..\Configurations\10-main.conf" "..\Configurations\shared-info.pl"
+configdata.pm: "$(SRCDIR)\Configure" "..\Configurations\common0.tmpl" "..\Configurations\windows-makefile.tmpl" "..\Configurations\common.tmpl" "..\build.info" "..\crypto\build.info" "..\ssl\build.info" "..\engines\build.info" "..\apps\build.info" "..\test\build.info" "..\util\build.info" "..\tools\build.info" "..\fuzz\build.info" "..\crypto\objects\build.info" "..\crypto\md2\build.info" "..\crypto\md4\build.info" "..\crypto\md5\build.info" "..\crypto\sha\build.info" "..\crypto\hmac\build.info" "..\crypto\ripemd\build.info" "..\crypto\whrlpool\build.info" "..\crypto\poly1305\build.info" "..\crypto\blake2\build.info" "..\crypto\siphash\build.info" "..\crypto\sm3\build.info" "..\crypto\des\build.info" "..\crypto\aes\build.info" "..\crypto\rc2\build.info" "..\crypto\rc4\build.info" "..\crypto\rc5\build.info" "..\crypto\idea\build.info" "..\crypto\aria\build.info" "..\crypto\bf\build.info" "..\crypto\cast\build.info" "..\crypto\camellia\build.info" "..\crypto\seed\build.info" "..\crypto\sm4\build.info" "..\crypto\chacha\build.info" "..\crypto\modes\build.info" "..\crypto\bn\build.info" "..\crypto\ec\build.info" "..\crypto\rsa\build.info" "..\crypto\dsa\build.info" "..\crypto\dh\build.info" "..\crypto\sm2\build.info" "..\crypto\dso\build.info" "..\crypto\engine\build.info" "..\crypto\buffer\build.info" "..\crypto\bio\build.info" "..\crypto\stack\build.info" "..\crypto\lhash\build.info" "..\crypto\rand\build.info" "..\crypto\err\build.info" "..\crypto\evp\build.info" "..\crypto\asn1\build.info" "..\crypto\pem\build.info" "..\crypto\x509\build.info" "..\crypto\x509v3\build.info" "..\crypto\conf\build.info" "..\crypto\txt_db\build.info" "..\crypto\pkcs7\build.info" "..\crypto\pkcs12\build.info" "..\crypto\comp\build.info" "..\crypto\ocsp\build.info" "..\crypto\ui\build.info" "..\crypto\cms\build.info" "..\crypto\ts\build.info" "..\crypto\srp\build.info" "..\crypto\cmac\build.info" "..\crypto\ct\build.info" "..\crypto\async\build.info" "..\crypto\kdf\build.info" "..\crypto\store\build.info" "..\test\ossl_shim\build.info" "..\Configurations\00-base-templates.conf" "..\Configurations\10-main.conf"
 	@$(ECHO) "Detected changed: $?"
 	"$(PERL)" configdata.pm -r
 	@$(ECHO) "**************************************************"
@@ -1229,7 +1232,7 @@ crypto\dllmain.obj: "..\crypto\dllmain.c"
 libcrypto.def: "..\util\mkdef.pl" "..\util\libcrypto.num"
 	"$(PERL)" "..\util\mkdef.pl" crypto 32 > $@
 libcrypto.res: "libcrypto.rc"
-	$(RC) $(RCOUTFLAG)$@ "libcrypto.rc"
+	$(RC) $(RCFLAGS) $(RCOUTFLAG)$@ "libcrypto.rc"
 libcrypto.rc: "..\util\mkrc.pl" 
 	"$(PERL)" "..\util\mkrc.pl" libcrypto > $@
 crypto\aes\aes_cbc.obj: "..\crypto\aes\aes_cbc.c"
@@ -3883,7 +3886,7 @@ $(LIB_EX_LIBS)
 libssl.def: "..\util\mkdef.pl" "..\util\libssl.num"
 	"$(PERL)" "..\util\mkdef.pl" ssl 32 > $@
 libssl.res: "libssl.rc"
-	$(RC) $(RCOUTFLAG)$@ "libssl.rc"
+	$(RC) $(RCFLAGS) $(RCOUTFLAG)$@ "libssl.rc"
 libssl.rc: "..\util\mkrc.pl" 
 	"$(PERL)" "..\util\mkrc.pl" libssl > $@
 ssl\bio_ssl.obj: "..\ssl\bio_ssl.c"
@@ -4306,7 +4309,7 @@ apps\openssl.obj: "..\apps\openssl.c" "apps\progs.h"
 	$(CC)  $(BIN_CFLAGS) /I "." /I "include" /I "apps" /I ".." /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "..\apps\openssl.c"
 	$(CC)  $(BIN_CFLAGS) /I "." /I "include" /I "apps" /I ".." /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "..\apps\openssl.c" 2>&1 > apps\openssl.d
 apps\openssl.res: "apps\openssl.rc"
-	$(RC) $(RCOUTFLAG)$@ "apps\openssl.rc"
+	$(RC) $(RCFLAGS) $(RCOUTFLAG)$@ "apps\openssl.rc"
 apps\openssl.rc: "..\util\mkrc.pl" 
 	"$(PERL)" "..\util\mkrc.pl" openssl > $@
 apps\passwd.obj: "..\apps\passwd.c" "apps\progs.h"
@@ -4736,6 +4739,20 @@ $(BIN_EX_LIBS)
 test\bio_enc_test.obj: "..\test\bio_enc_test.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "..\test\bio_enc_test.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "..\test\bio_enc_test.c" 2>&1 > test\bio_enc_test.d
+test\bio_memleak_test.exe: test\bio_memleak_test.obj test\libtestutil.lib libcrypto.lib
+	IF EXIST test\bio_memleak_test.exe.manifest DEL /F /Q test\bio_memleak_test.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\bio_memleak_test.exe @<<
+test\bio_memleak_test.obj
+setargv.obj
+test\libtestutil.lib
+libcrypto.lib
+$(BIN_EX_LIBS)
+<<
+	IF EXIST test\bio_memleak_test.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\bio_memleak_test.exe.manifest $(MTOUTFLAG)test\bio_memleak_test.exe
+test\bio_memleak_test.obj: "..\test\bio_memleak_test.c"
+	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "..\test\bio_memleak_test.c"
+	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "..\test\bio_memleak_test.c" 2>&1 > test\bio_memleak_test.d
 test\bioprinttest.exe: test\bioprinttest.obj test\libtestutil.lib libcrypto.lib
 	IF EXIST test\bioprinttest.exe.manifest DEL /F /Q test\bioprinttest.exe.manifest
 	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\bioprinttest.exe @<<
@@ -4764,1137 +4781,1137 @@ $(BIN_EX_LIBS)
 test\bntest.obj: "..\test\bntest.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "..\test\bntest.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "..\test\bntest.c" 2>&1 > test\bntest.d
-test\buildtest_aes.exe: test\buildtest_aes.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_aes.exe.manifest DEL /F /Q test\buildtest_aes.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_aes.exe @<<
+test\buildtest_c_aes.exe: test\buildtest_aes.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_aes.exe.manifest DEL /F /Q test\buildtest_c_aes.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_aes.exe @<<
 test\buildtest_aes.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_aes.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_aes.exe.manifest $(MTOUTFLAG)test\buildtest_aes.exe
+	IF EXIST test\buildtest_c_aes.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_aes.exe.manifest $(MTOUTFLAG)test\buildtest_c_aes.exe
 test\buildtest_aes.obj: "test\buildtest_aes.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_aes.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_aes.c" 2>&1 > test\buildtest_aes.d
 test\buildtest_aes.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" aes > $@
-test\buildtest_asn1.exe: test\buildtest_asn1.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_asn1.exe.manifest DEL /F /Q test\buildtest_asn1.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_asn1.exe @<<
+test\buildtest_c_asn1.exe: test\buildtest_asn1.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_asn1.exe.manifest DEL /F /Q test\buildtest_c_asn1.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_asn1.exe @<<
 test\buildtest_asn1.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_asn1.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_asn1.exe.manifest $(MTOUTFLAG)test\buildtest_asn1.exe
+	IF EXIST test\buildtest_c_asn1.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_asn1.exe.manifest $(MTOUTFLAG)test\buildtest_c_asn1.exe
 test\buildtest_asn1.obj: "test\buildtest_asn1.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_asn1.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_asn1.c" 2>&1 > test\buildtest_asn1.d
 test\buildtest_asn1.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" asn1 > $@
-test\buildtest_asn1t.exe: test\buildtest_asn1t.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_asn1t.exe.manifest DEL /F /Q test\buildtest_asn1t.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_asn1t.exe @<<
+test\buildtest_c_asn1t.exe: test\buildtest_asn1t.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_asn1t.exe.manifest DEL /F /Q test\buildtest_c_asn1t.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_asn1t.exe @<<
 test\buildtest_asn1t.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_asn1t.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_asn1t.exe.manifest $(MTOUTFLAG)test\buildtest_asn1t.exe
+	IF EXIST test\buildtest_c_asn1t.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_asn1t.exe.manifest $(MTOUTFLAG)test\buildtest_c_asn1t.exe
 test\buildtest_asn1t.obj: "test\buildtest_asn1t.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_asn1t.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_asn1t.c" 2>&1 > test\buildtest_asn1t.d
 test\buildtest_asn1t.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" asn1t > $@
-test\buildtest_async.exe: test\buildtest_async.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_async.exe.manifest DEL /F /Q test\buildtest_async.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_async.exe @<<
+test\buildtest_c_async.exe: test\buildtest_async.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_async.exe.manifest DEL /F /Q test\buildtest_c_async.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_async.exe @<<
 test\buildtest_async.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_async.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_async.exe.manifest $(MTOUTFLAG)test\buildtest_async.exe
+	IF EXIST test\buildtest_c_async.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_async.exe.manifest $(MTOUTFLAG)test\buildtest_c_async.exe
 test\buildtest_async.obj: "test\buildtest_async.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_async.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_async.c" 2>&1 > test\buildtest_async.d
 test\buildtest_async.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" async > $@
-test\buildtest_bio.exe: test\buildtest_bio.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_bio.exe.manifest DEL /F /Q test\buildtest_bio.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_bio.exe @<<
+test\buildtest_c_bio.exe: test\buildtest_bio.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_bio.exe.manifest DEL /F /Q test\buildtest_c_bio.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_bio.exe @<<
 test\buildtest_bio.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_bio.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_bio.exe.manifest $(MTOUTFLAG)test\buildtest_bio.exe
+	IF EXIST test\buildtest_c_bio.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_bio.exe.manifest $(MTOUTFLAG)test\buildtest_c_bio.exe
 test\buildtest_bio.obj: "test\buildtest_bio.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_bio.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_bio.c" 2>&1 > test\buildtest_bio.d
 test\buildtest_bio.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" bio > $@
-test\buildtest_blowfish.exe: test\buildtest_blowfish.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_blowfish.exe.manifest DEL /F /Q test\buildtest_blowfish.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_blowfish.exe @<<
+test\buildtest_c_blowfish.exe: test\buildtest_blowfish.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_blowfish.exe.manifest DEL /F /Q test\buildtest_c_blowfish.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_blowfish.exe @<<
 test\buildtest_blowfish.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_blowfish.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_blowfish.exe.manifest $(MTOUTFLAG)test\buildtest_blowfish.exe
+	IF EXIST test\buildtest_c_blowfish.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_blowfish.exe.manifest $(MTOUTFLAG)test\buildtest_c_blowfish.exe
 test\buildtest_blowfish.obj: "test\buildtest_blowfish.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_blowfish.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_blowfish.c" 2>&1 > test\buildtest_blowfish.d
 test\buildtest_blowfish.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" blowfish > $@
-test\buildtest_bn.exe: test\buildtest_bn.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_bn.exe.manifest DEL /F /Q test\buildtest_bn.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_bn.exe @<<
+test\buildtest_c_bn.exe: test\buildtest_bn.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_bn.exe.manifest DEL /F /Q test\buildtest_c_bn.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_bn.exe @<<
 test\buildtest_bn.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_bn.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_bn.exe.manifest $(MTOUTFLAG)test\buildtest_bn.exe
+	IF EXIST test\buildtest_c_bn.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_bn.exe.manifest $(MTOUTFLAG)test\buildtest_c_bn.exe
 test\buildtest_bn.obj: "test\buildtest_bn.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_bn.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_bn.c" 2>&1 > test\buildtest_bn.d
 test\buildtest_bn.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" bn > $@
-test\buildtest_buffer.exe: test\buildtest_buffer.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_buffer.exe.manifest DEL /F /Q test\buildtest_buffer.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_buffer.exe @<<
+test\buildtest_c_buffer.exe: test\buildtest_buffer.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_buffer.exe.manifest DEL /F /Q test\buildtest_c_buffer.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_buffer.exe @<<
 test\buildtest_buffer.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_buffer.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_buffer.exe.manifest $(MTOUTFLAG)test\buildtest_buffer.exe
+	IF EXIST test\buildtest_c_buffer.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_buffer.exe.manifest $(MTOUTFLAG)test\buildtest_c_buffer.exe
 test\buildtest_buffer.obj: "test\buildtest_buffer.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_buffer.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_buffer.c" 2>&1 > test\buildtest_buffer.d
 test\buildtest_buffer.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" buffer > $@
-test\buildtest_camellia.exe: test\buildtest_camellia.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_camellia.exe.manifest DEL /F /Q test\buildtest_camellia.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_camellia.exe @<<
+test\buildtest_c_camellia.exe: test\buildtest_camellia.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_camellia.exe.manifest DEL /F /Q test\buildtest_c_camellia.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_camellia.exe @<<
 test\buildtest_camellia.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_camellia.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_camellia.exe.manifest $(MTOUTFLAG)test\buildtest_camellia.exe
+	IF EXIST test\buildtest_c_camellia.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_camellia.exe.manifest $(MTOUTFLAG)test\buildtest_c_camellia.exe
 test\buildtest_camellia.obj: "test\buildtest_camellia.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_camellia.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_camellia.c" 2>&1 > test\buildtest_camellia.d
 test\buildtest_camellia.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" camellia > $@
-test\buildtest_cast.exe: test\buildtest_cast.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_cast.exe.manifest DEL /F /Q test\buildtest_cast.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_cast.exe @<<
+test\buildtest_c_cast.exe: test\buildtest_cast.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_cast.exe.manifest DEL /F /Q test\buildtest_c_cast.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_cast.exe @<<
 test\buildtest_cast.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_cast.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_cast.exe.manifest $(MTOUTFLAG)test\buildtest_cast.exe
+	IF EXIST test\buildtest_c_cast.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_cast.exe.manifest $(MTOUTFLAG)test\buildtest_c_cast.exe
 test\buildtest_cast.obj: "test\buildtest_cast.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_cast.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_cast.c" 2>&1 > test\buildtest_cast.d
 test\buildtest_cast.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" cast > $@
-test\buildtest_cmac.exe: test\buildtest_cmac.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_cmac.exe.manifest DEL /F /Q test\buildtest_cmac.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_cmac.exe @<<
+test\buildtest_c_cmac.exe: test\buildtest_cmac.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_cmac.exe.manifest DEL /F /Q test\buildtest_c_cmac.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_cmac.exe @<<
 test\buildtest_cmac.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_cmac.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_cmac.exe.manifest $(MTOUTFLAG)test\buildtest_cmac.exe
+	IF EXIST test\buildtest_c_cmac.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_cmac.exe.manifest $(MTOUTFLAG)test\buildtest_c_cmac.exe
 test\buildtest_cmac.obj: "test\buildtest_cmac.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_cmac.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_cmac.c" 2>&1 > test\buildtest_cmac.d
 test\buildtest_cmac.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" cmac > $@
-test\buildtest_cms.exe: test\buildtest_cms.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_cms.exe.manifest DEL /F /Q test\buildtest_cms.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_cms.exe @<<
+test\buildtest_c_cms.exe: test\buildtest_cms.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_cms.exe.manifest DEL /F /Q test\buildtest_c_cms.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_cms.exe @<<
 test\buildtest_cms.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_cms.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_cms.exe.manifest $(MTOUTFLAG)test\buildtest_cms.exe
+	IF EXIST test\buildtest_c_cms.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_cms.exe.manifest $(MTOUTFLAG)test\buildtest_c_cms.exe
 test\buildtest_cms.obj: "test\buildtest_cms.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_cms.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_cms.c" 2>&1 > test\buildtest_cms.d
 test\buildtest_cms.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" cms > $@
-test\buildtest_comp.exe: test\buildtest_comp.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_comp.exe.manifest DEL /F /Q test\buildtest_comp.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_comp.exe @<<
+test\buildtest_c_comp.exe: test\buildtest_comp.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_comp.exe.manifest DEL /F /Q test\buildtest_c_comp.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_comp.exe @<<
 test\buildtest_comp.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_comp.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_comp.exe.manifest $(MTOUTFLAG)test\buildtest_comp.exe
+	IF EXIST test\buildtest_c_comp.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_comp.exe.manifest $(MTOUTFLAG)test\buildtest_c_comp.exe
 test\buildtest_comp.obj: "test\buildtest_comp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_comp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_comp.c" 2>&1 > test\buildtest_comp.d
 test\buildtest_comp.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" comp > $@
-test\buildtest_conf.exe: test\buildtest_conf.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_conf.exe.manifest DEL /F /Q test\buildtest_conf.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_conf.exe @<<
+test\buildtest_c_conf.exe: test\buildtest_conf.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_conf.exe.manifest DEL /F /Q test\buildtest_c_conf.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_conf.exe @<<
 test\buildtest_conf.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_conf.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_conf.exe.manifest $(MTOUTFLAG)test\buildtest_conf.exe
+	IF EXIST test\buildtest_c_conf.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_conf.exe.manifest $(MTOUTFLAG)test\buildtest_c_conf.exe
 test\buildtest_conf.obj: "test\buildtest_conf.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_conf.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_conf.c" 2>&1 > test\buildtest_conf.d
 test\buildtest_conf.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" conf > $@
-test\buildtest_conf_api.exe: test\buildtest_conf_api.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_conf_api.exe.manifest DEL /F /Q test\buildtest_conf_api.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_conf_api.exe @<<
+test\buildtest_c_conf_api.exe: test\buildtest_conf_api.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_conf_api.exe.manifest DEL /F /Q test\buildtest_c_conf_api.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_conf_api.exe @<<
 test\buildtest_conf_api.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_conf_api.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_conf_api.exe.manifest $(MTOUTFLAG)test\buildtest_conf_api.exe
+	IF EXIST test\buildtest_c_conf_api.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_conf_api.exe.manifest $(MTOUTFLAG)test\buildtest_c_conf_api.exe
 test\buildtest_conf_api.obj: "test\buildtest_conf_api.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_conf_api.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_conf_api.c" 2>&1 > test\buildtest_conf_api.d
 test\buildtest_conf_api.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" conf_api > $@
-test\buildtest_crypto.exe: test\buildtest_crypto.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_crypto.exe.manifest DEL /F /Q test\buildtest_crypto.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_crypto.exe @<<
+test\buildtest_c_crypto.exe: test\buildtest_crypto.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_crypto.exe.manifest DEL /F /Q test\buildtest_c_crypto.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_crypto.exe @<<
 test\buildtest_crypto.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_crypto.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_crypto.exe.manifest $(MTOUTFLAG)test\buildtest_crypto.exe
+	IF EXIST test\buildtest_c_crypto.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_crypto.exe.manifest $(MTOUTFLAG)test\buildtest_c_crypto.exe
 test\buildtest_crypto.obj: "test\buildtest_crypto.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_crypto.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_crypto.c" 2>&1 > test\buildtest_crypto.d
 test\buildtest_crypto.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" crypto > $@
-test\buildtest_ct.exe: test\buildtest_ct.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ct.exe.manifest DEL /F /Q test\buildtest_ct.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ct.exe @<<
+test\buildtest_c_ct.exe: test\buildtest_ct.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ct.exe.manifest DEL /F /Q test\buildtest_c_ct.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ct.exe @<<
 test\buildtest_ct.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ct.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ct.exe.manifest $(MTOUTFLAG)test\buildtest_ct.exe
+	IF EXIST test\buildtest_c_ct.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ct.exe.manifest $(MTOUTFLAG)test\buildtest_c_ct.exe
 test\buildtest_ct.obj: "test\buildtest_ct.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ct.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ct.c" 2>&1 > test\buildtest_ct.d
 test\buildtest_ct.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ct > $@
-test\buildtest_des.exe: test\buildtest_des.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_des.exe.manifest DEL /F /Q test\buildtest_des.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_des.exe @<<
+test\buildtest_c_des.exe: test\buildtest_des.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_des.exe.manifest DEL /F /Q test\buildtest_c_des.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_des.exe @<<
 test\buildtest_des.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_des.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_des.exe.manifest $(MTOUTFLAG)test\buildtest_des.exe
+	IF EXIST test\buildtest_c_des.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_des.exe.manifest $(MTOUTFLAG)test\buildtest_c_des.exe
 test\buildtest_des.obj: "test\buildtest_des.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_des.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_des.c" 2>&1 > test\buildtest_des.d
 test\buildtest_des.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" des > $@
-test\buildtest_dh.exe: test\buildtest_dh.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_dh.exe.manifest DEL /F /Q test\buildtest_dh.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_dh.exe @<<
+test\buildtest_c_dh.exe: test\buildtest_dh.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_dh.exe.manifest DEL /F /Q test\buildtest_c_dh.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_dh.exe @<<
 test\buildtest_dh.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_dh.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_dh.exe.manifest $(MTOUTFLAG)test\buildtest_dh.exe
+	IF EXIST test\buildtest_c_dh.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_dh.exe.manifest $(MTOUTFLAG)test\buildtest_c_dh.exe
 test\buildtest_dh.obj: "test\buildtest_dh.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_dh.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_dh.c" 2>&1 > test\buildtest_dh.d
 test\buildtest_dh.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" dh > $@
-test\buildtest_dsa.exe: test\buildtest_dsa.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_dsa.exe.manifest DEL /F /Q test\buildtest_dsa.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_dsa.exe @<<
+test\buildtest_c_dsa.exe: test\buildtest_dsa.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_dsa.exe.manifest DEL /F /Q test\buildtest_c_dsa.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_dsa.exe @<<
 test\buildtest_dsa.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_dsa.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_dsa.exe.manifest $(MTOUTFLAG)test\buildtest_dsa.exe
+	IF EXIST test\buildtest_c_dsa.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_dsa.exe.manifest $(MTOUTFLAG)test\buildtest_c_dsa.exe
 test\buildtest_dsa.obj: "test\buildtest_dsa.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_dsa.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_dsa.c" 2>&1 > test\buildtest_dsa.d
 test\buildtest_dsa.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" dsa > $@
-test\buildtest_dtls1.exe: test\buildtest_dtls1.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_dtls1.exe.manifest DEL /F /Q test\buildtest_dtls1.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_dtls1.exe @<<
+test\buildtest_c_dtls1.exe: test\buildtest_dtls1.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_dtls1.exe.manifest DEL /F /Q test\buildtest_c_dtls1.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_dtls1.exe @<<
 test\buildtest_dtls1.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_dtls1.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_dtls1.exe.manifest $(MTOUTFLAG)test\buildtest_dtls1.exe
+	IF EXIST test\buildtest_c_dtls1.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_dtls1.exe.manifest $(MTOUTFLAG)test\buildtest_c_dtls1.exe
 test\buildtest_dtls1.obj: "test\buildtest_dtls1.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_dtls1.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_dtls1.c" 2>&1 > test\buildtest_dtls1.d
 test\buildtest_dtls1.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" dtls1 > $@
-test\buildtest_e_os2.exe: test\buildtest_e_os2.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_e_os2.exe.manifest DEL /F /Q test\buildtest_e_os2.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_e_os2.exe @<<
+test\buildtest_c_e_os2.exe: test\buildtest_e_os2.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_e_os2.exe.manifest DEL /F /Q test\buildtest_c_e_os2.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_e_os2.exe @<<
 test\buildtest_e_os2.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_e_os2.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_e_os2.exe.manifest $(MTOUTFLAG)test\buildtest_e_os2.exe
+	IF EXIST test\buildtest_c_e_os2.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_e_os2.exe.manifest $(MTOUTFLAG)test\buildtest_c_e_os2.exe
 test\buildtest_e_os2.obj: "test\buildtest_e_os2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_e_os2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_e_os2.c" 2>&1 > test\buildtest_e_os2.d
 test\buildtest_e_os2.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" e_os2 > $@
-test\buildtest_ebcdic.exe: test\buildtest_ebcdic.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ebcdic.exe.manifest DEL /F /Q test\buildtest_ebcdic.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ebcdic.exe @<<
+test\buildtest_c_ebcdic.exe: test\buildtest_ebcdic.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ebcdic.exe.manifest DEL /F /Q test\buildtest_c_ebcdic.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ebcdic.exe @<<
 test\buildtest_ebcdic.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ebcdic.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ebcdic.exe.manifest $(MTOUTFLAG)test\buildtest_ebcdic.exe
+	IF EXIST test\buildtest_c_ebcdic.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ebcdic.exe.manifest $(MTOUTFLAG)test\buildtest_c_ebcdic.exe
 test\buildtest_ebcdic.obj: "test\buildtest_ebcdic.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ebcdic.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ebcdic.c" 2>&1 > test\buildtest_ebcdic.d
 test\buildtest_ebcdic.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ebcdic > $@
-test\buildtest_ec.exe: test\buildtest_ec.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ec.exe.manifest DEL /F /Q test\buildtest_ec.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ec.exe @<<
+test\buildtest_c_ec.exe: test\buildtest_ec.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ec.exe.manifest DEL /F /Q test\buildtest_c_ec.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ec.exe @<<
 test\buildtest_ec.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ec.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ec.exe.manifest $(MTOUTFLAG)test\buildtest_ec.exe
+	IF EXIST test\buildtest_c_ec.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ec.exe.manifest $(MTOUTFLAG)test\buildtest_c_ec.exe
 test\buildtest_ec.obj: "test\buildtest_ec.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ec.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ec.c" 2>&1 > test\buildtest_ec.d
 test\buildtest_ec.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ec > $@
-test\buildtest_ecdh.exe: test\buildtest_ecdh.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ecdh.exe.manifest DEL /F /Q test\buildtest_ecdh.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ecdh.exe @<<
+test\buildtest_c_ecdh.exe: test\buildtest_ecdh.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ecdh.exe.manifest DEL /F /Q test\buildtest_c_ecdh.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ecdh.exe @<<
 test\buildtest_ecdh.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ecdh.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ecdh.exe.manifest $(MTOUTFLAG)test\buildtest_ecdh.exe
+	IF EXIST test\buildtest_c_ecdh.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ecdh.exe.manifest $(MTOUTFLAG)test\buildtest_c_ecdh.exe
 test\buildtest_ecdh.obj: "test\buildtest_ecdh.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ecdh.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ecdh.c" 2>&1 > test\buildtest_ecdh.d
 test\buildtest_ecdh.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ecdh > $@
-test\buildtest_ecdsa.exe: test\buildtest_ecdsa.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ecdsa.exe.manifest DEL /F /Q test\buildtest_ecdsa.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ecdsa.exe @<<
+test\buildtest_c_ecdsa.exe: test\buildtest_ecdsa.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ecdsa.exe.manifest DEL /F /Q test\buildtest_c_ecdsa.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ecdsa.exe @<<
 test\buildtest_ecdsa.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ecdsa.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ecdsa.exe.manifest $(MTOUTFLAG)test\buildtest_ecdsa.exe
+	IF EXIST test\buildtest_c_ecdsa.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ecdsa.exe.manifest $(MTOUTFLAG)test\buildtest_c_ecdsa.exe
 test\buildtest_ecdsa.obj: "test\buildtest_ecdsa.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ecdsa.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ecdsa.c" 2>&1 > test\buildtest_ecdsa.d
 test\buildtest_ecdsa.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ecdsa > $@
-test\buildtest_engine.exe: test\buildtest_engine.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_engine.exe.manifest DEL /F /Q test\buildtest_engine.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_engine.exe @<<
+test\buildtest_c_engine.exe: test\buildtest_engine.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_engine.exe.manifest DEL /F /Q test\buildtest_c_engine.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_engine.exe @<<
 test\buildtest_engine.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_engine.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_engine.exe.manifest $(MTOUTFLAG)test\buildtest_engine.exe
+	IF EXIST test\buildtest_c_engine.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_engine.exe.manifest $(MTOUTFLAG)test\buildtest_c_engine.exe
 test\buildtest_engine.obj: "test\buildtest_engine.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_engine.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_engine.c" 2>&1 > test\buildtest_engine.d
 test\buildtest_engine.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" engine > $@
-test\buildtest_evp.exe: test\buildtest_evp.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_evp.exe.manifest DEL /F /Q test\buildtest_evp.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_evp.exe @<<
+test\buildtest_c_evp.exe: test\buildtest_evp.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_evp.exe.manifest DEL /F /Q test\buildtest_c_evp.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_evp.exe @<<
 test\buildtest_evp.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_evp.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_evp.exe.manifest $(MTOUTFLAG)test\buildtest_evp.exe
+	IF EXIST test\buildtest_c_evp.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_evp.exe.manifest $(MTOUTFLAG)test\buildtest_c_evp.exe
 test\buildtest_evp.obj: "test\buildtest_evp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_evp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_evp.c" 2>&1 > test\buildtest_evp.d
 test\buildtest_evp.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" evp > $@
-test\buildtest_hmac.exe: test\buildtest_hmac.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_hmac.exe.manifest DEL /F /Q test\buildtest_hmac.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_hmac.exe @<<
+test\buildtest_c_hmac.exe: test\buildtest_hmac.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_hmac.exe.manifest DEL /F /Q test\buildtest_c_hmac.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_hmac.exe @<<
 test\buildtest_hmac.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_hmac.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_hmac.exe.manifest $(MTOUTFLAG)test\buildtest_hmac.exe
+	IF EXIST test\buildtest_c_hmac.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_hmac.exe.manifest $(MTOUTFLAG)test\buildtest_c_hmac.exe
 test\buildtest_hmac.obj: "test\buildtest_hmac.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_hmac.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_hmac.c" 2>&1 > test\buildtest_hmac.d
 test\buildtest_hmac.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" hmac > $@
-test\buildtest_idea.exe: test\buildtest_idea.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_idea.exe.manifest DEL /F /Q test\buildtest_idea.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_idea.exe @<<
+test\buildtest_c_idea.exe: test\buildtest_idea.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_idea.exe.manifest DEL /F /Q test\buildtest_c_idea.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_idea.exe @<<
 test\buildtest_idea.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_idea.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_idea.exe.manifest $(MTOUTFLAG)test\buildtest_idea.exe
+	IF EXIST test\buildtest_c_idea.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_idea.exe.manifest $(MTOUTFLAG)test\buildtest_c_idea.exe
 test\buildtest_idea.obj: "test\buildtest_idea.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_idea.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_idea.c" 2>&1 > test\buildtest_idea.d
 test\buildtest_idea.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" idea > $@
-test\buildtest_kdf.exe: test\buildtest_kdf.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_kdf.exe.manifest DEL /F /Q test\buildtest_kdf.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_kdf.exe @<<
+test\buildtest_c_kdf.exe: test\buildtest_kdf.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_kdf.exe.manifest DEL /F /Q test\buildtest_c_kdf.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_kdf.exe @<<
 test\buildtest_kdf.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_kdf.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_kdf.exe.manifest $(MTOUTFLAG)test\buildtest_kdf.exe
+	IF EXIST test\buildtest_c_kdf.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_kdf.exe.manifest $(MTOUTFLAG)test\buildtest_c_kdf.exe
 test\buildtest_kdf.obj: "test\buildtest_kdf.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_kdf.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_kdf.c" 2>&1 > test\buildtest_kdf.d
 test\buildtest_kdf.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" kdf > $@
-test\buildtest_lhash.exe: test\buildtest_lhash.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_lhash.exe.manifest DEL /F /Q test\buildtest_lhash.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_lhash.exe @<<
+test\buildtest_c_lhash.exe: test\buildtest_lhash.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_lhash.exe.manifest DEL /F /Q test\buildtest_c_lhash.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_lhash.exe @<<
 test\buildtest_lhash.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_lhash.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_lhash.exe.manifest $(MTOUTFLAG)test\buildtest_lhash.exe
+	IF EXIST test\buildtest_c_lhash.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_lhash.exe.manifest $(MTOUTFLAG)test\buildtest_c_lhash.exe
 test\buildtest_lhash.obj: "test\buildtest_lhash.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_lhash.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_lhash.c" 2>&1 > test\buildtest_lhash.d
 test\buildtest_lhash.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" lhash > $@
-test\buildtest_md2.exe: test\buildtest_md2.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_md2.exe.manifest DEL /F /Q test\buildtest_md2.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_md2.exe @<<
+test\buildtest_c_md2.exe: test\buildtest_md2.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_md2.exe.manifest DEL /F /Q test\buildtest_c_md2.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_md2.exe @<<
 test\buildtest_md2.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_md2.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_md2.exe.manifest $(MTOUTFLAG)test\buildtest_md2.exe
+	IF EXIST test\buildtest_c_md2.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_md2.exe.manifest $(MTOUTFLAG)test\buildtest_c_md2.exe
 test\buildtest_md2.obj: "test\buildtest_md2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_md2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_md2.c" 2>&1 > test\buildtest_md2.d
 test\buildtest_md2.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" md2 > $@
-test\buildtest_md4.exe: test\buildtest_md4.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_md4.exe.manifest DEL /F /Q test\buildtest_md4.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_md4.exe @<<
+test\buildtest_c_md4.exe: test\buildtest_md4.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_md4.exe.manifest DEL /F /Q test\buildtest_c_md4.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_md4.exe @<<
 test\buildtest_md4.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_md4.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_md4.exe.manifest $(MTOUTFLAG)test\buildtest_md4.exe
+	IF EXIST test\buildtest_c_md4.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_md4.exe.manifest $(MTOUTFLAG)test\buildtest_c_md4.exe
 test\buildtest_md4.obj: "test\buildtest_md4.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_md4.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_md4.c" 2>&1 > test\buildtest_md4.d
 test\buildtest_md4.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" md4 > $@
-test\buildtest_md5.exe: test\buildtest_md5.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_md5.exe.manifest DEL /F /Q test\buildtest_md5.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_md5.exe @<<
+test\buildtest_c_md5.exe: test\buildtest_md5.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_md5.exe.manifest DEL /F /Q test\buildtest_c_md5.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_md5.exe @<<
 test\buildtest_md5.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_md5.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_md5.exe.manifest $(MTOUTFLAG)test\buildtest_md5.exe
+	IF EXIST test\buildtest_c_md5.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_md5.exe.manifest $(MTOUTFLAG)test\buildtest_c_md5.exe
 test\buildtest_md5.obj: "test\buildtest_md5.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_md5.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_md5.c" 2>&1 > test\buildtest_md5.d
 test\buildtest_md5.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" md5 > $@
-test\buildtest_modes.exe: test\buildtest_modes.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_modes.exe.manifest DEL /F /Q test\buildtest_modes.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_modes.exe @<<
+test\buildtest_c_modes.exe: test\buildtest_modes.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_modes.exe.manifest DEL /F /Q test\buildtest_c_modes.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_modes.exe @<<
 test\buildtest_modes.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_modes.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_modes.exe.manifest $(MTOUTFLAG)test\buildtest_modes.exe
+	IF EXIST test\buildtest_c_modes.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_modes.exe.manifest $(MTOUTFLAG)test\buildtest_c_modes.exe
 test\buildtest_modes.obj: "test\buildtest_modes.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_modes.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_modes.c" 2>&1 > test\buildtest_modes.d
 test\buildtest_modes.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" modes > $@
-test\buildtest_obj_mac.exe: test\buildtest_obj_mac.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_obj_mac.exe.manifest DEL /F /Q test\buildtest_obj_mac.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_obj_mac.exe @<<
+test\buildtest_c_obj_mac.exe: test\buildtest_obj_mac.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_obj_mac.exe.manifest DEL /F /Q test\buildtest_c_obj_mac.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_obj_mac.exe @<<
 test\buildtest_obj_mac.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_obj_mac.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_obj_mac.exe.manifest $(MTOUTFLAG)test\buildtest_obj_mac.exe
+	IF EXIST test\buildtest_c_obj_mac.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_obj_mac.exe.manifest $(MTOUTFLAG)test\buildtest_c_obj_mac.exe
 test\buildtest_obj_mac.obj: "test\buildtest_obj_mac.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_obj_mac.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_obj_mac.c" 2>&1 > test\buildtest_obj_mac.d
 test\buildtest_obj_mac.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" obj_mac > $@
-test\buildtest_objects.exe: test\buildtest_objects.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_objects.exe.manifest DEL /F /Q test\buildtest_objects.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_objects.exe @<<
+test\buildtest_c_objects.exe: test\buildtest_objects.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_objects.exe.manifest DEL /F /Q test\buildtest_c_objects.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_objects.exe @<<
 test\buildtest_objects.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_objects.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_objects.exe.manifest $(MTOUTFLAG)test\buildtest_objects.exe
+	IF EXIST test\buildtest_c_objects.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_objects.exe.manifest $(MTOUTFLAG)test\buildtest_c_objects.exe
 test\buildtest_objects.obj: "test\buildtest_objects.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_objects.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_objects.c" 2>&1 > test\buildtest_objects.d
 test\buildtest_objects.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" objects > $@
-test\buildtest_ocsp.exe: test\buildtest_ocsp.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ocsp.exe.manifest DEL /F /Q test\buildtest_ocsp.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ocsp.exe @<<
+test\buildtest_c_ocsp.exe: test\buildtest_ocsp.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ocsp.exe.manifest DEL /F /Q test\buildtest_c_ocsp.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ocsp.exe @<<
 test\buildtest_ocsp.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ocsp.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ocsp.exe.manifest $(MTOUTFLAG)test\buildtest_ocsp.exe
+	IF EXIST test\buildtest_c_ocsp.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ocsp.exe.manifest $(MTOUTFLAG)test\buildtest_c_ocsp.exe
 test\buildtest_ocsp.obj: "test\buildtest_ocsp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ocsp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ocsp.c" 2>&1 > test\buildtest_ocsp.d
 test\buildtest_ocsp.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ocsp > $@
-test\buildtest_opensslv.exe: test\buildtest_opensslv.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_opensslv.exe.manifest DEL /F /Q test\buildtest_opensslv.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_opensslv.exe @<<
+test\buildtest_c_opensslv.exe: test\buildtest_opensslv.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_opensslv.exe.manifest DEL /F /Q test\buildtest_c_opensslv.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_opensslv.exe @<<
 test\buildtest_opensslv.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_opensslv.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_opensslv.exe.manifest $(MTOUTFLAG)test\buildtest_opensslv.exe
+	IF EXIST test\buildtest_c_opensslv.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_opensslv.exe.manifest $(MTOUTFLAG)test\buildtest_c_opensslv.exe
 test\buildtest_opensslv.obj: "test\buildtest_opensslv.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_opensslv.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_opensslv.c" 2>&1 > test\buildtest_opensslv.d
 test\buildtest_opensslv.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" opensslv > $@
-test\buildtest_ossl_typ.exe: test\buildtest_ossl_typ.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ossl_typ.exe.manifest DEL /F /Q test\buildtest_ossl_typ.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ossl_typ.exe @<<
+test\buildtest_c_ossl_typ.exe: test\buildtest_ossl_typ.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ossl_typ.exe.manifest DEL /F /Q test\buildtest_c_ossl_typ.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ossl_typ.exe @<<
 test\buildtest_ossl_typ.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ossl_typ.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ossl_typ.exe.manifest $(MTOUTFLAG)test\buildtest_ossl_typ.exe
+	IF EXIST test\buildtest_c_ossl_typ.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ossl_typ.exe.manifest $(MTOUTFLAG)test\buildtest_c_ossl_typ.exe
 test\buildtest_ossl_typ.obj: "test\buildtest_ossl_typ.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ossl_typ.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ossl_typ.c" 2>&1 > test\buildtest_ossl_typ.d
 test\buildtest_ossl_typ.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ossl_typ > $@
-test\buildtest_pem.exe: test\buildtest_pem.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_pem.exe.manifest DEL /F /Q test\buildtest_pem.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_pem.exe @<<
+test\buildtest_c_pem.exe: test\buildtest_pem.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_pem.exe.manifest DEL /F /Q test\buildtest_c_pem.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_pem.exe @<<
 test\buildtest_pem.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_pem.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_pem.exe.manifest $(MTOUTFLAG)test\buildtest_pem.exe
+	IF EXIST test\buildtest_c_pem.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_pem.exe.manifest $(MTOUTFLAG)test\buildtest_c_pem.exe
 test\buildtest_pem.obj: "test\buildtest_pem.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_pem.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_pem.c" 2>&1 > test\buildtest_pem.d
 test\buildtest_pem.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" pem > $@
-test\buildtest_pem2.exe: test\buildtest_pem2.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_pem2.exe.manifest DEL /F /Q test\buildtest_pem2.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_pem2.exe @<<
+test\buildtest_c_pem2.exe: test\buildtest_pem2.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_pem2.exe.manifest DEL /F /Q test\buildtest_c_pem2.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_pem2.exe @<<
 test\buildtest_pem2.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_pem2.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_pem2.exe.manifest $(MTOUTFLAG)test\buildtest_pem2.exe
+	IF EXIST test\buildtest_c_pem2.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_pem2.exe.manifest $(MTOUTFLAG)test\buildtest_c_pem2.exe
 test\buildtest_pem2.obj: "test\buildtest_pem2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_pem2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_pem2.c" 2>&1 > test\buildtest_pem2.d
 test\buildtest_pem2.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" pem2 > $@
-test\buildtest_pkcs12.exe: test\buildtest_pkcs12.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_pkcs12.exe.manifest DEL /F /Q test\buildtest_pkcs12.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_pkcs12.exe @<<
+test\buildtest_c_pkcs12.exe: test\buildtest_pkcs12.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_pkcs12.exe.manifest DEL /F /Q test\buildtest_c_pkcs12.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_pkcs12.exe @<<
 test\buildtest_pkcs12.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_pkcs12.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_pkcs12.exe.manifest $(MTOUTFLAG)test\buildtest_pkcs12.exe
+	IF EXIST test\buildtest_c_pkcs12.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_pkcs12.exe.manifest $(MTOUTFLAG)test\buildtest_c_pkcs12.exe
 test\buildtest_pkcs12.obj: "test\buildtest_pkcs12.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_pkcs12.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_pkcs12.c" 2>&1 > test\buildtest_pkcs12.d
 test\buildtest_pkcs12.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" pkcs12 > $@
-test\buildtest_pkcs7.exe: test\buildtest_pkcs7.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_pkcs7.exe.manifest DEL /F /Q test\buildtest_pkcs7.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_pkcs7.exe @<<
+test\buildtest_c_pkcs7.exe: test\buildtest_pkcs7.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_pkcs7.exe.manifest DEL /F /Q test\buildtest_c_pkcs7.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_pkcs7.exe @<<
 test\buildtest_pkcs7.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_pkcs7.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_pkcs7.exe.manifest $(MTOUTFLAG)test\buildtest_pkcs7.exe
+	IF EXIST test\buildtest_c_pkcs7.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_pkcs7.exe.manifest $(MTOUTFLAG)test\buildtest_c_pkcs7.exe
 test\buildtest_pkcs7.obj: "test\buildtest_pkcs7.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_pkcs7.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_pkcs7.c" 2>&1 > test\buildtest_pkcs7.d
 test\buildtest_pkcs7.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" pkcs7 > $@
-test\buildtest_rand.exe: test\buildtest_rand.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_rand.exe.manifest DEL /F /Q test\buildtest_rand.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_rand.exe @<<
+test\buildtest_c_rand.exe: test\buildtest_rand.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_rand.exe.manifest DEL /F /Q test\buildtest_c_rand.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_rand.exe @<<
 test\buildtest_rand.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_rand.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_rand.exe.manifest $(MTOUTFLAG)test\buildtest_rand.exe
+	IF EXIST test\buildtest_c_rand.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_rand.exe.manifest $(MTOUTFLAG)test\buildtest_c_rand.exe
 test\buildtest_rand.obj: "test\buildtest_rand.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_rand.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_rand.c" 2>&1 > test\buildtest_rand.d
 test\buildtest_rand.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" rand > $@
-test\buildtest_rand_drbg.exe: test\buildtest_rand_drbg.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_rand_drbg.exe.manifest DEL /F /Q test\buildtest_rand_drbg.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_rand_drbg.exe @<<
+test\buildtest_c_rand_drbg.exe: test\buildtest_rand_drbg.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_rand_drbg.exe.manifest DEL /F /Q test\buildtest_c_rand_drbg.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_rand_drbg.exe @<<
 test\buildtest_rand_drbg.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_rand_drbg.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_rand_drbg.exe.manifest $(MTOUTFLAG)test\buildtest_rand_drbg.exe
+	IF EXIST test\buildtest_c_rand_drbg.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_rand_drbg.exe.manifest $(MTOUTFLAG)test\buildtest_c_rand_drbg.exe
 test\buildtest_rand_drbg.obj: "test\buildtest_rand_drbg.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_rand_drbg.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_rand_drbg.c" 2>&1 > test\buildtest_rand_drbg.d
 test\buildtest_rand_drbg.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" rand_drbg > $@
-test\buildtest_rc2.exe: test\buildtest_rc2.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_rc2.exe.manifest DEL /F /Q test\buildtest_rc2.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_rc2.exe @<<
+test\buildtest_c_rc2.exe: test\buildtest_rc2.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_rc2.exe.manifest DEL /F /Q test\buildtest_c_rc2.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_rc2.exe @<<
 test\buildtest_rc2.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_rc2.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_rc2.exe.manifest $(MTOUTFLAG)test\buildtest_rc2.exe
+	IF EXIST test\buildtest_c_rc2.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_rc2.exe.manifest $(MTOUTFLAG)test\buildtest_c_rc2.exe
 test\buildtest_rc2.obj: "test\buildtest_rc2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_rc2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_rc2.c" 2>&1 > test\buildtest_rc2.d
 test\buildtest_rc2.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" rc2 > $@
-test\buildtest_rc4.exe: test\buildtest_rc4.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_rc4.exe.manifest DEL /F /Q test\buildtest_rc4.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_rc4.exe @<<
+test\buildtest_c_rc4.exe: test\buildtest_rc4.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_rc4.exe.manifest DEL /F /Q test\buildtest_c_rc4.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_rc4.exe @<<
 test\buildtest_rc4.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_rc4.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_rc4.exe.manifest $(MTOUTFLAG)test\buildtest_rc4.exe
+	IF EXIST test\buildtest_c_rc4.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_rc4.exe.manifest $(MTOUTFLAG)test\buildtest_c_rc4.exe
 test\buildtest_rc4.obj: "test\buildtest_rc4.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_rc4.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_rc4.c" 2>&1 > test\buildtest_rc4.d
 test\buildtest_rc4.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" rc4 > $@
-test\buildtest_rc5.exe: test\buildtest_rc5.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_rc5.exe.manifest DEL /F /Q test\buildtest_rc5.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_rc5.exe @<<
+test\buildtest_c_rc5.exe: test\buildtest_rc5.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_rc5.exe.manifest DEL /F /Q test\buildtest_c_rc5.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_rc5.exe @<<
 test\buildtest_rc5.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_rc5.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_rc5.exe.manifest $(MTOUTFLAG)test\buildtest_rc5.exe
+	IF EXIST test\buildtest_c_rc5.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_rc5.exe.manifest $(MTOUTFLAG)test\buildtest_c_rc5.exe
 test\buildtest_rc5.obj: "test\buildtest_rc5.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_rc5.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_rc5.c" 2>&1 > test\buildtest_rc5.d
 test\buildtest_rc5.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" rc5 > $@
-test\buildtest_ripemd.exe: test\buildtest_ripemd.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ripemd.exe.manifest DEL /F /Q test\buildtest_ripemd.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ripemd.exe @<<
+test\buildtest_c_ripemd.exe: test\buildtest_ripemd.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ripemd.exe.manifest DEL /F /Q test\buildtest_c_ripemd.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ripemd.exe @<<
 test\buildtest_ripemd.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ripemd.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ripemd.exe.manifest $(MTOUTFLAG)test\buildtest_ripemd.exe
+	IF EXIST test\buildtest_c_ripemd.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ripemd.exe.manifest $(MTOUTFLAG)test\buildtest_c_ripemd.exe
 test\buildtest_ripemd.obj: "test\buildtest_ripemd.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ripemd.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ripemd.c" 2>&1 > test\buildtest_ripemd.d
 test\buildtest_ripemd.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ripemd > $@
-test\buildtest_rsa.exe: test\buildtest_rsa.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_rsa.exe.manifest DEL /F /Q test\buildtest_rsa.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_rsa.exe @<<
+test\buildtest_c_rsa.exe: test\buildtest_rsa.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_rsa.exe.manifest DEL /F /Q test\buildtest_c_rsa.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_rsa.exe @<<
 test\buildtest_rsa.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_rsa.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_rsa.exe.manifest $(MTOUTFLAG)test\buildtest_rsa.exe
+	IF EXIST test\buildtest_c_rsa.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_rsa.exe.manifest $(MTOUTFLAG)test\buildtest_c_rsa.exe
 test\buildtest_rsa.obj: "test\buildtest_rsa.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_rsa.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_rsa.c" 2>&1 > test\buildtest_rsa.d
 test\buildtest_rsa.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" rsa > $@
-test\buildtest_safestack.exe: test\buildtest_safestack.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_safestack.exe.manifest DEL /F /Q test\buildtest_safestack.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_safestack.exe @<<
+test\buildtest_c_safestack.exe: test\buildtest_safestack.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_safestack.exe.manifest DEL /F /Q test\buildtest_c_safestack.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_safestack.exe @<<
 test\buildtest_safestack.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_safestack.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_safestack.exe.manifest $(MTOUTFLAG)test\buildtest_safestack.exe
+	IF EXIST test\buildtest_c_safestack.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_safestack.exe.manifest $(MTOUTFLAG)test\buildtest_c_safestack.exe
 test\buildtest_safestack.obj: "test\buildtest_safestack.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_safestack.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_safestack.c" 2>&1 > test\buildtest_safestack.d
 test\buildtest_safestack.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" safestack > $@
-test\buildtest_seed.exe: test\buildtest_seed.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_seed.exe.manifest DEL /F /Q test\buildtest_seed.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_seed.exe @<<
+test\buildtest_c_seed.exe: test\buildtest_seed.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_seed.exe.manifest DEL /F /Q test\buildtest_c_seed.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_seed.exe @<<
 test\buildtest_seed.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_seed.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_seed.exe.manifest $(MTOUTFLAG)test\buildtest_seed.exe
+	IF EXIST test\buildtest_c_seed.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_seed.exe.manifest $(MTOUTFLAG)test\buildtest_c_seed.exe
 test\buildtest_seed.obj: "test\buildtest_seed.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_seed.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_seed.c" 2>&1 > test\buildtest_seed.d
 test\buildtest_seed.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" seed > $@
-test\buildtest_sha.exe: test\buildtest_sha.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_sha.exe.manifest DEL /F /Q test\buildtest_sha.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_sha.exe @<<
+test\buildtest_c_sha.exe: test\buildtest_sha.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_sha.exe.manifest DEL /F /Q test\buildtest_c_sha.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_sha.exe @<<
 test\buildtest_sha.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_sha.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_sha.exe.manifest $(MTOUTFLAG)test\buildtest_sha.exe
+	IF EXIST test\buildtest_c_sha.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_sha.exe.manifest $(MTOUTFLAG)test\buildtest_c_sha.exe
 test\buildtest_sha.obj: "test\buildtest_sha.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_sha.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_sha.c" 2>&1 > test\buildtest_sha.d
 test\buildtest_sha.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" sha > $@
-test\buildtest_srp.exe: test\buildtest_srp.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_srp.exe.manifest DEL /F /Q test\buildtest_srp.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_srp.exe @<<
+test\buildtest_c_srp.exe: test\buildtest_srp.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_srp.exe.manifest DEL /F /Q test\buildtest_c_srp.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_srp.exe @<<
 test\buildtest_srp.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_srp.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_srp.exe.manifest $(MTOUTFLAG)test\buildtest_srp.exe
+	IF EXIST test\buildtest_c_srp.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_srp.exe.manifest $(MTOUTFLAG)test\buildtest_c_srp.exe
 test\buildtest_srp.obj: "test\buildtest_srp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_srp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_srp.c" 2>&1 > test\buildtest_srp.d
 test\buildtest_srp.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" srp > $@
-test\buildtest_srtp.exe: test\buildtest_srtp.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_srtp.exe.manifest DEL /F /Q test\buildtest_srtp.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_srtp.exe @<<
+test\buildtest_c_srtp.exe: test\buildtest_srtp.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_srtp.exe.manifest DEL /F /Q test\buildtest_c_srtp.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_srtp.exe @<<
 test\buildtest_srtp.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_srtp.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_srtp.exe.manifest $(MTOUTFLAG)test\buildtest_srtp.exe
+	IF EXIST test\buildtest_c_srtp.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_srtp.exe.manifest $(MTOUTFLAG)test\buildtest_c_srtp.exe
 test\buildtest_srtp.obj: "test\buildtest_srtp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_srtp.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_srtp.c" 2>&1 > test\buildtest_srtp.d
 test\buildtest_srtp.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" srtp > $@
-test\buildtest_ssl.exe: test\buildtest_ssl.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ssl.exe.manifest DEL /F /Q test\buildtest_ssl.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ssl.exe @<<
+test\buildtest_c_ssl.exe: test\buildtest_ssl.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ssl.exe.manifest DEL /F /Q test\buildtest_c_ssl.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ssl.exe @<<
 test\buildtest_ssl.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ssl.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ssl.exe.manifest $(MTOUTFLAG)test\buildtest_ssl.exe
+	IF EXIST test\buildtest_c_ssl.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ssl.exe.manifest $(MTOUTFLAG)test\buildtest_c_ssl.exe
 test\buildtest_ssl.obj: "test\buildtest_ssl.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ssl.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ssl.c" 2>&1 > test\buildtest_ssl.d
 test\buildtest_ssl.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ssl > $@
-test\buildtest_ssl2.exe: test\buildtest_ssl2.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ssl2.exe.manifest DEL /F /Q test\buildtest_ssl2.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ssl2.exe @<<
+test\buildtest_c_ssl2.exe: test\buildtest_ssl2.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ssl2.exe.manifest DEL /F /Q test\buildtest_c_ssl2.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ssl2.exe @<<
 test\buildtest_ssl2.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ssl2.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ssl2.exe.manifest $(MTOUTFLAG)test\buildtest_ssl2.exe
+	IF EXIST test\buildtest_c_ssl2.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ssl2.exe.manifest $(MTOUTFLAG)test\buildtest_c_ssl2.exe
 test\buildtest_ssl2.obj: "test\buildtest_ssl2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ssl2.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ssl2.c" 2>&1 > test\buildtest_ssl2.d
 test\buildtest_ssl2.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ssl2 > $@
-test\buildtest_ssl3.exe: test\buildtest_ssl3.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ssl3.exe.manifest DEL /F /Q test\buildtest_ssl3.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ssl3.exe @<<
+test\buildtest_c_ssl3.exe: test\buildtest_ssl3.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ssl3.exe.manifest DEL /F /Q test\buildtest_c_ssl3.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ssl3.exe @<<
 test\buildtest_ssl3.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ssl3.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ssl3.exe.manifest $(MTOUTFLAG)test\buildtest_ssl3.exe
+	IF EXIST test\buildtest_c_ssl3.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ssl3.exe.manifest $(MTOUTFLAG)test\buildtest_c_ssl3.exe
 test\buildtest_ssl3.obj: "test\buildtest_ssl3.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ssl3.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ssl3.c" 2>&1 > test\buildtest_ssl3.d
 test\buildtest_ssl3.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ssl3 > $@
-test\buildtest_stack.exe: test\buildtest_stack.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_stack.exe.manifest DEL /F /Q test\buildtest_stack.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_stack.exe @<<
+test\buildtest_c_stack.exe: test\buildtest_stack.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_stack.exe.manifest DEL /F /Q test\buildtest_c_stack.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_stack.exe @<<
 test\buildtest_stack.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_stack.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_stack.exe.manifest $(MTOUTFLAG)test\buildtest_stack.exe
+	IF EXIST test\buildtest_c_stack.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_stack.exe.manifest $(MTOUTFLAG)test\buildtest_c_stack.exe
 test\buildtest_stack.obj: "test\buildtest_stack.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_stack.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_stack.c" 2>&1 > test\buildtest_stack.d
 test\buildtest_stack.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" stack > $@
-test\buildtest_store.exe: test\buildtest_store.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_store.exe.manifest DEL /F /Q test\buildtest_store.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_store.exe @<<
+test\buildtest_c_store.exe: test\buildtest_store.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_store.exe.manifest DEL /F /Q test\buildtest_c_store.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_store.exe @<<
 test\buildtest_store.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_store.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_store.exe.manifest $(MTOUTFLAG)test\buildtest_store.exe
+	IF EXIST test\buildtest_c_store.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_store.exe.manifest $(MTOUTFLAG)test\buildtest_c_store.exe
 test\buildtest_store.obj: "test\buildtest_store.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_store.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_store.c" 2>&1 > test\buildtest_store.d
 test\buildtest_store.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" store > $@
-test\buildtest_symhacks.exe: test\buildtest_symhacks.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_symhacks.exe.manifest DEL /F /Q test\buildtest_symhacks.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_symhacks.exe @<<
+test\buildtest_c_symhacks.exe: test\buildtest_symhacks.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_symhacks.exe.manifest DEL /F /Q test\buildtest_c_symhacks.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_symhacks.exe @<<
 test\buildtest_symhacks.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_symhacks.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_symhacks.exe.manifest $(MTOUTFLAG)test\buildtest_symhacks.exe
+	IF EXIST test\buildtest_c_symhacks.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_symhacks.exe.manifest $(MTOUTFLAG)test\buildtest_c_symhacks.exe
 test\buildtest_symhacks.obj: "test\buildtest_symhacks.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_symhacks.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_symhacks.c" 2>&1 > test\buildtest_symhacks.d
 test\buildtest_symhacks.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" symhacks > $@
-test\buildtest_tls1.exe: test\buildtest_tls1.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_tls1.exe.manifest DEL /F /Q test\buildtest_tls1.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_tls1.exe @<<
+test\buildtest_c_tls1.exe: test\buildtest_tls1.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_tls1.exe.manifest DEL /F /Q test\buildtest_c_tls1.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_tls1.exe @<<
 test\buildtest_tls1.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_tls1.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_tls1.exe.manifest $(MTOUTFLAG)test\buildtest_tls1.exe
+	IF EXIST test\buildtest_c_tls1.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_tls1.exe.manifest $(MTOUTFLAG)test\buildtest_c_tls1.exe
 test\buildtest_tls1.obj: "test\buildtest_tls1.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_tls1.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_tls1.c" 2>&1 > test\buildtest_tls1.d
 test\buildtest_tls1.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" tls1 > $@
-test\buildtest_ts.exe: test\buildtest_ts.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ts.exe.manifest DEL /F /Q test\buildtest_ts.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ts.exe @<<
+test\buildtest_c_ts.exe: test\buildtest_ts.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ts.exe.manifest DEL /F /Q test\buildtest_c_ts.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ts.exe @<<
 test\buildtest_ts.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ts.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ts.exe.manifest $(MTOUTFLAG)test\buildtest_ts.exe
+	IF EXIST test\buildtest_c_ts.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ts.exe.manifest $(MTOUTFLAG)test\buildtest_c_ts.exe
 test\buildtest_ts.obj: "test\buildtest_ts.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ts.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ts.c" 2>&1 > test\buildtest_ts.d
 test\buildtest_ts.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ts > $@
-test\buildtest_txt_db.exe: test\buildtest_txt_db.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_txt_db.exe.manifest DEL /F /Q test\buildtest_txt_db.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_txt_db.exe @<<
+test\buildtest_c_txt_db.exe: test\buildtest_txt_db.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_txt_db.exe.manifest DEL /F /Q test\buildtest_c_txt_db.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_txt_db.exe @<<
 test\buildtest_txt_db.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_txt_db.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_txt_db.exe.manifest $(MTOUTFLAG)test\buildtest_txt_db.exe
+	IF EXIST test\buildtest_c_txt_db.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_txt_db.exe.manifest $(MTOUTFLAG)test\buildtest_c_txt_db.exe
 test\buildtest_txt_db.obj: "test\buildtest_txt_db.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_txt_db.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_txt_db.c" 2>&1 > test\buildtest_txt_db.d
 test\buildtest_txt_db.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" txt_db > $@
-test\buildtest_ui.exe: test\buildtest_ui.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_ui.exe.manifest DEL /F /Q test\buildtest_ui.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_ui.exe @<<
+test\buildtest_c_ui.exe: test\buildtest_ui.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_ui.exe.manifest DEL /F /Q test\buildtest_c_ui.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_ui.exe @<<
 test\buildtest_ui.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_ui.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_ui.exe.manifest $(MTOUTFLAG)test\buildtest_ui.exe
+	IF EXIST test\buildtest_c_ui.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_ui.exe.manifest $(MTOUTFLAG)test\buildtest_c_ui.exe
 test\buildtest_ui.obj: "test\buildtest_ui.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_ui.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_ui.c" 2>&1 > test\buildtest_ui.d
 test\buildtest_ui.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" ui > $@
-test\buildtest_whrlpool.exe: test\buildtest_whrlpool.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_whrlpool.exe.manifest DEL /F /Q test\buildtest_whrlpool.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_whrlpool.exe @<<
+test\buildtest_c_whrlpool.exe: test\buildtest_whrlpool.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_whrlpool.exe.manifest DEL /F /Q test\buildtest_c_whrlpool.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_whrlpool.exe @<<
 test\buildtest_whrlpool.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_whrlpool.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_whrlpool.exe.manifest $(MTOUTFLAG)test\buildtest_whrlpool.exe
+	IF EXIST test\buildtest_c_whrlpool.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_whrlpool.exe.manifest $(MTOUTFLAG)test\buildtest_c_whrlpool.exe
 test\buildtest_whrlpool.obj: "test\buildtest_whrlpool.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_whrlpool.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_whrlpool.c" 2>&1 > test\buildtest_whrlpool.d
 test\buildtest_whrlpool.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" whrlpool > $@
-test\buildtest_x509.exe: test\buildtest_x509.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_x509.exe.manifest DEL /F /Q test\buildtest_x509.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_x509.exe @<<
+test\buildtest_c_x509.exe: test\buildtest_x509.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_x509.exe.manifest DEL /F /Q test\buildtest_c_x509.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_x509.exe @<<
 test\buildtest_x509.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_x509.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_x509.exe.manifest $(MTOUTFLAG)test\buildtest_x509.exe
+	IF EXIST test\buildtest_c_x509.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_x509.exe.manifest $(MTOUTFLAG)test\buildtest_c_x509.exe
 test\buildtest_x509.obj: "test\buildtest_x509.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_x509.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_x509.c" 2>&1 > test\buildtest_x509.d
 test\buildtest_x509.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" x509 > $@
-test\buildtest_x509_vfy.exe: test\buildtest_x509_vfy.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_x509_vfy.exe.manifest DEL /F /Q test\buildtest_x509_vfy.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_x509_vfy.exe @<<
+test\buildtest_c_x509_vfy.exe: test\buildtest_x509_vfy.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_x509_vfy.exe.manifest DEL /F /Q test\buildtest_c_x509_vfy.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_x509_vfy.exe @<<
 test\buildtest_x509_vfy.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_x509_vfy.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_x509_vfy.exe.manifest $(MTOUTFLAG)test\buildtest_x509_vfy.exe
+	IF EXIST test\buildtest_c_x509_vfy.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_x509_vfy.exe.manifest $(MTOUTFLAG)test\buildtest_c_x509_vfy.exe
 test\buildtest_x509_vfy.obj: "test\buildtest_x509_vfy.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_x509_vfy.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_x509_vfy.c" 2>&1 > test\buildtest_x509_vfy.d
 test\buildtest_x509_vfy.c: "..\test\generate_buildtest.pl" 
 	"$(PERL)" "..\test\generate_buildtest.pl" x509_vfy > $@
-test\buildtest_x509v3.exe: test\buildtest_x509v3.obj libssl.lib libcrypto.lib
-	IF EXIST test\buildtest_x509v3.exe.manifest DEL /F /Q test\buildtest_x509v3.exe.manifest
-	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_x509v3.exe @<<
+test\buildtest_c_x509v3.exe: test\buildtest_x509v3.obj libssl.lib libcrypto.lib
+	IF EXIST test\buildtest_c_x509v3.exe.manifest DEL /F /Q test\buildtest_c_x509v3.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\buildtest_c_x509v3.exe @<<
 test\buildtest_x509v3.obj
 setargv.obj
 libssl.lib
 libcrypto.lib
 $(BIN_EX_LIBS)
 <<
-	IF EXIST test\buildtest_x509v3.exe.manifest \
-	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_x509v3.exe.manifest $(MTOUTFLAG)test\buildtest_x509v3.exe
+	IF EXIST test\buildtest_c_x509v3.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\buildtest_c_x509v3.exe.manifest $(MTOUTFLAG)test\buildtest_c_x509v3.exe
 test\buildtest_x509v3.obj: "test\buildtest_x509v3.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "test\buildtest_x509v3.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "test\buildtest_x509v3.c" 2>&1 > test\buildtest_x509v3.d
@@ -6250,6 +6267,20 @@ $(BIN_EX_LIBS)
 test\dtlsv1listentest.obj: "..\test\dtlsv1listentest.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "..\test\dtlsv1listentest.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "..\test\dtlsv1listentest.c" 2>&1 > test\dtlsv1listentest.d
+test\ec_internal_test.exe: test\ec_internal_test.obj test\libtestutil.lib libcrypto_static.lib
+	IF EXIST test\ec_internal_test.exe.manifest DEL /F /Q test\ec_internal_test.exe.manifest
+	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\ec_internal_test.exe @<<
+test\ec_internal_test.obj
+setargv.obj
+test\libtestutil.lib
+libcrypto_static.lib
+$(BIN_EX_LIBS)
+<<
+	IF EXIST test\ec_internal_test.exe.manifest \
+	   $(MT) $(MTFLAGS) $(MTINFLAG)test\ec_internal_test.exe.manifest $(MTOUTFLAG)test\ec_internal_test.exe
+test\ec_internal_test.obj: "..\test\ec_internal_test.c"
+	$(CC)  $(BIN_CFLAGS) /I "include" /I "crypto\ec" /I "crypto\include" /I "..\include" /I "..\crypto\ec" /I "..\crypto\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "..\test\ec_internal_test.c"
+	$(CC)  $(BIN_CFLAGS) /I "include" /I "crypto\ec" /I "crypto\include" /I "..\include" /I "..\crypto\ec" /I "..\crypto\include" $(BIN_CPPFLAGS) /Zs /showIncludes "..\test\ec_internal_test.c" 2>&1 > test\ec_internal_test.d
 test\ecdsatest.exe: test\ecdsatest.obj test\libtestutil.lib libcrypto.lib
 	IF EXIST test\ecdsatest.exe.manifest DEL /F /Q test\ecdsatest.exe.manifest
 	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\ecdsatest.exe @<<
@@ -6788,13 +6819,11 @@ $(BIN_EX_LIBS)
 test\servername_test.obj: "..\test\servername_test.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) -c $(COUTFLAG)$@ "..\test\servername_test.c"
 	$(CC)  $(BIN_CFLAGS) /I "include" /I "..\include" $(BIN_CPPFLAGS) /Zs /showIncludes "..\test\servername_test.c" 2>&1 > test\servername_test.d
-test\shlibloadtest.exe: test\shlibloadtest.obj test\libtestutil.lib libcrypto.lib
+test\shlibloadtest.exe: test\shlibloadtest.obj
 	IF EXIST test\shlibloadtest.exe.manifest DEL /F /Q test\shlibloadtest.exe.manifest
 	$(LD) $(LDFLAGS) $(BIN_LDFLAGS) $(LDOUTFLAG)test\shlibloadtest.exe @<<
 test\shlibloadtest.obj
 setargv.obj
-test\libtestutil.lib
-libcrypto.lib
 $(BIN_EX_LIBS)
 <<
 	IF EXIST test\shlibloadtest.exe.manifest \

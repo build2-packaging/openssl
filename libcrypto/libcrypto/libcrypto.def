@@ -2,7 +2,7 @@
 ; Definition file for the DLL version of the libcrypto-1_1-x64 library from OpenSSL
 ;
 
-; LIBRARY         libcrypto-1_1-x64
+;LIBRARY         libcrypto-1_1-x64
 
 EXPORTS
     ACCESS_DESCRIPTION_free
@@ -1760,6 +1760,7 @@ EXPORTS
     EVP_PKEY_get0_EC_KEY
     EVP_PKEY_get0_RSA
     EVP_PKEY_get0_asn1
+    EVP_PKEY_get0_engine
     EVP_PKEY_get0_hmac
     EVP_PKEY_get0_poly1305
     EVP_PKEY_get0_siphash
@@ -2344,6 +2345,8 @@ EXPORTS
     OPENSSL_INIT_free
     OPENSSL_INIT_new
     OPENSSL_INIT_set_config_appname
+    OPENSSL_INIT_set_config_file_flags
+    OPENSSL_INIT_set_config_filename
     OPENSSL_LH_delete
     OPENSSL_LH_doall
     OPENSSL_LH_doall_arg

@@ -1,3 +1,23 @@
+Operating system: x86_64-whatever-mingw64
+Configuring OpenSSL version 1.1.1c (0x1010103fL) for mingw64
+Using os-specific seed configuration
+Creating configdata.pm
+Creating Makefile
+
+**********************************************************************
+***                                                                ***
+***   OpenSSL has been successfully configured                     ***
+***                                                                ***
+***   If you encounter a problem while building, please open an    ***
+***   issue on GitHub <https://github.com/openssl/openssl/issues>  ***
+***   and include the output from the following command:           ***
+***                                                                ***
+***       perl configdata.pm --dump                                ***
+***                                                                ***
+***   (If you are new to OpenSSL, you might want to consult the    ***
+***   'Troubleshooting' section in the INSTALL file first)         ***
+***                                                                ***
+**********************************************************************
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../crypto/include/internal/bn_conf.h.in > crypto/include/internal/bn_conf.h
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
@@ -5,9 +25,9 @@
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../include/openssl/opensslconf.h.in > include/openssl/opensslconf.h
 make depend && make _all
-make[1]: Entering directory '/c/work/packaging/openssl-1.1.1a/out-mingw8.64'
-make[1]: Leaving directory '/c/work/packaging/openssl-1.1.1a/out-mingw8.64'
-make[1]: Entering directory '/c/work/packaging/openssl-1.1.1a/out-mingw8.64'
+make[1]: Entering directory '/c/temp/openssl.1.1.1c/out-mingw.64'
+make[1]: Leaving directory '/c/temp/openssl.1.1.1c/out-mingw.64'
+make[1]: Entering directory '/c/temp/openssl.1.1.1c/out-mingw.64'
 gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF apps/app_rand.d.tmp -MT apps/app_rand.o -c -o apps/app_rand.o ../apps/app_rand.c
 gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF apps/apps.d.tmp -MT apps/apps.o -c -o apps/apps.o ../apps/apps.c
 gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF apps/bf_prefix.d.tmp -MT apps/bf_prefix.o -c -o apps/bf_prefix.o ../apps/bf_prefix.c
@@ -16,11 +36,11 @@ gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DO
 gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF apps/s_socket.d.tmp -MT apps/s_socket.o -c -o apps/s_socket.o ../apps/s_socket.c
 ../apps/s_socket.c: In function 'init_client':
 ../apps/s_socket.c:126:25: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-                 *sock = INVALID_SOCKET;
-                         ^~~~~~~~~~~~~~
+  126 |                 *sock = INVALID_SOCKET;
+      |                         ^~~~~~~~~~~~~~
 ../apps/s_socket.c:152:21: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-             *sock = INVALID_SOCKET;
-                     ^~~~~~~~~~~~~~
+  152 |             *sock = INVALID_SOCKET;
+      |                     ^~~~~~~~~~~~~~
 gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF apps/win32_init.d.tmp -MT apps/win32_init.o -c -o apps/win32_init.o ../apps/win32_init.c
 ar r apps/libapps.a apps/app_rand.o apps/apps.o apps/bf_prefix.o apps/opt.o apps/s_cb.o apps/s_socket.o apps/win32_init.o
 C:\msys64\mingw64\bin\ar.exe: creating apps/libapps.a
@@ -115,35 +135,35 @@ gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/bio/b_sock.d.tmp -MT crypto/bio/b_sock.o -c -o crypto/bio/b_sock.o ../crypto/bio/b_sock.c
 ../crypto/bio/b_sock.c: In function 'BIO_get_accept_socket':
 ../crypto/bio/b_sock.c:202:13: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-     int s = INVALID_SOCKET;
-             ^~~~~~~~~~~~~~
+  202 |     int s = INVALID_SOCKET;
+      |             ^~~~~~~~~~~~~~
 ../crypto/bio/b_sock.c:207:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-         return INVALID_SOCKET;
-                ^~~~~~~~~~~~~~
+  207 |         return INVALID_SOCKET;
+      |                ^~~~~~~~~~~~~~
 ../crypto/bio/b_sock.c:210:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-         return INVALID_SOCKET;
-                ^~~~~~~~~~~~~~
+  210 |         return INVALID_SOCKET;
+      |                ^~~~~~~~~~~~~~
 ../crypto/bio/b_sock.c:217:13: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-         s = INVALID_SOCKET;
-             ^~~~~~~~~~~~~~
+  217 |         s = INVALID_SOCKET;
+      |             ^~~~~~~~~~~~~~
 ../crypto/bio/b_sock.c:224:13: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-         s = INVALID_SOCKET;
-             ^~~~~~~~~~~~~~
+  224 |         s = INVALID_SOCKET;
+      |             ^~~~~~~~~~~~~~
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/bio/b_sock2.d.tmp -MT crypto/bio/b_sock2.o -c -o crypto/bio/b_sock2.o ../crypto/bio/b_sock2.c
 ../crypto/bio/b_sock2.c: In function 'BIO_socket':
 ../crypto/bio/b_sock2.c:45:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-         return INVALID_SOCKET;
-                ^~~~~~~~~~~~~~
+   45 |         return INVALID_SOCKET;
+      |                ^~~~~~~~~~~~~~
 ../crypto/bio/b_sock2.c:51:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-         return INVALID_SOCKET;
-                ^~~~~~~~~~~~~~
+   51 |         return INVALID_SOCKET;
+      |                ^~~~~~~~~~~~~~
 ../crypto/bio/b_sock2.c: In function 'BIO_accept_ex':
 ../crypto/bio/b_sock2.c:296:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-         return INVALID_SOCKET;
-                ^~~~~~~~~~~~~~
+  296 |         return INVALID_SOCKET;
+      |                ^~~~~~~~~~~~~~
 ../crypto/bio/b_sock2.c:301:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-         return INVALID_SOCKET;
-                ^~~~~~~~~~~~~~
+  301 |         return INVALID_SOCKET;
+      |                ^~~~~~~~~~~~~~
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/bio/bf_buff.d.tmp -MT crypto/bio/bf_buff.o -c -o crypto/bio/bf_buff.o ../crypto/bio/bf_buff.c
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/bio/bf_lbuf.d.tmp -MT crypto/bio/bf_lbuf.o -c -o crypto/bio/bf_lbuf.o ../crypto/bio/bf_lbuf.c
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/bio/bf_nbio.d.tmp -MT crypto/bio/bf_nbio.o -c -o crypto/bio/bf_nbio.o ../crypto/bio/bf_nbio.c
@@ -606,17 +626,19 @@ gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/threads_pthread.d.tmp -MT crypto/threads_pthread.o -c -o crypto/threads_pthread.o ../crypto/threads_pthread.c
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/threads_win.d.tmp -MT crypto/threads_win.o -c -o crypto/threads_win.o ../crypto/threads_win.c
 ../crypto/threads_win.c: In function 'CRYPTO_atomic_add':
-../crypto/threads_win.c:154:35: warning: passing argument 1 of '_InterlockedExchangeAdd' from incompatible pointer type [-Wincompatible-pointer-types]
-     *ret = InterlockedExchangeAdd(val, amount) + amount;
-                                   ^~~
+../crypto/threads_win.c:158:35: warning: passing argument 1 of '_InterlockedExchangeAdd' from incompatible pointer type [-Wincompatible-pointer-types]
+  158 |     *ret = InterlockedExchangeAdd(val, amount) + amount;
+      |                                   ^~~
+      |                                   |
+      |                                   int *
 In file included from C:/msys64/mingw64/x86_64-w64-mingw32/include/winnt.h:27,
                  from C:/msys64/mingw64/x86_64-w64-mingw32/include/minwindef.h:163,
                  from C:/msys64/mingw64/x86_64-w64-mingw32/include/windef.h:8,
                  from C:/msys64/mingw64/x86_64-w64-mingw32/include/windows.h:69,
                  from ../crypto/threads_win.c:11:
 C:/msys64/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h:1483:53: note: expected 'volatile long int *' but argument is of type 'int *'
- __LONG32 _InterlockedExchangeAdd(__LONG32 volatile *Addend, __LONG32 Value) {
-                                                     ^
+ 1483 | __LONG32 _InterlockedExchangeAdd(__LONG32 volatile *Addend, __LONG32 Value) {
+      |                                                     ^
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/ts/ts_asn1.d.tmp -MT crypto/ts/ts_asn1.o -c -o crypto/ts/ts_asn1.o ../crypto/ts/ts_asn1.c
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/ts/ts_conf.d.tmp -MT crypto/ts/ts_conf.o -c -o crypto/ts/ts_conf.o ../crypto/ts/ts_conf.c
 gcc  -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF crypto/ts/ts_err.d.tmp -MT crypto/ts/ts_err.o -c -o crypto/ts/ts_err.o ../crypto/ts/ts_err.c
@@ -773,208 +795,208 @@ gcc  -Iinclude -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/testutil/tests.d.tmp -MT test/testutil/tests.o -c -o test/testutil/tests.o ../test/testutil/tests.c
 ../test/testutil/tests.c: In function 'test_size_t_eq':
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:202:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, eq, ==, fmt)                          \
-     ^~~~~~~~~~~~~~~~~
+  202 |     DEFINE_COMPARISON(type, name, eq, ==, fmt)                          \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:202:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, eq, ==, fmt)                          \
-     ^~~~~~~~~~~~~~~~~
+  202 |     DEFINE_COMPARISON(type, name, eq, ==, fmt)                          \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: too many arguments for format [-Wformat-extra-args]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:202:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, eq, ==, fmt)                          \
-     ^~~~~~~~~~~~~~~~~
+  202 |     DEFINE_COMPARISON(type, name, eq, ==, fmt)                          \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c: In function 'test_size_t_ne':
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:203:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, ne, !=, fmt)                          \
-     ^~~~~~~~~~~~~~~~~
+  203 |     DEFINE_COMPARISON(type, name, ne, !=, fmt)                          \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:203:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, ne, !=, fmt)                          \
-     ^~~~~~~~~~~~~~~~~
+  203 |     DEFINE_COMPARISON(type, name, ne, !=, fmt)                          \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: too many arguments for format [-Wformat-extra-args]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:203:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, ne, !=, fmt)                          \
-     ^~~~~~~~~~~~~~~~~
+  203 |     DEFINE_COMPARISON(type, name, ne, !=, fmt)                          \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c: In function 'test_size_t_lt':
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:204:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, lt, <, fmt)                           \
-     ^~~~~~~~~~~~~~~~~
+  204 |     DEFINE_COMPARISON(type, name, lt, <, fmt)                           \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:204:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, lt, <, fmt)                           \
-     ^~~~~~~~~~~~~~~~~
+  204 |     DEFINE_COMPARISON(type, name, lt, <, fmt)                           \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: too many arguments for format [-Wformat-extra-args]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:204:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, lt, <, fmt)                           \
-     ^~~~~~~~~~~~~~~~~
+  204 |     DEFINE_COMPARISON(type, name, lt, <, fmt)                           \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c: In function 'test_size_t_le':
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:205:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, le, <=, fmt)                          \
-     ^~~~~~~~~~~~~~~~~
+  205 |     DEFINE_COMPARISON(type, name, le, <=, fmt)                          \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:205:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, le, <=, fmt)                          \
-     ^~~~~~~~~~~~~~~~~
+  205 |     DEFINE_COMPARISON(type, name, le, <=, fmt)                          \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: too many arguments for format [-Wformat-extra-args]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:205:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, le, <=, fmt)                          \
-     ^~~~~~~~~~~~~~~~~
+  205 |     DEFINE_COMPARISON(type, name, le, <=, fmt)                          \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c: In function 'test_size_t_gt':
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:206:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, gt, >, fmt)                           \
-     ^~~~~~~~~~~~~~~~~
+  206 |     DEFINE_COMPARISON(type, name, gt, >, fmt)                           \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:206:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, gt, >, fmt)                           \
-     ^~~~~~~~~~~~~~~~~
+  206 |     DEFINE_COMPARISON(type, name, gt, >, fmt)                           \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: too many arguments for format [-Wformat-extra-args]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:206:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, gt, >, fmt)                           \
-     ^~~~~~~~~~~~~~~~~
+  206 |     DEFINE_COMPARISON(type, name, gt, >, fmt)                           \
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c: In function 'test_size_t_ge':
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:207:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, ge, >=, fmt)
-     ^~~~~~~~~~~~~~~~~
+  207 |     DEFINE_COMPARISON(type, name, ge, >=, fmt)
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:207:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, ge, >=, fmt)
-     ^~~~~~~~~~~~~~~~~
+  207 |     DEFINE_COMPARISON(type, name, ge, >=, fmt)
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:38: note: format string is defined here
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
-                                      ^
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      |                                      ^
 ../test/testutil/tests.c:196:27: warning: too many arguments for format [-Wformat-extra-args]
-                           "[" fmt "] compared to [" fmt "]",            \
-                           ^~~
+  196 |                           "[" fmt "] compared to [" fmt "]",            \
+      |                           ^~~
 ../test/testutil/tests.c:207:5: note: in expansion of macro 'DEFINE_COMPARISON'
-     DEFINE_COMPARISON(type, name, ge, >=, fmt)
-     ^~~~~~~~~~~~~~~~~
+  207 |     DEFINE_COMPARISON(type, name, ge, >=, fmt)
+      |     ^~~~~~~~~~~~~~~~~
 ../test/testutil/tests.c:215:1: note: in expansion of macro 'DEFINE_COMPARISONS'
- DEFINE_COMPARISONS(size_t, size_t, "%zu")
- ^~~~~~~~~~~~~~~~~~
+  215 | DEFINE_COMPARISONS(size_t, size_t, "%zu")
+      | ^~~~~~~~~~~~~~~~~~
 ar r test/libtestutil.a test/testutil/basic_output.o test/testutil/cb.o test/testutil/driver.o test/testutil/format_output.o test/testutil/init.o test/testutil/main.o test/testutil/output_helpers.o test/testutil/stanza.o test/testutil/tap_bio.o test/testutil/test_cleanup.o test/testutil/tests.o
 C:\msys64\mingw64\bin\ar.exe: creating test/libtestutil.a
 ranlib test/libtestutil.a || echo Never mind.
@@ -1076,16 +1098,16 @@ ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF fuzz/asn1.d.tmp -MT fuzz/asn1.o -c -o fuzz/asn1.o ../fuzz/asn1.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF fuzz/test-corpus.d.tmp -MT fuzz/test-corpus.o -c -o fuzz/test-corpus.o ../fuzz/test-corpus.c
 ../fuzz/test-corpus.c:26: warning: "PATH_MAX" redefined
- # define PATH_MAX _MAX_PATH
- 
-In file included from C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.2.0/include-fixed/limits.h:194,
-                 from C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.2.0/include-fixed/syslimits.h:7,
-                 from C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.2.0/include-fixed/limits.h:34,
-                 from C:/msys64/mingw64/x86_64-w64-mingw32/include/stdlib.h:10,
+   26 | # define PATH_MAX _MAX_PATH
+      | 
+In file included from C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/9.1.0/include-fixed/limits.h:194,
+                 from C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/9.1.0/include-fixed/syslimits.h:7,
+                 from C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/9.1.0/include-fixed/limits.h:34,
+                 from C:/msys64/mingw64/x86_64-w64-mingw32/include/stdlib.h:11,
                  from ../fuzz/test-corpus.c:18:
 C:/msys64/mingw64/x86_64-w64-mingw32/include/limits.h:20: note: this is the location of the previous definition
- #define PATH_MAX 260
- 
+   20 | #define PATH_MAX 260
+      | 
 rm -f fuzz/asn1-test.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o fuzz/asn1-test.exe fuzz/asn1.o fuzz/test-corpus.o \
@@ -1163,60 +1185,84 @@ ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 gcc  -I. -Iinclude -Icrypto/include -I.. -I../include -I../crypto/include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/asn1_internal_test.d.tmp -MT test/asn1_internal_test.o -c -o test/asn1_internal_test.o ../test/asn1_internal_test.c
 ../test/asn1_internal_test.c: In function 'test_tbl_standard':
 ../test/asn1_internal_test.c:50:46: warning: unknown conversion type character 'z' in format [-Wformat=]
-         TEST_note("asn1 tbl_standard: Index %zu, NID %d, Name=%s",
-                                              ^
+   50 |         TEST_note("asn1 tbl_standard: Index %zu, NID %d, Name=%s",
+      |                                              ^
 ../test/asn1_internal_test.c:50:55: warning: format '%d' expects argument of type 'int', but argument 2 has type 'size_t' {aka 'long long unsigned int'} [-Wformat=]
-         TEST_note("asn1 tbl_standard: Index %zu, NID %d, Name=%s",
-                                                      ~^
-                                                      %I64d
-                   i, tmp->nid, OBJ_nid2ln(tmp->nid));
-                   ~                                    
+   50 |         TEST_note("asn1 tbl_standard: Index %zu, NID %d, Name=%s",
+      |                                                      ~^
+      |                                                       |
+      |                                                       int
+      |                                                      %I64d
+   51 |                   i, tmp->nid, OBJ_nid2ln(tmp->nid));
+      |                   ~                                    
+      |                   |
+      |                   size_t {aka long long unsigned int}
 ../test/asn1_internal_test.c:50:64: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int' [-Wformat=]
-         TEST_note("asn1 tbl_standard: Index %zu, NID %d, Name=%s",
-                                                               ~^
-                                                               %d
-                   i, tmp->nid, OBJ_nid2ln(tmp->nid));
-                      ~~~~~~~~                                   
+   50 |         TEST_note("asn1 tbl_standard: Index %zu, NID %d, Name=%s",
+      |                                                               ~^
+      |                                                                |
+      |                                                                char *
+      |                                                               %d
+   51 |                   i, tmp->nid, OBJ_nid2ln(tmp->nid));
+      |                      ~~~~~~~~                                   
+      |                         |
+      |                         int
 ../test/asn1_internal_test.c:50:19: warning: too many arguments for format [-Wformat-extra-args]
-         TEST_note("asn1 tbl_standard: Index %zu, NID %d, Name=%s",
-                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   50 |         TEST_note("asn1 tbl_standard: Index %zu, NID %d, Name=%s",
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/asn1_internal_test.c: In function 'test_standard_methods':
 ../test/asn1_internal_test.c:90:54: warning: unknown conversion type character 'z' in format [-Wformat=]
-             TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
-                                                      ^
+   90 |             TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
+      |                                                      ^
 ../test/asn1_internal_test.c:90:67: warning: format '%d' expects argument of type 'int', but argument 2 has type 'size_t' {aka 'long long unsigned int'} [-Wformat=]
-             TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
-                                                                  ~^
-                                                                  %I64d
-                       i, (*tmp)->pkey_id, OBJ_nid2sn((*tmp)->pkey_id));
-                       ~                                            
+   90 |             TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
+      |                                                                  ~^
+      |                                                                   |
+      |                                                                   int
+      |                                                                  %I64d
+   91 |                       i, (*tmp)->pkey_id, OBJ_nid2sn((*tmp)->pkey_id));
+      |                       ~                                            
+      |                       |
+      |                       size_t {aka long long unsigned int}
 ../test/asn1_internal_test.c:90:76: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int' [-Wformat=]
-             TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
-                                                                           ~^
-                                                                           %d
-                       i, (*tmp)->pkey_id, OBJ_nid2sn((*tmp)->pkey_id));
-                          ~~~~~~~~~~~~~~~                                    
+   90 |             TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
+      |                                                                           ~^
+      |                                                                            |
+      |                                                                            char *
+      |                                                                           %d
+   91 |                       i, (*tmp)->pkey_id, OBJ_nid2sn((*tmp)->pkey_id));
+      |                          ~~~~~~~~~~~~~~~                                    
+      |                                |
+      |                                int
 ../test/asn1_internal_test.c:90:23: warning: too many arguments for format [-Wformat-extra-args]
-             TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/asn1_internal_test.c:104:50: warning: unknown conversion type character 'z' in format [-Wformat=]
-         TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
-                                                  ^
+  104 |         TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
+      |                                                  ^
 ../test/asn1_internal_test.c:104:63: warning: format '%d' expects argument of type 'int', but argument 2 has type 'size_t' {aka 'long long unsigned int'} [-Wformat=]
-         TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
-                                                              ~^
-                                                              %I64d
-                   i, (*tmp)->pkey_id, OBJ_nid2sn((*tmp)->pkey_id));
-                   ~                                            
+  104 |         TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
+      |                                                              ~^
+      |                                                               |
+      |                                                               int
+      |                                                              %I64d
+  105 |                   i, (*tmp)->pkey_id, OBJ_nid2sn((*tmp)->pkey_id));
+      |                   ~                                            
+      |                   |
+      |                   size_t {aka long long unsigned int}
 ../test/asn1_internal_test.c:104:72: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int' [-Wformat=]
-         TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
-                                                                       ~^
-                                                                       %d
-                   i, (*tmp)->pkey_id, OBJ_nid2sn((*tmp)->pkey_id));
-                      ~~~~~~~~~~~~~~~                                    
+  104 |         TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
+      |                                                                       ~^
+      |                                                                        |
+      |                                                                        char *
+      |                                                                       %d
+  105 |                   i, (*tmp)->pkey_id, OBJ_nid2sn((*tmp)->pkey_id));
+      |                      ~~~~~~~~~~~~~~~                                    
+      |                            |
+      |                            int
 ../test/asn1_internal_test.c:104:19: warning: too many arguments for format [-Wformat-extra-args]
-         TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
-                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  104 |         TEST_note("asn1 standard methods: Index %zu, pkey ID %d, Name=%s",
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 rm -f test/asn1_internal_test.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/asn1_internal_test.exe test/asn1_internal_test.o \
@@ -1262,6 +1308,11 @@ rm -f test/bio_enc_test.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/bio_enc_test.exe test/bio_enc_test.o \
 	 test/libtestutil.a -lcrypto -lws2_32 -lgdi32 -lcrypt32 
+gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/bio_memleak_test.d.tmp -MT test/bio_memleak_test.o -c -o test/bio_memleak_test.o ../test/bio_memleak_test.c
+rm -f test/bio_memleak_test.exe
+${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
+	-o test/bio_memleak_test.exe test/bio_memleak_test.o \
+	 test/libtestutil.a -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/bioprinttest.d.tmp -MT test/bioprinttest.o -c -o test/bioprinttest.o ../test/bioprinttest.c
 rm -f test/bioprinttest.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
@@ -1274,429 +1325,429 @@ ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	 test/libtestutil.a -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl aes > test/buildtest_aes.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_aes.d.tmp -MT test/buildtest_aes.o -c -o test/buildtest_aes.o test/buildtest_aes.c
-rm -f test/buildtest_aes.exe
+rm -f test/buildtest_c_aes.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_aes.exe test/buildtest_aes.o \
+	-o test/buildtest_c_aes.exe test/buildtest_aes.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl asn1 > test/buildtest_asn1.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_asn1.d.tmp -MT test/buildtest_asn1.o -c -o test/buildtest_asn1.o test/buildtest_asn1.c
-rm -f test/buildtest_asn1.exe
+rm -f test/buildtest_c_asn1.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_asn1.exe test/buildtest_asn1.o \
+	-o test/buildtest_c_asn1.exe test/buildtest_asn1.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl asn1t > test/buildtest_asn1t.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_asn1t.d.tmp -MT test/buildtest_asn1t.o -c -o test/buildtest_asn1t.o test/buildtest_asn1t.c
-rm -f test/buildtest_asn1t.exe
+rm -f test/buildtest_c_asn1t.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_asn1t.exe test/buildtest_asn1t.o \
+	-o test/buildtest_c_asn1t.exe test/buildtest_asn1t.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl async > test/buildtest_async.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_async.d.tmp -MT test/buildtest_async.o -c -o test/buildtest_async.o test/buildtest_async.c
-rm -f test/buildtest_async.exe
+rm -f test/buildtest_c_async.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_async.exe test/buildtest_async.o \
+	-o test/buildtest_c_async.exe test/buildtest_async.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl bio > test/buildtest_bio.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_bio.d.tmp -MT test/buildtest_bio.o -c -o test/buildtest_bio.o test/buildtest_bio.c
-rm -f test/buildtest_bio.exe
+rm -f test/buildtest_c_bio.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_bio.exe test/buildtest_bio.o \
+	-o test/buildtest_c_bio.exe test/buildtest_bio.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl blowfish > test/buildtest_blowfish.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_blowfish.d.tmp -MT test/buildtest_blowfish.o -c -o test/buildtest_blowfish.o test/buildtest_blowfish.c
-rm -f test/buildtest_blowfish.exe
+rm -f test/buildtest_c_blowfish.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_blowfish.exe test/buildtest_blowfish.o \
+	-o test/buildtest_c_blowfish.exe test/buildtest_blowfish.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl bn > test/buildtest_bn.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_bn.d.tmp -MT test/buildtest_bn.o -c -o test/buildtest_bn.o test/buildtest_bn.c
-rm -f test/buildtest_bn.exe
+rm -f test/buildtest_c_bn.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_bn.exe test/buildtest_bn.o \
+	-o test/buildtest_c_bn.exe test/buildtest_bn.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl buffer > test/buildtest_buffer.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_buffer.d.tmp -MT test/buildtest_buffer.o -c -o test/buildtest_buffer.o test/buildtest_buffer.c
-rm -f test/buildtest_buffer.exe
+rm -f test/buildtest_c_buffer.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_buffer.exe test/buildtest_buffer.o \
+	-o test/buildtest_c_buffer.exe test/buildtest_buffer.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl camellia > test/buildtest_camellia.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_camellia.d.tmp -MT test/buildtest_camellia.o -c -o test/buildtest_camellia.o test/buildtest_camellia.c
-rm -f test/buildtest_camellia.exe
+rm -f test/buildtest_c_camellia.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_camellia.exe test/buildtest_camellia.o \
+	-o test/buildtest_c_camellia.exe test/buildtest_camellia.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl cast > test/buildtest_cast.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_cast.d.tmp -MT test/buildtest_cast.o -c -o test/buildtest_cast.o test/buildtest_cast.c
-rm -f test/buildtest_cast.exe
+rm -f test/buildtest_c_cast.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_cast.exe test/buildtest_cast.o \
+	-o test/buildtest_c_cast.exe test/buildtest_cast.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl cmac > test/buildtest_cmac.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_cmac.d.tmp -MT test/buildtest_cmac.o -c -o test/buildtest_cmac.o test/buildtest_cmac.c
-rm -f test/buildtest_cmac.exe
+rm -f test/buildtest_c_cmac.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_cmac.exe test/buildtest_cmac.o \
+	-o test/buildtest_c_cmac.exe test/buildtest_cmac.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl cms > test/buildtest_cms.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_cms.d.tmp -MT test/buildtest_cms.o -c -o test/buildtest_cms.o test/buildtest_cms.c
-rm -f test/buildtest_cms.exe
+rm -f test/buildtest_c_cms.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_cms.exe test/buildtest_cms.o \
+	-o test/buildtest_c_cms.exe test/buildtest_cms.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl comp > test/buildtest_comp.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_comp.d.tmp -MT test/buildtest_comp.o -c -o test/buildtest_comp.o test/buildtest_comp.c
-rm -f test/buildtest_comp.exe
+rm -f test/buildtest_c_comp.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_comp.exe test/buildtest_comp.o \
+	-o test/buildtest_c_comp.exe test/buildtest_comp.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl conf > test/buildtest_conf.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_conf.d.tmp -MT test/buildtest_conf.o -c -o test/buildtest_conf.o test/buildtest_conf.c
-rm -f test/buildtest_conf.exe
+rm -f test/buildtest_c_conf.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_conf.exe test/buildtest_conf.o \
+	-o test/buildtest_c_conf.exe test/buildtest_conf.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl conf_api > test/buildtest_conf_api.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_conf_api.d.tmp -MT test/buildtest_conf_api.o -c -o test/buildtest_conf_api.o test/buildtest_conf_api.c
-rm -f test/buildtest_conf_api.exe
+rm -f test/buildtest_c_conf_api.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_conf_api.exe test/buildtest_conf_api.o \
+	-o test/buildtest_c_conf_api.exe test/buildtest_conf_api.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl crypto > test/buildtest_crypto.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_crypto.d.tmp -MT test/buildtest_crypto.o -c -o test/buildtest_crypto.o test/buildtest_crypto.c
-rm -f test/buildtest_crypto.exe
+rm -f test/buildtest_c_crypto.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_crypto.exe test/buildtest_crypto.o \
+	-o test/buildtest_c_crypto.exe test/buildtest_crypto.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ct > test/buildtest_ct.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ct.d.tmp -MT test/buildtest_ct.o -c -o test/buildtest_ct.o test/buildtest_ct.c
-rm -f test/buildtest_ct.exe
+rm -f test/buildtest_c_ct.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ct.exe test/buildtest_ct.o \
+	-o test/buildtest_c_ct.exe test/buildtest_ct.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl des > test/buildtest_des.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_des.d.tmp -MT test/buildtest_des.o -c -o test/buildtest_des.o test/buildtest_des.c
-rm -f test/buildtest_des.exe
+rm -f test/buildtest_c_des.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_des.exe test/buildtest_des.o \
+	-o test/buildtest_c_des.exe test/buildtest_des.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl dh > test/buildtest_dh.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_dh.d.tmp -MT test/buildtest_dh.o -c -o test/buildtest_dh.o test/buildtest_dh.c
-rm -f test/buildtest_dh.exe
+rm -f test/buildtest_c_dh.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_dh.exe test/buildtest_dh.o \
+	-o test/buildtest_c_dh.exe test/buildtest_dh.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl dsa > test/buildtest_dsa.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_dsa.d.tmp -MT test/buildtest_dsa.o -c -o test/buildtest_dsa.o test/buildtest_dsa.c
-rm -f test/buildtest_dsa.exe
+rm -f test/buildtest_c_dsa.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_dsa.exe test/buildtest_dsa.o \
+	-o test/buildtest_c_dsa.exe test/buildtest_dsa.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl dtls1 > test/buildtest_dtls1.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_dtls1.d.tmp -MT test/buildtest_dtls1.o -c -o test/buildtest_dtls1.o test/buildtest_dtls1.c
-rm -f test/buildtest_dtls1.exe
+rm -f test/buildtest_c_dtls1.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_dtls1.exe test/buildtest_dtls1.o \
+	-o test/buildtest_c_dtls1.exe test/buildtest_dtls1.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl e_os2 > test/buildtest_e_os2.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_e_os2.d.tmp -MT test/buildtest_e_os2.o -c -o test/buildtest_e_os2.o test/buildtest_e_os2.c
-rm -f test/buildtest_e_os2.exe
+rm -f test/buildtest_c_e_os2.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_e_os2.exe test/buildtest_e_os2.o \
+	-o test/buildtest_c_e_os2.exe test/buildtest_e_os2.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ebcdic > test/buildtest_ebcdic.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ebcdic.d.tmp -MT test/buildtest_ebcdic.o -c -o test/buildtest_ebcdic.o test/buildtest_ebcdic.c
-rm -f test/buildtest_ebcdic.exe
+rm -f test/buildtest_c_ebcdic.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ebcdic.exe test/buildtest_ebcdic.o \
+	-o test/buildtest_c_ebcdic.exe test/buildtest_ebcdic.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ec > test/buildtest_ec.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ec.d.tmp -MT test/buildtest_ec.o -c -o test/buildtest_ec.o test/buildtest_ec.c
-rm -f test/buildtest_ec.exe
+rm -f test/buildtest_c_ec.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ec.exe test/buildtest_ec.o \
+	-o test/buildtest_c_ec.exe test/buildtest_ec.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ecdh > test/buildtest_ecdh.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ecdh.d.tmp -MT test/buildtest_ecdh.o -c -o test/buildtest_ecdh.o test/buildtest_ecdh.c
-rm -f test/buildtest_ecdh.exe
+rm -f test/buildtest_c_ecdh.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ecdh.exe test/buildtest_ecdh.o \
+	-o test/buildtest_c_ecdh.exe test/buildtest_ecdh.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ecdsa > test/buildtest_ecdsa.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ecdsa.d.tmp -MT test/buildtest_ecdsa.o -c -o test/buildtest_ecdsa.o test/buildtest_ecdsa.c
-rm -f test/buildtest_ecdsa.exe
+rm -f test/buildtest_c_ecdsa.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ecdsa.exe test/buildtest_ecdsa.o \
+	-o test/buildtest_c_ecdsa.exe test/buildtest_ecdsa.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl engine > test/buildtest_engine.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_engine.d.tmp -MT test/buildtest_engine.o -c -o test/buildtest_engine.o test/buildtest_engine.c
-rm -f test/buildtest_engine.exe
+rm -f test/buildtest_c_engine.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_engine.exe test/buildtest_engine.o \
+	-o test/buildtest_c_engine.exe test/buildtest_engine.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl evp > test/buildtest_evp.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_evp.d.tmp -MT test/buildtest_evp.o -c -o test/buildtest_evp.o test/buildtest_evp.c
-rm -f test/buildtest_evp.exe
+rm -f test/buildtest_c_evp.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_evp.exe test/buildtest_evp.o \
+	-o test/buildtest_c_evp.exe test/buildtest_evp.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl hmac > test/buildtest_hmac.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_hmac.d.tmp -MT test/buildtest_hmac.o -c -o test/buildtest_hmac.o test/buildtest_hmac.c
-rm -f test/buildtest_hmac.exe
+rm -f test/buildtest_c_hmac.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_hmac.exe test/buildtest_hmac.o \
+	-o test/buildtest_c_hmac.exe test/buildtest_hmac.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl idea > test/buildtest_idea.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_idea.d.tmp -MT test/buildtest_idea.o -c -o test/buildtest_idea.o test/buildtest_idea.c
-rm -f test/buildtest_idea.exe
+rm -f test/buildtest_c_idea.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_idea.exe test/buildtest_idea.o \
+	-o test/buildtest_c_idea.exe test/buildtest_idea.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl kdf > test/buildtest_kdf.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_kdf.d.tmp -MT test/buildtest_kdf.o -c -o test/buildtest_kdf.o test/buildtest_kdf.c
-rm -f test/buildtest_kdf.exe
+rm -f test/buildtest_c_kdf.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_kdf.exe test/buildtest_kdf.o \
+	-o test/buildtest_c_kdf.exe test/buildtest_kdf.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl lhash > test/buildtest_lhash.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_lhash.d.tmp -MT test/buildtest_lhash.o -c -o test/buildtest_lhash.o test/buildtest_lhash.c
-rm -f test/buildtest_lhash.exe
+rm -f test/buildtest_c_lhash.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_lhash.exe test/buildtest_lhash.o \
+	-o test/buildtest_c_lhash.exe test/buildtest_lhash.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl md2 > test/buildtest_md2.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_md2.d.tmp -MT test/buildtest_md2.o -c -o test/buildtest_md2.o test/buildtest_md2.c
-rm -f test/buildtest_md2.exe
+rm -f test/buildtest_c_md2.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_md2.exe test/buildtest_md2.o \
+	-o test/buildtest_c_md2.exe test/buildtest_md2.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl md4 > test/buildtest_md4.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_md4.d.tmp -MT test/buildtest_md4.o -c -o test/buildtest_md4.o test/buildtest_md4.c
-rm -f test/buildtest_md4.exe
+rm -f test/buildtest_c_md4.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_md4.exe test/buildtest_md4.o \
+	-o test/buildtest_c_md4.exe test/buildtest_md4.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl md5 > test/buildtest_md5.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_md5.d.tmp -MT test/buildtest_md5.o -c -o test/buildtest_md5.o test/buildtest_md5.c
-rm -f test/buildtest_md5.exe
+rm -f test/buildtest_c_md5.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_md5.exe test/buildtest_md5.o \
+	-o test/buildtest_c_md5.exe test/buildtest_md5.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl modes > test/buildtest_modes.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_modes.d.tmp -MT test/buildtest_modes.o -c -o test/buildtest_modes.o test/buildtest_modes.c
-rm -f test/buildtest_modes.exe
+rm -f test/buildtest_c_modes.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_modes.exe test/buildtest_modes.o \
+	-o test/buildtest_c_modes.exe test/buildtest_modes.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl obj_mac > test/buildtest_obj_mac.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_obj_mac.d.tmp -MT test/buildtest_obj_mac.o -c -o test/buildtest_obj_mac.o test/buildtest_obj_mac.c
-rm -f test/buildtest_obj_mac.exe
+rm -f test/buildtest_c_obj_mac.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_obj_mac.exe test/buildtest_obj_mac.o \
+	-o test/buildtest_c_obj_mac.exe test/buildtest_obj_mac.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl objects > test/buildtest_objects.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_objects.d.tmp -MT test/buildtest_objects.o -c -o test/buildtest_objects.o test/buildtest_objects.c
-rm -f test/buildtest_objects.exe
+rm -f test/buildtest_c_objects.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_objects.exe test/buildtest_objects.o \
+	-o test/buildtest_c_objects.exe test/buildtest_objects.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ocsp > test/buildtest_ocsp.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ocsp.d.tmp -MT test/buildtest_ocsp.o -c -o test/buildtest_ocsp.o test/buildtest_ocsp.c
-rm -f test/buildtest_ocsp.exe
+rm -f test/buildtest_c_ocsp.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ocsp.exe test/buildtest_ocsp.o \
+	-o test/buildtest_c_ocsp.exe test/buildtest_ocsp.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl opensslv > test/buildtest_opensslv.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_opensslv.d.tmp -MT test/buildtest_opensslv.o -c -o test/buildtest_opensslv.o test/buildtest_opensslv.c
-rm -f test/buildtest_opensslv.exe
+rm -f test/buildtest_c_opensslv.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_opensslv.exe test/buildtest_opensslv.o \
+	-o test/buildtest_c_opensslv.exe test/buildtest_opensslv.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ossl_typ > test/buildtest_ossl_typ.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ossl_typ.d.tmp -MT test/buildtest_ossl_typ.o -c -o test/buildtest_ossl_typ.o test/buildtest_ossl_typ.c
-rm -f test/buildtest_ossl_typ.exe
+rm -f test/buildtest_c_ossl_typ.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ossl_typ.exe test/buildtest_ossl_typ.o \
+	-o test/buildtest_c_ossl_typ.exe test/buildtest_ossl_typ.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl pem > test/buildtest_pem.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_pem.d.tmp -MT test/buildtest_pem.o -c -o test/buildtest_pem.o test/buildtest_pem.c
-rm -f test/buildtest_pem.exe
+rm -f test/buildtest_c_pem.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_pem.exe test/buildtest_pem.o \
+	-o test/buildtest_c_pem.exe test/buildtest_pem.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl pem2 > test/buildtest_pem2.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_pem2.d.tmp -MT test/buildtest_pem2.o -c -o test/buildtest_pem2.o test/buildtest_pem2.c
-rm -f test/buildtest_pem2.exe
+rm -f test/buildtest_c_pem2.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_pem2.exe test/buildtest_pem2.o \
+	-o test/buildtest_c_pem2.exe test/buildtest_pem2.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl pkcs12 > test/buildtest_pkcs12.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_pkcs12.d.tmp -MT test/buildtest_pkcs12.o -c -o test/buildtest_pkcs12.o test/buildtest_pkcs12.c
-rm -f test/buildtest_pkcs12.exe
+rm -f test/buildtest_c_pkcs12.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_pkcs12.exe test/buildtest_pkcs12.o \
+	-o test/buildtest_c_pkcs12.exe test/buildtest_pkcs12.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl pkcs7 > test/buildtest_pkcs7.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_pkcs7.d.tmp -MT test/buildtest_pkcs7.o -c -o test/buildtest_pkcs7.o test/buildtest_pkcs7.c
-rm -f test/buildtest_pkcs7.exe
+rm -f test/buildtest_c_pkcs7.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_pkcs7.exe test/buildtest_pkcs7.o \
+	-o test/buildtest_c_pkcs7.exe test/buildtest_pkcs7.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl rand > test/buildtest_rand.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_rand.d.tmp -MT test/buildtest_rand.o -c -o test/buildtest_rand.o test/buildtest_rand.c
-rm -f test/buildtest_rand.exe
+rm -f test/buildtest_c_rand.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_rand.exe test/buildtest_rand.o \
+	-o test/buildtest_c_rand.exe test/buildtest_rand.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl rand_drbg > test/buildtest_rand_drbg.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_rand_drbg.d.tmp -MT test/buildtest_rand_drbg.o -c -o test/buildtest_rand_drbg.o test/buildtest_rand_drbg.c
-rm -f test/buildtest_rand_drbg.exe
+rm -f test/buildtest_c_rand_drbg.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_rand_drbg.exe test/buildtest_rand_drbg.o \
+	-o test/buildtest_c_rand_drbg.exe test/buildtest_rand_drbg.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl rc2 > test/buildtest_rc2.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_rc2.d.tmp -MT test/buildtest_rc2.o -c -o test/buildtest_rc2.o test/buildtest_rc2.c
-rm -f test/buildtest_rc2.exe
+rm -f test/buildtest_c_rc2.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_rc2.exe test/buildtest_rc2.o \
+	-o test/buildtest_c_rc2.exe test/buildtest_rc2.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl rc4 > test/buildtest_rc4.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_rc4.d.tmp -MT test/buildtest_rc4.o -c -o test/buildtest_rc4.o test/buildtest_rc4.c
-rm -f test/buildtest_rc4.exe
+rm -f test/buildtest_c_rc4.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_rc4.exe test/buildtest_rc4.o \
+	-o test/buildtest_c_rc4.exe test/buildtest_rc4.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl rc5 > test/buildtest_rc5.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_rc5.d.tmp -MT test/buildtest_rc5.o -c -o test/buildtest_rc5.o test/buildtest_rc5.c
-rm -f test/buildtest_rc5.exe
+rm -f test/buildtest_c_rc5.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_rc5.exe test/buildtest_rc5.o \
+	-o test/buildtest_c_rc5.exe test/buildtest_rc5.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ripemd > test/buildtest_ripemd.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ripemd.d.tmp -MT test/buildtest_ripemd.o -c -o test/buildtest_ripemd.o test/buildtest_ripemd.c
-rm -f test/buildtest_ripemd.exe
+rm -f test/buildtest_c_ripemd.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ripemd.exe test/buildtest_ripemd.o \
+	-o test/buildtest_c_ripemd.exe test/buildtest_ripemd.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl rsa > test/buildtest_rsa.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_rsa.d.tmp -MT test/buildtest_rsa.o -c -o test/buildtest_rsa.o test/buildtest_rsa.c
-rm -f test/buildtest_rsa.exe
+rm -f test/buildtest_c_rsa.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_rsa.exe test/buildtest_rsa.o \
+	-o test/buildtest_c_rsa.exe test/buildtest_rsa.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl safestack > test/buildtest_safestack.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_safestack.d.tmp -MT test/buildtest_safestack.o -c -o test/buildtest_safestack.o test/buildtest_safestack.c
-rm -f test/buildtest_safestack.exe
+rm -f test/buildtest_c_safestack.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_safestack.exe test/buildtest_safestack.o \
+	-o test/buildtest_c_safestack.exe test/buildtest_safestack.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl seed > test/buildtest_seed.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_seed.d.tmp -MT test/buildtest_seed.o -c -o test/buildtest_seed.o test/buildtest_seed.c
-rm -f test/buildtest_seed.exe
+rm -f test/buildtest_c_seed.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_seed.exe test/buildtest_seed.o \
+	-o test/buildtest_c_seed.exe test/buildtest_seed.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl sha > test/buildtest_sha.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_sha.d.tmp -MT test/buildtest_sha.o -c -o test/buildtest_sha.o test/buildtest_sha.c
-rm -f test/buildtest_sha.exe
+rm -f test/buildtest_c_sha.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_sha.exe test/buildtest_sha.o \
+	-o test/buildtest_c_sha.exe test/buildtest_sha.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl srp > test/buildtest_srp.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_srp.d.tmp -MT test/buildtest_srp.o -c -o test/buildtest_srp.o test/buildtest_srp.c
-rm -f test/buildtest_srp.exe
+rm -f test/buildtest_c_srp.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_srp.exe test/buildtest_srp.o \
+	-o test/buildtest_c_srp.exe test/buildtest_srp.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl srtp > test/buildtest_srtp.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_srtp.d.tmp -MT test/buildtest_srtp.o -c -o test/buildtest_srtp.o test/buildtest_srtp.c
-rm -f test/buildtest_srtp.exe
+rm -f test/buildtest_c_srtp.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_srtp.exe test/buildtest_srtp.o \
+	-o test/buildtest_c_srtp.exe test/buildtest_srtp.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ssl > test/buildtest_ssl.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ssl.d.tmp -MT test/buildtest_ssl.o -c -o test/buildtest_ssl.o test/buildtest_ssl.c
-rm -f test/buildtest_ssl.exe
+rm -f test/buildtest_c_ssl.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ssl.exe test/buildtest_ssl.o \
+	-o test/buildtest_c_ssl.exe test/buildtest_ssl.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ssl2 > test/buildtest_ssl2.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ssl2.d.tmp -MT test/buildtest_ssl2.o -c -o test/buildtest_ssl2.o test/buildtest_ssl2.c
-rm -f test/buildtest_ssl2.exe
+rm -f test/buildtest_c_ssl2.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ssl2.exe test/buildtest_ssl2.o \
+	-o test/buildtest_c_ssl2.exe test/buildtest_ssl2.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ssl3 > test/buildtest_ssl3.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ssl3.d.tmp -MT test/buildtest_ssl3.o -c -o test/buildtest_ssl3.o test/buildtest_ssl3.c
-rm -f test/buildtest_ssl3.exe
+rm -f test/buildtest_c_ssl3.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ssl3.exe test/buildtest_ssl3.o \
+	-o test/buildtest_c_ssl3.exe test/buildtest_ssl3.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl stack > test/buildtest_stack.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_stack.d.tmp -MT test/buildtest_stack.o -c -o test/buildtest_stack.o test/buildtest_stack.c
-rm -f test/buildtest_stack.exe
+rm -f test/buildtest_c_stack.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_stack.exe test/buildtest_stack.o \
+	-o test/buildtest_c_stack.exe test/buildtest_stack.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl store > test/buildtest_store.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_store.d.tmp -MT test/buildtest_store.o -c -o test/buildtest_store.o test/buildtest_store.c
-rm -f test/buildtest_store.exe
+rm -f test/buildtest_c_store.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_store.exe test/buildtest_store.o \
+	-o test/buildtest_c_store.exe test/buildtest_store.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl symhacks > test/buildtest_symhacks.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_symhacks.d.tmp -MT test/buildtest_symhacks.o -c -o test/buildtest_symhacks.o test/buildtest_symhacks.c
-rm -f test/buildtest_symhacks.exe
+rm -f test/buildtest_c_symhacks.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_symhacks.exe test/buildtest_symhacks.o \
+	-o test/buildtest_c_symhacks.exe test/buildtest_symhacks.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl tls1 > test/buildtest_tls1.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_tls1.d.tmp -MT test/buildtest_tls1.o -c -o test/buildtest_tls1.o test/buildtest_tls1.c
-rm -f test/buildtest_tls1.exe
+rm -f test/buildtest_c_tls1.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_tls1.exe test/buildtest_tls1.o \
+	-o test/buildtest_c_tls1.exe test/buildtest_tls1.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ts > test/buildtest_ts.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ts.d.tmp -MT test/buildtest_ts.o -c -o test/buildtest_ts.o test/buildtest_ts.c
-rm -f test/buildtest_ts.exe
+rm -f test/buildtest_c_ts.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ts.exe test/buildtest_ts.o \
+	-o test/buildtest_c_ts.exe test/buildtest_ts.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl txt_db > test/buildtest_txt_db.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_txt_db.d.tmp -MT test/buildtest_txt_db.o -c -o test/buildtest_txt_db.o test/buildtest_txt_db.c
-rm -f test/buildtest_txt_db.exe
+rm -f test/buildtest_c_txt_db.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_txt_db.exe test/buildtest_txt_db.o \
+	-o test/buildtest_c_txt_db.exe test/buildtest_txt_db.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl ui > test/buildtest_ui.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_ui.d.tmp -MT test/buildtest_ui.o -c -o test/buildtest_ui.o test/buildtest_ui.c
-rm -f test/buildtest_ui.exe
+rm -f test/buildtest_c_ui.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_ui.exe test/buildtest_ui.o \
+	-o test/buildtest_c_ui.exe test/buildtest_ui.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl whrlpool > test/buildtest_whrlpool.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_whrlpool.d.tmp -MT test/buildtest_whrlpool.o -c -o test/buildtest_whrlpool.o test/buildtest_whrlpool.c
-rm -f test/buildtest_whrlpool.exe
+rm -f test/buildtest_c_whrlpool.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_whrlpool.exe test/buildtest_whrlpool.o \
+	-o test/buildtest_c_whrlpool.exe test/buildtest_whrlpool.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl x509 > test/buildtest_x509.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_x509.d.tmp -MT test/buildtest_x509.o -c -o test/buildtest_x509.o test/buildtest_x509.c
-rm -f test/buildtest_x509.exe
+rm -f test/buildtest_c_x509.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_x509.exe test/buildtest_x509.o \
+	-o test/buildtest_c_x509.exe test/buildtest_x509.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl x509_vfy > test/buildtest_x509_vfy.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_x509_vfy.d.tmp -MT test/buildtest_x509_vfy.o -c -o test/buildtest_x509_vfy.o test/buildtest_x509_vfy.c
-rm -f test/buildtest_x509_vfy.exe
+rm -f test/buildtest_c_x509_vfy.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_x509_vfy.exe test/buildtest_x509_vfy.o \
+	-o test/buildtest_c_x509_vfy.exe test/buildtest_x509_vfy.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 /usr/bin/perl ../test/generate_buildtest.pl x509v3 > test/buildtest_x509v3.c
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/buildtest_x509v3.d.tmp -MT test/buildtest_x509v3.o -c -o test/buildtest_x509v3.o test/buildtest_x509v3.c
-rm -f test/buildtest_x509v3.exe
+rm -f test/buildtest_c_x509v3.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
-	-o test/buildtest_x509v3.exe test/buildtest_x509v3.o \
+	-o test/buildtest_c_x509v3.exe test/buildtest_x509v3.o \
 	 -lssl -lcrypto -lws2_32 -lgdi32 -lcrypt32 
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/casttest.d.tmp -MT test/casttest.o -c -o test/casttest.o ../test/casttest.c
 rm -f test/casttest.exe
@@ -1808,23 +1859,31 @@ gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32
 In file included from ../test/dtls_mtu_test.c:18:
 ../test/dtls_mtu_test.c: In function 'mtu_test':
 ../test/dtls_mtu_test.c:107:23: warning: unknown conversion type character 'z' in format [-Wformat=]
-             TEST_info("record %zu for payload %zu", reclen, s);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  107 |             TEST_info("record %zu for payload %zu", reclen, s);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/dtls_mtu_test.c:107:32: note: format string is defined here
+  107 |             TEST_info("record %zu for payload %zu", reclen, s);
+      |                                ^
+In file included from ../test/dtls_mtu_test.c:18:
 ../test/dtls_mtu_test.c:107:23: warning: unknown conversion type character 'z' in format [-Wformat=]
-             TEST_info("record %zu for payload %zu", reclen, s);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  107 |             TEST_info("record %zu for payload %zu", reclen, s);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/dtls_mtu_test.c:107:48: note: format string is defined here
+  107 |             TEST_info("record %zu for payload %zu", reclen, s);
+      |                                                ^
+In file included from ../test/dtls_mtu_test.c:18:
 ../test/dtls_mtu_test.c:107:23: warning: too many arguments for format [-Wformat-extra-args]
-             TEST_info("record %zu for payload %zu", reclen, s);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  107 |             TEST_info("record %zu for payload %zu", reclen, s);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
 rm -f test/dtls_mtu_test.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/dtls_mtu_test.exe test/dtls_mtu_test.o test/ssltestlib.o \
@@ -1839,6 +1898,11 @@ rm -f test/dtlsv1listentest.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/dtlsv1listentest.exe test/dtlsv1listentest.o \
 	 -lssl test/libtestutil.a -lcrypto -lws2_32 -lgdi32 -lcrypt32 
+gcc  -Iinclude -Icrypto/ec -Icrypto/include -I../include -I../crypto/ec -I../crypto/include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/ec_internal_test.d.tmp -MT test/ec_internal_test.o -c -o test/ec_internal_test.o ../test/ec_internal_test.c
+rm -f test/ec_internal_test.exe
+${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
+	-o test/ec_internal_test.exe test/ec_internal_test.o \
+	 test/libtestutil.a libcrypto.a -lws2_32 -lgdi32 -lcrypt32 
 gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/ecdsatest.d.tmp -MT test/ecdsatest.o -c -o test/ecdsatest.o ../test/ecdsatest.c
 rm -f test/ecdsatest.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
@@ -1973,23 +2037,31 @@ gcc  -I. -Iinclude -Icrypto/include -I.. -I../include -I../crypto/include -m64 -
 In file included from ../test/poly1305_internal_test.c:15:
 ../test/poly1305_internal_test.c: In function 'test_poly1305':
 ../test/poly1305_internal_test.c:1562:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                 TEST_info("Poly1305 test #%d/%zu+%zu failed.",
-                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1562 |                 TEST_info("Poly1305 test #%d/%zu+%zu failed.",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/poly1305_internal_test.c:1562:47: note: format string is defined here
+ 1562 |                 TEST_info("Poly1305 test #%d/%zu+%zu failed.",
+      |                                               ^
+In file included from ../test/poly1305_internal_test.c:15:
 ../test/poly1305_internal_test.c:1562:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                 TEST_info("Poly1305 test #%d/%zu+%zu failed.",
-                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1562 |                 TEST_info("Poly1305 test #%d/%zu+%zu failed.",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/poly1305_internal_test.c:1562:51: note: format string is defined here
+ 1562 |                 TEST_info("Poly1305 test #%d/%zu+%zu failed.",
+      |                                                   ^
+In file included from ../test/poly1305_internal_test.c:15:
 ../test/poly1305_internal_test.c:1562:27: warning: too many arguments for format [-Wformat-extra-args]
-                 TEST_info("Poly1305 test #%d/%zu+%zu failed.",
-                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1562 |                 TEST_info("Poly1305 test #%d/%zu+%zu failed.",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
 rm -f test/poly1305_internal_test.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/poly1305_internal_test.exe test/poly1305_internal_test.o \
@@ -2053,46 +2125,67 @@ gcc  -Iinclude -Icrypto/include -I../include -I../crypto/include -m64 -Wall -O3 
 rm -f test/shlibloadtest.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/shlibloadtest.exe test/shlibloadtest.o \
-	 test/libtestutil.a -lcrypto -lws2_32 -lgdi32 -lcrypt32 
+	 -lws2_32 -lgdi32 -lcrypt32 
 gcc  -I. -Iinclude -Icrypto/include -I.. -I../include -I../crypto/include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DNDEBUG  -MMD -MF test/siphash_internal_test.d.tmp -MT test/siphash_internal_test.o -c -o test/siphash_internal_test.o ../test/siphash_internal_test.c
 In file included from ../test/siphash_internal_test.c:16:
 ../test/siphash_internal_test.c: In function 'test_siphash':
 ../test/siphash_internal_test.c:184:19: warning: unknown conversion type character 'z' in format [-Wformat=]
-         TEST_info("size %zu vs %d and %d", expectedlen,
-                   ^~~~~~~~~~~~~~~~~~~~~~~
+  184 |         TEST_info("size %zu vs %d and %d", expectedlen,
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/siphash_internal_test.c:184:26: note: format string is defined here
+  184 |         TEST_info("size %zu vs %d and %d", expectedlen,
+      |                          ^
+In file included from ../test/siphash_internal_test.c:16:
 ../test/siphash_internal_test.c:184:19: warning: format '%d' expects argument of type 'int', but argument 4 has type 'size_t' {aka 'long long unsigned int'} [-Wformat=]
-         TEST_info("size %zu vs %d and %d", expectedlen,
-                   ^~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~
+  184 |         TEST_info("size %zu vs %d and %d", expectedlen,
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~
+      |                                            |
+      |                                            size_t {aka long long unsigned int}
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/siphash_internal_test.c:184:33: note: format string is defined here
+  184 |         TEST_info("size %zu vs %d and %d", expectedlen,
+      |                                ~^
+      |                                 |
+      |                                 int
+      |                                %I64d
+In file included from ../test/siphash_internal_test.c:16:
 ../test/siphash_internal_test.c:184:19: warning: too many arguments for format [-Wformat-extra-args]
-         TEST_info("size %zu vs %d and %d", expectedlen,
-                   ^~~~~~~~~~~~~~~~~~~~~~~
+  184 |         TEST_info("size %zu vs %d and %d", expectedlen,
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
 ../test/siphash_internal_test.c:248:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                 TEST_info("SipHash test #%d/%zu+%zu failed.",
-                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  248 |                 TEST_info("SipHash test #%d/%zu+%zu failed.",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/siphash_internal_test.c:248:46: note: format string is defined here
+  248 |                 TEST_info("SipHash test #%d/%zu+%zu failed.",
+      |                                              ^
+In file included from ../test/siphash_internal_test.c:16:
 ../test/siphash_internal_test.c:248:27: warning: unknown conversion type character 'z' in format [-Wformat=]
-                 TEST_info("SipHash test #%d/%zu+%zu failed.",
-                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  248 |                 TEST_info("SipHash test #%d/%zu+%zu failed.",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/siphash_internal_test.c:248:50: note: format string is defined here
+  248 |                 TEST_info("SipHash test #%d/%zu+%zu failed.",
+      |                                                  ^
+In file included from ../test/siphash_internal_test.c:16:
 ../test/siphash_internal_test.c:248:27: warning: too many arguments for format [-Wformat-extra-args]
-                 TEST_info("SipHash test #%d/%zu+%zu failed.",
-                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  248 |                 TEST_info("SipHash test #%d/%zu+%zu failed.",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
 rm -f test/siphash_internal_test.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/siphash_internal_test.exe test/siphash_internal_test.o \
@@ -2116,17 +2209,21 @@ gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32
 In file included from ../test/ssl_cert_table_internal_test.c:16:
 ../test/ssl_cert_table_internal_test.c: In function 'do_test_cert_table':
 ../test/ssl_cert_table_internal_test.c:42:16: warning: unknown conversion type character 'z' in format [-Wformat=]
-     TEST_error("Invalid table entry for certificate type %s, index %zu",
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   42 |     TEST_error("Invalid table entry for certificate type %s, index %zu",
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:389:61: note: in definition of macro 'TEST_error'
- #  define TEST_error(...)    test_error(__FILE__, __LINE__, __VA_ARGS__)
-                                                             ^~~~~~~~~~~
+  389 | #  define TEST_error(...)    test_error(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                             ^~~~~~~~~~~
+../test/ssl_cert_table_internal_test.c:42:69: note: format string is defined here
+   42 |     TEST_error("Invalid table entry for certificate type %s, index %zu",
+      |                                                                     ^
+In file included from ../test/ssl_cert_table_internal_test.c:16:
 ../test/ssl_cert_table_internal_test.c:42:16: warning: too many arguments for format [-Wformat-extra-args]
-     TEST_error("Invalid table entry for certificate type %s, index %zu",
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   42 |     TEST_error("Invalid table entry for certificate type %s, index %zu",
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:389:61: note: in definition of macro 'TEST_error'
- #  define TEST_error(...)    test_error(__FILE__, __LINE__, __VA_ARGS__)
-                                                             ^~~~~~~~~~~
+  389 | #  define TEST_error(...)    test_error(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                             ^~~~~~~~~~~
 rm -f test/ssl_cert_table_internal_test.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/ssl_cert_table_internal_test.exe test/ssl_cert_table_internal_test.o \
@@ -2197,59 +2294,75 @@ gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32
 In file included from ../test/tls13encryptiontest.c:26:
 ../test/tls13encryptiontest.c: In function 'test_tls13_encryption':
 ../test/tls13encryptiontest.c:383:23: warning: unknown conversion type character 'z' in format [-Wformat=]
-             TEST_info("Failed to encrypt record %zu", ctr);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  383 |             TEST_info("Failed to encrypt record %zu", ctr);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/tls13encryptiontest.c:383:50: note: format string is defined here
+  383 |             TEST_info("Failed to encrypt record %zu", ctr);
+      |                                                  ^
+In file included from ../test/tls13encryptiontest.c:26:
 ../test/tls13encryptiontest.c:383:23: warning: too many arguments for format [-Wformat-extra-args]
-             TEST_info("Failed to encrypt record %zu", ctr);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  383 |             TEST_info("Failed to encrypt record %zu", ctr);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
 ../test/tls13encryptiontest.c:387:23: warning: unknown conversion type character 'z' in format [-Wformat=]
-             TEST_info("Record %zu encryption test failed", ctr);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  387 |             TEST_info("Record %zu encryption test failed", ctr);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/tls13encryptiontest.c:387:32: note: format string is defined here
+  387 |             TEST_info("Record %zu encryption test failed", ctr);
+      |                                ^
+In file included from ../test/tls13encryptiontest.c:26:
 ../test/tls13encryptiontest.c:387:23: warning: too many arguments for format [-Wformat-extra-args]
-             TEST_info("Record %zu encryption test failed", ctr);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  387 |             TEST_info("Record %zu encryption test failed", ctr);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
 ../test/tls13encryptiontest.c:393:23: warning: unknown conversion type character 'z' in format [-Wformat=]
-             TEST_info("Failed to decrypt record %zu", ctr);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  393 |             TEST_info("Failed to decrypt record %zu", ctr);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/tls13encryptiontest.c:393:50: note: format string is defined here
+  393 |             TEST_info("Failed to decrypt record %zu", ctr);
+      |                                                  ^
+In file included from ../test/tls13encryptiontest.c:26:
 ../test/tls13encryptiontest.c:393:23: warning: too many arguments for format [-Wformat-extra-args]
-             TEST_info("Failed to decrypt record %zu", ctr);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  393 |             TEST_info("Failed to decrypt record %zu", ctr);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
 ../test/tls13encryptiontest.c:397:23: warning: unknown conversion type character 'z' in format [-Wformat=]
-             TEST_info("Record %zu decryption test failed", ctr);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  397 |             TEST_info("Record %zu decryption test failed", ctr);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+../test/tls13encryptiontest.c:397:32: note: format string is defined here
+  397 |             TEST_info("Record %zu decryption test failed", ctr);
+      |                                ^
+In file included from ../test/tls13encryptiontest.c:26:
 ../test/tls13encryptiontest.c:397:23: warning: too many arguments for format [-Wformat-extra-args]
-             TEST_info("Record %zu decryption test failed", ctr);
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  397 |             TEST_info("Record %zu decryption test failed", ctr);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ../test/testutil.h:390:60: note: in definition of macro 'TEST_info'
- #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
-                                                            ^~~~~~~~~~~
+  390 | #  define TEST_info(...)     test_info(__FILE__, __LINE__, __VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
 ../test/tls13encryptiontest.c:411:23: warning: unknown conversion type character 'z' in format [-Wformat=]
-     TEST_note("PASS: %zu records tested", ctr);
-                       ^
+  411 |     TEST_note("PASS: %zu records tested", ctr);
+      |                       ^
 ../test/tls13encryptiontest.c:411:15: warning: too many arguments for format [-Wformat-extra-args]
-     TEST_note("PASS: %zu records tested", ctr);
-               ^~~~~~~~~~~~~~~~~~~~~~~~~~
+  411 |     TEST_note("PASS: %zu records tested", ctr);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~
 rm -f test/tls13encryptiontest.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/tls13encryptiontest.exe test/tls13encryptiontest.o \
@@ -2326,4 +2439,4 @@ chmod a+x tools/c_rehash
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../util/shlib_wrap.sh.in > "util/shlib_wrap.sh"
 chmod a+x util/shlib_wrap.sh
-make[1]: Leaving directory '/c/work/packaging/openssl-1.1.1a/out-mingw8.64'
+make[1]: Leaving directory '/c/temp/openssl.1.1.1c/out-mingw.64'

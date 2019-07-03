@@ -1,3 +1,23 @@
+Operating system: i686-whatever-linux2
+Configuring OpenSSL version 1.1.1c (0x1010103fL) for linux-x86
+Using os-specific seed configuration
+Creating configdata.pm
+Creating Makefile
+
+**********************************************************************
+***                                                                ***
+***   OpenSSL has been successfully configured                     ***
+***                                                                ***
+***   If you encounter a problem while building, please open an    ***
+***   issue on GitHub <https://github.com/openssl/openssl/issues>  ***
+***   and include the output from the following command:           ***
+***                                                                ***
+***       perl configdata.pm --dump                                ***
+***                                                                ***
+***   (If you are new to OpenSSL, you might want to consult the    ***
+***   'Troubleshooting' section in the INSTALL file first)         ***
+***                                                                ***
+**********************************************************************
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../crypto/include/internal/bn_conf.h.in > crypto/include/internal/bn_conf.h
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
@@ -5,9 +25,9 @@
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../include/openssl/opensslconf.h.in > include/openssl/opensslconf.h
 make depend && make _all
-make[1]: Entering directory '/home/karen/openssl-1.1.1a/out-fedora.32'
-make[1]: Leaving directory '/home/karen/openssl-1.1.1a/out-fedora.32'
-make[1]: Entering directory '/home/karen/openssl-1.1.1a/out-fedora.32'
+make[1]: Entering directory '/home/karen/openssl.1.1.1c/out-fedora.32'
+make[1]: Leaving directory '/home/karen/openssl.1.1.1c/out-fedora.32'
+make[1]: Entering directory '/home/karen/openssl.1.1.1c/out-fedora.32'
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m32 -Wall -O3 -fomit-frame-pointer -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -DNDEBUG  -MMD -MF apps/app_rand.d.tmp -MT apps/app_rand.o -c -o apps/app_rand.o ../apps/app_rand.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m32 -Wall -O3 -fomit-frame-pointer -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -DNDEBUG  -MMD -MF apps/apps.d.tmp -MT apps/apps.o -c -o apps/apps.o ../apps/apps.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m32 -Wall -O3 -fomit-frame-pointer -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -DNDEBUG  -MMD -MF apps/bf_prefix.d.tmp -MT apps/bf_prefix.o -c -o apps/bf_prefix.o ../apps/bf_prefix.c
@@ -934,6 +954,11 @@ rm -f test/bio_enc_test
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 	-o test/bio_enc_test test/bio_enc_test.o \
 	 test/libtestutil.a -lcrypto -ldl -pthread 
+gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/bio_memleak_test.d.tmp -MT test/bio_memleak_test.o -c -o test/bio_memleak_test.o ../test/bio_memleak_test.c
+rm -f test/bio_memleak_test
+${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
+	-o test/bio_memleak_test test/bio_memleak_test.o \
+	 test/libtestutil.a -lcrypto -ldl -pthread 
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/bioprinttest.d.tmp -MT test/bioprinttest.o -c -o test/bioprinttest.o ../test/bioprinttest.c
 rm -f test/bioprinttest
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
@@ -946,429 +971,429 @@ ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 	 test/libtestutil.a -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl aes > test/buildtest_aes.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_aes.d.tmp -MT test/buildtest_aes.o -c -o test/buildtest_aes.o test/buildtest_aes.c
-rm -f test/buildtest_aes
+rm -f test/buildtest_c_aes
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_aes test/buildtest_aes.o \
+	-o test/buildtest_c_aes test/buildtest_aes.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl asn1 > test/buildtest_asn1.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_asn1.d.tmp -MT test/buildtest_asn1.o -c -o test/buildtest_asn1.o test/buildtest_asn1.c
-rm -f test/buildtest_asn1
+rm -f test/buildtest_c_asn1
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_asn1 test/buildtest_asn1.o \
+	-o test/buildtest_c_asn1 test/buildtest_asn1.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl asn1t > test/buildtest_asn1t.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_asn1t.d.tmp -MT test/buildtest_asn1t.o -c -o test/buildtest_asn1t.o test/buildtest_asn1t.c
-rm -f test/buildtest_asn1t
+rm -f test/buildtest_c_asn1t
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_asn1t test/buildtest_asn1t.o \
+	-o test/buildtest_c_asn1t test/buildtest_asn1t.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl async > test/buildtest_async.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_async.d.tmp -MT test/buildtest_async.o -c -o test/buildtest_async.o test/buildtest_async.c
-rm -f test/buildtest_async
+rm -f test/buildtest_c_async
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_async test/buildtest_async.o \
+	-o test/buildtest_c_async test/buildtest_async.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl bio > test/buildtest_bio.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_bio.d.tmp -MT test/buildtest_bio.o -c -o test/buildtest_bio.o test/buildtest_bio.c
-rm -f test/buildtest_bio
+rm -f test/buildtest_c_bio
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_bio test/buildtest_bio.o \
+	-o test/buildtest_c_bio test/buildtest_bio.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl blowfish > test/buildtest_blowfish.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_blowfish.d.tmp -MT test/buildtest_blowfish.o -c -o test/buildtest_blowfish.o test/buildtest_blowfish.c
-rm -f test/buildtest_blowfish
+rm -f test/buildtest_c_blowfish
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_blowfish test/buildtest_blowfish.o \
+	-o test/buildtest_c_blowfish test/buildtest_blowfish.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl bn > test/buildtest_bn.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_bn.d.tmp -MT test/buildtest_bn.o -c -o test/buildtest_bn.o test/buildtest_bn.c
-rm -f test/buildtest_bn
+rm -f test/buildtest_c_bn
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_bn test/buildtest_bn.o \
+	-o test/buildtest_c_bn test/buildtest_bn.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl buffer > test/buildtest_buffer.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_buffer.d.tmp -MT test/buildtest_buffer.o -c -o test/buildtest_buffer.o test/buildtest_buffer.c
-rm -f test/buildtest_buffer
+rm -f test/buildtest_c_buffer
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_buffer test/buildtest_buffer.o \
+	-o test/buildtest_c_buffer test/buildtest_buffer.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl camellia > test/buildtest_camellia.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_camellia.d.tmp -MT test/buildtest_camellia.o -c -o test/buildtest_camellia.o test/buildtest_camellia.c
-rm -f test/buildtest_camellia
+rm -f test/buildtest_c_camellia
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_camellia test/buildtest_camellia.o \
+	-o test/buildtest_c_camellia test/buildtest_camellia.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl cast > test/buildtest_cast.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_cast.d.tmp -MT test/buildtest_cast.o -c -o test/buildtest_cast.o test/buildtest_cast.c
-rm -f test/buildtest_cast
+rm -f test/buildtest_c_cast
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_cast test/buildtest_cast.o \
+	-o test/buildtest_c_cast test/buildtest_cast.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl cmac > test/buildtest_cmac.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_cmac.d.tmp -MT test/buildtest_cmac.o -c -o test/buildtest_cmac.o test/buildtest_cmac.c
-rm -f test/buildtest_cmac
+rm -f test/buildtest_c_cmac
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_cmac test/buildtest_cmac.o \
+	-o test/buildtest_c_cmac test/buildtest_cmac.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl cms > test/buildtest_cms.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_cms.d.tmp -MT test/buildtest_cms.o -c -o test/buildtest_cms.o test/buildtest_cms.c
-rm -f test/buildtest_cms
+rm -f test/buildtest_c_cms
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_cms test/buildtest_cms.o \
+	-o test/buildtest_c_cms test/buildtest_cms.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl comp > test/buildtest_comp.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_comp.d.tmp -MT test/buildtest_comp.o -c -o test/buildtest_comp.o test/buildtest_comp.c
-rm -f test/buildtest_comp
+rm -f test/buildtest_c_comp
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_comp test/buildtest_comp.o \
+	-o test/buildtest_c_comp test/buildtest_comp.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl conf > test/buildtest_conf.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_conf.d.tmp -MT test/buildtest_conf.o -c -o test/buildtest_conf.o test/buildtest_conf.c
-rm -f test/buildtest_conf
+rm -f test/buildtest_c_conf
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_conf test/buildtest_conf.o \
+	-o test/buildtest_c_conf test/buildtest_conf.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl conf_api > test/buildtest_conf_api.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_conf_api.d.tmp -MT test/buildtest_conf_api.o -c -o test/buildtest_conf_api.o test/buildtest_conf_api.c
-rm -f test/buildtest_conf_api
+rm -f test/buildtest_c_conf_api
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_conf_api test/buildtest_conf_api.o \
+	-o test/buildtest_c_conf_api test/buildtest_conf_api.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl crypto > test/buildtest_crypto.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_crypto.d.tmp -MT test/buildtest_crypto.o -c -o test/buildtest_crypto.o test/buildtest_crypto.c
-rm -f test/buildtest_crypto
+rm -f test/buildtest_c_crypto
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_crypto test/buildtest_crypto.o \
+	-o test/buildtest_c_crypto test/buildtest_crypto.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ct > test/buildtest_ct.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ct.d.tmp -MT test/buildtest_ct.o -c -o test/buildtest_ct.o test/buildtest_ct.c
-rm -f test/buildtest_ct
+rm -f test/buildtest_c_ct
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ct test/buildtest_ct.o \
+	-o test/buildtest_c_ct test/buildtest_ct.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl des > test/buildtest_des.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_des.d.tmp -MT test/buildtest_des.o -c -o test/buildtest_des.o test/buildtest_des.c
-rm -f test/buildtest_des
+rm -f test/buildtest_c_des
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_des test/buildtest_des.o \
+	-o test/buildtest_c_des test/buildtest_des.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl dh > test/buildtest_dh.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_dh.d.tmp -MT test/buildtest_dh.o -c -o test/buildtest_dh.o test/buildtest_dh.c
-rm -f test/buildtest_dh
+rm -f test/buildtest_c_dh
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_dh test/buildtest_dh.o \
+	-o test/buildtest_c_dh test/buildtest_dh.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl dsa > test/buildtest_dsa.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_dsa.d.tmp -MT test/buildtest_dsa.o -c -o test/buildtest_dsa.o test/buildtest_dsa.c
-rm -f test/buildtest_dsa
+rm -f test/buildtest_c_dsa
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_dsa test/buildtest_dsa.o \
+	-o test/buildtest_c_dsa test/buildtest_dsa.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl dtls1 > test/buildtest_dtls1.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_dtls1.d.tmp -MT test/buildtest_dtls1.o -c -o test/buildtest_dtls1.o test/buildtest_dtls1.c
-rm -f test/buildtest_dtls1
+rm -f test/buildtest_c_dtls1
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_dtls1 test/buildtest_dtls1.o \
+	-o test/buildtest_c_dtls1 test/buildtest_dtls1.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl e_os2 > test/buildtest_e_os2.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_e_os2.d.tmp -MT test/buildtest_e_os2.o -c -o test/buildtest_e_os2.o test/buildtest_e_os2.c
-rm -f test/buildtest_e_os2
+rm -f test/buildtest_c_e_os2
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_e_os2 test/buildtest_e_os2.o \
+	-o test/buildtest_c_e_os2 test/buildtest_e_os2.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ebcdic > test/buildtest_ebcdic.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ebcdic.d.tmp -MT test/buildtest_ebcdic.o -c -o test/buildtest_ebcdic.o test/buildtest_ebcdic.c
-rm -f test/buildtest_ebcdic
+rm -f test/buildtest_c_ebcdic
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ebcdic test/buildtest_ebcdic.o \
+	-o test/buildtest_c_ebcdic test/buildtest_ebcdic.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ec > test/buildtest_ec.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ec.d.tmp -MT test/buildtest_ec.o -c -o test/buildtest_ec.o test/buildtest_ec.c
-rm -f test/buildtest_ec
+rm -f test/buildtest_c_ec
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ec test/buildtest_ec.o \
+	-o test/buildtest_c_ec test/buildtest_ec.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ecdh > test/buildtest_ecdh.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ecdh.d.tmp -MT test/buildtest_ecdh.o -c -o test/buildtest_ecdh.o test/buildtest_ecdh.c
-rm -f test/buildtest_ecdh
+rm -f test/buildtest_c_ecdh
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ecdh test/buildtest_ecdh.o \
+	-o test/buildtest_c_ecdh test/buildtest_ecdh.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ecdsa > test/buildtest_ecdsa.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ecdsa.d.tmp -MT test/buildtest_ecdsa.o -c -o test/buildtest_ecdsa.o test/buildtest_ecdsa.c
-rm -f test/buildtest_ecdsa
+rm -f test/buildtest_c_ecdsa
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ecdsa test/buildtest_ecdsa.o \
+	-o test/buildtest_c_ecdsa test/buildtest_ecdsa.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl engine > test/buildtest_engine.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_engine.d.tmp -MT test/buildtest_engine.o -c -o test/buildtest_engine.o test/buildtest_engine.c
-rm -f test/buildtest_engine
+rm -f test/buildtest_c_engine
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_engine test/buildtest_engine.o \
+	-o test/buildtest_c_engine test/buildtest_engine.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl evp > test/buildtest_evp.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_evp.d.tmp -MT test/buildtest_evp.o -c -o test/buildtest_evp.o test/buildtest_evp.c
-rm -f test/buildtest_evp
+rm -f test/buildtest_c_evp
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_evp test/buildtest_evp.o \
+	-o test/buildtest_c_evp test/buildtest_evp.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl hmac > test/buildtest_hmac.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_hmac.d.tmp -MT test/buildtest_hmac.o -c -o test/buildtest_hmac.o test/buildtest_hmac.c
-rm -f test/buildtest_hmac
+rm -f test/buildtest_c_hmac
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_hmac test/buildtest_hmac.o \
+	-o test/buildtest_c_hmac test/buildtest_hmac.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl idea > test/buildtest_idea.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_idea.d.tmp -MT test/buildtest_idea.o -c -o test/buildtest_idea.o test/buildtest_idea.c
-rm -f test/buildtest_idea
+rm -f test/buildtest_c_idea
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_idea test/buildtest_idea.o \
+	-o test/buildtest_c_idea test/buildtest_idea.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl kdf > test/buildtest_kdf.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_kdf.d.tmp -MT test/buildtest_kdf.o -c -o test/buildtest_kdf.o test/buildtest_kdf.c
-rm -f test/buildtest_kdf
+rm -f test/buildtest_c_kdf
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_kdf test/buildtest_kdf.o \
+	-o test/buildtest_c_kdf test/buildtest_kdf.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl lhash > test/buildtest_lhash.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_lhash.d.tmp -MT test/buildtest_lhash.o -c -o test/buildtest_lhash.o test/buildtest_lhash.c
-rm -f test/buildtest_lhash
+rm -f test/buildtest_c_lhash
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_lhash test/buildtest_lhash.o \
+	-o test/buildtest_c_lhash test/buildtest_lhash.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl md2 > test/buildtest_md2.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_md2.d.tmp -MT test/buildtest_md2.o -c -o test/buildtest_md2.o test/buildtest_md2.c
-rm -f test/buildtest_md2
+rm -f test/buildtest_c_md2
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_md2 test/buildtest_md2.o \
+	-o test/buildtest_c_md2 test/buildtest_md2.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl md4 > test/buildtest_md4.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_md4.d.tmp -MT test/buildtest_md4.o -c -o test/buildtest_md4.o test/buildtest_md4.c
-rm -f test/buildtest_md4
+rm -f test/buildtest_c_md4
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_md4 test/buildtest_md4.o \
+	-o test/buildtest_c_md4 test/buildtest_md4.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl md5 > test/buildtest_md5.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_md5.d.tmp -MT test/buildtest_md5.o -c -o test/buildtest_md5.o test/buildtest_md5.c
-rm -f test/buildtest_md5
+rm -f test/buildtest_c_md5
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_md5 test/buildtest_md5.o \
+	-o test/buildtest_c_md5 test/buildtest_md5.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl modes > test/buildtest_modes.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_modes.d.tmp -MT test/buildtest_modes.o -c -o test/buildtest_modes.o test/buildtest_modes.c
-rm -f test/buildtest_modes
+rm -f test/buildtest_c_modes
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_modes test/buildtest_modes.o \
+	-o test/buildtest_c_modes test/buildtest_modes.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl obj_mac > test/buildtest_obj_mac.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_obj_mac.d.tmp -MT test/buildtest_obj_mac.o -c -o test/buildtest_obj_mac.o test/buildtest_obj_mac.c
-rm -f test/buildtest_obj_mac
+rm -f test/buildtest_c_obj_mac
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_obj_mac test/buildtest_obj_mac.o \
+	-o test/buildtest_c_obj_mac test/buildtest_obj_mac.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl objects > test/buildtest_objects.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_objects.d.tmp -MT test/buildtest_objects.o -c -o test/buildtest_objects.o test/buildtest_objects.c
-rm -f test/buildtest_objects
+rm -f test/buildtest_c_objects
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_objects test/buildtest_objects.o \
+	-o test/buildtest_c_objects test/buildtest_objects.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ocsp > test/buildtest_ocsp.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ocsp.d.tmp -MT test/buildtest_ocsp.o -c -o test/buildtest_ocsp.o test/buildtest_ocsp.c
-rm -f test/buildtest_ocsp
+rm -f test/buildtest_c_ocsp
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ocsp test/buildtest_ocsp.o \
+	-o test/buildtest_c_ocsp test/buildtest_ocsp.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl opensslv > test/buildtest_opensslv.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_opensslv.d.tmp -MT test/buildtest_opensslv.o -c -o test/buildtest_opensslv.o test/buildtest_opensslv.c
-rm -f test/buildtest_opensslv
+rm -f test/buildtest_c_opensslv
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_opensslv test/buildtest_opensslv.o \
+	-o test/buildtest_c_opensslv test/buildtest_opensslv.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ossl_typ > test/buildtest_ossl_typ.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ossl_typ.d.tmp -MT test/buildtest_ossl_typ.o -c -o test/buildtest_ossl_typ.o test/buildtest_ossl_typ.c
-rm -f test/buildtest_ossl_typ
+rm -f test/buildtest_c_ossl_typ
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ossl_typ test/buildtest_ossl_typ.o \
+	-o test/buildtest_c_ossl_typ test/buildtest_ossl_typ.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl pem > test/buildtest_pem.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_pem.d.tmp -MT test/buildtest_pem.o -c -o test/buildtest_pem.o test/buildtest_pem.c
-rm -f test/buildtest_pem
+rm -f test/buildtest_c_pem
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_pem test/buildtest_pem.o \
+	-o test/buildtest_c_pem test/buildtest_pem.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl pem2 > test/buildtest_pem2.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_pem2.d.tmp -MT test/buildtest_pem2.o -c -o test/buildtest_pem2.o test/buildtest_pem2.c
-rm -f test/buildtest_pem2
+rm -f test/buildtest_c_pem2
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_pem2 test/buildtest_pem2.o \
+	-o test/buildtest_c_pem2 test/buildtest_pem2.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl pkcs12 > test/buildtest_pkcs12.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_pkcs12.d.tmp -MT test/buildtest_pkcs12.o -c -o test/buildtest_pkcs12.o test/buildtest_pkcs12.c
-rm -f test/buildtest_pkcs12
+rm -f test/buildtest_c_pkcs12
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_pkcs12 test/buildtest_pkcs12.o \
+	-o test/buildtest_c_pkcs12 test/buildtest_pkcs12.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl pkcs7 > test/buildtest_pkcs7.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_pkcs7.d.tmp -MT test/buildtest_pkcs7.o -c -o test/buildtest_pkcs7.o test/buildtest_pkcs7.c
-rm -f test/buildtest_pkcs7
+rm -f test/buildtest_c_pkcs7
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_pkcs7 test/buildtest_pkcs7.o \
+	-o test/buildtest_c_pkcs7 test/buildtest_pkcs7.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl rand > test/buildtest_rand.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_rand.d.tmp -MT test/buildtest_rand.o -c -o test/buildtest_rand.o test/buildtest_rand.c
-rm -f test/buildtest_rand
+rm -f test/buildtest_c_rand
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_rand test/buildtest_rand.o \
+	-o test/buildtest_c_rand test/buildtest_rand.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl rand_drbg > test/buildtest_rand_drbg.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_rand_drbg.d.tmp -MT test/buildtest_rand_drbg.o -c -o test/buildtest_rand_drbg.o test/buildtest_rand_drbg.c
-rm -f test/buildtest_rand_drbg
+rm -f test/buildtest_c_rand_drbg
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_rand_drbg test/buildtest_rand_drbg.o \
+	-o test/buildtest_c_rand_drbg test/buildtest_rand_drbg.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl rc2 > test/buildtest_rc2.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_rc2.d.tmp -MT test/buildtest_rc2.o -c -o test/buildtest_rc2.o test/buildtest_rc2.c
-rm -f test/buildtest_rc2
+rm -f test/buildtest_c_rc2
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_rc2 test/buildtest_rc2.o \
+	-o test/buildtest_c_rc2 test/buildtest_rc2.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl rc4 > test/buildtest_rc4.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_rc4.d.tmp -MT test/buildtest_rc4.o -c -o test/buildtest_rc4.o test/buildtest_rc4.c
-rm -f test/buildtest_rc4
+rm -f test/buildtest_c_rc4
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_rc4 test/buildtest_rc4.o \
+	-o test/buildtest_c_rc4 test/buildtest_rc4.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl rc5 > test/buildtest_rc5.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_rc5.d.tmp -MT test/buildtest_rc5.o -c -o test/buildtest_rc5.o test/buildtest_rc5.c
-rm -f test/buildtest_rc5
+rm -f test/buildtest_c_rc5
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_rc5 test/buildtest_rc5.o \
+	-o test/buildtest_c_rc5 test/buildtest_rc5.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ripemd > test/buildtest_ripemd.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ripemd.d.tmp -MT test/buildtest_ripemd.o -c -o test/buildtest_ripemd.o test/buildtest_ripemd.c
-rm -f test/buildtest_ripemd
+rm -f test/buildtest_c_ripemd
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ripemd test/buildtest_ripemd.o \
+	-o test/buildtest_c_ripemd test/buildtest_ripemd.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl rsa > test/buildtest_rsa.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_rsa.d.tmp -MT test/buildtest_rsa.o -c -o test/buildtest_rsa.o test/buildtest_rsa.c
-rm -f test/buildtest_rsa
+rm -f test/buildtest_c_rsa
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_rsa test/buildtest_rsa.o \
+	-o test/buildtest_c_rsa test/buildtest_rsa.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl safestack > test/buildtest_safestack.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_safestack.d.tmp -MT test/buildtest_safestack.o -c -o test/buildtest_safestack.o test/buildtest_safestack.c
-rm -f test/buildtest_safestack
+rm -f test/buildtest_c_safestack
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_safestack test/buildtest_safestack.o \
+	-o test/buildtest_c_safestack test/buildtest_safestack.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl seed > test/buildtest_seed.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_seed.d.tmp -MT test/buildtest_seed.o -c -o test/buildtest_seed.o test/buildtest_seed.c
-rm -f test/buildtest_seed
+rm -f test/buildtest_c_seed
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_seed test/buildtest_seed.o \
+	-o test/buildtest_c_seed test/buildtest_seed.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl sha > test/buildtest_sha.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_sha.d.tmp -MT test/buildtest_sha.o -c -o test/buildtest_sha.o test/buildtest_sha.c
-rm -f test/buildtest_sha
+rm -f test/buildtest_c_sha
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_sha test/buildtest_sha.o \
+	-o test/buildtest_c_sha test/buildtest_sha.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl srp > test/buildtest_srp.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_srp.d.tmp -MT test/buildtest_srp.o -c -o test/buildtest_srp.o test/buildtest_srp.c
-rm -f test/buildtest_srp
+rm -f test/buildtest_c_srp
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_srp test/buildtest_srp.o \
+	-o test/buildtest_c_srp test/buildtest_srp.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl srtp > test/buildtest_srtp.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_srtp.d.tmp -MT test/buildtest_srtp.o -c -o test/buildtest_srtp.o test/buildtest_srtp.c
-rm -f test/buildtest_srtp
+rm -f test/buildtest_c_srtp
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_srtp test/buildtest_srtp.o \
+	-o test/buildtest_c_srtp test/buildtest_srtp.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ssl > test/buildtest_ssl.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ssl.d.tmp -MT test/buildtest_ssl.o -c -o test/buildtest_ssl.o test/buildtest_ssl.c
-rm -f test/buildtest_ssl
+rm -f test/buildtest_c_ssl
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ssl test/buildtest_ssl.o \
+	-o test/buildtest_c_ssl test/buildtest_ssl.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ssl2 > test/buildtest_ssl2.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ssl2.d.tmp -MT test/buildtest_ssl2.o -c -o test/buildtest_ssl2.o test/buildtest_ssl2.c
-rm -f test/buildtest_ssl2
+rm -f test/buildtest_c_ssl2
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ssl2 test/buildtest_ssl2.o \
+	-o test/buildtest_c_ssl2 test/buildtest_ssl2.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ssl3 > test/buildtest_ssl3.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ssl3.d.tmp -MT test/buildtest_ssl3.o -c -o test/buildtest_ssl3.o test/buildtest_ssl3.c
-rm -f test/buildtest_ssl3
+rm -f test/buildtest_c_ssl3
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ssl3 test/buildtest_ssl3.o \
+	-o test/buildtest_c_ssl3 test/buildtest_ssl3.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl stack > test/buildtest_stack.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_stack.d.tmp -MT test/buildtest_stack.o -c -o test/buildtest_stack.o test/buildtest_stack.c
-rm -f test/buildtest_stack
+rm -f test/buildtest_c_stack
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_stack test/buildtest_stack.o \
+	-o test/buildtest_c_stack test/buildtest_stack.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl store > test/buildtest_store.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_store.d.tmp -MT test/buildtest_store.o -c -o test/buildtest_store.o test/buildtest_store.c
-rm -f test/buildtest_store
+rm -f test/buildtest_c_store
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_store test/buildtest_store.o \
+	-o test/buildtest_c_store test/buildtest_store.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl symhacks > test/buildtest_symhacks.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_symhacks.d.tmp -MT test/buildtest_symhacks.o -c -o test/buildtest_symhacks.o test/buildtest_symhacks.c
-rm -f test/buildtest_symhacks
+rm -f test/buildtest_c_symhacks
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_symhacks test/buildtest_symhacks.o \
+	-o test/buildtest_c_symhacks test/buildtest_symhacks.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl tls1 > test/buildtest_tls1.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_tls1.d.tmp -MT test/buildtest_tls1.o -c -o test/buildtest_tls1.o test/buildtest_tls1.c
-rm -f test/buildtest_tls1
+rm -f test/buildtest_c_tls1
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_tls1 test/buildtest_tls1.o \
+	-o test/buildtest_c_tls1 test/buildtest_tls1.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ts > test/buildtest_ts.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ts.d.tmp -MT test/buildtest_ts.o -c -o test/buildtest_ts.o test/buildtest_ts.c
-rm -f test/buildtest_ts
+rm -f test/buildtest_c_ts
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ts test/buildtest_ts.o \
+	-o test/buildtest_c_ts test/buildtest_ts.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl txt_db > test/buildtest_txt_db.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_txt_db.d.tmp -MT test/buildtest_txt_db.o -c -o test/buildtest_txt_db.o test/buildtest_txt_db.c
-rm -f test/buildtest_txt_db
+rm -f test/buildtest_c_txt_db
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_txt_db test/buildtest_txt_db.o \
+	-o test/buildtest_c_txt_db test/buildtest_txt_db.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl ui > test/buildtest_ui.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_ui.d.tmp -MT test/buildtest_ui.o -c -o test/buildtest_ui.o test/buildtest_ui.c
-rm -f test/buildtest_ui
+rm -f test/buildtest_c_ui
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_ui test/buildtest_ui.o \
+	-o test/buildtest_c_ui test/buildtest_ui.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl whrlpool > test/buildtest_whrlpool.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_whrlpool.d.tmp -MT test/buildtest_whrlpool.o -c -o test/buildtest_whrlpool.o test/buildtest_whrlpool.c
-rm -f test/buildtest_whrlpool
+rm -f test/buildtest_c_whrlpool
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_whrlpool test/buildtest_whrlpool.o \
+	-o test/buildtest_c_whrlpool test/buildtest_whrlpool.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl x509 > test/buildtest_x509.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_x509.d.tmp -MT test/buildtest_x509.o -c -o test/buildtest_x509.o test/buildtest_x509.c
-rm -f test/buildtest_x509
+rm -f test/buildtest_c_x509
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_x509 test/buildtest_x509.o \
+	-o test/buildtest_c_x509 test/buildtest_x509.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl x509_vfy > test/buildtest_x509_vfy.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_x509_vfy.d.tmp -MT test/buildtest_x509_vfy.o -c -o test/buildtest_x509_vfy.o test/buildtest_x509_vfy.c
-rm -f test/buildtest_x509_vfy
+rm -f test/buildtest_c_x509_vfy
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_x509_vfy test/buildtest_x509_vfy.o \
+	-o test/buildtest_c_x509_vfy test/buildtest_x509_vfy.o \
 	 -lssl -lcrypto -ldl -pthread 
 /usr/bin/perl ../test/generate_buildtest.pl x509v3 > test/buildtest_x509v3.c
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/buildtest_x509v3.d.tmp -MT test/buildtest_x509v3.o -c -o test/buildtest_x509v3.o test/buildtest_x509v3.c
-rm -f test/buildtest_x509v3
+rm -f test/buildtest_c_x509v3
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/buildtest_x509v3 test/buildtest_x509v3.o \
+	-o test/buildtest_c_x509v3 test/buildtest_x509v3.o \
 	 -lssl -lcrypto -ldl -pthread 
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/casttest.d.tmp -MT test/casttest.o -c -o test/casttest.o ../test/casttest.c
 rm -f test/casttest
@@ -1491,6 +1516,11 @@ rm -f test/dtlsv1listentest
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 	-o test/dtlsv1listentest test/dtlsv1listentest.o \
 	 -lssl test/libtestutil.a -lcrypto -ldl -pthread 
+gcc  -Iinclude -Icrypto/ec -Icrypto/include -I../include -I../crypto/ec -I../crypto/include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/ec_internal_test.d.tmp -MT test/ec_internal_test.o -c -o test/ec_internal_test.o ../test/ec_internal_test.c
+rm -f test/ec_internal_test
+${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
+	-o test/ec_internal_test test/ec_internal_test.o \
+	 test/libtestutil.a libcrypto.a -ldl -pthread 
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/ecdsatest.d.tmp -MT test/ecdsatest.o -c -o test/ecdsatest.o ../test/ecdsatest.c
 rm -f test/ecdsatest
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
@@ -1685,7 +1715,7 @@ gcc  -Iinclude -Icrypto/include -I../include -I../crypto/include -pthread -m32 -
 rm -f test/shlibloadtest
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 	-o test/shlibloadtest test/shlibloadtest.o \
-	 test/libtestutil.a -lcrypto -ldl -pthread 
+	 -ldl -pthread 
 gcc  -I. -Iinclude -Icrypto/include -I.. -I../include -I../crypto/include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DNDEBUG  -MMD -MF test/siphash_internal_test.d.tmp -MT test/siphash_internal_test.o -c -o test/siphash_internal_test.o ../test/siphash_internal_test.c
 rm -f test/siphash_internal_test
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
@@ -1850,4 +1880,4 @@ chmod a+x tools/c_rehash
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../util/shlib_wrap.sh.in > "util/shlib_wrap.sh"
 chmod a+x util/shlib_wrap.sh
-make[1]: Leaving directory '/home/karen/openssl-1.1.1a/out-fedora.32'
+make[1]: Leaving directory '/home/karen/openssl.1.1.1c/out-fedora.32'

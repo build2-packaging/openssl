@@ -220,7 +220,7 @@ else
   {
     # Suppress the 'object file does not define any public symbols' warning.
     #
-    c.aoptions += /ignore:4221
+    c.aoptions += /IGNORE:4221
 
     c.libs += advapi32.lib
   }
