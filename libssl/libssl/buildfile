@@ -14,6 +14,8 @@ linux   = ($tclass == 'linux')
 bsd     = ($tclass == 'bsd')
 windows = ($tclass == 'windows')
 
+msvc_runtime = ($c.target.system == 'win32-msvc')
+
 gcc   = ($c.class == 'gcc')
 msvc  = ($c.class == 'msvc')
 mingw = ($c.target.system == 'mingw32')
@@ -47,13 +49,12 @@ else
   # Note that upstream also passes -DOPENSSL_USE_APPLINK if compiled with VC.
   # We drop this option (see libcrypto/buildfile) for details.
   #
-  if $msvc
-  {
+  if $msvc_runtime
     c.poptions += -DOPENSSL_SYS_WIN32 -D_CRT_SECURE_NO_DEPRECATE \
                   -D_WINSOCK_DEPRECATED_NO_WARNINGS
 
+  if $msvc
     c.coptions += /Gs0 /GF /Gy
-  }
   else
     c.poptions += -D_MT
 }
@@ -109,9 +110,9 @@ else
 
   c.libs += $regex.apply(ws2_32 gdi32 crypt32,      \
                          '(.+)',                    \
-                         $msvc ? '\1.lib' : '-l\1')
+                         $msvc_runtime ? '\1.lib' : '-l\1')
 
-  if $msvc
+  if $msvc_runtime
     c.libs += advapi32.lib
 }
 
