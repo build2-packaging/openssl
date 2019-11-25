@@ -3,8 +3,8 @@ name: libssl
 
 # Note: remember to update doc-url below!
 #
-version: 1.1.1+5
-upstream-version: 1.1.1c
+version: 1.1.1+6
+upstream-version: 1.1.1d
 
 project: openssl
 priority: security

@@ -1,5 +1,5 @@
 Operating system: x86_64-whatever-linux2
-Configuring OpenSSL version 1.1.1c (0x1010103fL) for linux-x86_64
+Configuring OpenSSL version 1.1.1d (0x1010104fL) for linux-x86_64
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -25,9 +25,9 @@ Creating Makefile
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../include/openssl/opensslconf.h.in > include/openssl/opensslconf.h
 make depend && make _all
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1c/openssl.1.1.1c/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1c/openssl.1.1.1c/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1c/openssl.1.1.1c/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1d/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1d/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1d/openssl/out-fedora.64'
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF apps/app_rand.d.tmp -MT apps/app_rand.o -c -o apps/app_rand.o ../apps/app_rand.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF apps/apps.d.tmp -MT apps/apps.o -c -o apps/apps.o ../apps/apps.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF apps/bf_prefix.d.tmp -MT apps/bf_prefix.o -c -o apps/bf_prefix.o ../apps/bf_prefix.c
@@ -737,11 +737,12 @@ gcc  -Iinclude -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE
 gcc  -Iinclude -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF test/testutil/init.d.tmp -MT test/testutil/init.o -c -o test/testutil/init.o ../test/testutil/init.c
 gcc  -Iinclude -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF test/testutil/main.d.tmp -MT test/testutil/main.o -c -o test/testutil/main.o ../test/testutil/main.c
 gcc  -Iinclude -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF test/testutil/output_helpers.d.tmp -MT test/testutil/output_helpers.o -c -o test/testutil/output_helpers.o ../test/testutil/output_helpers.c
+gcc  -Iinclude -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF test/testutil/random.d.tmp -MT test/testutil/random.o -c -o test/testutil/random.o ../test/testutil/random.c
 gcc  -Iinclude -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF test/testutil/stanza.d.tmp -MT test/testutil/stanza.o -c -o test/testutil/stanza.o ../test/testutil/stanza.c
 gcc  -Iinclude -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF test/testutil/tap_bio.d.tmp -MT test/testutil/tap_bio.o -c -o test/testutil/tap_bio.o ../test/testutil/tap_bio.c
 gcc  -Iinclude -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF test/testutil/test_cleanup.d.tmp -MT test/testutil/test_cleanup.o -c -o test/testutil/test_cleanup.o ../test/testutil/test_cleanup.c
 gcc  -Iinclude -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib64/engines-1.1\"" -DNDEBUG  -MMD -MF test/testutil/tests.d.tmp -MT test/testutil/tests.o -c -o test/testutil/tests.o ../test/testutil/tests.c
-ar r test/libtestutil.a test/testutil/basic_output.o test/testutil/cb.o test/testutil/driver.o test/testutil/format_output.o test/testutil/init.o test/testutil/main.o test/testutil/output_helpers.o test/testutil/stanza.o test/testutil/tap_bio.o test/testutil/test_cleanup.o test/testutil/tests.o
+ar r test/libtestutil.a test/testutil/basic_output.o test/testutil/cb.o test/testutil/driver.o test/testutil/format_output.o test/testutil/init.o test/testutil/main.o test/testutil/output_helpers.o test/testutil/random.o test/testutil/stanza.o test/testutil/tap_bio.o test/testutil/test_cleanup.o test/testutil/tests.o
 ar: creating test/libtestutil.a
 ranlib test/libtestutil.a || echo Never mind.
 /usr/bin/perl ../util/mkdef.pl crypto linux > libcrypto.map
@@ -1880,4 +1881,4 @@ chmod a+x tools/c_rehash
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../util/shlib_wrap.sh.in > "util/shlib_wrap.sh"
 chmod a+x util/shlib_wrap.sh
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1c/openssl.1.1.1c/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1d/openssl/out-fedora.64'

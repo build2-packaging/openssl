@@ -3,7 +3,7 @@
 # license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
 
 $* version -a >>~"%EOO%"
-  OpenSSL 1.1.1c  28 May 2019
+  OpenSSL 1.1.1d  10 Sep 2019
   %built on: .+ UTC%
   %platform: $c.target.class-$c.target.cpu%
   %options: .+%

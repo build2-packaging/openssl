@@ -1,5 +1,5 @@
 Operating system: x86_64-apple-darwinDarwin Kernel Version 17.5.0: Mon Mar 5 22:24:32 PST 2018; root:xnu-4570.51.1~1/RELEASE_X86_64
-Configuring OpenSSL version 1.1.1c (0x1010103fL) for darwin64-x86_64-cc
+Configuring OpenSSL version 1.1.1d (0x1010104fL) for darwin64-x86_64-cc
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -776,11 +776,12 @@ cc  -Iinclude -I../include -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC
 cc  -Iinclude -I../include -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/init.d.tmp -MT test/testutil/init.o -c -o test/testutil/init.o ../test/testutil/init.c
 cc  -Iinclude -I../include -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/main.d.tmp -MT test/testutil/main.o -c -o test/testutil/main.o ../test/testutil/main.c
 cc  -Iinclude -I../include -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/output_helpers.d.tmp -MT test/testutil/output_helpers.o -c -o test/testutil/output_helpers.o ../test/testutil/output_helpers.c
+cc  -Iinclude -I../include -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/random.d.tmp -MT test/testutil/random.o -c -o test/testutil/random.o ../test/testutil/random.c
 cc  -Iinclude -I../include -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/stanza.d.tmp -MT test/testutil/stanza.o -c -o test/testutil/stanza.o ../test/testutil/stanza.c
 cc  -Iinclude -I../include -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/tap_bio.d.tmp -MT test/testutil/tap_bio.o -c -o test/testutil/tap_bio.o ../test/testutil/tap_bio.c
 cc  -Iinclude -I../include -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/test_cleanup.d.tmp -MT test/testutil/test_cleanup.o -c -o test/testutil/test_cleanup.o ../test/testutil/test_cleanup.c
 cc  -Iinclude -I../include -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/tests.d.tmp -MT test/testutil/tests.o -c -o test/testutil/tests.o ../test/testutil/tests.c
-ar r test/libtestutil.a test/testutil/basic_output.o test/testutil/cb.o test/testutil/driver.o test/testutil/format_output.o test/testutil/init.o test/testutil/main.o test/testutil/output_helpers.o test/testutil/stanza.o test/testutil/tap_bio.o test/testutil/test_cleanup.o test/testutil/tests.o
+ar r test/libtestutil.a test/testutil/basic_output.o test/testutil/cb.o test/testutil/driver.o test/testutil/format_output.o test/testutil/init.o test/testutil/main.o test/testutil/output_helpers.o test/testutil/random.o test/testutil/stanza.o test/testutil/tap_bio.o test/testutil/test_cleanup.o test/testutil/tests.o
 ar: creating archive test/libtestutil.a
 ranlib -c test/libtestutil.a || echo Never mind.
 cc -fPIC -arch x86_64 -O3 -Wall -L. -dynamiclib -current_version 1.1 -compatibility_version 1.1 -Wl,-search_paths_first  -install_name /usr/local/lib/libcrypto.1.1.dylib \

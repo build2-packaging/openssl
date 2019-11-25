@@ -90,8 +90,8 @@ if! $windows
 }
 else
 {
-  c.libs += $regex.apply(ws2_32 gdi32 crypt32,      \
-                         '(.+)',                    \
+  c.libs += $regex.apply(ws2_32 gdi32 crypt32,              \
+                         '(.+)',                            \
                          $msvc_runtime ? '\1.lib' : '-l\1')
   if $msvc_runtime
     c.libs += advapi32.lib

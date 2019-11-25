@@ -64,7 +64,7 @@ our %config = (
   perl_archname => "i386-linux-thread-multi",
   perl_cmd => "/usr/bin/perl",
   perl_version => "5.24.3",
-  perlargv => [ "linux-x86", "enable-md2", "enable-rc5", "enable-ssl3", "enable-ssl3-method", "enable-weak-ssl-ciphers", "no-mdc2", "no-asm" ],
+  perlargv => [ "linux-x86", "enable-md2", "enable-rc5", "enable-ssl3", "enable-ssl3-method", "enable-weak-ssl-ciphers", "no-mdc2", "no-asm", "no-devcryptoeng" ],
   perlenv => {
       "AR" => undef,
       "ARFLAGS" => undef,
@@ -112,8 +112,8 @@ our %config = (
   sourcedir => "..",
   target => "linux-x86",
   tdirs => [ "ossl_shim" ],
-  version => "1.1.1c",
-  version_num => "0x1010103fL",
+  version => "1.1.1d",
+  version_num => "0x1010104fL",
 );
 
 our %target = (
@@ -324,7 +324,7 @@ our %disabled = (
   "buildtest-c++" => "default",
   "crypto-mdebug" => "default",
   "crypto-mdebug-backtrace" => "default",
-  "devcryptoeng" => "default",
+  "devcryptoeng" => "option",
   "ec_nistp_64_gcc_128" => "default",
   "egd" => "default",
   "external-tests" => "default",
@@ -3293,6 +3293,7 @@ our %unified_info = (
                             "test/testutil/init.o",
                             "test/testutil/main.o",
                             "test/testutil/output_helpers.o",
+                            "test/testutil/random.o",
                             "test/testutil/stanza.o",
                             "test/testutil/tap_bio.o",
                             "test/testutil/test_cleanup.o",
@@ -12487,6 +12488,11 @@ our %unified_info = (
                     "include",
                     "../include",
                 ],
+            "test/testutil/random.o" =>
+                [
+                    "include",
+                    "../include",
+                ],
             "test/testutil/stanza.o" =>
                 [
                     "include",
@@ -17798,6 +17804,7 @@ our %unified_info = (
                     "test/testutil/init.o",
                     "test/testutil/main.o",
                     "test/testutil/output_helpers.o",
+                    "test/testutil/random.o",
                     "test/testutil/stanza.o",
                     "test/testutil/tap_bio.o",
                     "test/testutil/test_cleanup.o",
@@ -18150,6 +18157,10 @@ our %unified_info = (
             "test/testutil/output_helpers.o" =>
                 [
                     "../test/testutil/output_helpers.c",
+                ],
+            "test/testutil/random.o" =>
+                [
+                    "../test/testutil/random.c",
                 ],
             "test/testutil/stanza.o" =>
                 [

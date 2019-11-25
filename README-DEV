@@ -38,11 +38,11 @@ Debian and Fedora distributions. The configuration options defining these sets
 are specified in the Debian's rules and Fedora's RPM .spec files. These files
 can be obtained as follows:
 
-$ wget https://kojipkgs.fedoraproject.org/packages/openssl/1.1.1c/4.fc31/src/openssl-1.1.1c-4.fc31.src.rpm
-$ rpm2cpio openssl-1.1.1c-4.fc31.src.rpm | cpio -civ '*.spec'
+$ wget https://kojipkgs.fedoraproject.org/packages/openssl/1.1.1d/5.fc32/src/openssl-1.1.1d-5.fc32.src.rpm
+$ rpm2cpio openssl-1.1.1d-5.fc32.src.rpm | cpio -civ '*.spec'
 
-$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_1.1.1c-1.debian.tar.xz
-$ tar xf openssl_1.1.1c-1.debian.tar.xz debian/rules
+$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_1.1.1d-2.debian.tar.xz
+$ tar xf openssl_1.1.1d-2.debian.tar.xz debian/rules
 
 Here are the discovered configuration options.
 
@@ -66,8 +66,8 @@ suppressing the defaults:
 We drop enable-zlib (compress before encryption) and enable-sctp (both used by
 Fedora only) not to create external dependencies. Besides that, we add no-asm
 to suppress replacing C code with auto-generated ASM code for some algorithms.
-Later, we will possibly pre-generate ASM code for architectures we support and
-get rid of this option. Also we add no-devcryptoeng as devcryptoeng is
+Later, we can potentially pre-generate ASM code for architectures we support
+and get rid of this option. Also we add no-devcryptoeng as devcryptoeng is
 automatically enabled on BSDs. So the resulting options are:
 
   enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-weak-ssl-ciphers

@@ -62,7 +62,7 @@ our %config = (
   options => "enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-weak-ssl-ciphers no-asan no-asm no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-devcryptoeng no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fuzz-afl no-fuzz-libfuzzer no-heartbeats no-mdc2 no-msan no-sctp no-ssl-trace no-ubsan no-unit-test no-zlib no-zlib-dynamic",
   perl_archname => "x86_64-msys-thread-multi",
   perl_cmd => "/usr/bin/perl",
-  perl_version => "5.28.2",
+  perl_version => "5.30.1",
   perlargv => [ "mingw64", "enable-md2", "enable-rc5", "enable-ssl3", "enable-ssl3-method", "enable-weak-ssl-ciphers", "no-mdc2", "no-asm", "no-devcryptoeng" ],
   perlenv => {
       "AR" => undef,
@@ -111,8 +111,8 @@ our %config = (
   sourcedir => "..",
   target => "mingw64",
   tdirs => [ "ossl_shim" ],
-  version => "1.1.1c",
-  version_num => "0x1010103fL",
+  version => "1.1.1d",
+  version_num => "0x1010104fL",
 );
 
 our %target = (
@@ -3194,8 +3194,6 @@ our %unified_info = (
                 {
                     "deps" =>
                         [
-                            "ssl/packet.o",
-                            "ssl/tls13_enc.o",
                             "ssl/bio_ssl.o",
                             "ssl/d1_lib.o",
                             "ssl/d1_msg.o",
@@ -3225,6 +3223,8 @@ our %unified_info = (
                             "ssl/t1_trce.o",
                             "ssl/tls13_enc.o",
                             "ssl/tls_srp.o",
+                            "ssl/packet.o",
+                            "ssl/tls13_enc.o",
                         ],
                     "products" =>
                         {
@@ -3290,6 +3290,7 @@ our %unified_info = (
                             "test/testutil/init.o",
                             "test/testutil/main.o",
                             "test/testutil/output_helpers.o",
+                            "test/testutil/random.o",
                             "test/testutil/stanza.o",
                             "test/testutil/tap_bio.o",
                             "test/testutil/test_cleanup.o",
@@ -12509,6 +12510,11 @@ our %unified_info = (
                     "include",
                     "../include",
                 ],
+            "test/testutil/random.o" =>
+                [
+                    "include",
+                    "../include",
+                ],
             "test/testutil/stanza.o" =>
                 [
                     "include",
@@ -17836,6 +17842,7 @@ our %unified_info = (
                     "test/testutil/init.o",
                     "test/testutil/main.o",
                     "test/testutil/output_helpers.o",
+                    "test/testutil/random.o",
                     "test/testutil/stanza.o",
                     "test/testutil/tap_bio.o",
                     "test/testutil/test_cleanup.o",
@@ -18188,6 +18195,10 @@ our %unified_info = (
             "test/testutil/output_helpers.o" =>
                 [
                     "../test/testutil/output_helpers.c",
+                ],
+            "test/testutil/random.o" =>
+                [
+                    "../test/testutil/random.c",
                 ],
             "test/testutil/stanza.o" =>
                 [

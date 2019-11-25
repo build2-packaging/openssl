@@ -1,5 +1,5 @@
 Operating system: amd64-whatever-freebsd
-Configuring OpenSSL version 1.1.1c (0x1010103fL) for BSD-x86_64
+Configuring OpenSSL version 1.1.1d (0x1010104fL) for BSD-x86_64
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -731,11 +731,12 @@ cc  -Iinclude -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DO
 cc  -Iinclude -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/init.d.tmp -MT test/testutil/init.o -c -o test/testutil/init.o ../test/testutil/init.c
 cc  -Iinclude -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/main.d.tmp -MT test/testutil/main.o -c -o test/testutil/main.o ../test/testutil/main.c
 cc  -Iinclude -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/output_helpers.d.tmp -MT test/testutil/output_helpers.o -c -o test/testutil/output_helpers.o ../test/testutil/output_helpers.c
+cc  -Iinclude -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/random.d.tmp -MT test/testutil/random.o -c -o test/testutil/random.o ../test/testutil/random.c
 cc  -Iinclude -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/stanza.d.tmp -MT test/testutil/stanza.o -c -o test/testutil/stanza.o ../test/testutil/stanza.c
 cc  -Iinclude -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/tap_bio.d.tmp -MT test/testutil/tap_bio.o -c -o test/testutil/tap_bio.o ../test/testutil/tap_bio.c
 cc  -Iinclude -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/test_cleanup.d.tmp -MT test/testutil/test_cleanup.o -c -o test/testutil/test_cleanup.o ../test/testutil/test_cleanup.c
 cc  -Iinclude -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" -DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT -DNDEBUG  -MMD -MF test/testutil/tests.d.tmp -MT test/testutil/tests.o -c -o test/testutil/tests.o ../test/testutil/tests.c
-ar r test/libtestutil.a test/testutil/basic_output.o test/testutil/cb.o test/testutil/driver.o test/testutil/format_output.o test/testutil/init.o test/testutil/main.o test/testutil/output_helpers.o test/testutil/stanza.o test/testutil/tap_bio.o test/testutil/test_cleanup.o test/testutil/tests.o
+ar r test/libtestutil.a test/testutil/basic_output.o test/testutil/cb.o test/testutil/driver.o test/testutil/format_output.o test/testutil/init.o test/testutil/main.o test/testutil/output_helpers.o test/testutil/random.o test/testutil/stanza.o test/testutil/tap_bio.o test/testutil/test_cleanup.o test/testutil/tests.o
 ar: warning: creating test/libtestutil.a
 ranlib test/libtestutil.a || echo Never mind.
 /usr/local/bin/perl ../util/mkdef.pl crypto linux > libcrypto.map

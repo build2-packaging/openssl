@@ -108,8 +108,8 @@ else
   if $mingw
     libs{ssl}: c.loptions += -Wl,--enable-auto-image-base
 
-  c.libs += $regex.apply(ws2_32 gdi32 crypt32,      \
-                         '(.+)',                    \
+  c.libs += $regex.apply(ws2_32 gdi32 crypt32,              \
+                         '(.+)',                            \
                          $msvc_runtime ? '\1.lib' : '-l\1')
 
   if $msvc_runtime
