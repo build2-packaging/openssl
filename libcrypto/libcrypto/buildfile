@@ -26,18 +26,11 @@ lib{crypto}:    {h   }{** -buildinf-body}              \
 downstream/internal/h{platform}@./downstream/internal/: dist = false
 
 tclass = $c.target.class
+tsys   = $c.target.system
 
 i686 = ($c.target.cpu == 'i686')
 
-linux   = ($tclass == 'linux')
-bsd     = ($tclass == 'bsd')
 windows = ($tclass == 'windows')
-
-msvc_runtime = ($c.target.system == 'win32-msvc')
-
-gcc   = ($c.class == 'gcc')
-msvc  = ($c.class == 'msvc')
-mingw = ($c.target.system == 'mingw32')
 
 # Build options.
 #
@@ -48,65 +41,68 @@ mingw = ($c.target.system == 'mingw32')
 #
 c.poptions += -DLIBCRYPTO_BUILD
 
+# Note that the upstream package uses -pthread compiler/linker option on
+# Linux and FreeBSD. The option is currently unsupported by build2, so we use
+# -D_REENTRANT and -lpthread preprocessor/linker options instead.
+#
+# Also note that on FreeBSD and Mac OS the upstream package also passes
+# -D_REENTRANT.
+#
 if! $windows
-{
-  # Note that the upstream package uses -pthread compiler/linker option on
-  # Linux and FreeBSD. The option is currently unsupported by build2, so we
-  # use -D_REENTRANT and -lpthread preprocessor/linker options instead.
-  #
-  # Also note that on FreeBSD and Mac OS the upstream package also passes
-  # -D_REENTRANT.
-  #
   c.poptions += -D_REENTRANT
-
-  if $linux
-    c.poptions += -DOPENSSL_USE_NODELETE
-
-  if $bsd
-    c.poptions += -D_THREAD_SAFE
-}
 else
-{
   c.poptions += -DWIN32_LEAN_AND_MEAN -DUNICODE -D_UNICODE
 
-  # Note that upstream also adds Applink support if compiled with VC. This is
-  # something about being able to use the library with application compiled
-  # with a different compiler (see ../../upstream/Configurations/10-main.conf
-  # for details). We drop this for now as it requires ASM support. In
-  # particular, we don't pass -DOPENSSL_USE_APPLINK preprocessor option no
-  # compile uplink.c and auto-generated uplink-x86_64.asm.
-  #
-  if $msvc_runtime
+switch $tclass, $tsys
+{
+  case 'linux'
+    c.poptions += -DOPENSSL_USE_NODELETE
+
+  case 'bsd'
+    c.poptions += -D_THREAD_SAFE
+
+  case 'windows', 'mingw32'
+    c.poptions += -D_MT
+
+  case 'windows'
+  {
+    # Note that upstream also adds Applink support if compiled with VC. This
+    # is something about being able to use the library with application
+    # compiled with a different compiler (see
+    # ../../upstream/Configurations/10-main.conf for details). We drop this
+    # for now as it requires ASM support. In particular, we don't pass
+    # -DOPENSSL_USE_APPLINK preprocessor option no compile uplink.c and
+    # auto-generated uplink-x86_64.asm.
+    #
     c.poptions += -DOPENSSL_SYS_WIN32 -D_CRT_SECURE_NO_DEPRECATE \
                   -D_WINSOCK_DEPRECATED_NO_WARNINGS
+  }
+}
 
-  if $msvc
+switch $c.class
+{
+  case 'gcc'
+  {
+    if $i686
+      c.coptions += -fomit-frame-pointer
+
+    # Disable warnings that pop up with -Wall -Wextra. Upstream doesn't seem
+    # to care about these and it is not easy to disable specific warnings in a
+    # way that works across compilers/versions (some -Wno-* options are only
+    # recognized in newer versions). There are still some warnings left that
+    # appear for certain platforms/compilers. We pass them through but disable
+    # treating them as errors.
+    #
+    c.coptions += -Wno-all -Wno-extra -Wno-error
+  }
+  case 'msvc'
+  {
     c.coptions += /Gs0 /GF /Gy
-  else
-    c.poptions += -D_MT
-}
 
-if ($i686 && $gcc)
-  c.coptions += -fomit-frame-pointer
-
-# Disable compiler warnings.
-#
-if $msvc
-{
-  # Disable warnings that pop up with /W3.
-  #
-  c.coptions += /wd4090 /wd4129 /wd4164 /wd4244 /wd4267 /wd4311
-}
-elif $gcc
-{
-  # Disable warnings that pop up with -Wall -Wextra. Upstream doesn't seem to
-  # care about these and it is not easy to disable specific warnings in a way
-  # that works across compilers/versions (some -Wno-* options are only
-  # recognized in newer versions). There are still some warnings left that
-  # appear for certain platforms/compilers. We pass them through but disable
-  # treating them as errors.
-  #
-  c.coptions += -Wno-all -Wno-extra -Wno-error
+    # Disable warnings that pop up with /W3.
+    #
+    c.coptions += /wd4090 /wd4129 /wd4164 /wd4244 /wd4267 /wd4311
+  }
 }
 
 # Define the OPENSSLDIR and ENGINESDIR macros as the upstream package does it
@@ -175,7 +171,9 @@ for f: $c.poptions $c.coptions
   cflags += $regex.replace($f, '(\\|")', '\\\1')
 
 h{buildinf-body}: in{buildinf-body}
-h{buildinf-body}: cflags = $regex.merge($cflags, '(.+)', '\n  " \1"')
+{
+  cflags = $regex.merge($cflags, '(.+)', '\n  " \1"')
+}
 
 # Note that we have to add "-I$src_root" for the headers auto-generating
 # machinery to work properly.
@@ -189,41 +187,39 @@ crypto/ec/curve448/ c.poptions =+ "-I$src_base" "-I$src_base/arch_32"
 
 crypto/obj{cversion}: c.poptions =+ "-I$src_root/libcrypto/downstream/internal"
 
-if! $windows
+switch $tclass, $tsys
 {
-  if $linux
+  case 'linux'
   {
-    libs{crypto}: c.loptions += -Wl,-znodelete
-    c.libs += -ldl
-  }
+    c.loptions += -Wl,-znodelete -Wl,-Bsymbolic                  \
+                  "-Wl,--version-script=$src_base/libcrypto.map"
 
-  if ($linux || $bsd)
+    c.libs += -ldl -lpthread
+  }
+  case 'bsd'
   {
-    libs{crypto}: c.loptions += -Wl,-Bsymbolic                               \
-                                "-Wl,--version-script=$src_base/libcrypto.map"
+    c.loptions += -Wl,-Bsymbolic                                 \
+                  "-Wl,--version-script=$src_base/libcrypto.map"
+
     c.libs += -lpthread
   }
-}
-else
-{
-  # Note that for MinGW GCC the upstream package also passes -static-libgcc.
-  # We normally don't link GCC run-time statically when packaging other C
-  # libraries, so let's not do that here either and see how it goes.
-  #
-  if $mingw
-    libs{crypto}: c.loptions += -Wl,--enable-auto-image-base
+  case 'windows', 'mingw32'
+  {
+    # Note that for MinGW GCC the upstream package also passes -static-libgcc.
+    # We normally don't link GCC run-time statically when packaging other C
+    # libraries, so let's not do that here either and see how it goes.
+    #
+    c.loptions += -Wl,--enable-auto-image-base
 
-  c.libs += $regex.apply(ws2_32 gdi32 crypt32,              \
-                         '(.+)',                            \
-                         $msvc_runtime ? '\1.lib' : '-l\1')
-
-  if $msvc_runtime
+    c.libs += -lws2_32 -lgdi32 -lcrypt32
+  }
+  case 'windows'
   {
     # Suppress the 'object file does not define any public symbols' warning.
     #
     c.aoptions += /IGNORE:4221
 
-    c.libs += advapi32.lib
+    c.libs += ws2_32.lib gdi32.lib crypt32.lib advapi32.lib
   }
 }
 
