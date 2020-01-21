@@ -1,0 +1,8 @@
+: 1
+name: libssl
+version: 1.1.1+9
+upstream-version: 1.1.1d
+project: openssl
+priority: security
+summary: C library providing SSLv3 and TLS implementations
+license: OpenSSL License, SSLeay License; Copyleft free dual software license.
