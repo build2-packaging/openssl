@@ -1,2 +1,6 @@
 : 1
 summary: OpenSSL build2 package repository
+
+:
+role: prerequisite
+location: ../../zlib/zlib.git##HEAD

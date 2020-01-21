@@ -2,24 +2,28 @@
 # copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
 # license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
 
+import imp_libs = libz%lib{z}
+
 # Exclude source code of unused features (engines, disabled algorithms, etc).
 #
 # Note: crypto/LPdir_*.c and crypto/des/ncbc_enc.c are actually headers.
 #
-lib{crypto}:    {h   }{** -buildinf-body}              \
-                {h   }{buildinf-body}                  \
-         crypto/{   c}{** -LPdir_* -*cap               \
-                          -aes/aes_x86core             \
-                          -bn/asm/x86_64-gcc           \
-                          -des/ncbc_enc                \
-                          -ec/ecp_nistz256*            \
-                          -engine/eng_devcrypto        \
-                          -mdc2/**                     \
-                          -poly1305/poly1305_ieee754   \
-                          -poly1305/poly1305_base2_44} \
-                { def}{libcrypto}                      \
-         crypto/{file}{LPdir_*.c des/ncbc_enc.c}       \
-                {file}{libcrypto.map}
+lib{crypto}: {h   }{** -buildinf-body}              \
+             {h   }{buildinf-body}                  \
+      crypto/{   c}{** -LPdir_* -*cap               \
+                       -aes/aes_x86core             \
+                       -bn/asm/x86_64-gcc           \
+                       -bn/rsaz_exp                 \
+                       -des/ncbc_enc                \
+                       -ec/ecp_nistz256*            \
+                       -engine/eng_devcrypto        \
+                       -mdc2/**                     \
+                       -poly1305/poly1305_ieee754   \
+                       -poly1305/poly1305_base2_44} \
+             { def}{libcrypto}                      \
+      crypto/{file}{LPdir_*.c des/ncbc_enc.c}       \
+             {file}{libcrypto.map}                  \
+             $imp_libs
 
 # Symlinked where appropriate.
 #
@@ -39,7 +43,11 @@ windows = ($tclass == 'windows')
 # Pass -DLIBCRYPTO_BUILD to define the above macros only while building the
 # libcrypto library.
 #
-c.poptions += -DLIBCRYPTO_BUILD
+# Note that upstream also passes -DNDEBUG. Let's omit it for now to enable
+# assertions to gain some extra confidence that we didn't break anything while
+# packaging.
+#
+c.poptions += -DLIBCRYPTO_BUILD -DZLIB
 
 # Note that the upstream package uses -pthread compiler/linker option on
 # Linux and FreeBSD. The option is currently unsupported by build2, so we use
@@ -105,61 +113,6 @@ switch $c.class
   }
 }
 
-# Define the OPENSSLDIR and ENGINESDIR macros as the upstream package does it
-# in the most of cases.
-#
-# Note that upstream defines them differently for some
-# platforms/distributions. For example, it defines ENGINESDIR as
-# /usr/local/lib64/engines-1.1 on Fedora and /usr/local/lib/engines-1_1 for
-# MinGW GCC (which doesn't make much sense).
-#
-# Also note that Linux distributions may define them differently. For example:
-#
-# Debian/Ubuntu: /usr/lib/ssl and /usr/lib/x86_64-linux-gnu/engines-1.1
-# Fedora/RHEL:   /etc/pki/tls and /usr/lib64/engines-1.1
-#
-# Overall, the thinking is that if any of these directories are actually
-# needed, then one should probably be using the system-installed OpenSSL.
-#
-lib_version = ($version.pre_release ? "$version.project_id" : "$abi_version")
-
-if! $windows
-{
-  root = ($install.root != [null]           \
-          ? $install.resolve($install.root) \
-          : [dir_path] /usr/local)
-
-  lib = ($install.root != [null]          \
-         ? $install.resolve($install.lib) \
-         : $root/lib)
-
-  openssldir = "$root/ssl"
-  enginesdir = "$lib/engines-$lib_version"
-}
-else
-{
-  arc = ($i686 ? ' (x86)' : '')
-
-  root = ($install.root != [null]                           \
-          ? $install.resolve($install.root)                 \
-          : [dir_path] "C:/Program Files$arc/Common Files")
-
-  lib = ($install.root != [null]                          \
-         ? $install.resolve($install.lib)                 \
-         : [dir_path] "C:/Program Files$arc/OpenSSL/lib")
-
-  openssldir = "$root/SSL"
-  enginesdir = "$lib/engines-$regex.replace($lib_version, '-', '_')"
-}
-
-# Escape backslashes and quotes in the directory paths prior to representing
-# them as C string literals.
-#
-od = $regex.replace($openssldir, '(\\|")', '\\\1')
-ed = $regex.replace($enginesdir, '(\\|")', '\\\1')
-
-c.poptions += -DOPENSSLDIR="\"$od\"" -DENGINESDIR="\"$ed\""
-
 # Escape backslashes and quotes in the compilation flags and substitute them
 # into internal/buildinf-body.h as string literals, one per line.
 #
@@ -184,6 +137,38 @@ c.poptions =+ "-I$out_root" "-I$src_root"            \
 crypto/             c.poptions =+ "-I$src_base/include"
 crypto/evp/         c.poptions =+ "-I$src_root/libcrypto/crypto/modes"
 crypto/ec/curve448/ c.poptions =+ "-I$src_base" "-I$src_base/arch_32"
+
+# Note that upstream defines OPENSSLDIR and ENGINESDIR differently for
+# different platforms/distributions. For example, it defines ENGINESDIR as
+# /usr/local/lib64/engines-1.1 on Fedora and /usr/local/lib/engines-1_1 for
+# MinGW GCC (which doesn't make much sense).
+#
+# Also note that Linux distributions may also define them differently. For
+# example:
+#
+# Debian/Ubuntu: /usr/lib/ssl and /usr/lib/x86_64-linux-gnu/engines-1.1
+# Fedora/RHEL:   /etc/pki/tls and /usr/lib64/engines-1.1
+#
+# We will not define these directories as there is no guarantee that they
+# exist and contain data that is safe to use. Overall, the thinking is that if
+# any of these directories are actually needed, then one should probably be
+# using the system-installed OpenSSL or configure these directories manually
+# at runtime (e.g., via environment variables, API, etc).
+#
+# Note that we cannot just leave the macros undefined as the project will fail
+# to compile. Using empty paths may seem like a good idea but will end up in
+# potentially existing filesystem entries (/certs, /cert.pem, etc; see
+# upstream's cryptlib.h). Thus, we define them as "\0" which results in the
+# empty string literal for the macros defined as follows:
+#
+# # define X509_CERT_DIR OPENSSLDIR "/certs"
+#
+# Also note that for the crypto/obj{cversion} target we instead need to leave
+# OPENSSLDIR and ENGINESDIR undefined not to break strings used by the
+# OpenSSL_version() function (see crypto/cversion.c for details).
+#
+ns = $regex.apply({**.c -crypto/cversion.c}, '.c$', '')
+obj{$ns}: c.poptions += -DOPENSSLDIR='"\0"' -DENGINESDIR='"\0"'
 
 crypto/obj{cversion}: c.poptions =+ "-I$src_root/libcrypto/downstream/internal"
 
@@ -229,7 +214,10 @@ lib{crypto}: cc.export.poptions = "-I$src_base/downstream" "-I$src_base"
 
 # See bootstrap.build for details.
 #
-lib{crypto}: bin.lib.version = @"-$lib_version"
+if $version.pre_release
+  lib{crypto}: bin.lib.version = @"-$version.project_id"
+else
+  lib{crypto}: bin.lib.version = @"-$abi_version"
 
 # Install headers from the upstream and downstream openssl/ subdirectories
 # only.

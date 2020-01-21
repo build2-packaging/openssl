@@ -61,17 +61,17 @@ The union of these feature sets translates into the following options, after
 suppressing the defaults:
 
   enable-md2 enable-rc5 enable-sctp enable-ssl3 enable-ssl3-method
-  enable-weak-ssl-ciphers no-mdc2 enable-zlib
+  enable-weak-ssl-ciphers enable-zlib no-mdc2
 
-We drop enable-zlib (compress before encryption) and enable-sctp (both used by
-Fedora only) not to create external dependencies. Besides that, we add no-asm
-to suppress replacing C code with auto-generated ASM code for some algorithms.
-Later, we can potentially pre-generate ASM code for architectures we support
-and get rid of this option. Also we add no-devcryptoeng as devcryptoeng is
-automatically enabled on BSDs. So the resulting options are:
+We, however, drop the external dependencies that are not packaged for build2.
+Besides that, we add no-asm to suppress replacing C code with auto-generated
+ASM code for some algorithms. Later, we can potentially pre-generate ASM code
+for architectures we support and get rid of this option. Also we add
+no-devcryptoeng as devcryptoeng is automatically enabled on BSDs. So the
+resulting options are:
 
   enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-weak-ssl-ciphers
-  no-mdc2 no-asm no-devcryptoeng
+  enable-zlib no-mdc2 no-asm no-devcryptoeng
 
 Note that while we can use the upstream/INSTALL file to understand which of
 the 'enable-<feature>' or 'no-<feature>' options are the default ones, it is a
@@ -90,7 +90,8 @@ On POSIX and for MinGW GCC:
 $ mkdir build
 $ cd build
 $ ../config enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method \
-  enable-weak-ssl-ciphers no-mdc2 no-asm no-devcryptoeng >build.log 2>&1
+  enable-weak-ssl-ciphers enable-zlib no-mdc2 no-asm no-devcryptoeng \
+  >build.log 2>&1
 $ make VERBOSE=1 >>build.log 2>&1
 
 For MSVC:
@@ -98,8 +99,8 @@ For MSVC:
 > mkdir build
 > cd build
 > perl ../Configure VC-WIN64A enable-md2 enable-rc5 enable-ssl3 ^
-  enable-ssl3-method enable-weak-ssl-ciphers no-mdc2 no-asm no-devcryptoeng ^
-  >build.log 2>&1
+  enable-ssl3-method enable-weak-ssl-ciphers enable-zlib no-mdc2 no-asm ^
+  no-devcryptoeng >build.log 2>&1
 > nmake VERBOSE=1 >>build.log 2>&1
 
 Note that when building with MSVC (as of 15.5) you may need to remove the

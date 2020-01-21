@@ -1,5 +1,4 @@
-/*
- * file      : tests/basic/driver.c
+/* file      : tests/basic/driver.c
  * copyright : Copyright (c) 2009-2019 Code Synthesis Tools CC
  * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
  */

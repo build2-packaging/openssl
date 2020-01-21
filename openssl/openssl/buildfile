@@ -16,6 +16,15 @@ exe{openssl}: apps/c{win32_init}: include = $windows
 
 # Build options.
 #
+# Note that openssl doesn't use zlib directly. However, it uses functionality
+# that libcrypto additionally provide when zlib is enabled.
+#
+# Also note that upstream also passes -DNDEBUG. Let's omit it for now to
+# enable assertions to gain some extra confidence that we didn't break
+# anything while packaging.
+#
+c.poptions += -DZLIB
+
 # Note that the upstream package uses -pthread compiler/linker option on
 # Linux and FreeBSD. The option is currently unsupported by build2, so we use
 # -D_REENTRANT and -lpthread preprocessor/linker options instead.

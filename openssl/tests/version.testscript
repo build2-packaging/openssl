@@ -7,8 +7,8 @@ $* version -a >>~"%EOO%"
   %built on: .+ UTC%
   %platform: $c.target.class-$c.target.cpu%
   %options: .+%
-  %compiler: $c.class .*-DLIBCRYPTO_BUILD.*%
-  %OPENSSLDIR: ".+"%
-  %ENGINESDIR: ".+"%
+  %compiler: $c.class .*-DLIBCRYPTO_BUILD -DZLIB .*%
+  OPENSSLDIR: N/A
+  ENGINESDIR: N/A
   %Seeding source: .+%
   EOO

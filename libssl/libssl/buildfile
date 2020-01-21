@@ -11,6 +11,15 @@ tsys   = $c.target.system
 
 # Build options.
 #
+# Note that libssl doesn't use zlib directly. However, it may use
+# functionality that libcrypto additionally provides when zlib is enabled.
+#
+# Also note that upstream also passes -DNDEBUG. Let's omit it for now to
+# enable assertions to gain some extra confidence that we didn't break
+# anything while packaging.
+#
+c.poptions += -DZLIB
+
 # Drop -DOPENSSL_PIC, -D{L|B}_ENDIAN, -DOPENSSLDIR and -DENGINESDIR as they
 # are not used in the libssl source code nor in the libcrypto public headers.
 #
