@@ -1,5 +1,4 @@
 # file      : libcrypto/buildfile
-# copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
 # license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
 
 import imp_libs = libz%lib{z}
@@ -22,7 +21,6 @@ lib{crypto}: {h   }{** -buildinf-body}              \
                        -poly1305/poly1305_base2_44} \
              { def}{libcrypto}                      \
       crypto/{file}{LPdir_*.c des/ncbc_enc.c}       \
-             {file}{libcrypto.map}                  \
              $imp_libs
 
 # Symlinked where appropriate.
@@ -34,7 +32,11 @@ tsys   = $c.target.system
 
 i686 = ($c.target.cpu == 'i686')
 
+linux   = ($tclass == 'linux')
+bsd     = ($tclass == 'bsd')
 windows = ($tclass == 'windows')
+
+lib{crypto}: file{libcrypto.map}: include = ($linux || $bsd ? adhoc : false)
 
 # Build options.
 #
@@ -49,8 +51,8 @@ windows = ($tclass == 'windows')
 #
 c.poptions += -DLIBCRYPTO_BUILD -DZLIB
 
-# Note that the upstream package uses -pthread compiler/linker option on
-# Linux and FreeBSD. The option is currently unsupported by build2, so we use
+# Note that the upstream package uses the -pthread compiler/linker option on
+# Linux and FreeBSD. The option is unsupported by build2 so we pass
 # -D_REENTRANT and -lpthread preprocessor/linker options instead.
 #
 # Also note that on FreeBSD and Mac OS the upstream package also passes

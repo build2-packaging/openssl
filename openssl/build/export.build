@@ -1,5 +1,4 @@
 # file      : build/export.build
-# copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
 # license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
 
 $out_root/

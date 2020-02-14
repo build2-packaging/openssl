@@ -1,13 +1,17 @@
 # file      : libssl/buildfile
-# copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
 # license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
 
 import int_libs = libcrypto%lib{crypto}
 
-lib{ssl}: {h c}{**} def{libssl} file{libssl.map} $int_libs
+lib{ssl}: {h c}{**} def{libssl} $int_libs
 
 tclass = $c.target.class
 tsys   = $c.target.system
+
+linux = ($tclass == 'linux')
+bsd   = ($tclass == 'bsd')
+
+lib{ssl}: file{libssl.map}: include = ($linux || $bsd ? adhoc : false)
 
 # Build options.
 #
@@ -23,8 +27,8 @@ c.poptions += -DZLIB
 # Drop -DOPENSSL_PIC, -D{L|B}_ENDIAN, -DOPENSSLDIR and -DENGINESDIR as they
 # are not used in the libssl source code nor in the libcrypto public headers.
 #
-# Note that the upstream package uses -pthread compiler/linker option on
-# Linux and FreeBSD. The option is currently unsupported by build2, so we use
+# Note that the upstream package uses the -pthread compiler/linker option on
+# Linux and FreeBSD. The option is unsupported by build2 so we pass
 # -D_REENTRANT and -lpthread preprocessor/linker options instead.
 #
 # Also note that on FreeBSD and Mac OS the upstream package also passes

@@ -1,5 +1,4 @@
 # file      : tests/encryption.testscript
-# copyright : Copyright (c) 2016-2019 Code Synthesis Ltd
 # license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
 
 enc = $* aes-256-cbc -e -salt -base64 -md sha256 -pass pass:123 -pbkdf2

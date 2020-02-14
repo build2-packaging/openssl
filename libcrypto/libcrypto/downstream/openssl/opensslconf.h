@@ -1,5 +1,4 @@
 /* file      : libcrypto/downstream/openssl/opensslconf.h -*- C -*-
- * copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
  * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
  */
 

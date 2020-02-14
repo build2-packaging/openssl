@@ -1,5 +1,4 @@
 # file      : openssl/buildfile
-# copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
 # license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
 
 import libs  = libssl%lib{ssl}
@@ -25,8 +24,8 @@ exe{openssl}: apps/c{win32_init}: include = $windows
 #
 c.poptions += -DZLIB
 
-# Note that the upstream package uses -pthread compiler/linker option on
-# Linux and FreeBSD. The option is currently unsupported by build2, so we use
+# Note that the upstream package uses the -pthread compiler/linker option on
+# Linux and FreeBSD. The option is unsupported by build2 so we pass
 # -D_REENTRANT and -lpthread preprocessor/linker options instead.
 #
 # Also note that on FreeBSD and Mac OS the upstream package also passes

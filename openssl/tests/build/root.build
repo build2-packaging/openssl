@@ -1,5 +1,4 @@
 # file      : tests/build/root.build
-# copyright : Copyright (c) 2018-2019 Code Synthesis Ltd
 # license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
 
 # We need to configure C module to obtain the target information (see below).
