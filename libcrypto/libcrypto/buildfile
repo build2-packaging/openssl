@@ -19,13 +19,13 @@ lib{crypto}: {h   }{** -buildinf-body}              \
                        -mdc2/**                     \
                        -poly1305/poly1305_ieee754   \
                        -poly1305/poly1305_base2_44} \
-             { def}{libcrypto}                      \
+             {def }{libcrypto}                      \
       crypto/{file}{LPdir_*.c des/ncbc_enc.c}       \
              $imp_libs
 
 # Symlinked where appropriate.
 #
-downstream/internal/h{platform}@./downstream/internal/: dist = false
+downstream/crypto/h{platform}@./downstream/crypto/: dist = false
 
 tclass = $c.target.class
 tsys   = $c.target.system
@@ -116,7 +116,7 @@ switch $c.class
 }
 
 # Escape backslashes and quotes in the compilation flags and substitute them
-# into internal/buildinf-body.h as string literals, one per line.
+# into buildinf-body.h as string literals, one per line.
 #
 # Note: the flag list will not reflect compiler options that build2 adds
 # implicitly (-fPIC, etc).
@@ -133,11 +133,11 @@ h{buildinf-body}: in{buildinf-body}
 # Note that we have to add "-I$src_root" for the headers auto-generating
 # machinery to work properly.
 #
-c.poptions =+ "-I$out_root" "-I$src_root"            \
-              "-I$src_base/downstream" "-I$src_base"
+c.poptions =+ "-I$out_root" "-I$src_root"                                  \
+              "-I$src_base/downstream" "-I$src_base" "-I$src_base/include"
 
-crypto/             c.poptions =+ "-I$src_base/include"
 crypto/evp/         c.poptions =+ "-I$src_root/libcrypto/crypto/modes"
+crypto/rand/        c.poptions =+ "-I$src_root/libcrypto/crypto/modes"
 crypto/ec/curve448/ c.poptions =+ "-I$src_base" "-I$src_base/arch_32"
 
 # Note that upstream defines OPENSSLDIR and ENGINESDIR differently for
@@ -172,7 +172,7 @@ crypto/ec/curve448/ c.poptions =+ "-I$src_base" "-I$src_base/arch_32"
 ns = $regex.apply({**.c -crypto/cversion.c}, '.c$', '')
 obj{$ns}: c.poptions += -DOPENSSLDIR='"\0"' -DENGINESDIR='"\0"'
 
-crypto/obj{cversion}: c.poptions =+ "-I$src_root/libcrypto/downstream/internal"
+crypto/obj{cversion}: c.poptions =+ "-I$src_root/libcrypto/downstream/crypto"
 
 switch $tclass, $tsys
 {
@@ -212,7 +212,8 @@ switch $tclass, $tsys
 
 # Export options.
 #
-lib{crypto}: cc.export.poptions = "-I$src_base/downstream" "-I$src_base"
+lib{crypto}: cc.export.poptions = "-I$src_base/downstream" \
+                                  "-I$src_base/include"
 
 # See bootstrap.build for details.
 #
@@ -225,11 +226,11 @@ else
 # only.
 #
 h{*}:                                install = false
-openssl/h{*}:                        install = include/openssl/
+include/openssl/h{*}:                install = include/openssl/
 downstream/openssl/h{*}:             install = include/openssl/
 downstream/openssl/opensslconf/h{*}: install = include/openssl/opensslconf/
 
 # Disable libssl headers installation (see ../README-DEV for details).
 #
 for h: dtls1 srtp ssl2 ssl3 sslerr ssl
-  openssl/h{$h}@./openssl/: install = false
+  include/openssl/h{$h}@./include/openssl/: install = false

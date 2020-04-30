@@ -1,1 +1,1 @@
-../../openssl/opensslconf.h.in
+../../include/openssl/opensslconf.h.in

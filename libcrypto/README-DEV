@@ -4,23 +4,22 @@ See ../README-DEV for general notes on OpenSSL packaging.
 
 Symlink the required upstream files and directories into libcrypto/:
 
-$ ln -s ../../upstream/{crypto,include/internal,include/openssl,e_os.h} \
-  libcrypto
+$ ln -s ../../upstream/{crypto,include,e_os.h} libcrypto
 
 Create libcrypto/downstream/openssl/opensslconf.h including upstream's
 opensslconf.h, auto-generated for the current platform. Similarly, create
-libcrypto/downstream/internal{bn_conf.h,dso_conf.h}. Also define in
+libcrypto/downstream/crypto/{bn_conf.h,dso_conf.h}. Also define in
 opensslconf.h some common macros to avoid defining them via the -D
 preprocessor option (see libcrypto/buildfile for details). Note that
 opensslconf.h is included into all public headers and, presumably, all source
 files.
 
 Create libcrypto/buildinf-body.h.in using the upstream's auto-generated
-buildinf.h as a pattern. Create libcrypto/downstream/internal/buildinf.h,
+buildinf.h as a pattern. Create libcrypto/downstream/crypto/buildinf.h,
 replacing the upstream's auto-generated header and including our own
 auto-generated buildinf-body.h. Such a proxying is required for the headers
 auto-generating machinery to work properly (see
-libcrypto/downstream/internal/buildinf.h for details).
+libcrypto/downstream/crypto/buildinf.h for details).
 
 Copy upstream's auto-generated libcrypto.map and libcrypto.def into libcrypto/.
 Comment out the "LIBRARY libcrypto-1_1-..." line in libcrypto.def.
@@ -36,8 +35,8 @@ Figure out libssl-specific headers in libcrypto/openssl/ and disable their
 installation. First, you can exclude headers used for building libcrypto (which
 is assumed to already be built in source tree):
 
-$ cat `find libcrypto/crypto -name *.o.d` | sed -n -r -e 's%^.+/upstream/include/openssl/([^/]+)$%\1%p' | sort -u >crypto.tmp
-$ find libcrypto/openssl/ -name '*.h' | sort | sed -n -r -e 's%.+/([^/]+)$%\1%p' >openssl.tmp
+$ cat `find libcrypto/crypto/ -name '*.o.d'` | sed -n -r -e 's%^.+/include/openssl/([^/]+)$%\1%p' | sort -u >crypto.tmp
+$ find libcrypto/include/openssl/ -name '*.h' | sort | sed -n -r -e 's%.+/([^/]+)$%\1%p' >openssl.tmp
 $ comm -13 crypto.tmp openssl.tmp && rm crypto.tmp openssl.tmp
 
 The above commands result in:

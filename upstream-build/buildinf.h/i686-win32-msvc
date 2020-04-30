@@ -11,7 +11,7 @@
  */
 
 #define PLATFORM "platform: VC-WIN32"
-#define DATE "built on: Mon Nov 25 12:56:21 2019 UTC"
+#define DATE "built on: Sat May  2 09:40:34 2020 UTC"
 
 /*
  * Generate compiler_flags as an array of individual characters. This is a
@@ -23,7 +23,7 @@ static const char compiler_flags[] = {
     ' ','/','F','d','o','s','s','l','_','s','t','a','t','i','c','.',
     'p','d','b',' ','/','G','s','0',' ','/','G','F',' ','/','G','y',
     ' ','/','M','D',' ','/','W','3',' ','/','w','d','4','0','9','0',
-    ' ','/','n','o','l','o','g','o',' ','/','W','X',' ','-','D','L',
-    '_','E','N','D','I','A','N',' ','-','D','O','P','E','N','S','S',
-    'L','_','P','I','C','\0'
+    ' ','/','n','o','l','o','g','o',' ','-','D','L','_','E','N','D',
+    'I','A','N',' ','-','D','O','P','E','N','S','S','L','_','P','I',
+    'C','\0'
 };

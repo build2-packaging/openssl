@@ -1,4 +1,4 @@
-/* file      : libcrypto/downstream/internal/buildinf.h -*- C -*-
+/* file      : libcrypto/downstream/crypto/buildinf.h -*- C -*-
  * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
  */
 

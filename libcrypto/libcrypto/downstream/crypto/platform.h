@@ -1,4 +1,4 @@
-/* file      : libcrypto/downstream/internal/platform.h -*- C -*-
+/* file      : libcrypto/downstream/crypto/platform.h -*- C -*-
  * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
  */
 

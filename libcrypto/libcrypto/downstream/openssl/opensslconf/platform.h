@@ -1,1 +1,1 @@
-../../internal/platform.h
+../../crypto/platform.h
