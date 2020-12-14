@@ -1,0 +1,2 @@
+crypto  symlink=dir
+include symlink=dir

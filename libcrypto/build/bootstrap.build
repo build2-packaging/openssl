@@ -27,7 +27,7 @@ using dist
 #
 # There is no way to deduce the ABI version from the release version, so we
 # obtain it from the SHLIB_VERSION_NUMBER macro definition in
-# ../libcrypto/openssl/opensslv.h.
+# ../libcrypto/include/openssl/opensslv.h.
 #
 if ($version.major == 1 && $version.minor == 1 && $version.patch == 1)
   abi_version = '1.1'

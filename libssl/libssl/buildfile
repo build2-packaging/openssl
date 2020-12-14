@@ -3,7 +3,7 @@
 
 import int_libs = libcrypto%lib{crypto}
 
-lib{ssl}: {h c}{**} def{libssl} $int_libs
+lib{ssl}: {h c}{**} $int_libs
 
 tclass = $c.target.class
 tsys   = $c.target.system
@@ -11,7 +11,8 @@ tsys   = $c.target.system
 linux = ($tclass == 'linux')
 bsd   = ($tclass == 'bsd')
 
-lib{ssl}: file{libssl.map}: include = ($linux || $bsd ? adhoc : false)
+libs{ssl}: file{libssl.map}: include = ($linux || $bsd ? adhoc : false)
+libs{ssl}: def{libssl}:      include = $windows
 
 # Build options.
 #

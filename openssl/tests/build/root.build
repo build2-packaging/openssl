@@ -3,7 +3,7 @@
 
 # We need to configure C module to obtain the target information (see below).
 #
-using c
+using c.config
 
 # Setup the openssl program that we are testing.
 #

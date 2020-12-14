@@ -3,13 +3,13 @@ name: libcrypto
 
 # Note: remember to update doc-url below!
 #
-version: 1.1.1+11
-upstream-version: 1.1.1g
+version: 1.1.1+12
+upstream-version: 1.1.1i
 
 project: openssl
 priority: security
 summary: C library providing general cryptography and X.509 support
-license: OpenSSL License, SSLeay License; Copyleft free dual software license.
+license: OpenSSL ; OpenSSL and Original SSLeay Licenses.
 topics: C, x.509, cryptography
 description-file: README
 url: https://www.openssl.org/

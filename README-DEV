@@ -38,18 +38,18 @@ Debian and Fedora distributions. The configuration options defining these sets
 are specified in the Debian's rules and Fedora's RPM .spec files. These files
 can be obtained as follows:
 
-$ wget https://kojipkgs.fedoraproject.org/packages/openssl/1.1.1g/1.fc33/src/openssl-1.1.1g-1.fc33.src.rpm
-$ rpm2cpio openssl-1.1.1g-1.fc33.src.rpm | cpio -civ '*.spec'
+$ wget https://kojipkgs.fedoraproject.org/packages/openssl/1.1.1i/1.fc34/src/openssl-1.1.1i-1.fc34.src.rpm
+$ rpm2cpio openssl-1.1.1i-1.fc34.src.rpm | cpio -civ '*.spec'
 
-$ wget wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_1.1.1g-1.debian.tar.xz
-$ tar xf openssl_1.1.1g-1.debian.tar.xz debian/rules
+$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_1.1.1i-1.debian.tar.xz
+$ tar xf openssl_1.1.1i-1.debian.tar.xz debian/rules
 
 Here are the discovered configuration options.
 
 Debian:
 
   no-idea no-mdc2 no-rc5 no-zlib no-ssl3 enable-unit-test no-ssl3-method
-  enable-rfc3779 enable-cms
+  enable-rfc3779 enable-cms no-capieng
 
 Fedora:
 
@@ -103,7 +103,7 @@ For MSVC:
   no-devcryptoeng >build.log 2>&1
 > nmake VERBOSE=1 >>build.log 2>&1
 
-Note that when building with MSVC (as of 15.5) you may need to remove the
+Note that when building with MSVC (as of 16.4) you may need to remove the
 /O2 option from the makefile prior to running nmake, to prevent the compiler
 from hanging.
 
@@ -121,4 +121,4 @@ Debian/Ubuntu:  libssl1.1         libssl-dev     openssl
 Fedora/RHEL:    openssl-libs      openssl-devel  openssl
 
 Search for the Debian and Fedora packages at https://packages.debian.org/search
-and https://apps.fedoraproject.org/packages/.
+and https://src.fedoraproject.org/.

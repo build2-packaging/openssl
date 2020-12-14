@@ -1,5 +1,5 @@
 Operating system: x86_64-whatever-linux2
-Configuring OpenSSL version 1.1.1g (0x1010107fL) for linux-x86_64
+Configuring OpenSSL version 1.1.1i (0x1010109fL) for linux-x86_64
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -25,9 +25,9 @@ Creating Makefile
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../include/openssl/opensslconf.h.in > include/openssl/opensslconf.h
 make depend && make _all
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/karen/install/ssl\"" -DENGINESDIR="\"/home/karen/install/lib/engines-1.1\"" -DZLIB -DNDEBUG  -MMD -MF apps/app_rand.d.tmp -MT apps/app_rand.o -c -o apps/app_rand.o ../apps/app_rand.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/karen/install/ssl\"" -DENGINESDIR="\"/home/karen/install/lib/engines-1.1\"" -DZLIB -DNDEBUG  -MMD -MF apps/apps.d.tmp -MT apps/apps.o -c -o apps/apps.o ../apps/apps.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/karen/install/ssl\"" -DENGINESDIR="\"/home/karen/install/lib/engines-1.1\"" -DZLIB -DNDEBUG  -MMD -MF apps/bf_prefix.d.tmp -MT apps/bf_prefix.o -c -o apps/bf_prefix.o ../apps/bf_prefix.c
@@ -1426,6 +1426,11 @@ rm -f test/clienthellotest
 ${LDCMD:-gcc} -pthread -m64 -Wall -O3 -L.   \
 	-o test/clienthellotest test/clienthellotest.o \
 	 -lssl test/libtestutil.a -lcrypto -lz -ldl -pthread 
+gcc  -Iinclude -Iapps/include -I../include -I../apps/include -pthread -m64 -Wall -O3 -DZLIB -DNDEBUG  -MMD -MF test/cmactest.d.tmp -MT test/cmactest.o -c -o test/cmactest.o ../test/cmactest.c
+rm -f test/cmactest
+${LDCMD:-gcc} -pthread -m64 -Wall -O3 -L.   \
+	-o test/cmactest test/cmactest.o \
+	 test/libtestutil.a libcrypto.a -lz -ldl -pthread 
 gcc  -Iinclude -I../include -pthread -m64 -Wall -O3 -DZLIB -DNDEBUG  -MMD -MF test/cmsapitest.d.tmp -MT test/cmsapitest.o -c -o test/cmsapitest.o ../test/cmsapitest.c
 rm -f test/cmsapitest
 ${LDCMD:-gcc} -pthread -m64 -Wall -O3 -L.   \
@@ -1886,13 +1891,13 @@ chmod a+x tools/c_rehash
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../util/shlib_wrap.sh.in > "util/shlib_wrap.sh"
 chmod a+x util/shlib_wrap.sh
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
 make depend && make _build_libs
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
 make[1]: Nothing to be done for '_build_libs'.
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
 created directory `/home/karen/install'
 created directory `/home/karen/install/lib'
 *** Installing runtime libraries
@@ -2014,22 +2019,22 @@ install libcrypto.pc -> /home/karen/install/lib/pkgconfig/libcrypto.pc
 install libssl.pc -> /home/karen/install/lib/pkgconfig/libssl.pc
 install openssl.pc -> /home/karen/install/lib/pkgconfig/openssl.pc
 make depend && make _build_engines
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
 make[1]: Nothing to be done for '_build_engines'.
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
 created directory `/home/karen/install/lib/engines-1.1'
 *** Installing engines
 install engines/afalg.so -> /home/karen/install/lib/engines-1.1/afalg.so
 install engines/capi.so -> /home/karen/install/lib/engines-1.1/capi.so
 install engines/padlock.so -> /home/karen/install/lib/engines-1.1/padlock.so
 make depend && make _build_programs
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
 make[1]: Nothing to be done for '_build_programs'.
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1g/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
 created directory `/home/karen/install/bin'
 *** Installing runtime programs
 install apps/openssl -> /home/karen/install/bin/openssl
@@ -3363,6 +3368,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/man/man3/EC_KEY_get_conv_form.3 -> /home/karen/install/share/man/man3/EC_KEY_new.3
 /home/karen/install/share/man/man3/EC_KEY_set_conv_form.3 -> /home/karen/install/share/man/man3/EC_KEY_new.3
 /home/karen/install/share/man/man3/EC_KEY_set_asn1_flag.3 -> /home/karen/install/share/man/man3/EC_KEY_new.3
+/home/karen/install/share/man/man3/EC_KEY_decoded_from_explicit_params.3 -> /home/karen/install/share/man/man3/EC_KEY_new.3
 /home/karen/install/share/man/man3/EC_KEY_precompute_mult.3 -> /home/karen/install/share/man/man3/EC_KEY_new.3
 /home/karen/install/share/man/man3/EC_KEY_generate_key.3 -> /home/karen/install/share/man/man3/EC_KEY_new.3
 /home/karen/install/share/man/man3/EC_KEY_check_key.3 -> /home/karen/install/share/man/man3/EC_KEY_new.3
@@ -5389,6 +5395,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/man/man3/X509_ALGOR_get0.3 -> /home/karen/install/share/man/man3/X509_ALGOR_dup.3
 /home/karen/install/share/man/man3/X509_ALGOR_set_md.3 -> /home/karen/install/share/man/man3/X509_ALGOR_dup.3
 /home/karen/install/share/man/man3/X509_ALGOR_cmp.3 -> /home/karen/install/share/man/man3/X509_ALGOR_dup.3
+/home/karen/install/share/man/man3/X509_ALGOR_copy.3 -> /home/karen/install/share/man/man3/X509_ALGOR_dup.3
 /home/karen/install/share/man/man3/X509_check_ca.3
 /home/karen/install/share/man/man3/X509_check_host.3
 /home/karen/install/share/man/man3/X509_check_email.3 -> /home/karen/install/share/man/man3/X509_check_host.3
@@ -5685,6 +5692,8 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/man/man3/X509_CRL_set1_lastUpdate.3 -> /home/karen/install/share/man/man3/X509_get0_notBefore.3
 /home/karen/install/share/man/man3/X509_CRL_set1_nextUpdate.3 -> /home/karen/install/share/man/man3/X509_get0_notBefore.3
 /home/karen/install/share/man/man3/X509_get0_signature.3
+/home/karen/install/share/man/man3/X509_REQ_set0_signature.3 -> /home/karen/install/share/man/man3/X509_get0_signature.3
+/home/karen/install/share/man/man3/X509_REQ_set1_signature_algo.3 -> /home/karen/install/share/man/man3/X509_get0_signature.3
 /home/karen/install/share/man/man3/X509_get_signature_nid.3 -> /home/karen/install/share/man/man3/X509_get0_signature.3
 /home/karen/install/share/man/man3/X509_get0_tbs_sigalg.3 -> /home/karen/install/share/man/man3/X509_get0_signature.3
 /home/karen/install/share/man/man3/X509_REQ_get0_signature.3 -> /home/karen/install/share/man/man3/X509_get0_signature.3
@@ -7330,6 +7339,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/doc/openssl/html/man3/EC_KEY_get_conv_form.html -> /home/karen/install/share/doc/openssl/html/man3/EC_KEY_new.html
 /home/karen/install/share/doc/openssl/html/man3/EC_KEY_set_conv_form.html -> /home/karen/install/share/doc/openssl/html/man3/EC_KEY_new.html
 /home/karen/install/share/doc/openssl/html/man3/EC_KEY_set_asn1_flag.html -> /home/karen/install/share/doc/openssl/html/man3/EC_KEY_new.html
+/home/karen/install/share/doc/openssl/html/man3/EC_KEY_decoded_from_explicit_params.html -> /home/karen/install/share/doc/openssl/html/man3/EC_KEY_new.html
 /home/karen/install/share/doc/openssl/html/man3/EC_KEY_precompute_mult.html -> /home/karen/install/share/doc/openssl/html/man3/EC_KEY_new.html
 /home/karen/install/share/doc/openssl/html/man3/EC_KEY_generate_key.html -> /home/karen/install/share/doc/openssl/html/man3/EC_KEY_new.html
 /home/karen/install/share/doc/openssl/html/man3/EC_KEY_check_key.html -> /home/karen/install/share/doc/openssl/html/man3/EC_KEY_new.html
@@ -9356,6 +9366,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/doc/openssl/html/man3/X509_ALGOR_get0.html -> /home/karen/install/share/doc/openssl/html/man3/X509_ALGOR_dup.html
 /home/karen/install/share/doc/openssl/html/man3/X509_ALGOR_set_md.html -> /home/karen/install/share/doc/openssl/html/man3/X509_ALGOR_dup.html
 /home/karen/install/share/doc/openssl/html/man3/X509_ALGOR_cmp.html -> /home/karen/install/share/doc/openssl/html/man3/X509_ALGOR_dup.html
+/home/karen/install/share/doc/openssl/html/man3/X509_ALGOR_copy.html -> /home/karen/install/share/doc/openssl/html/man3/X509_ALGOR_dup.html
 /home/karen/install/share/doc/openssl/html/man3/X509_check_ca.html
 /home/karen/install/share/doc/openssl/html/man3/X509_check_host.html
 /home/karen/install/share/doc/openssl/html/man3/X509_check_email.html -> /home/karen/install/share/doc/openssl/html/man3/X509_check_host.html
@@ -9652,6 +9663,8 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/doc/openssl/html/man3/X509_CRL_set1_lastUpdate.html -> /home/karen/install/share/doc/openssl/html/man3/X509_get0_notBefore.html
 /home/karen/install/share/doc/openssl/html/man3/X509_CRL_set1_nextUpdate.html -> /home/karen/install/share/doc/openssl/html/man3/X509_get0_notBefore.html
 /home/karen/install/share/doc/openssl/html/man3/X509_get0_signature.html
+/home/karen/install/share/doc/openssl/html/man3/X509_REQ_set0_signature.html -> /home/karen/install/share/doc/openssl/html/man3/X509_get0_signature.html
+/home/karen/install/share/doc/openssl/html/man3/X509_REQ_set1_signature_algo.html -> /home/karen/install/share/doc/openssl/html/man3/X509_get0_signature.html
 /home/karen/install/share/doc/openssl/html/man3/X509_get_signature_nid.html -> /home/karen/install/share/doc/openssl/html/man3/X509_get0_signature.html
 /home/karen/install/share/doc/openssl/html/man3/X509_get0_tbs_sigalg.html -> /home/karen/install/share/doc/openssl/html/man3/X509_get0_signature.html
 /home/karen/install/share/doc/openssl/html/man3/X509_REQ_get0_signature.html -> /home/karen/install/share/doc/openssl/html/man3/X509_get0_signature.html

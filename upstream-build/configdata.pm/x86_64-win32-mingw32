@@ -59,11 +59,11 @@ our %config = (
   openssl_sys_defines => [ "OPENSSL_SYS_MINGW64" ],
   openssl_thread_defines => [ "OPENSSL_THREADS" ],
   openssldir => "",
-  options => "enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-weak-ssl-ciphers no-afalgeng no-asan no-asm no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-devcryptoeng no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fuzz-afl no-fuzz-libfuzzer no-heartbeats no-mdc2 no-msan no-sctp no-ssl-trace no-ubsan no-unit-test no-zlib no-zlib-dynamic",
+  options => "enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-weak-ssl-ciphers enable-zlib no-afalgeng no-asan no-asm no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-devcryptoeng no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fuzz-afl no-fuzz-libfuzzer no-heartbeats no-mdc2 no-msan no-sctp no-ssl-trace no-ubsan no-unit-test no-zlib-dynamic",
   perl_archname => "x86_64-msys-thread-multi",
   perl_cmd => "/usr/bin/perl",
-  perl_version => "5.30.1",
-  perlargv => [ "mingw64", "enable-md2", "enable-rc5", "enable-ssl3", "enable-ssl3-method", "enable-weak-ssl-ciphers", "no-mdc2", "no-asm", "no-devcryptoeng" ],
+  perl_version => "5.32.0",
+  perlargv => [ "mingw64", "enable-md2", "enable-rc5", "enable-ssl3", "enable-ssl3-method", "enable-weak-ssl-ciphers", "no-mdc2", "no-asm", "no-devcryptoeng", "enable-zlib" ],
   perlenv => {
       "AR" => undef,
       "ARFLAGS" => undef,
@@ -111,8 +111,8 @@ our %config = (
   sourcedir => "..",
   target => "mingw64",
   tdirs => [ "ossl_shim" ],
-  version => "1.1.1g",
-  version_num => "0x1010107fL",
+  version => "1.1.1i",
+  version_num => "0x1010109fL",
 );
 
 our %target = (
@@ -146,7 +146,7 @@ our %target = (
   cppflags => "-DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT",
   cpuid_asm_src => "mem_clr.c",
   cpuid_obj => "mem_clr.o",
-  defines => [  ],
+  defines => [ "ZLIB" ],
   des_asm_src => "des_enc.c fcrypt_b.c",
   des_obj => "des_enc.o fcrypt_b.o",
   disable => [  ],
@@ -155,7 +155,7 @@ our %target = (
   ec_asm_src => "",
   ec_obj => "",
   enable => [  ],
-  ex_libs => "-lws2_32 -lgdi32 -lcrypt32",
+  ex_libs => "-lz -lws2_32 -lgdi32 -lcrypt32",
   exe_extension => ".exe",
   includes => [  ],
   keccak1600_asm_src => "keccak1600.c",
@@ -339,7 +339,6 @@ our %disabled = (
   "ssl-trace" => "default",
   "ubsan" => "default",
   "unit-test" => "default",
-  "zlib" => "default",
   "zlib-dynamic" => "default",
 );
 
@@ -1207,6 +1206,11 @@ our %unified_info = (
                 [
                     "libcrypto",
                     "libssl",
+                    "test/libtestutil.a",
+                ],
+            "test/cmactest" =>
+                [
+                    "libcrypto.a",
                     "test/libtestutil.a",
                 ],
             "test/cmsapitest" =>
@@ -3201,6 +3205,8 @@ our %unified_info = (
                 {
                     "deps" =>
                         [
+                            "ssl/packet.o",
+                            "ssl/tls13_enc.o",
                             "ssl/bio_ssl.o",
                             "ssl/d1_lib.o",
                             "ssl/d1_msg.o",
@@ -3230,8 +3236,6 @@ our %unified_info = (
                             "ssl/t1_trce.o",
                             "ssl/tls13_enc.o",
                             "ssl/tls_srp.o",
-                            "ssl/packet.o",
-                            "ssl/tls13_enc.o",
                         ],
                     "products" =>
                         {
@@ -10753,6 +10757,13 @@ our %unified_info = (
                     "include",
                     "../include",
                 ],
+            "test/cmactest.o" =>
+                [
+                    "include",
+                    "apps/include",
+                    "../include",
+                    "../apps/include",
+                ],
             "test/cmsapitest.o" =>
                 [
                     "include",
@@ -11477,6 +11488,7 @@ our %unified_info = (
             "test/cipherlist_test",
             "test/ciphername_test",
             "test/clienthellotest",
+            "test/cmactest",
             "test/cmsapitest",
             "test/conf_include_test",
             "test/constant_time_test",
@@ -16248,6 +16260,14 @@ our %unified_info = (
             "test/clienthellotest.o" =>
                 [
                     "../test/clienthellotest.c",
+                ],
+            "test/cmactest" =>
+                [
+                    "test/cmactest.o",
+                ],
+            "test/cmactest.o" =>
+                [
+                    "../test/cmactest.c",
                 ],
             "test/cmsapitest" =>
                 [

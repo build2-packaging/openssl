@@ -11,7 +11,7 @@
  */
 
 #define PLATFORM "platform: linux-x86"
-#define DATE "built on: Thu Apr 30 18:24:51 2020 UTC"
+#define DATE "built on: Sat Dec 12 16:12:53 2020 UTC"
 
 /*
  * Generate compiler_flags as an array of individual characters. This is a
@@ -26,5 +26,5 @@ static const char compiler_flags[] = {
     ' ','-','D','O','P','E','N','S','S','L','_','U','S','E','_','N',
     'O','D','E','L','E','T','E',' ','-','D','L','_','E','N','D','I',
     'A','N',' ','-','D','O','P','E','N','S','S','L','_','P','I','C',
-    ' ','-','D','N','D','E','B','U','G','\0'
+    ' ','-','D','Z','L','I','B',' ','-','D','N','D','E','B','U','G','\0'
 };
