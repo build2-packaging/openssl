@@ -31,7 +31,7 @@ perl: warning: Please check that your locale settings:
 	LANG = "en_US.UTF-8"
     are supported and installed on your system.
 perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
-Configuring OpenSSL version 1.1.1i (0x1010109fL) for linux-x86
+Configuring OpenSSL version 1.1.1j (0x101010afL) for linux-x86
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -2098,7 +2098,7 @@ rm -f test/clienthellotest
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 	-o test/clienthellotest test/clienthellotest.o \
 	 -lssl test/libtestutil.a -lcrypto -lz -ldl -pthread 
-gcc  -Iinclude -Iapps/include -I../include -I../apps/include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DZLIB -DNDEBUG  -MMD -MF test/cmactest.d.tmp -MT test/cmactest.o -c -o test/cmactest.o ../test/cmactest.c
+gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DZLIB -DNDEBUG  -MMD -MF test/cmactest.d.tmp -MT test/cmactest.o -c -o test/cmactest.o ../test/cmactest.c
 rm -f test/cmactest
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 	-o test/cmactest test/cmactest.o \
@@ -2370,6 +2370,10 @@ ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 	-o test/rsa_mp_test test/rsa_mp_test.o \
 	 test/libtestutil.a -lcrypto -lz -ldl -pthread 
 gcc  -Iinclude -I../include -pthread -m32 -Wall -O3 -fomit-frame-pointer -DZLIB -DNDEBUG  -MMD -MF test/rsa_test.d.tmp -MT test/rsa_test.o -c -o test/rsa_test.o ../test/rsa_test.c
+../test/rsa_test.c: In function 'test_rsa_oaep':
+../test/rsa_test.c:349:5: warning: 'key' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     RSA_free(key);
+     ^~~~~~~~~~~~~
 rm -f test/rsa_test
 ${LDCMD:-gcc} -pthread -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 	-o test/rsa_test test/rsa_test.o \

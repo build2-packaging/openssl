@@ -3,8 +3,8 @@ name: libcrypto
 
 # Note: remember to update doc-url below!
 #
-version: 1.1.1+12
-upstream-version: 1.1.1i
+version: 1.1.1+13
+upstream-version: 1.1.1j
 
 project: openssl
 priority: security

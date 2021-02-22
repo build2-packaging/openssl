@@ -1,7 +1,7 @@
 Operating system: x86_64-apple-darwinDarwin Kernel Version 19.0.0: Thu Oct 17 16:17:15 PDT 2019; root:xnu-6153.41.3~29/RELEASE_X86_64
 WARNING! If you wish to build 32-bit libraries, then you have to
          invoke 'KERNEL_BITS=32 ../config  'enable-md2' 'enable-rc5' 'enable-ssl3' 'enable-ssl3-method' 'enable-weak-ssl-ciphers' 'no-mdc2' 'no-asm' 'no-devcryptoeng' 'enable-zlib''.
-Configuring OpenSSL version 1.1.1i (0x1010109fL) for darwin64-x86_64-cc
+Configuring OpenSSL version 1.1.1j (0x101010afL) for darwin64-x86_64-cc
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -1457,7 +1457,7 @@ rm -f test/clienthellotest
 ${LDCMD:-cc} -arch x86_64 -O3 -Wall -L. -Wl,-search_paths_first  \
 		-o test/clienthellotest test/clienthellotest.o \
 		 -lssl test/libtestutil.a -lcrypto -lz 
-cc  -Iinclude -Iapps/include -I../include -I../apps/include -arch x86_64 -O3 -Wall -D_REENTRANT -DZLIB -DNDEBUG  -MMD -MF test/cmactest.d.tmp -MT test/cmactest.o -c -o test/cmactest.o ../test/cmactest.c
+cc  -Iinclude -I../include -arch x86_64 -O3 -Wall -D_REENTRANT -DZLIB -DNDEBUG  -MMD -MF test/cmactest.d.tmp -MT test/cmactest.o -c -o test/cmactest.o ../test/cmactest.c
 rm -f test/cmactest
 ${LDCMD:-cc} -arch x86_64 -O3 -Wall -L. -Wl,-search_paths_first  \
 		-o test/cmactest test/cmactest.o \

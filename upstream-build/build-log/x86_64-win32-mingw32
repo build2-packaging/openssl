@@ -1,5 +1,5 @@
 Operating system: x86_64-whatever-mingw64
-Configuring OpenSSL version 1.1.1i (0x1010109fL) for mingw64
+Configuring OpenSSL version 1.1.1j (0x101010afL) for mingw64
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -1730,7 +1730,7 @@ rm -f test/clienthellotest.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/clienthellotest.exe test/clienthellotest.o \
 	 -lssl test/libtestutil.a -lcrypto -lz -lws2_32 -lgdi32 -lcrypt32 
-gcc  -Iinclude -Iapps/include -I../include -I../apps/include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DNDEBUG  -MMD -MF test/cmactest.d.tmp -MT test/cmactest.o -c -o test/cmactest.o ../test/cmactest.c
+gcc  -Iinclude -I../include -m64 -Wall -O3 -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DNDEBUG  -MMD -MF test/cmactest.d.tmp -MT test/cmactest.o -c -o test/cmactest.o ../test/cmactest.c
 rm -f test/cmactest.exe
 ${LDCMD:-gcc} -m64 -Wall -O3 -L.   \
 	-o test/cmactest.exe test/cmactest.o \

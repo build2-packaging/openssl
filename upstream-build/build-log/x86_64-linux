@@ -1,5 +1,5 @@
 Operating system: x86_64-whatever-linux2
-Configuring OpenSSL version 1.1.1i (0x1010109fL) for linux-x86_64
+Configuring OpenSSL version 1.1.1j (0x101010afL) for linux-x86_64
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -25,9 +25,9 @@ Creating Makefile
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../include/openssl/opensslconf.h.in > include/openssl/opensslconf.h
 make depend && make _all
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/karen/install/ssl\"" -DENGINESDIR="\"/home/karen/install/lib/engines-1.1\"" -DZLIB -DNDEBUG  -MMD -MF apps/app_rand.d.tmp -MT apps/app_rand.o -c -o apps/app_rand.o ../apps/app_rand.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/karen/install/ssl\"" -DENGINESDIR="\"/home/karen/install/lib/engines-1.1\"" -DZLIB -DNDEBUG  -MMD -MF apps/apps.d.tmp -MT apps/apps.o -c -o apps/apps.o ../apps/apps.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/karen/install/ssl\"" -DENGINESDIR="\"/home/karen/install/lib/engines-1.1\"" -DZLIB -DNDEBUG  -MMD -MF apps/bf_prefix.d.tmp -MT apps/bf_prefix.o -c -o apps/bf_prefix.o ../apps/bf_prefix.c
@@ -1426,7 +1426,7 @@ rm -f test/clienthellotest
 ${LDCMD:-gcc} -pthread -m64 -Wall -O3 -L.   \
 	-o test/clienthellotest test/clienthellotest.o \
 	 -lssl test/libtestutil.a -lcrypto -lz -ldl -pthread 
-gcc  -Iinclude -Iapps/include -I../include -I../apps/include -pthread -m64 -Wall -O3 -DZLIB -DNDEBUG  -MMD -MF test/cmactest.d.tmp -MT test/cmactest.o -c -o test/cmactest.o ../test/cmactest.c
+gcc  -Iinclude -I../include -pthread -m64 -Wall -O3 -DZLIB -DNDEBUG  -MMD -MF test/cmactest.d.tmp -MT test/cmactest.o -c -o test/cmactest.o ../test/cmactest.c
 rm -f test/cmactest
 ${LDCMD:-gcc} -pthread -m64 -Wall -O3 -L.   \
 	-o test/cmactest test/cmactest.o \
@@ -1891,13 +1891,13 @@ chmod a+x tools/c_rehash
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../util/shlib_wrap.sh.in > "util/shlib_wrap.sh"
 chmod a+x util/shlib_wrap.sh
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
 make depend && make _build_libs
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
 make[1]: Nothing to be done for '_build_libs'.
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
 created directory `/home/karen/install'
 created directory `/home/karen/install/lib'
 *** Installing runtime libraries
@@ -2019,22 +2019,22 @@ install libcrypto.pc -> /home/karen/install/lib/pkgconfig/libcrypto.pc
 install libssl.pc -> /home/karen/install/lib/pkgconfig/libssl.pc
 install openssl.pc -> /home/karen/install/lib/pkgconfig/openssl.pc
 make depend && make _build_engines
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
 make[1]: Nothing to be done for '_build_engines'.
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
 created directory `/home/karen/install/lib/engines-1.1'
 *** Installing engines
 install engines/afalg.so -> /home/karen/install/lib/engines-1.1/afalg.so
 install engines/capi.so -> /home/karen/install/lib/engines-1.1/capi.so
 install engines/padlock.so -> /home/karen/install/lib/engines-1.1/padlock.so
 make depend && make _build_programs
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
 make[1]: Nothing to be done for '_build_programs'.
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1i/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1j/openssl/out-fedora.64'
 created directory `/home/karen/install/bin'
 *** Installing runtime programs
 install apps/openssl -> /home/karen/install/bin/openssl
@@ -3155,6 +3155,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/man/man3/DES_crypt.3 -> /home/karen/install/share/man/man3/DES_random_key.3
 /home/karen/install/share/man/man3/DH_generate_key.3
 /home/karen/install/share/man/man3/DH_compute_key.3 -> /home/karen/install/share/man/man3/DH_generate_key.3
+/home/karen/install/share/man/man3/DH_compute_key_padded.3 -> /home/karen/install/share/man/man3/DH_generate_key.3
 /home/karen/install/share/man/man3/DH_generate_parameters.3
 /home/karen/install/share/man/man3/DH_generate_parameters_ex.3 -> /home/karen/install/share/man/man3/DH_generate_parameters.3
 /home/karen/install/share/man/man3/DH_check.3 -> /home/karen/install/share/man/man3/DH_generate_parameters.3
@@ -4234,6 +4235,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/man/man3/OCSP_REQ_CTX_add1_header.3 -> /home/karen/install/share/man/man3/OCSP_sendreq_new.3
 /home/karen/install/share/man/man3/OCSP_REQ_CTX_set1_req.3 -> /home/karen/install/share/man/man3/OCSP_sendreq_new.3
 /home/karen/install/share/man/man3/OCSP_sendreq_bio.3 -> /home/karen/install/share/man/man3/OCSP_sendreq_new.3
+/home/karen/install/share/man/man3/OCSP_REQ_CTX_i2d.3 -> /home/karen/install/share/man/man3/OCSP_sendreq_new.3
 /home/karen/install/share/man/man3/OpenSSL_add_all_algorithms.3
 /home/karen/install/share/man/man3/OpenSSL_add_all_ciphers.3 -> /home/karen/install/share/man/man3/OpenSSL_add_all_algorithms.3
 /home/karen/install/share/man/man3/OpenSSL_add_all_digests.3 -> /home/karen/install/share/man/man3/OpenSSL_add_all_algorithms.3
@@ -7126,6 +7128,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/doc/openssl/html/man3/DES_crypt.html -> /home/karen/install/share/doc/openssl/html/man3/DES_random_key.html
 /home/karen/install/share/doc/openssl/html/man3/DH_generate_key.html
 /home/karen/install/share/doc/openssl/html/man3/DH_compute_key.html -> /home/karen/install/share/doc/openssl/html/man3/DH_generate_key.html
+/home/karen/install/share/doc/openssl/html/man3/DH_compute_key_padded.html -> /home/karen/install/share/doc/openssl/html/man3/DH_generate_key.html
 /home/karen/install/share/doc/openssl/html/man3/DH_generate_parameters.html
 /home/karen/install/share/doc/openssl/html/man3/DH_generate_parameters_ex.html -> /home/karen/install/share/doc/openssl/html/man3/DH_generate_parameters.html
 /home/karen/install/share/doc/openssl/html/man3/DH_check.html -> /home/karen/install/share/doc/openssl/html/man3/DH_generate_parameters.html
@@ -8205,6 +8208,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/doc/openssl/html/man3/OCSP_REQ_CTX_add1_header.html -> /home/karen/install/share/doc/openssl/html/man3/OCSP_sendreq_new.html
 /home/karen/install/share/doc/openssl/html/man3/OCSP_REQ_CTX_set1_req.html -> /home/karen/install/share/doc/openssl/html/man3/OCSP_sendreq_new.html
 /home/karen/install/share/doc/openssl/html/man3/OCSP_sendreq_bio.html -> /home/karen/install/share/doc/openssl/html/man3/OCSP_sendreq_new.html
+/home/karen/install/share/doc/openssl/html/man3/OCSP_REQ_CTX_i2d.html -> /home/karen/install/share/doc/openssl/html/man3/OCSP_sendreq_new.html
 /home/karen/install/share/doc/openssl/html/man3/OpenSSL_add_all_algorithms.html
 /home/karen/install/share/doc/openssl/html/man3/OpenSSL_add_all_ciphers.html -> /home/karen/install/share/doc/openssl/html/man3/OpenSSL_add_all_algorithms.html
 /home/karen/install/share/doc/openssl/html/man3/OpenSSL_add_all_digests.html -> /home/karen/install/share/doc/openssl/html/man3/OpenSSL_add_all_algorithms.html
