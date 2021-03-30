@@ -3,8 +3,8 @@ name: libcrypto
 
 # Note: remember to update doc-url below!
 #
-version: 1.1.1+13
-upstream-version: 1.1.1j
+version: 1.1.1+14
+upstream-version: 1.1.1k
 
 project: openssl
 priority: security
@@ -22,4 +22,4 @@ build-error-email: builds@build2.org
 builds: all
 depends: * build2 >= 0.12.0
 depends: * bpkg >= 0.12.0
-depends: libz >= 1.2.1100
+depends: libz ^1.2.1100

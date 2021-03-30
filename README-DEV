@@ -38,11 +38,21 @@ Debian and Fedora distributions. The configuration options defining these sets
 are specified in the Debian's rules and Fedora's RPM .spec files. These files
 can be obtained as follows:
 
-$ wget https://kojipkgs.fedoraproject.org/packages/openssl/1.1.1i/1.fc34/src/openssl-1.1.1i-1.fc34.src.rpm
-$ rpm2cpio openssl-1.1.1i-1.fc34.src.rpm | cpio -civ '*.spec'
+$ wget https://kojipkgs.fedoraproject.org/packages/openssl/1.1.1k/1.fc35/src/openssl-1.1.1k-1.fc35.src.rpm
+$ rpm2cpio openssl-1.1.1k-1.fc35.src.rpm | cpio -civ '*.spec'
 
-$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_1.1.1i-1.debian.tar.xz
-$ tar xf openssl_1.1.1i-1.debian.tar.xz debian/rules
+$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_1.1.1k-1.debian.tar.xz
+$ tar xf openssl_1.1.1k-1.debian.tar.xz debian/rules
+
+As a side note, on Debian and Fedora the libraries, headers and utility are
+packaged as follows:
+
+                libcrypto+libssl  headers        openssl
+Debian/Ubuntu:  libssl1.1         libssl-dev     openssl
+Fedora/RHEL:    openssl-libs      openssl-devel  openssl
+
+Search for the Debian and Fedora packages at https://packages.debian.org/search
+and https://src.fedoraproject.org/.
 
 Here are the discovered configuration options.
 
@@ -112,13 +122,3 @@ and make sure that no OpenSSL headers are included from the system, running
 the following command from the project root:
 
 $ fgrep -a -e /usr/include/openssl `find . -type f -name '*.d'`
-
-As a side note, on Debian and Fedora the libraries, headers and utility are
-packaged as follows:
-
-                libcrypto+libssl  headers        openssl
-Debian/Ubuntu:  libssl1.1         libssl-dev     openssl
-Fedora/RHEL:    openssl-libs      openssl-devel  openssl
-
-Search for the Debian and Fedora packages at https://packages.debian.org/search
-and https://src.fedoraproject.org/.

@@ -3,8 +3,8 @@ name: openssl
 
 # Note: remember to update doc-url below!
 #
-version: 1.1.1+13
-upstream-version: 1.1.1j
+version: 1.1.1+14
+upstream-version: 1.1.1k
 
 priority: security
 summary: Command line tool providing various cryptography functions
