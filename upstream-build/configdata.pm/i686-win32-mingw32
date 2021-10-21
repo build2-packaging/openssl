@@ -111,8 +111,8 @@ our %config = (
   sourcedir => "..",
   target => "mingw",
   tdirs => [ "ossl_shim" ],
-  version => "1.1.1k",
-  version_num => "0x101010bfL",
+  version => "1.1.1l",
+  version_num => "0x101010cfL",
 );
 
 our %target = (
@@ -3206,9 +3206,9 @@ our %unified_info = (
                 {
                     "deps" =>
                         [
+                            "ms/applink.o",
+                            "ms/applink.o",
                             "ms/uplink.o",
-                            "ms/applink.o",
-                            "ms/applink.o",
                         ],
                     "products" =>
                         {
@@ -3227,6 +3227,8 @@ our %unified_info = (
                 {
                     "deps" =>
                         [
+                            "ssl/packet.o",
+                            "ssl/tls13_enc.o",
                             "ssl/bio_ssl.o",
                             "ssl/d1_lib.o",
                             "ssl/d1_msg.o",
@@ -3256,8 +3258,6 @@ our %unified_info = (
                             "ssl/t1_trce.o",
                             "ssl/tls13_enc.o",
                             "ssl/tls_srp.o",
-                            "ssl/packet.o",
-                            "ssl/tls13_enc.o",
                         ],
                     "products" =>
                         {

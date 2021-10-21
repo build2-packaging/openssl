@@ -1,5 +1,5 @@
 Operating system: x86_64-whatever-mingw
-Configuring OpenSSL version 1.1.1k (0x101010bfL) for mingw
+Configuring OpenSSL version 1.1.1l (0x101010cfL) for mingw
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile

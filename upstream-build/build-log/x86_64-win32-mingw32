@@ -1,5 +1,5 @@
 Operating system: x86_64-whatever-mingw64
-Configuring OpenSSL version 1.1.1k (0x101010bfL) for mingw64
+Configuring OpenSSL version 1.1.1l (0x101010cfL) for mingw64
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -158,11 +158,11 @@ gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DO
    51 |         return INVALID_SOCKET;
       |                ^~~~~~~~~~~~~~
 ../crypto/bio/b_sock2.c: In function 'BIO_accept_ex':
-../crypto/bio/b_sock2.c:296:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-  296 |         return INVALID_SOCKET;
+../crypto/bio/b_sock2.c:297:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
+  297 |         return INVALID_SOCKET;
       |                ^~~~~~~~~~~~~~
-../crypto/bio/b_sock2.c:301:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
-  301 |         return INVALID_SOCKET;
+../crypto/bio/b_sock2.c:302:16: warning: overflow in conversion from 'long long unsigned int' to 'int' changes value from '18446744073709551615' to '-1' [-Woverflow]
+  302 |         return INVALID_SOCKET;
       |                ^~~~~~~~~~~~~~
 gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"C:/Program Files/Common Files/SSL\"" -DENGINESDIR="\"C:/Program Files/OpenSSL/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DNDEBUG  -MMD -MF crypto/bio/bf_buff.d.tmp -MT crypto/bio/bf_buff.o -c -o crypto/bio/bf_buff.o ../crypto/bio/bf_buff.c
 gcc  -I. -Iinclude -I.. -I../include -m64 -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"C:/Program Files/Common Files/SSL\"" -DENGINESDIR="\"C:/Program Files/OpenSSL/lib/engines-1_1\"" -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DNDEBUG  -MMD -MF crypto/bio/bf_lbuf.d.tmp -MT crypto/bio/bf_lbuf.o -c -o crypto/bio/bf_lbuf.o ../crypto/bio/bf_lbuf.c

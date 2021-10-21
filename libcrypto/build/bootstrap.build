@@ -1,4 +1,4 @@
-# file      : build/root.build
+# file      : build/bootstrap.build
 # license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
 
 project = libcrypto

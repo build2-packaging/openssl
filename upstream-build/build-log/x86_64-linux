@@ -1,5 +1,5 @@
 Operating system: x86_64-whatever-linux2
-Configuring OpenSSL version 1.1.1k (0x101010bfL) for linux-x86_64
+Configuring OpenSSL version 1.1.1l (0x101010cfL) for linux-x86_64
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -25,9 +25,9 @@ Creating Makefile
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../include/openssl/opensslconf.h.in > include/openssl/opensslconf.h
 make depend && make _all
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/karen/install/ssl\"" -DENGINESDIR="\"/home/karen/install/lib/engines-1.1\"" -DZLIB -DNDEBUG  -MMD -MF apps/app_rand.d.tmp -MT apps/app_rand.o -c -o apps/app_rand.o ../apps/app_rand.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/karen/install/ssl\"" -DENGINESDIR="\"/home/karen/install/lib/engines-1.1\"" -DZLIB -DNDEBUG  -MMD -MF apps/apps.d.tmp -MT apps/apps.o -c -o apps/apps.o ../apps/apps.c
 gcc  -I. -Iinclude -I.. -I../include -fPIC -pthread -m64 -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/karen/install/ssl\"" -DENGINESDIR="\"/home/karen/install/lib/engines-1.1\"" -DZLIB -DNDEBUG  -MMD -MF apps/bf_prefix.d.tmp -MT apps/bf_prefix.o -c -o apps/bf_prefix.o ../apps/bf_prefix.c
@@ -1891,13 +1891,13 @@ chmod a+x tools/c_rehash
 /usr/bin/perl "-I." -Mconfigdata "../util/dofile.pl" \
     "-oMakefile" ../util/shlib_wrap.sh.in > "util/shlib_wrap.sh"
 chmod a+x util/shlib_wrap.sh
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
 make depend && make _build_libs
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
 make[1]: Nothing to be done for '_build_libs'.
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
 created directory `/home/karen/install'
 created directory `/home/karen/install/lib'
 *** Installing runtime libraries
@@ -2019,22 +2019,22 @@ install libcrypto.pc -> /home/karen/install/lib/pkgconfig/libcrypto.pc
 install libssl.pc -> /home/karen/install/lib/pkgconfig/libssl.pc
 install openssl.pc -> /home/karen/install/lib/pkgconfig/openssl.pc
 make depend && make _build_engines
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
 make[1]: Nothing to be done for '_build_engines'.
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
 created directory `/home/karen/install/lib/engines-1.1'
 *** Installing engines
 install engines/afalg.so -> /home/karen/install/lib/engines-1.1/afalg.so
 install engines/capi.so -> /home/karen/install/lib/engines-1.1/capi.so
 install engines/padlock.so -> /home/karen/install/lib/engines-1.1/padlock.so
 make depend && make _build_programs
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
-make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
+make[1]: Entering directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
 make[1]: Nothing to be done for '_build_programs'.
-make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1k/openssl/out-fedora.64'
+make[1]: Leaving directory '/home/karen/work/build2/packaging.orig/openssl/1.1.1l/openssl/out-fedora.64'
 created directory `/home/karen/install/bin'
 *** Installing runtime programs
 install apps/openssl -> /home/karen/install/bin/openssl
@@ -2566,6 +2566,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/man/man3/BN_is_zero.3 -> /home/karen/install/share/man/man3/BN_cmp.3
 /home/karen/install/share/man/man3/BN_is_one.3 -> /home/karen/install/share/man/man3/BN_cmp.3
 /home/karen/install/share/man/man3/BN_is_word.3 -> /home/karen/install/share/man/man3/BN_cmp.3
+/home/karen/install/share/man/man3/BN_abs_is_word.3 -> /home/karen/install/share/man/man3/BN_cmp.3
 /home/karen/install/share/man/man3/BN_is_odd.3 -> /home/karen/install/share/man/man3/BN_cmp.3
 /home/karen/install/share/man/man3/BN_copy.3
 /home/karen/install/share/man/man3/BN_dup.3 -> /home/karen/install/share/man/man3/BN_copy.3
@@ -6539,6 +6540,7 @@ install ../apps/ct_log_list.cnf -> /home/karen/install/ssl/ct_log_list.cnf
 /home/karen/install/share/doc/openssl/html/man3/BN_is_zero.html -> /home/karen/install/share/doc/openssl/html/man3/BN_cmp.html
 /home/karen/install/share/doc/openssl/html/man3/BN_is_one.html -> /home/karen/install/share/doc/openssl/html/man3/BN_cmp.html
 /home/karen/install/share/doc/openssl/html/man3/BN_is_word.html -> /home/karen/install/share/doc/openssl/html/man3/BN_cmp.html
+/home/karen/install/share/doc/openssl/html/man3/BN_abs_is_word.html -> /home/karen/install/share/doc/openssl/html/man3/BN_cmp.html
 /home/karen/install/share/doc/openssl/html/man3/BN_is_odd.html -> /home/karen/install/share/doc/openssl/html/man3/BN_cmp.html
 /home/karen/install/share/doc/openssl/html/man3/BN_copy.html
 /home/karen/install/share/doc/openssl/html/man3/BN_dup.html -> /home/karen/install/share/doc/openssl/html/man3/BN_copy.html

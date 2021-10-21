@@ -14,7 +14,7 @@ our %config = (
   AR => "ar",
   ARFLAGS => [ "r" ],
   CC => "cc",
-  CFLAGS => [ "-Wall -O3" ],
+  CFLAGS => [ "-O3 -Wall" ],
   CPPDEFINES => [  ],
   CPPFLAGS => [  ],
   CPPINCLUDES => [  ],
@@ -22,8 +22,8 @@ our %config = (
   HASHBANGPERL => "/usr/bin/env perl",
   LDFLAGS => [  ],
   LDLIBS => [  ],
-  PERL => "/usr/local/bin/perl",
-  RANLIB => "ranlib",
+  PERL => "/usr/bin/perl",
+  RANLIB => "ranlib -c",
   RC => "windres",
   RCFLAGS => [  ],
   afalgeng => "",
@@ -56,14 +56,14 @@ our %config = (
   openssl_algorithm_defines => [ "OPENSSL_NO_MDC2" ],
   openssl_api_defines => [  ],
   openssl_other_defines => [ "OPENSSL_RAND_SEED_OS", "OPENSSL_NO_AFALGENG", "OPENSSL_NO_ASAN", "OPENSSL_NO_ASM", "OPENSSL_NO_CRYPTO_MDEBUG", "OPENSSL_NO_CRYPTO_MDEBUG_BACKTRACE", "OPENSSL_NO_DEVCRYPTOENG", "OPENSSL_NO_EC_NISTP_64_GCC_128", "OPENSSL_NO_EGD", "OPENSSL_NO_EXTERNAL_TESTS", "OPENSSL_NO_FUZZ_AFL", "OPENSSL_NO_FUZZ_LIBFUZZER", "OPENSSL_NO_HEARTBEATS", "OPENSSL_NO_MSAN", "OPENSSL_NO_SCTP", "OPENSSL_NO_SSL_TRACE", "OPENSSL_NO_UBSAN", "OPENSSL_NO_UNIT_TEST", "OPENSSL_NO_STATIC_ENGINE" ],
-  openssl_sys_defines => [  ],
+  openssl_sys_defines => [ "OPENSSL_SYS_MACOSX" ],
   openssl_thread_defines => [ "OPENSSL_THREADS" ],
   openssldir => "",
   options => "enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-weak-ssl-ciphers enable-zlib no-afalgeng no-asan no-asm no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-devcryptoeng no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fuzz-afl no-fuzz-libfuzzer no-heartbeats no-mdc2 no-msan no-sctp no-ssl-trace no-ubsan no-unit-test no-zlib-dynamic",
-  perl_archname => "amd64-freebsd-thread-multi",
-  perl_cmd => "/usr/local/bin/perl",
-  perl_version => "5.30.0",
-  perlargv => [ "BSD-x86_64", "enable-md2", "enable-rc5", "enable-ssl3", "enable-ssl3-method", "enable-weak-ssl-ciphers", "no-mdc2", "no-asm", "no-devcryptoeng", "enable-zlib" ],
+  perl_archname => "darwin-thread-multi-2level",
+  perl_cmd => "/usr/bin/perl",
+  perl_version => "5.30.2",
+  perlargv => [ "darwin64-arm64-cc", "enable-md2", "enable-rc5", "enable-ssl3", "enable-ssl3-method", "enable-weak-ssl-ciphers", "no-mdc2", "no-asm", "no-devcryptoeng", "enable-zlib" ],
   perlenv => {
       "AR" => undef,
       "ARFLAGS" => undef,
@@ -109,7 +109,7 @@ our %config = (
   shlib_version_history => "",
   shlib_version_number => "1.1",
   sourcedir => "..",
-  target => "BSD-x86_64",
+  target => "darwin64-arm64-cc",
   tdirs => [ "ossl_shim" ],
   version => "1.1.1l",
   version_num => "0x101010cfL",
@@ -119,11 +119,11 @@ our %target = (
   AR => "ar",
   ARFLAGS => "r",
   CC => "cc",
-  CFLAGS => "-Wall -O3",
+  CFLAGS => "-O3 -Wall",
   HASHBANGPERL => "/usr/bin/env perl",
-  RANLIB => "ranlib",
+  RANLIB => "ranlib -c",
   RC => "windres",
-  _conf_fname_int => [ "../Configurations/00-base-templates.conf", "../Configurations/00-base-templates.conf", "../Configurations/10-main.conf", "../Configurations/10-main.conf", "../Configurations/10-main.conf", "../Configurations/shared-info.pl" ],
+  _conf_fname_int => [ "../Configurations/00-base-templates.conf", "../Configurations/00-base-templates.conf", "../Configurations/10-main.conf", "../Configurations/10-main.conf", "../Configurations/shared-info.pl" ],
   aes_asm_src => "aes_core.c aes_cbc.c",
   aes_obj => "aes_core.o aes_cbc.o",
   apps_aux_src => "",
@@ -138,29 +138,29 @@ our %target = (
   build_scheme => [ "unified", "unix" ],
   cast_asm_src => "c_enc.c",
   cast_obj => "c_enc.o",
-  cflags => "-pthread",
+  cflags => "-arch arm64",
   chacha_asm_src => "chacha_enc.c",
   chacha_obj => "chacha_enc.o",
   cmll_asm_src => "camellia.c cmll_misc.c cmll_cbc.c",
   cmll_obj => "camellia.o cmll_misc.o cmll_cbc.o",
-  cppflags => "-D_THREAD_SAFE -D_REENTRANT",
+  cppflags => "-D_REENTRANT",
   cpuid_asm_src => "mem_clr.c",
   cpuid_obj => "mem_clr.o",
   defines => [ "ZLIB" ],
   des_asm_src => "des_enc.c fcrypt_b.c",
   des_obj => "des_enc.o fcrypt_b.o",
   disable => [  ],
-  dso_extension => ".so",
+  dso_extension => ".dylib",
   dso_scheme => "dlfcn",
   ec_asm_src => "",
   ec_obj => "",
-  enable => [ "devcryptoeng" ],
-  ex_libs => "-lz -pthread",
+  enable => [  ],
+  ex_libs => "-lz",
   exe_extension => "",
   includes => [  ],
   keccak1600_asm_src => "keccak1600.c",
   keccak1600_obj => "keccak1600.o",
-  lflags => "",
+  lflags => "-Wl,-search_paths_first",
   lib_cflags => "",
   lib_cppflags => "-DL_ENDIAN",
   lib_defines => [  ],
@@ -170,10 +170,10 @@ our %target = (
   modes_obj => "",
   module_cflags => "-fPIC",
   module_cxxflags => "",
-  module_ldflags => "-shared -Wl,-Bsymbolic",
+  module_ldflags => "-bundle",
   padlock_asm_src => "",
   padlock_obj => "",
-  perlasm_scheme => "elf",
+  perlasm_scheme => "ios64",
   poly1305_asm_src => "",
   poly1305_obj => "",
   rc4_asm_src => "rc4_enc.c rc4_skey.c",
@@ -183,14 +183,14 @@ our %target = (
   rmd160_asm_src => "",
   rmd160_obj => "",
   shared_cflag => "-fPIC",
-  shared_defflag => "-Wl,--version-script=",
   shared_defines => [  ],
-  shared_extension => ".so.\$(SHLIB_VERSION_NUMBER)",
-  shared_extension_simple => ".so",
-  shared_ldflag => "-shared -Wl,-Bsymbolic",
+  shared_extension => ".\$(SHLIB_VERSION_NUMBER).dylib",
+  shared_extension_simple => ".dylib",
+  shared_ldflag => "-dynamiclib -current_version \$(SHLIB_VERSION_NUMBER) -compatibility_version \$(SHLIB_VERSION_NUMBER)",
   shared_rcflag => "",
-  shared_sonameflag => "-Wl,-soname=",
-  shared_target => "bsd-gcc-shared",
+  shared_sonameflag => "-install_name \$(INSTALLTOP)/\$(LIBDIR)/",
+  shared_target => "darwin-shared",
+  sys_id => "MACOSX",
   template => "1",
   thread_defines => [  ],
   thread_scheme => "pthreads",
@@ -723,17 +723,9 @@ our %unified_info = (
                 [
                     "configdata.pm",
                 ],
-            "libcrypto.map" =>
-                [
-                    "../util/libcrypto.num",
-                ],
             "libssl" =>
                 [
                     "libcrypto",
-                ],
-            "libssl.map" =>
-                [
-                    "../util/libssl.num",
                 ],
             "test/aborttest" =>
                 [
@@ -4241,18 +4233,6 @@ our %unified_info = (
             "include/openssl/opensslconf.h" =>
                 [
                     "../include/openssl/opensslconf.h.in",
-                ],
-            "libcrypto.map" =>
-                [
-                    "../util/mkdef.pl",
-                    "crypto",
-                    "linux",
-                ],
-            "libssl.map" =>
-                [
-                    "../util/mkdef.pl",
-                    "ssl",
-                    "linux",
                 ],
             "test/buildtest_aes.c" =>
                 [
@@ -11589,14 +11569,6 @@ our %unified_info = (
         ],
     "shared_sources" =>
         {
-            "libcrypto" =>
-                [
-                    "libcrypto.map",
-                ],
-            "libssl" =>
-                [
-                    "libssl.map",
-                ],
         },
     "sharednames" =>
         {

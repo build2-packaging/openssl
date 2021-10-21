@@ -5,8 +5,7 @@
 #ifndef LIBCRYPTO_DOWNSTREAM_CRYPTO_BN_CONF_H
 #define LIBCRYPTO_DOWNSTREAM_CRYPTO_BN_CONF_H
 
-/*
- * Include upstream's auto-generated platform-specific bn_conf.h.
+/* Include upstream's auto-generated platform-specific bn_conf.h.
  */
 #include <crypto/bn_conf/platform.h>
 

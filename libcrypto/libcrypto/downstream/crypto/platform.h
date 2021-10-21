@@ -2,8 +2,7 @@
  * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
  */
 
-/*
- * This header is used for inclusion of upstream's auto-generated
+/* This header is used for inclusion of upstream's auto-generated
  * platform-specific header.
  *
  * If there is the auto-generated header foo.h, then the workflow is normally
@@ -32,6 +31,21 @@
 #      include "x86_64-macos.h"
 #    else
 #      error x86_64 architecture is not supported for this OS
+#    endif
+#  elif defined(__arm64__)                                /* POSIX arm64 */
+#    if defined(__APPLE__)
+#      include "arm64-macos.h"
+/*
+ * arm64 architecture is not currently supported for Linux and FreeBSD.
+ */
+/*
+#    elif defined(__linux__)
+#      include "arm64-linux.h"
+#    elif defined(__FreeBSD__)
+#      include "arm64-freebsd.h"
+*/
+#    else
+#      error arm64 architecture is not supported for this OS
 #    endif
 #  elif defined(__i386__)                                 /* POSIX i386 */
 #    if defined(__linux__)

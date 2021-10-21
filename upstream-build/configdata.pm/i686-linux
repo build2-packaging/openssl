@@ -112,8 +112,8 @@ our %config = (
   sourcedir => "..",
   target => "linux-x86",
   tdirs => [ "ossl_shim" ],
-  version => "1.1.1k",
-  version_num => "0x101010bfL",
+  version => "1.1.1l",
+  version_num => "0x101010cfL",
 );
 
 our %target = (

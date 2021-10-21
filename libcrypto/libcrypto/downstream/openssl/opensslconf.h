@@ -5,16 +5,14 @@
 #ifndef LIBCRYPTO_DOWNSTREAM_OPENSSL_OPENSSLCONF_H
 #define LIBCRYPTO_DOWNSTREAM_OPENSSL_OPENSSLCONF_H
 
-/*
- * Define OPENSSL_PIC and {L|B}_ENDIAN macros (that upstream defines on the
+/* Define OPENSSL_PIC and {L|B}_ENDIAN macros (that upstream defines on the
  * command line via -D) if we are building libcrypto (see ../../buildfile for
  * details).
  */
 #ifdef LIBCRYPTO_BUILD
 #  define OPENSSL_PIC
 
-/*
- * Endianess.
+/* Endianess.
  */
 #  ifdef __FreeBSD__
 #    include <sys/endian.h> /* BYTE_ORDER */
@@ -46,8 +44,7 @@
 #  endif
 #endif
 
-/*
- * Include upstream's auto-generated platform-specific opensslconf.h.
+/* Include upstream's auto-generated platform-specific opensslconf.h.
  */
 #include <openssl/opensslconf/platform.h>
 

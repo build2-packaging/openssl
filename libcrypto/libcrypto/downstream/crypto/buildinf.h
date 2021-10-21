@@ -2,8 +2,7 @@
  * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
  */
 
-/*
- * Replace upstream's auto-generated buildinf.h with our own auto-generated
+/* Replace upstream's auto-generated buildinf.h with our own auto-generated
  * version of it. Note that upstream source files include it as follows:
  *
  * #include "buildinf.h"
