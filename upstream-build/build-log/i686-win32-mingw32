@@ -1,5 +1,5 @@
 Operating system: x86_64-whatever-mingw
-Configuring OpenSSL version 1.1.1l (0x101010cfL) for mingw
+Configuring OpenSSL version 1.1.1n (0x101010efL) for mingw
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
@@ -1008,7 +1008,7 @@ gcc  -I. -Iinclude -Iapps -I.. -I../include -m32 -Wall -O3 -fomit-frame-pointer 
 gcc  -I. -Iinclude -Iapps -I.. -I../include -m32 -Wall -O3 -fomit-frame-pointer -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DOPENSSL_USE_APPLINK -DNDEBUG  -MMD -MF apps/verify.d.tmp -MT apps/verify.o -c -o apps/verify.o ../apps/verify.c
 gcc  -I. -Iinclude -Iapps -I.. -I../include -m32 -Wall -O3 -fomit-frame-pointer -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DOPENSSL_USE_APPLINK -DNDEBUG  -MMD -MF apps/version.d.tmp -MT apps/version.o -c -o apps/version.o ../apps/version.c
 gcc  -I. -Iinclude -Iapps -I.. -I../include -m32 -Wall -O3 -fomit-frame-pointer -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DOPENSSL_USE_APPLINK -DNDEBUG  -MMD -MF apps/x509.d.tmp -MT apps/x509.o -c -o apps/x509.o ../apps/x509.c
-gcc  -I. -Iinclude -Iapps -I.. -I../include -I../apps -m32 -Wall -O3 -fomit-frame-pointer -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DOPENSSL_USE_APPLINK -DNDEBUG  -MMD -MF ms/applink.d.tmp -MT ms/applink.o -c -o ms/applink.o ../ms/applink.c
+gcc  -Icrypto/ec -I. -Iinclude -Iapps -I../crypto/ec -I.. -I../include -I../apps -m32 -Wall -O3 -fomit-frame-pointer -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DOPENSSL_USE_APPLINK -DNDEBUG  -MMD -MF ms/applink.d.tmp -MT ms/applink.o -c -o ms/applink.o ../ms/applink.c
 rm -f apps/openssl.exe
 ${LDCMD:-gcc} -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 	-o apps/openssl.exe apps/asn1pars.o apps/ca.o apps/ciphers.o apps/cms.o apps/crl.o apps/crl2p7.o apps/dgst.o apps/dhparam.o apps/dsa.o apps/dsaparam.o apps/ec.o apps/ecparam.o apps/enc.o apps/engine.o apps/errstr.o apps/gendsa.o apps/genpkey.o apps/genrsa.o apps/nseq.o apps/ocsp.o apps/openssl.o apps/openssl.res.o apps/passwd.o apps/pkcs12.o apps/pkcs7.o apps/pkcs8.o apps/pkey.o apps/pkeyparam.o apps/pkeyutl.o apps/prime.o apps/rand.o apps/rehash.o apps/req.o apps/rsa.o apps/rsautl.o apps/s_client.o apps/s_server.o apps/s_time.o apps/sess_id.o apps/smime.o apps/speed.o apps/spkac.o apps/srp.o apps/storeutl.o apps/ts.o apps/verify.o apps/version.o apps/x509.o ms/applink.o \
@@ -1794,7 +1794,7 @@ ${LDCMD:-gcc} -m32 -Wall -O3 -fomit-frame-pointer -L.   \
 gcc  -Iinclude -Icrypto/ec -I../include -I../crypto/ec -m32 -Wall -O3 -fomit-frame-pointer -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DOPENSSL_USE_APPLINK -DNDEBUG  -MMD -MF test/ec_internal_test.d.tmp -MT test/ec_internal_test.o -c -o test/ec_internal_test.o ../test/ec_internal_test.c
 rm -f test/ec_internal_test.exe
 ${LDCMD:-gcc} -m32 -Wall -O3 -fomit-frame-pointer -L.   \
-	-o test/ec_internal_test.exe test/ec_internal_test.o \
+	-o test/ec_internal_test.exe ms/applink.o test/ec_internal_test.o \
 	 test/libtestutil.a libcrypto.a -lz -lws2_32 -lgdi32 -lcrypt32 
 gcc  -Iinclude -I../include -m32 -Wall -O3 -fomit-frame-pointer -DUNICODE -D_UNICODE -DWIN32_LEAN_AND_MEAN -D_MT -DZLIB -DOPENSSL_USE_APPLINK -DNDEBUG  -MMD -MF test/ecdsatest.d.tmp -MT test/ecdsatest.o -c -o test/ecdsatest.o ../test/ecdsatest.c
 rm -f test/ecdsatest.exe

@@ -1,5 +1,5 @@
 Operating system: amd64-whatever-freebsd
-Configuring OpenSSL version 1.1.1l (0x101010cfL) for BSD-x86_64
+Configuring OpenSSL version 1.1.1n (0x101010efL) for BSD-x86_64
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile

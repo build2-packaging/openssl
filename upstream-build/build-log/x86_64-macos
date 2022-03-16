@@ -1,7 +1,7 @@
 Operating system: x86_64-apple-darwinDarwin Kernel Version 19.0.0: Thu Oct 17 16:17:15 PDT 2019; root:xnu-6153.41.3~29/RELEASE_X86_64
 WARNING! If you wish to build 32-bit libraries, then you have to
          invoke 'KERNEL_BITS=32 ../config  'enable-md2' 'enable-rc5' 'enable-ssl3' 'enable-ssl3-method' 'enable-weak-ssl-ciphers' 'no-mdc2' 'no-asm' 'no-devcryptoeng' 'enable-zlib''.
-Configuring OpenSSL version 1.1.1l (0x101010cfL) for darwin64-x86_64-cc
+Configuring OpenSSL version 1.1.1n (0x101010efL) for darwin64-x86_64-cc
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile

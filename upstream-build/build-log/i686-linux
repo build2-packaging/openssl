@@ -31,7 +31,7 @@ perl: warning: Please check that your locale settings:
 	LANG = "en_US.UTF-8"
     are supported and installed on your system.
 perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
-Configuring OpenSSL version 1.1.1l (0x101010cfL) for linux-x86
+Configuring OpenSSL version 1.1.1n (0x101010efL) for linux-x86
 Using os-specific seed configuration
 Creating configdata.pm
 Creating Makefile
