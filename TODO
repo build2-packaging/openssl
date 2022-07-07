@@ -6,4 +6,7 @@ On the release:
 
 - See if we can use ad hoc recipes to auto-generate .map and .def files.
 
-Note: the above requires bumping build2 version requirement to 0.13.0.
+- Use [cmdline] type for canned commands in
+  openssl/tests/encryption.testscript.
+
+Note: the above requires bumping build2 version requirement to 0.15.0.
