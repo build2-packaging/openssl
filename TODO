@@ -1,5 +1,7 @@
 On the revision:
 
+- Add 'builds: -wasm' to package manifests.
+
 On the release:
 
 - Use legal{} target type for legal documentation (LICENSE, AUTHORS, etc).
