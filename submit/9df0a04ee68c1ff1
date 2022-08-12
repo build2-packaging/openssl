@@ -1,0 +1,7 @@
+: 1
+name: openssl
+version: 1.1.1+17
+upstream-version: 1.1.1n
+priority: security
+summary: Command line tool providing various cryptography functions
+license: OpenSSL; OpenSSL and Original SSLeay Licenses.
