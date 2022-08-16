@@ -11,4 +11,12 @@ On the release:
 - Use [cmdline] type for canned commands in
   openssl/tests/encryption.testscript.
 
+- Switch to using -pthread instead of -D_REENTRANT/-lpthread in buildfiles.
+
 Note: the above requires bumping build2 version requirement to 0.15.0.
+
+Additional (permanent) notes:
+
+- Review '@@ TMP' notes.
+
+- Add/remove 'priority: security' manifest value, if required.
