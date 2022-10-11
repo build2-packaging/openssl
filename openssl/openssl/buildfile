@@ -4,7 +4,7 @@
 import libs  = libssl%lib{ssl}
 import libs += libcrypto%lib{crypto}
 
-exe{openssl}: {h c}{** -vms_* -apps/win32_init} $libs
+exe{openssl}: {h c}{** -vms_* -apps/win32_init}
 
 tclass = $c.target.class
 tsys   = $c.target.system
@@ -12,6 +12,7 @@ tsys   = $c.target.system
 windows = ($tclass == 'windows')
 
 exe{openssl}: apps/c{win32_init}: include = $windows
+exe{openssl}: $libs
 
 # Build options.
 #

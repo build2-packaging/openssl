@@ -32,15 +32,15 @@
 #    else
 #      error x86_64 architecture is not supported for this OS
 #    endif
-#  elif defined(__arm64__)                                /* POSIX arm64 */
+#  elif defined(__arm64__) || defined(__aarch64__)        /* POSIX arm64 */
 #    if defined(__APPLE__)
 #      include "arm64-macos.h"
-/*
- * arm64 architecture is not currently supported for Linux and FreeBSD.
- */
-/*
 #    elif defined(__linux__)
 #      include "arm64-linux.h"
+/*
+ * arm64 architecture is not currently supported for FreeBSD.
+ */
+/*
 #    elif defined(__FreeBSD__)
 #      include "arm64-freebsd.h"
 */
