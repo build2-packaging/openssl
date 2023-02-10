@@ -104,14 +104,6 @@ switch $c.class
     # treating them as errors.
     #
     c.coptions += -Wno-all -Wno-extra -Wno-error
-
-    # @@ TMP Workaround the 'Elliptic Curve code without ASM is broken with
-    #    Clang 14' issue (#18225) which is reproduced by the curl
-    #    tests. Remove while upgrading to the upstream's version which
-    #    contains the 'bn_nist: fix strict aliasing problem (1.1.1 backport)'
-    #    commit (318ab8e3967f).
-    #
-    crypto/bn/obj{bn_nist}: c.coptions += -fno-strict-aliasing
   }
   case 'msvc'
   {

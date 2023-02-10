@@ -3,10 +3,11 @@ name: libssl
 
 # Note: remember to update doc-url below!
 #
-version: 1.1.1+18
-upstream-version: 1.1.1n
+version: 1.1.1+19
+upstream-version: 1.1.1t
 
 project: openssl
+priority: security
 summary: C library providing SSLv3 and TLS implementations
 license: OpenSSL ; OpenSSL and Original SSLeay Licenses.
 topics: C, TLS, SSL, cryptography
