@@ -8,8 +8,9 @@ lib{ssl}: {h c}{**} $int_libs
 tclass = $c.target.class
 tsys   = $c.target.system
 
-linux = ($tclass == 'linux')
-bsd   = ($tclass == 'bsd')
+linux   = ($tclass == 'linux')
+bsd     = ($tclass == 'bsd')
+windows = ($tclass == 'windows')
 
 libs{ssl}: file{libssl.map}: include = ($linux || $bsd ? adhoc : false)
 libs{ssl}: def{libssl}:      include = $windows
