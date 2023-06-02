@@ -1,0 +1,7 @@
+: 1
+name: libcrypto
+version: 1.1.1+20
+upstream-version: 1.1.1t
+project: openssl
+summary: C library providing general cryptography and X.509 support
+license: OpenSSL; OpenSSL and Original SSLeay Licenses.
