@@ -13,7 +13,7 @@ our @EXPORT = qw(%config %target %disabled %withargs %unified_info @disablables)
 our %config = (
   AR => "ar",
   ARFLAGS => [ "r" ],
-  CC => "gcc",
+  CC => "gcc-13",
   CFLAGS => [ "-Wall -O3" ],
   CPPDEFINES => [  ],
   CPPFLAGS => [  ],
@@ -52,7 +52,7 @@ our %config = (
   lib_defines => [ "OPENSSL_PIC" ],
   libdir => "",
   major => "1",
-  makedepprog => "\$(CROSS_COMPILE)gcc",
+  makedepprog => "\$(CROSS_COMPILE)gcc-13",
   minor => "1.1",
   openssl_algorithm_defines => [ "OPENSSL_NO_MDC2" ],
   openssl_api_defines => [  ],
@@ -63,7 +63,7 @@ our %config = (
   options => "enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-weak-ssl-ciphers enable-zlib no-asan no-asm no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-devcryptoeng no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fuzz-afl no-fuzz-libfuzzer no-heartbeats no-mdc2 no-msan no-sctp no-ssl-trace no-ubsan no-unit-test no-zlib-dynamic",
   perl_archname => "aarch64-linux-gnu-thread-multi",
   perl_cmd => "/usr/bin/perl",
-  perl_version => "5.34.0",
+  perl_version => "5.36.0",
   perlargv => [ "linux-aarch64", "enable-md2", "enable-rc5", "enable-ssl3", "enable-ssl3-method", "enable-weak-ssl-ciphers", "no-mdc2", "no-asm", "no-devcryptoeng", "enable-zlib" ],
   perlenv => {
       "AR" => undef,
@@ -71,7 +71,7 @@ our %config = (
       "AS" => undef,
       "ASFLAGS" => undef,
       "BUILDFILE" => undef,
-      "CC" => undef,
+      "CC" => "gcc-13",
       "CFLAGS" => undef,
       "CPP" => undef,
       "CPPDEFINES" => undef,
@@ -112,8 +112,8 @@ our %config = (
   sourcedir => "..",
   target => "linux-aarch64",
   tdirs => [ "ossl_shim" ],
-  version => "1.1.1t",
-  version_num => "0x1010114fL",
+  version => "1.1.1u",
+  version_num => "0x1010115fL",
 );
 
 our %target = (
@@ -1981,7 +1981,6 @@ our %unified_info = (
                             "crypto/bn/bn_srp.o",
                             "crypto/bn/bn_word.o",
                             "crypto/bn/bn_x931p.o",
-                            "crypto/bn/rsa_sup_mul.o",
                         ],
                     "products" =>
                         {
@@ -3209,6 +3208,8 @@ our %unified_info = (
                 {
                     "deps" =>
                         [
+                            "ssl/packet.o",
+                            "ssl/tls13_enc.o",
                             "ssl/bio_ssl.o",
                             "ssl/d1_lib.o",
                             "ssl/d1_msg.o",
@@ -3238,8 +3239,6 @@ our %unified_info = (
                             "ssl/t1_trce.o",
                             "ssl/tls13_enc.o",
                             "ssl/tls_srp.o",
-                            "ssl/packet.o",
-                            "ssl/tls13_enc.o",
                         ],
                     "products" =>
                         {
@@ -6109,13 +6108,6 @@ our %unified_info = (
                 [
                     "crypto",
                     "../crypto",
-                ],
-            "crypto/bn/rsa_sup_mul.o" =>
-                [
-                    ".",
-                    "include",
-                    "..",
-                    "../include",
                 ],
             "crypto/bn/sparct4-mont.o" =>
                 [
@@ -12475,10 +12467,6 @@ our %unified_info = (
                 [
                     "../crypto/bn/bn_x931p.c",
                 ],
-            "crypto/bn/rsa_sup_mul.o" =>
-                [
-                    "../crypto/bn/rsa_sup_mul.c",
-                ],
             "crypto/buffer/buf_err.o" =>
                 [
                     "../crypto/buffer/buf_err.c",
@@ -14766,7 +14754,6 @@ our %unified_info = (
                     "crypto/bn/bn_srp.o",
                     "crypto/bn/bn_word.o",
                     "crypto/bn/bn_x931p.o",
-                    "crypto/bn/rsa_sup_mul.o",
                     "crypto/buffer/buf_err.o",
                     "crypto/buffer/buffer.o",
                     "crypto/camellia/camellia.o",

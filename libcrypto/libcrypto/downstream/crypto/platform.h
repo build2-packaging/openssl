@@ -48,20 +48,21 @@
 #      error arm64 architecture is not supported for this OS
 #    endif
 #  elif defined(__i386__)                                 /* POSIX i386 */
+/*
+ * i686 architecture is not currently supported for POSIX.
+ */
+#    error i686 architecture is not supported for this OS
+/*
 #    if defined(__linux__)
 #      include "i686-linux.h"
-/*
- * i686 architecture is not currently supported for FreeBSD and Mac OS.
- */
-/*
 #    elif defined(__FreeBSD__)
 #      include "i686-freebsd.h"
 #    elif defined(__APPLE__)
 #      include "i686-macos.h"
-*/
 #    else
 #      error i686 architecture is not supported for this OS
 #    endif
+*/
 #  else
 #    error unknown architecture
 #  endif

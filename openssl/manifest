@@ -3,10 +3,10 @@ name: openssl
 
 # Note: remember to update doc-url below!
 #
-version: 1.1.1+20
-upstream-version: 1.1.1t
+version: 1.1.1+21
+upstream-version: 1.1.1u
 
-#priority: security
+priority: security
 summary: Command line tool providing various cryptography functions
 license: OpenSSL ; OpenSSL and Original SSLeay Licenses.
 topics: x.509, TLS, SSL, cryptography
