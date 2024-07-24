@@ -1,5 +1,5 @@
 /* file      : libcrypto/downstream/crypto/platform.h -*- C -*-
- * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+ * license   : Apache License 2.0; see accompanying LICENSE file
  */
 
 /* This header is used for inclusion of upstream's auto-generated

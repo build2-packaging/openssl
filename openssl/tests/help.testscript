@@ -1,0 +1,9 @@
+# file      : tests/help.testscript
+# license   : Apache License 2.0; see accompanying LICENSE file
+
+$* help 2>>~%EOO%
+  help:
+
+  Standard commands
+  %.+
+  EOO

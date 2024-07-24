@@ -4,7 +4,7 @@ version. See ../README-DEV for general notes on OpenSSL packaging.
 
 Symlink the required upstream files and directories into openssl/:
 
-$ ln -s ../../upstream/{apps,include/internal,e_os.h} openssl
+$ ln -s ../../upstream/{apps,include/internal} openssl
 
-Copy upstream's auto-generated apps/progs.h into openssl/. Note that this
-header is not platform-specific.
+Copy upstream's auto-generated apps/progs.{h,c} into openssl/. Note that these
+files are not platform-specific.

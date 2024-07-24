@@ -1,5 +1,5 @@
 /* file      : tests/basic/driver.c
- * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+ * license   : Apache License 2.0; see accompanying LICENSE file
  */
 
 #include <stdio.h>

@@ -1,47 +1,37 @@
 # file      : openssl/buildfile
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
 import libs  = libssl%lib{ssl}
 import libs += libcrypto%lib{crypto}
-
-exe{openssl}: {h c}{** -vms_* -apps/win32_init}
 
 tclass = $c.target.class
 tsys   = $c.target.system
 
 windows = ($tclass == 'windows')
 
-exe{openssl}: apps/c{win32_init}: include = $windows
+exe{openssl}: {h c}{** -vms_* -apps/lib/win32_init}
+exe{openssl}: apps/lib/c{win32_init}: include = $windows
 exe{openssl}: $libs
 
 # Build options.
 #
-# Note that openssl doesn't use zlib directly. However, it uses functionality
-# that libcrypto additionally provide when zlib is enabled.
+# Drop -DOPENSSL_BUILDING_OPENSSL as it is not used in the source code.
 #
-# Also note that upstream also passes -DNDEBUG. Let's omit it for now to
-# enable assertions to gain some extra confidence that we didn't break
-# anything while packaging.
+# Note that upstream also passes -DNDEBUG. Let's omit it for now to enable
+# assertions to gain some extra confidence that we didn't break anything while
+# packaging.
 #
-c.poptions += -DZLIB
+# Also note that openssl doesn't use compression libraries directly. However,
+# it uses functionality that libcrypto additionally provides when zlib and
+# zstd are enabled.
+#
+c.poptions += -DZLIB -DZSTD
 
-# Note that the upstream package uses the -pthread compiler/linker option on
-# Linux and FreeBSD. The option is unsupported by build2 so we pass
-# -D_REENTRANT and -lpthread preprocessor/linker options instead.
-#
-# Also note that on FreeBSD and Mac OS the upstream package also passes
-# -D_REENTRANT.
-#
-if! $windows
-  c.poptions += -D_REENTRANT
-else
+if $windows
   c.poptions += -DWIN32_LEAN_AND_MEAN -DUNICODE -D_UNICODE
 
 switch $tclass, $tsys
 {
-  case 'bsd'
-    c.poptions += -D_THREAD_SAFE
-
   case 'windows', 'mingw32'
     c.poptions += -D_MT
 
@@ -73,23 +63,21 @@ switch $c.class
   }
   case 'msvc'
   {
-    c.coptions += /Gs0 /GF /Gy
-
     # Disable warnings that pop up with /W3.
     #
     c.coptions += /wd4090 /wd4244 /wd4267
   }
 }
 
-c.poptions =+ "-I$src_base"
+c.poptions =+ "-I$src_base/apps/include" "-I$src_base"
 
 switch $tclass, $tsys
 {
   case 'linux'
-    c.libs += -ldl -lpthread
+    c.libs += -ldl -pthread
 
   case 'bsd'
-    c.libs += -lpthread
+    c.libs += -pthread
 
   case 'windows', 'mingw32'
     c.libs += -lws2_32 -lgdi32 -lcrypt32

@@ -1,9 +1,7 @@
 # file      : libssl/buildfile
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
 import int_libs = libcrypto%lib{crypto}
-
-lib{ssl}: {h c}{**} $int_libs
 
 tclass = $c.target.class
 tsys   = $c.target.system
@@ -12,42 +10,40 @@ linux   = ($tclass == 'linux')
 bsd     = ($tclass == 'bsd')
 windows = ($tclass == 'windows')
 
-libs{ssl}: file{libssl.map}: include = ($linux || $bsd ? adhoc : false)
-libs{ssl}: def{libssl}:      include = $windows
+# Note that we compile ssl/record/methods/ktls_meth.c, which is conditionally
+# included by out custom ktls_meth.c, if only kTLS is enabled (see
+# libcrypto/downstream/openssl/configuration.h for details).
+#
+lib{ssl}: {h c}{** -ssl/record/methods/ktls_meth} $int_libs
+
+lib{ssl}: ssl/record/methods/c{ktls_meth}: include = adhoc
+
+libs{ssl}: file{libssl.ld}: include = ($linux || $bsd ? adhoc : false)
+libs{ssl}: def{libssl}:     include = $windows
 
 # Build options.
 #
-# Note that libssl doesn't use zlib directly. However, it may use
-# functionality that libcrypto additionally provides when zlib is enabled.
+# Drop -DOPENSSL_PIC, -D{L|B}_ENDIAN, -DOPENSSLDIR, -DENGINESDIR, -DMODULESDIR
+# and -DOPENSSL_BUILDING_OPENSSL as they are not used in the libssl source
+# code nor in the libcrypto public headers.
 #
-# Also note that upstream also passes -DNDEBUG. Let's omit it for now to
-# enable assertions to gain some extra confidence that we didn't break
-# anything while packaging.
+# Note that upstream also passes -DNDEBUG. Let's omit it for now to enable
+# assertions to gain some extra confidence that we didn't break anything while
+# packaging.
 #
-c.poptions += -DZLIB
+# Also note that libssl doesn't use zlib and zstd directly. However, it may
+# use functionality that libcrypto additionally provides when zlib and zstd
+# are enabled.
+#
+c.poptions += -DZLIB -DZSTD
 
-# Drop -DOPENSSL_PIC, -D{L|B}_ENDIAN, -DOPENSSLDIR and -DENGINESDIR as they
-# are not used in the libssl source code nor in the libcrypto public headers.
-#
-# Note that the upstream package uses the -pthread compiler/linker option on
-# Linux and FreeBSD. The option is unsupported by build2 so we pass
-# -D_REENTRANT and -lpthread preprocessor/linker options instead.
-#
-# Also note that on FreeBSD and Mac OS the upstream package also passes
-# -D_REENTRANT.
-#
-if ($tclass != 'windows')
-  c.poptions += -D_REENTRANT
-else
+if $windows
   c.poptions += -DWIN32_LEAN_AND_MEAN -DUNICODE -D_UNICODE
 
 switch $tclass, $tsys
 {
   case 'linux'
     c.poptions += -DOPENSSL_USE_NODELETE
-
-  case 'bsd'
-    c.poptions += -D_THREAD_SAFE
 
   case 'windows', 'mingw32'
     c.poptions += -D_MT
@@ -80,11 +76,9 @@ switch $c.class
   }
   case 'msvc'
   {
-    c.coptions += /Gs0 /GF /Gy
-
     # Disable warnings that pop up with /W3.
     #
-    c.coptions += /wd4090 /wd4133 /wd4244 /wd4267
+    c.coptions += /wd4090 /wd4133 /wd4244 /wd4267 /wd4334
   }
 }
 
@@ -95,16 +89,16 @@ switch $tclass, $tsys
   case 'linux'
   {
     c.loptions += -Wl,-znodelete -Wl,-Bsymbolic               \
-                  "-Wl,--version-script=$src_base/libssl.map"
+                  "-Wl,--version-script=$src_base/libssl.ld"
 
-    c.libs += -ldl -lpthread
+    c.libs += -ldl -pthread
   }
   case 'bsd'
   {
     c.loptions += -Wl,-Bsymbolic                              \
-                  "-Wl,--version-script=$src_base/libssl.map"
+                  "-Wl,--version-script=$src_base/libssl.ld"
 
-    c.libs += -lpthread
+    c.libs += -pthread
   }
   case 'windows', 'mingw32'
   {
@@ -118,6 +112,10 @@ switch $tclass, $tsys
   }
   case 'windows'
   {
+    # Suppress the 'object file does not define any public symbols' warning.
+    #
+    c.aoptions += /IGNORE:4221
+
     c.libs += ws2_32.lib gdi32.lib crypt32.lib advapi32.lib
   }
 }
@@ -137,7 +135,7 @@ if $version.pre_release
 else
   lib{ssl}: bin.lib.version = @"-$abi_version"
 
-# Install headers from the upstream openssl/ subdirectory only.
+# Note that all public headers are installed by libcrypto (see
+# libcrypto/README-DEV for the reasoning).
 #
-h{*}:         install = false
-openssl/h{*}: install = include/openssl/
+h{*}: install = false

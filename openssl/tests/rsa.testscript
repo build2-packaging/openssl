@@ -1,5 +1,5 @@
 # file      : tests/rsa.testscript
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
 +cat <<EOI >=openssl.cnf
 repository = build2.org
@@ -25,15 +25,12 @@ extendedKeyUsage = critical,codeSigning
 subjectAltName   = email:$email
 EOI
 
-+$* genrsa 4096 >=key.pem 2>>~%EOO%
-  %Generating RSA private key, 4096 bit long modulus.*%
-  %.*
-  EOO
++$* genrsa 4096 >=key.pem
 
 +cat key.pem >>~%EOO%
-  -----BEGIN RSA PRIVATE KEY-----
+  -----BEGIN PRIVATE KEY-----
   %.{1,64}%.+
-  -----END RSA PRIVATE KEY-----
+  -----END PRIVATE KEY-----
   EOO
 
 +$* req -x509 -new -key key.pem -days 1825 -config openssl.cnf >=cert.pem
@@ -48,13 +45,13 @@ EOI
 :
 {
   $* x509 -sha256 -noout -fingerprint <<<../cert.pem >>~%EOO%
-    %SHA256 Fingerprint=([[:xdigit:]]{2}:){31}[[:xdigit:]]{2}%
+    %sha256 Fingerprint=([[:xdigit:]]{2}:){31}[[:xdigit:]]{2}%
     EOO
 }
 
 : sign-verify
 :
 {
-  $* rsautl -sign -inkey ../key.pem <'test' | \
-  $* rsautl -verify -certin -inkey ../cert.pem >'test'
+  $* pkeyutl -sign -inkey ../key.pem <'test' | \
+  $* pkeyutl -verifyrecover -certin -inkey ../cert.pem >'test'
 }

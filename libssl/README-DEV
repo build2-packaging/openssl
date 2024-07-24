@@ -4,12 +4,16 @@ See ../README-DEV for general notes on OpenSSL packaging.
 
 Symlink the required upstream files and directories into libssl/:
 
-$ mkdir libssl/openssl
-$ ln -s ../../../upstream/include/openssl/{dtls1,srtp,ssl2,ssl3,sslerr,ssl}.h \
-  libssl/openssl
-$ ln -s ../../upstream/{ssl,include/internal,e_os.h} libssl
+$ ln -s ../../upstream/{ssl,include/internal} libssl
 
-Note that we take the libssl headers list from ../libcrypto/README-DEV.
+$ mkdir -p libssl/crypto/thread/arch
+$ pushd libssl/crypto/thread/arch
+$ ln -s ../../../../../upstream/crypto/thread/arch/*.c ./
+$ cd ..
+$ ln -s ../../../../upstream/crypto/thread/arch.c ./
+$ cd ..
+$ ln -s ../../../upstream/crypto/{ctype,getenv,packet,quic_vlint,time}.c ./
+$ popd
 
-Copy upstream's auto-generated libssl.map and libssl.def into libssl/. Comment
-out the "LIBRARY libssl-1_1-..." line in libssl.def.
+Copy upstream's auto-generated libssl.{ld,def} into libssl/. Comment out the
+"LIBRARY libssl-..." line in libssl.def.

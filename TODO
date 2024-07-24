@@ -2,16 +2,8 @@ On the revision:
 
 On the release:
 
-- Use legal{} target type for legal documentation (LICENSE, AUTHORS, etc).
-
-- See if we can use ad hoc recipes to auto-generate .map and .def files.
-
-- Use [cmdline] type for canned commands in
-  openssl/tests/encryption.testscript.
-
-- Switch to using -pthread instead of -D_REENTRANT/-lpthread in buildfiles.
-
-Note: the above requires bumping build2 version requirement to 0.15.0.
+  Note that here we record items that require bumping build2 version
+  requirement to the latest released version of the toolchain.
 
 Additional (permanent) notes:
 

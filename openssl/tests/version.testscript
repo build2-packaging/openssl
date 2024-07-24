@@ -1,13 +1,15 @@
 # file      : tests/version.testscript
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
 $* version -a >>~"%EOO%"
   %OpenSSL .+%
   %built on: .+ UTC%
   %platform: $c.target.class-$c.target.cpu%
   %options: .+%
-  %compiler: $c.class .*-DLIBCRYPTO_BUILD -DZLIB .*%
+  %compiler: $c.class .*-DLIBCRYPTO_BUILD -DZLIB -DZSTD .*%
   OPENSSLDIR: N/A
   ENGINESDIR: N/A
+  MODULESDIR: N/A
   %Seeding source: .+%
+  CPUINFO: N/A
   EOO

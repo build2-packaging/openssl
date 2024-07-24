@@ -1,5 +1,5 @@
 /* file      : libcrypto/downstream/crypto/bn_conf.h -*- C -*-
- * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+ * license   : Apache License 2.0; see accompanying LICENSE file
  */
 
 #ifndef LIBCRYPTO_DOWNSTREAM_CRYPTO_BN_CONF_H

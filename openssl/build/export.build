@@ -1,9 +1,9 @@
 # file      : build/export.build
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
 $out_root/
 {
   include openssl/
 }
 
-export $out_root/openssl/exe{openssl}
+export $out_root/openssl/$import.target

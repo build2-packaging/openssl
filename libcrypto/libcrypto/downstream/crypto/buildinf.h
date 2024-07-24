@@ -1,5 +1,5 @@
 /* file      : libcrypto/downstream/crypto/buildinf.h -*- C -*-
- * license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+ * license   : Apache License 2.0; see accompanying LICENSE file
  */
 
 /* Replace upstream's auto-generated buildinf.h with our own auto-generated

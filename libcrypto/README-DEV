@@ -4,15 +4,26 @@ See ../README-DEV for general notes on OpenSSL packaging.
 
 Symlink the required upstream files and directories into libcrypto/:
 
-$ ln -s ../../upstream/{crypto,include,e_os.h} libcrypto
+$ ln -s ../../upstream/{crypto,engines,include,providers} libcrypto
 
-Create libcrypto/downstream/openssl/opensslconf.h including upstream's
-opensslconf.h, auto-generated for the current platform. Similarly, create
-libcrypto/downstream/crypto/{bn_conf.h,dso_conf.h}. Also define in
-opensslconf.h some common macros to avoid defining them via the -D
-preprocessor option (see libcrypto/buildfile for details). Note that
-opensslconf.h is included into all public headers and, presumably, all source
-files.
+Create libcrypto/downstream/{crypto,openssl}/ directories and fill them with
+the platform-specific and platform-independent auto-generated headers from
+<build-dir>/include/{crypto,openssl}/ (note: all include/crypto/openssl/*.h
+files except for configuration.h are platform-independent). Also define some
+common macros in libcrypto/downstream/openssl/configuration.h to avoid
+defining them via the -D preprocessor option (see libcrypto/buildfile for
+details). Note that configuration.h is included into all public headers and,
+presumably, all source files.
+
+Copy auto-generated platform-independent files and directories as follows:
+
+  params_idx.c                   -> libcrypto/downstream/crypto/
+  providers/common/der/*.c       -> libcrypto/downstream/der/
+  include/internal/param_names.h -> libcrypto/downstream/internal/
+  providers/common/include/prov/ -> libcrypto/downstream/
+
+Create libcrypto/downstream/ssl/ directory and symlink
+../../../../upstream/ssl/record/methods/{ssl3_cbc,tls_pad}.c in it.
 
 Create libcrypto/buildinf-body.h.in using the upstream's auto-generated
 buildinf.h as a pattern. Create libcrypto/downstream/crypto/buildinf.h,
@@ -21,8 +32,8 @@ auto-generated buildinf-body.h. Such a proxying is required for the headers
 auto-generating machinery to work properly (see
 libcrypto/downstream/crypto/buildinf.h for details).
 
-Copy upstream's auto-generated libcrypto.map and libcrypto.def into libcrypto/.
-Comment out the "LIBRARY libcrypto-1_1-..." line in libcrypto.def.
+Copy upstream's auto-generated libcrypto.{ld,def} into libcrypto/. Comment
+out the "LIBRARY libcrypto-..." line in libcrypto.def.
 
 Start with compiling all source files and then iteratively exclude those that
 cause compilation/linking problems. During this process grep through
@@ -31,33 +42,8 @@ build.info files in the file-in-question directories and
 the $target{<key>} variables) to make sure that the source file should really
 be omitted in our setup.
 
-Figure out libssl-specific headers in libcrypto/openssl/ and disable their
-installation. First, you can exclude headers used for building libcrypto (which
-is assumed to already be built in source tree):
-
-$ cat `find libcrypto/crypto/ -name '*.o.d'` | sed -n -r -e 's%^.+/include/openssl/([^/]+)$%\1%p' | sort -u >crypto.tmp
-$ find libcrypto/include/openssl/ -name '*.h' | sort | sed -n -r -e 's%.+/([^/]+)$%\1%p' >openssl.tmp
-$ comm -13 crypto.tmp openssl.tmp && rm crypto.tmp openssl.tmp
-
-The above commands result in:
-
-asn1_mac.h
-dtls1.h
-ecdh.h
-ecdsa.h
-mdc2.h
-pem2.h
-srtp.h
-ssl2.h
-ssl3.h
-sslerr.h
-ssl.h
-
-This set can be reduced to just:
-
-dtls1.h
-srtp.h
-ssl2.h
-ssl3.h
-sslerr.h
-ssl.h
+Note that it is not easy to distinguish which public headers in
+libcrypto/openssl/ relate to libcrypto and which ones to libssl. That is get
+complicated with the fact that libcrypto uses some libssl functionality
+internally (includes ssl.h, etc). Thus, we will just install all the public
+headers with libcrypto.

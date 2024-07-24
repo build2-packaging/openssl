@@ -1,5 +1,5 @@
 # file      : tests/basic/buildfile
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
 import libs = libssl%lib{ssl}
 

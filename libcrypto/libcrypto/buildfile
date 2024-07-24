@@ -1,30 +1,11 @@
 # file      : libcrypto/buildfile
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
-import imp_libs = libz%lib{z}
+define inc: file
+inc{*}: extension = inc
 
-# Exclude source code of unused features (engines, disabled algorithms, etc).
-#
-# Note: crypto/LPdir_*.c and crypto/des/ncbc_enc.c are actually headers.
-#
-lib{crypto}: {h   }{** -buildinf-body}              \
-             {h   }{buildinf-body}                  \
-      crypto/{   c}{** -LPdir_* -*cap               \
-                       -aes/aes_x86core             \
-                       -bn/asm/x86_64-gcc           \
-                       -bn/rsaz_exp                 \
-                       -des/ncbc_enc                \
-                       -ec/ecp_nistz256*            \
-                       -engine/eng_devcrypto        \
-                       -mdc2/**                     \
-                       -poly1305/poly1305_ieee754   \
-                       -poly1305/poly1305_base2_44} \
-      crypto/{file}{LPdir_*.c des/ncbc_enc.c}       \
-             $imp_libs
-
-# Symlinked where appropriate.
-#
-downstream/crypto/h{platform}@./downstream/crypto/: dist = false
+import imp_libs  = libz%lib{z}
+import imp_libs += libzstd%lib{zstd}
 
 tclass = $c.target.class
 tsys   = $c.target.system
@@ -35,41 +16,81 @@ linux   = ($tclass == 'linux')
 bsd     = ($tclass == 'bsd')
 windows = ($tclass == 'windows')
 
-libs{crypto}: file{libcrypto.map}: include = ($linux || $bsd ? adhoc : false)
-libs{crypto}: def{libcrypto}:      include = $windows
+# Exclude source code of unused features (engines, providers, disabled
+# algorithms, etc).
+#
+# Note that crypto/LPdir_*.c, crypto/des/ncbc_enc.c,
+# engines/e_{afalg,capi}_err.c, and
+# providers/implementations/macs/blake2_mac_impl.c are actually headers.
+#
+lib{crypto}: {h      }{**               -buildinf-body -providers/**} \
+             {h      }{buildinf-body                                } \
+  downstream/{      c}{**                                           } \
+   providers/{h inc c}{**               -fips/**                      \
+                                        -**/securitycheck_fips        \
+                                        -**_vms -**_vxworks           \
+                                        -**/blake2_mac_impl           \
+                                        -**/winstore_store            \
+                                        -**/md2_prov                  \
+                                        -**/mdc2_prov                 \
+                                        -legacyprov                 } \
+     engines/{      c}{e_capi e_padlock                             } \
+      crypto/{      c}{**               -LPdir_* -*cap                \
+                                        -**_ppc -**_riscv -**_sparc   \
+                                        -aes/aes_x86core              \
+                                        -bn/asm/x86_64-gcc            \
+                                        -bn/rsaz_exp                  \
+                                        -des/ncbc_enc                 \
+                                        -ec/ecp_nistz*                \
+                                        -ec/ecp_*nistp*               \
+                                        -ec/ecp_sm2*                  \
+                                        -ec/ecx_s390x                 \
+                                        -evp/legacy_md2               \
+                                        -evp/legacy_mdc2              \
+                                        -md2/**                       \
+                                        -mdc2/**                      \
+                                        -poly1305/poly1305_ieee754    \
+                                        -poly1305/poly1305_base2_44   \
+                                        -rsa/rsa_acvp_test_params   }
+
+lib{crypto}: engines/c{e_afalg}:                                include = $linux
+lib{crypto}: engines/c{e_afalg_err e_capi_err}:                 include = adhoc
+lib{crypto}: providers/implementations/macs/c{blake2_mac_impl}: include = adhoc
+lib{crypto}: crypto/c{LPdir_* des/ncbc_enc}:                    include = adhoc
+
+lib{crypto}: \
+  providers/implementations/storemgmt/c{winstore_store}:        include = $windows
+
+lib{crypto}: $imp_libs
+
+# Symlinked where appropriate.
+#
+downstream/crypto/h{platform}@./downstream/crypto/: dist = false
+
+libs{crypto}: file{libcrypto.ld}: include = ($linux || $bsd ? adhoc : false)
+libs{crypto}: def{libcrypto}:     include = $windows
 
 # Build options.
 #
 # Drop -DOPENSSL_PIC and -D{L|B}_ENDIAN preprocessor options and define
-# OPENSSL_PIC and {L|B}_ENDIAN macros in downstream/openssl/opensslconf.h.
+# OPENSSL_PIC and {L|B}_ENDIAN macros in downstream/openssl/configuration.h.
 # Pass -DLIBCRYPTO_BUILD to define the above macros only while building the
-# libcrypto library.
+# libcrypto library. Also drop -DOPENSSL_BUILDING_OPENSSL since the macro is
+# not used in the library source code.
 #
 # Note that upstream also passes -DNDEBUG. Let's omit it for now to enable
 # assertions to gain some extra confidence that we didn't break anything while
 # packaging.
 #
-c.poptions += -DLIBCRYPTO_BUILD -DZLIB
+c.poptions += -DLIBCRYPTO_BUILD -DZLIB -DZSTD
 
-# Note that the upstream package uses the -pthread compiler/linker option on
-# Linux and FreeBSD. The option is unsupported by build2 so we pass
-# -D_REENTRANT and -lpthread preprocessor/linker options instead.
-#
-# Also note that on FreeBSD and Mac OS the upstream package also passes
-# -D_REENTRANT.
-#
-if! $windows
-  c.poptions += -D_REENTRANT
-else
+if $windows
   c.poptions += -DWIN32_LEAN_AND_MEAN -DUNICODE -D_UNICODE
 
 switch $tclass, $tsys
 {
   case 'linux'
     c.poptions += -DOPENSSL_USE_NODELETE
-
-  case 'bsd'
-    c.poptions += -D_THREAD_SAFE
 
   case 'windows', 'mingw32'
     c.poptions += -D_MT
@@ -107,11 +128,9 @@ switch $c.class
   }
   case 'msvc'
   {
-    c.coptions += /Gs0 /GF /Gy
-
     # Disable warnings that pop up with /W3.
     #
-    c.coptions += /wd4090 /wd4129 /wd4164 /wd4244 /wd4267 /wd4311
+    c.coptions += /wd4028 /wd4090 /wd4133 /wd4244 /wd4267 /wd4334
   }
 }
 
@@ -133,23 +152,27 @@ h{buildinf-body}: in{buildinf-body}
 # Note that we have to add "-I$src_root" for the headers auto-generating
 # machinery to work properly.
 #
-c.poptions =+ "-I$out_root" "-I$src_root"                                  \
-              "-I$src_base/downstream" "-I$src_base" "-I$src_base/include"
+c.poptions =+ "-I$out_root" "-I$src_root"                     \
+              "-I$src_base/downstream" "-I$src_base"          \
+              "-I$src_base/providers/implementations/include" \
+              "-I$src_base/providers/common/include"          \
+              "-I$src_base/include"
 
 crypto/evp/         c.poptions =+ "-I$src_root/libcrypto/crypto/modes"
 crypto/rand/        c.poptions =+ "-I$src_root/libcrypto/crypto/modes"
+crypto/ec/          c.poptions =+ "-I$src_root/libcrypto/crypto"
 crypto/ec/curve448/ c.poptions =+ "-I$src_base" "-I$src_base/arch_32"
 
-# Note that upstream defines OPENSSLDIR and ENGINESDIR differently for
-# different platforms/distributions. For example, it defines ENGINESDIR as
-# /usr/local/lib64/engines-1.1 on Fedora and /usr/local/lib/engines-1_1 for
-# MinGW GCC (which doesn't make much sense).
+# Note that upstream defines OPENSSLDIR, ENGINESDIR, and MODULESDIR
+# differently for different platforms/distributions. For example, it defines
+# ENGINESDIR as /usr/local/lib64/engines-3 on Fedora and
+# /usr/local/lib/engines-3 for MinGW GCC (which doesn't make much sense).
 #
 # Also note that Linux distributions may also define them differently. For
 # example:
 #
-# Debian/Ubuntu: /usr/lib/ssl and /usr/lib/x86_64-linux-gnu/engines-1.1
-# Fedora/RHEL:   /etc/pki/tls and /usr/lib64/engines-1.1
+# Debian/Ubuntu: /usr/lib/ssl and /usr/lib/x86_64-linux-gnu/engines-3
+# Fedora/RHEL:   /etc/pki/tls and /usr/lib64/engines-3
 #
 # We will not define these directories as there is no guarantee that they
 # exist and contain data that is safe to use. Overall, the thinking is that if
@@ -166,29 +189,33 @@ crypto/ec/curve448/ c.poptions =+ "-I$src_base" "-I$src_base/arch_32"
 # # define X509_CERT_DIR OPENSSLDIR "/certs"
 #
 # Also note that for the crypto/obj{cversion} target we instead need to leave
-# OPENSSLDIR and ENGINESDIR undefined not to break strings used by the
-# OpenSSL_version() function (see crypto/cversion.c for details).
+# OPENSSLDIR, ENGINESDIR, and MODULESDIR undefined not to break strings used
+# by the OpenSSL_version() function (see crypto/cversion.c for details).
 #
 ns = $regex.apply({**.c -crypto/cversion.c}, '.c$', '')
-obj{$ns}: c.poptions += -DOPENSSLDIR='"\0"' -DENGINESDIR='"\0"'
 
-crypto/obj{cversion}: c.poptions =+ "-I$src_root/libcrypto/downstream/crypto"
+obj{$ns}: c.poptions += -DOPENSSLDIR='"\0"' \
+                        -DENGINESDIR='"\0"' \
+                        -DMODULESDIR='"\0"'
+
+crypto/obj{cversion info}: \
+  c.poptions =+ "-I$src_root/libcrypto/downstream/crypto"
 
 switch $tclass, $tsys
 {
   case 'linux'
   {
-    c.loptions += -Wl,-znodelete -Wl,-Bsymbolic                  \
-                  "-Wl,--version-script=$src_base/libcrypto.map"
+    c.loptions += -Wl,-znodelete -Wl,-Bsymbolic                 \
+                  "-Wl,--version-script=$src_base/libcrypto.ld"
 
-    c.libs += -ldl -lpthread
+    c.libs += -ldl -pthread
   }
   case 'bsd'
   {
-    c.loptions += -Wl,-Bsymbolic                                 \
-                  "-Wl,--version-script=$src_base/libcrypto.map"
+    c.loptions += -Wl,-Bsymbolic                                \
+                  "-Wl,--version-script=$src_base/libcrypto.ld"
 
-    c.libs += -lpthread
+    c.libs += -pthread
   }
   case 'windows', 'mingw32'
   {
@@ -225,12 +252,7 @@ else
 # Install headers from the upstream and downstream openssl/ subdirectories
 # only.
 #
-h{*}:                                install = false
-include/openssl/h{*}:                install = include/openssl/
-downstream/openssl/h{*}:             install = include/openssl/
-downstream/openssl/opensslconf/h{*}: install = include/openssl/opensslconf/
-
-# Disable libssl headers installation (see ../README-DEV for details).
-#
-for h: dtls1 srtp ssl2 ssl3 sslerr ssl
-  include/openssl/h{$h}@./include/openssl/: install = false
+h{*}:                                  install = false
+include/openssl/h{*}:                  install = include/openssl/
+downstream/openssl/h{*}:               install = include/openssl/
+downstream/openssl/configuration/h{*}: install = include/openssl/configuration/

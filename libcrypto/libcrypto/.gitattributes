@@ -1,2 +1,4 @@
-crypto  symlink=dir
-include symlink=dir
+crypto    symlink=dir
+engines   symlink=dir
+include   symlink=dir
+providers symlink=dir

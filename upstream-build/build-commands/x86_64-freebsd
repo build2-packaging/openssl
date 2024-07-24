@@ -1,53 +1,40 @@
 libcrypto -------------------------------------------------------------------
 
-cc -I. -Icrypto/include -Iinclude -I.. -I../crypto/include -I../include \
--fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC \
--DOPENSSLDIR="\"/usr/local/ssl\"" \
--DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT \
--DNDEBUG  -MMD -MF crypto/aes/aes_cbc.d.tmp -MT crypto/aes/aes_cbc.o -c \
--o crypto/aes/aes_cbc.o ../crypto/aes/aes_cbc.c
+cc  -I. -Iinclude -Iproviders/common/include -Iproviders/implementations/include \
+-I.. -I../include -I../providers/common/include -I../providers/implementations/include  \
+-fPIC -pthread -Wall -O3 -DL_ENDIAN -DOPENSSL_PIC -DOPENSSLDIR="\"/home/build/install/ssl\"" \
+-DENGINESDIR="\"/home/build/install/lib/engines-3\"" -DMODULESDIR="\"/home/build/install/lib/ossl-modules\"" \
+-D_THREAD_SAFE -D_REENTRANT -DOPENSSL_BUILDING_OPENSSL -DZLIB -DZSTD -DNDEBUG \
+-I/usr/local/include -MMD -MF crypto/aes/libcrypto-shlib-aes_cbc.d.tmp -MT \
+crypto/aes/libcrypto-shlib-aes_cbc.o -c -o crypto/aes/libcrypto-shlib-aes_cbc.o \
+../crypto/aes/aes_cbc.c
 
-cc -fPIC -pthread -Wall -O3 -L. -shared -Wl,-Bsymbolic \
--Wl,-soname=libcrypto.so.1.1  -o libcrypto.so.1.1 \
--Wl,--version-script=libcrypto.map crypto/aes/aes_cbc.o ... \
-crypto/x509v3/v3err.o  -pthread
-
-ar r libcrypto.a crypto/aes/aes_cbc.o ... crypto/x509v3/v3err.o
+cc -fPIC -pthread -Wall -O3 -shared -Wl,-Bsymbolic  -L/usr/local/lib \
+-Wl,-soname=libcrypto.so.3  -o libcrypto.so.3 -Wl,--version-script=libcrypto.ld \
+crypto/aes/libcrypto-shlib-aes_cbc.o ... \
+providers/libdefault.a providers/libcommon.a -lz -lzstd -pthread
 
 
 libssl ----------------------------------------------------------------------
 
-cc -I. -Iinclude -I.. -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN \
--DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" \
--DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT \
--DNDEBUG  -MMD -MF ssl/bio_ssl.d.tmp -MT ssl/bio_ssl.o -c -o ssl/bio_ssl.o \
-../ssl/bio_ssl.c
+cc  -I. -Iinclude -I.. -I../include  -fPIC -pthread -Wall -O3 -DL_ENDIAN \
+-DOPENSSL_PIC -DOPENSSLDIR="\"/home/build/install/ssl\"" -DENGINESDIR="\"/home/build/install/lib/engines-3\"" \
+-DMODULESDIR="\"/home/build/install/lib/ossl-modules\"" -D_THREAD_SAFE \
+-D_REENTRANT -DOPENSSL_BUILDING_OPENSSL -DZLIB -DZSTD -DNDEBUG \
+-I/usr/local/include -MMD -MF ssl/libssl-shlib-bio_ssl.d.tmp -MT \
+ssl/libssl-shlib-bio_ssl.o -c -o ssl/libssl-shlib-bio_ssl.o ../ssl/bio_ssl.c
 
-cc -fPIC -pthread -Wall -O3 -L. -shared -Wl,-Bsymbolic \
--Wl,-soname=libssl.so.1.1  -o libssl.so.1.1 -Wl,--version-script=libssl.map \
-ssl/bio_ssl.o ... ssl/tls_srp.o  -lcrypto -pthread
-
-ar r libssl.a ssl/bio_ssl.o ..._enc.o ssl/tls_srp.o
-
-
-libapps ---------------------------------------------------------------------
-
-Is also used for tests.
-
-cc  -I. -Iinclude -I.. -I../include -fPIC -pthread -Wall -O3 -DL_ENDIAN \
--DOPENSSL_PIC -DOPENSSLDIR="\"/usr/local/ssl\"" \
--DENGINESDIR="\"/usr/local/lib/engines-1.1\"" -D_THREAD_SAFE -D_REENTRANT \
--DNDEBUG  -MMD -MF apps/app_rand.d.tmp -MT apps/app_rand.o -c \
--o apps/app_rand.o ../apps/app_rand.c
-
-ar r apps/libapps.a apps/app_rand.o ... apps/s_socket.o
-
+cc -fPIC -pthread -Wall -O3 -L. -shared -Wl,-Bsymbolic  -L/usr/local/lib \
+-Wl,-soname=libssl.so.3  -o libssl.so.3 -Wl,--version-script=libssl.ld \
+crypto/libssl-shlib-ctype.o ...  -lcrypto  -lz -lzstd -pthread
 
 openssl ---------------------------------------------------------------------
 
-cc  -I. -Iinclude -Iapps -I.. -I../include -pthread -Wall -O3 -D_THREAD_SAFE \
--D_REENTRANT -DNDEBUG  -MMD -MF apps/asn1pars.d.tmp -MT apps/asn1pars.o -c \
--o apps/asn1pars.o ../apps/asn1pars.c
+cc  -Iinclude -I../include  -pthread -Wall -O3 -D_THREAD_SAFE -D_REENTRANT \
+-DOPENSSL_BUILDING_OPENSSL -DZLIB -DZSTD -DNDEBUG -I/usr/local/include -MMD \
+-MF fuzz/asn1parse-test-bin-asn1parse.d.tmp -MT fuzz/asn1parse-test-bin-asn1parse.o \
+-c -o fuzz/asn1parse-test-bin-asn1parse.o ../fuzz/asn1parse.c
 
-${LDCMD:-cc} -pthread -Wall -O3 -L. -o apps/openssl apps/asn1pars.o ... \
-apps/x509.o apps/libapps.a -lssl -lcrypto -pthread
+${LDCMD:-cc} -pthread -Wall -O3 -L.  -L/usr/local/lib  -o apps/openssl \
+apps/lib/openssl-bin-cmp_mock_srv.o ... apps/libapps.a \
+-lssl -lcrypto -lz -lzstd -pthread

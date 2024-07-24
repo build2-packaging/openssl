@@ -1,83 +1,58 @@
 libcrypto -------------------------------------------------------------------
 
-cl  /Zi /Fdossl_static.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /I "." /I \
-"crypto\include" /I "include" /I ".." /I "..\crypto\include" /I "..\include" \
--D"L_ENDIAN" -D"OPENSSL_PIC" \
--D"OPENSSLDIR=\"C:\\Program Files (x86)\\Common Files\\SSL\"" \
--D"ENGINESDIR=\"C:\\Program Files (x86)\\OpenSSL\\lib\\engines-1_1\"" \
--D"OPENSSL_SYS_WIN32" -D"WIN32_LEAN_AND_MEAN" -D"UNICODE" -D"_UNICODE" \
--D"_CRT_SECURE_NO_DEPRECATE" -D"_WINSOCK_DEPRECATED_NO_WARNINGS" \
--D"OPENSSL_USE_APPLINK" -D"NDEBUG"  -c /Focrypto\aes\aes_cbc.obj \
-"..\crypto\aes\aes_cbc.c" aes_cbc.c
+"cl"  /Zi /Fdossl_static.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /O2 -I"." \
+-I"include" -I"providers\common\include" -I"providers\implementations\include" \
+-I".." -I"..\include" -I"..\providers\common\include" -I"..\providers\implementations\include" \
+-D"L_ENDIAN" -D"OPENSSL_PIC" -D"OPENSSLDIR=\"C:\\Program Files (x86)\\Common Files\\SSL\"" \
+-D"ENGINESDIR=\"C:\\install\\lib\\engines-3\"" -D"MODULESDIR=\"C:\\install\\lib\\ossl-modules\"" \
+-D"OPENSSL_BUILDING_OPENSSL" -D"ZLIB" -D"ZSTD" -D"OPENSSL_SYS_WIN32" \
+-D"WIN32_LEAN_AND_MEAN" -D"UNICODE" -D"_UNICODE" -D"_CRT_SECURE_NO_DEPRECATE" \
+-D"_WINSOCK_DEPRECATED_NO_WARNINGS" -D"NDEBUG" -I"c:\zlib32\include" \
+-I"c:\zstd32\include"   -DOPENSSL_USE_APPLINK -c /Focrypto\aes\libcrypto-shlib-aes_cbc.obj \
+"..\crypto\aes\aes_cbc.c"
 
 # Grep ../makefile/i686-win32-msvc for libcrypto.lib and CNF_EX_LIBS to see
 # what are the object files and libraries.
 #
-link /nologo /debug /dll  /nologo /debug  /implib:libcrypto.lib \
-/out:libcrypto-1_1.dll /def:libcrypto.def \
-@C:\Users\build\AppData\Local\Temp\nm43EA.tmp
+cmd /C ""link" /nologo /debug /dll  /nologo /debug \
+@C:\Users\build\AppData\Local\Temp\nm501B.tmp /implib:libcrypto.lib
 
 # Grep ../makefile/x86_64-win32-msvc for libcrypto_static.lib to see what are
 # the object files.
 #
-lib /nologo /out:libcrypto_static.lib \
-@C:\Users\build\AppData\Local\Temp\nm492B.tmp
+"lib" /nologo /out:libcrypto_static.lib \
+@C:\Users\build\AppData\Local\Temp\nmF774.tmp
 
 
 libssl ----------------------------------------------------------------------
 
-cl  /Zi /Fdossl_static.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /I "." /I \
-"include" /I ".." /I "..\include" -D"L_ENDIAN" -D"OPENSSL_PIC" \
--D"OPENSSLDIR=\"C:\\Program Files (x86)\\Common Files\\SSL\"" \
--D"ENGINESDIR=\"C:\\Program Files (x86)\\OpenSSL\\lib\\engines-1_1\"" \
--D"OPENSSL_SYS_WIN32" -D"WIN32_LEAN_AND_MEAN" -D"UNICODE" -D"_UNICODE" \
--D"_CRT_SECURE_NO_DEPRECATE" -D"_WINSOCK_DEPRECATED_NO_WARNINGS" \
--D"OPENSSL_USE_APPLINK" -D"NDEBUG"  -c /Fossl\bio_ssl.obj "..\ssl\bio_ssl.c" \
-bio_ssl.c
+"cl"  /Zi /Fdossl_static.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /O2 -I"." \
+-I"include" -I".." -I"..\include" -D"L_ENDIAN" -D"OPENSSL_PIC" \
+-D"OPENSSLDIR=\"C:\\Program Files (x86)\\Common Files\\SSL\"" -D"ENGINESDIR=\"C:\\install\\lib\\engines-3\"" \
+-D"MODULESDIR=\"C:\\install\\lib\\ossl-modules\"" -D"OPENSSL_BUILDING_OPENSSL" \
+-D"ZLIB" -D"ZSTD" -D"OPENSSL_SYS_WIN32" -D"WIN32_LEAN_AND_MEAN" -D"UNICODE" \
+-D"_UNICODE" -D"_CRT_SECURE_NO_DEPRECATE" -D"_WINSOCK_DEPRECATED_NO_WARNINGS" \
+-D"NDEBUG" -I"c:\zlib32\include" -I"c:\zstd32\include" -c /Fossl\libssl-shlib-bio_ssl.obj \
+"..\ssl\bio_ssl.c"
 
-link /nologo /debug /dll  /nologo /debug  /implib:libssl.lib \
-/out:libssl-1_1.dll /def:libssl.def \
-@C:\Users\build\AppData\Local\Temp\nm9C7C.tmp
+cmd /C ""link" /nologo /debug /dll  /nologo /debug \
+@C:\Users\build\AppData\Local\Temp\nmC331.tmp /implib:libssl.lib
 
-lib /nologo /out:libssl_static.lib \
-@C:\Users\build\AppData\Local\Temp\nm9E61.tmp
-
-
-libapps ---------------------------------------------------------------------
-
-Is also used for tests.
-
-cl  /Zi /Fdossl_static.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /I "." /I \
-"include" /I ".." /I "..\include" -D"L_ENDIAN" -D"OPENSSL_PIC" \
--D"OPENSSLDIR=\"C:\\Program Files (x86)\\Common Files\\SSL\"" \
--D"ENGINESDIR=\"C:\\Program Files (x86)\\OpenSSL\\lib\\engines-1_1\"" \
--D"OPENSSL_SYS_WIN32" -D"WIN32_LEAN_AND_MEAN" -D"UNICODE" -D"_UNICODE" \
--D"_CRT_SECURE_NO_DEPRECATE" -D"_WINSOCK_DEPRECATED_NO_WARNINGS" \
--D"OPENSSL_USE_APPLINK" -D"NDEBUG"  -c /Foapps\app_rand.obj \
-"..\apps\app_rand.c" app_rand.c
-
-lib /nologo /out:apps\libapps.lib @C:\Users\build\AppData\Local\Temp\nm6769.tmp
-
-nm6769.tmp:
-apps\app_rand.obj
-apps\apps.obj
-apps\bf_prefix.obj
-apps\opt.obj
-apps\s_cb.obj
-apps\s_socket.obj
-apps\win32_init.obj
-
+"lib" /nologo /out:libssl_static.lib \
+@C:\Users\build\AppData\Local\Temp\nm7CAF.tmp
 
 openssl ---------------------------------------------------------------------
 
-cl  /Zi /Fdapp.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /I "." /I "include" \
-/I "apps" /I ".." /I "..\include" -D"OPENSSL_SYS_WIN32" \
+"cl"  /Zi /Fdapp.pdb /Gs0 /GF /Gy /MD /W3 /wd4090 /nologo /O2 -I"apps" -I"." \
+-I"include" -I"apps\include" -I".." -I"..\include" -I"..\apps\include" \
+-D"OPENSSL_BUILDING_OPENSSL" -D"ZLIB" -D"ZSTD" -D"OPENSSL_SYS_WIN32" \
 -D"WIN32_LEAN_AND_MEAN" -D"UNICODE" -D"_UNICODE" -D"_CRT_SECURE_NO_DEPRECATE" \
--D"_WINSOCK_DEPRECATED_NO_WARNINGS" -D"OPENSSL_USE_APPLINK" -D"NDEBUG"  \
--c /Foapps\asn1pars.obj "..\apps\asn1pars.c" asn1pars.c
+-D"_WINSOCK_DEPRECATED_NO_WARNINGS" -D"NDEBUG" -I"c:\zlib32\include" \
+-I"c:\zstd32\include"   -c /Foapps\openssl-bin-asn1parse.obj \
+"..\apps\asn1parse.c"
 
-link /nologo /debug /subsystem:console /opt:ref  /nologo /debug \
-/out:apps\openssl.exe @C:\Users\build\AppData\Local\Temp\nm246.tmp
+"link" /nologo /debug setargv.obj /subsystem:console /opt:ref  /nologo /debug \
+@C:\Users\build\AppData\Local\Temp\nm1682.tmp
 
 nmFCA0.tmp:
 apps\asn1pars.obj

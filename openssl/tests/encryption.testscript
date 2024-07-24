@@ -1,8 +1,8 @@
 # file      : tests/encryption.testscript
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
-enc = $* aes-256-cbc -e -salt -base64 -md sha256 -pass pass:123 -pbkdf2
-dec = $* aes-256-cbc -d -salt -base64 -md sha256 -pass pass:123 -pbkdf2
+enc = [cmdline] $* aes-256-cbc -e -salt -base64 -md sha256 -pass pass:123 -pbkdf2
+dec = [cmdline] $* aes-256-cbc -d -salt -base64 -md sha256 -pass pass:123 -pbkdf2
 
 $enc    <'ABC' | $dec    >'ABC' : no-zlib
 $enc -z <'ABC' | $dec -z >'ABC' : zlib

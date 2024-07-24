@@ -1,5 +1,5 @@
 # file      : tests/basic/testscript
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
 $* >>~"%EOO%"
   %version: OpenSSL .+%

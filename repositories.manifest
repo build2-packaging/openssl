@@ -4,3 +4,7 @@ summary: OpenSSL build2 package repository
 :
 role: prerequisite
 location: ../../zlib/zlib.git##HEAD
+
+:
+role: prerequisite
+location: https://github.com/build2-packaging/zstd.git##HEAD

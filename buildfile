@@ -1,5 +1,5 @@
 # file      : buildfile
-# license   : OpenSSL and SSLeay Licenses; see accompanying LICENSE file
+# license   : Apache License 2.0; see accompanying LICENSE file
 
 # Glue buildfile that "pulls" all the packages.
 
