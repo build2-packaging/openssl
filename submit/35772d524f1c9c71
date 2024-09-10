@@ -1,0 +1,6 @@
+: 1
+name: libssl
+version: 3.3.1
+project: openssl
+summary: C library providing SSLv3 and TLS implementations
+license: Apache-2.0; Apache License 2.0.
