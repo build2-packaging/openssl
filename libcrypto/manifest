@@ -3,7 +3,7 @@ name: libcrypto
 
 # Note: remember to update doc-url below!
 #
-version: 3.3.1-a.0.z
+version: 3.3.1
 
 project: openssl
 summary: C library providing general cryptography and X.509 support
