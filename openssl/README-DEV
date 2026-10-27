@@ -6,5 +6,12 @@ Symlink the required upstream files and directories into openssl/:
 
 $ ln -s ../../upstream/{apps,include/internal} openssl
 
+Symlink the libcrypto private header that apps/lib/cmp_mock_srv.c includes
+as "../../crypto/cmp/cmp_local.h", so that this path also resolves in the
+distribution, where the apps/ symlink is replaced with its target:
+
+$ mkdir -p openssl/crypto/cmp
+$ ln -s ../../../../upstream/crypto/cmp/cmp_local.h openssl/crypto/cmp/
+
 Copy upstream's auto-generated apps/progs.{h,c} into openssl/. Note that these
 files are not platform-specific.

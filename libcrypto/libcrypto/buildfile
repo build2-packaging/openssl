@@ -28,6 +28,7 @@ lib{crypto}: {h      }{**               -buildinf-body -providers/**} \
   downstream/{      c}{**                                           } \
    providers/{h inc c}{**               -fips/**                      \
                                         -**/securitycheck_fips        \
+                                        -**/fips_crng_test            \
                                         -**_vms -**_vxworks           \
                                         -**/blake2_mac_impl           \
                                         -**/winstore_store            \
@@ -36,7 +37,8 @@ lib{crypto}: {h      }{**               -buildinf-body -providers/**} \
                                         -legacyprov                 } \
      engines/{      c}{e_capi e_padlock                             } \
       crypto/{      c}{**               -LPdir_* -*cap                \
-                                        -**_ppc -**_riscv -**_sparc   \
+                                        -**_ppc -**_riscv -**_s390x   \
+                                        -**_sparc                     \
                                         -aes/aes_x86core              \
                                         -bn/asm/x86_64-gcc            \
                                         -bn/rsaz_exp                  \
@@ -44,14 +46,14 @@ lib{crypto}: {h      }{**               -buildinf-body -providers/**} \
                                         -ec/ecp_nistz*                \
                                         -ec/ecp_*nistp*               \
                                         -ec/ecp_sm2*                  \
-                                        -ec/ecx_s390x                 \
                                         -evp/legacy_md2               \
                                         -evp/legacy_mdc2              \
                                         -md2/**                       \
                                         -mdc2/**                      \
                                         -poly1305/poly1305_ieee754    \
                                         -poly1305/poly1305_base2_44   \
-                                        -rsa/rsa_acvp_test_params   }
+                                        -rsa/rsa_acvp_test_params     \
+                                        -x509/x509_def              }
 
 lib{crypto}: engines/c{e_afalg}:                                include = $linux
 lib{crypto}: engines/c{e_afalg_err e_capi_err}:                 include = adhoc
@@ -60,6 +62,11 @@ lib{crypto}: crypto/c{LPdir_* des/ncbc_enc}:                    include = adhoc
 
 lib{crypto}: \
   providers/implementations/storemgmt/c{winstore_store}:        include = $windows
+
+# Note that the default provider implementations include the FIPS indicator
+# header from the otherwise excluded FIPS provider.
+#
+lib{crypto}: providers/fips/include/fips/h{fipsindicator}
 
 lib{crypto}: $imp_libs
 
@@ -158,10 +165,16 @@ c.poptions =+ "-I$out_root" "-I$src_root"                     \
               "-I$src_base/providers/common/include"          \
               "-I$src_base/include"
 
-crypto/evp/         c.poptions =+ "-I$src_root/libcrypto/crypto/modes"
-crypto/rand/        c.poptions =+ "-I$src_root/libcrypto/crypto/modes"
+crypto/bn/          c.poptions =+ "-I$src_root/libcrypto/crypto"
 crypto/ec/          c.poptions =+ "-I$src_root/libcrypto/crypto"
 crypto/ec/curve448/ c.poptions =+ "-I$src_base" "-I$src_base/arch_32"
+crypto/modes/       c.poptions =+ "-I$src_root/libcrypto/crypto"
+
+crypto/evp/ c.poptions =+ "-I$src_root/libcrypto/crypto" \
+                          "-I$src_root/libcrypto/crypto/modes"
+
+providers/ c.poptions =+ "-I$src_root/libcrypto/crypto" \
+                         "-I$src_root/libcrypto/providers/fips/include"
 
 # Note that upstream defines OPENSSLDIR, ENGINESDIR, and MODULESDIR
 # differently for different platforms/distributions. For example, it defines
@@ -191,6 +204,12 @@ crypto/ec/curve448/ c.poptions =+ "-I$src_base" "-I$src_base/arch_32"
 # Also note that for the crypto/obj{cversion} target we instead need to leave
 # OPENSSLDIR, ENGINESDIR, and MODULESDIR undefined not to break strings used
 # by the OpenSSL_version() function (see crypto/cversion.c for details).
+#
+# Finally, note that on Windows upstream appends the suffixes to OPENSSLDIR at
+# runtime rather than at the preprocessing time, which for the empty string
+# would end up with the default paths referring to the current drive root
+# (\cert.pem, etc). Thus, we patch crypto/x509/x509_def.c to leave such paths
+# empty (see downstream/crypto/x509/x509_def.c.patch for details).
 #
 ns = $regex.apply({**.c -crypto/cversion.c}, '.c$', '')
 

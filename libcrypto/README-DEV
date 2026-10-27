@@ -25,6 +25,20 @@ Copy auto-generated platform-independent files and directories as follows:
 Create libcrypto/downstream/ssl/ directory and symlink
 ../../../../upstream/ssl/record/methods/{ssl3_cbc,tls_pad}.c in it.
 
+Patch crypto/x509/x509_def.c not to derive the default certificate paths
+from the empty OPENSSLDIR on Windows (see libcrypto/buildfile for details):
+
+$ mkdir -p libcrypto/downstream/crypto/x509
+$ pushd libcrypto/downstream/crypto/x509
+$ ln -s ../../../../../upstream/crypto/x509/x509_def.c x509_def.c.orig
+$ cp -H x509_def.c.orig x509_def.c
+$ patch <x509_def.c.patch
+$ popd
+
+Note that the above patch is produced by the following command:
+
+$ diff -u x509_def.c.orig x509_def.c >x509_def.c.patch
+
 Create libcrypto/buildinf-body.h.in using the upstream's auto-generated
 buildinf.h as a pattern. Create libcrypto/downstream/crypto/buildinf.h,
 replacing the upstream's auto-generated header and including our own

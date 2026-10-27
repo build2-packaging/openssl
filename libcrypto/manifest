@@ -3,7 +3,7 @@ name: libcrypto
 
 # Note: remember to update doc-url below!
 #
-version: 3.3.1
+version: 3.5.9-a.0.z
 
 project: openssl
 summary: C library providing general cryptography and X.509 support
@@ -11,7 +11,7 @@ license: Apache-2.0 ; Apache License 2.0.
 topics: C, x.509, cryptography
 description-file: README
 url: https://www.openssl.org/
-doc-url: https://docs.openssl.org/3.3/man3/
+doc-url: https://docs.openssl.org/3.5/man3/
 src-url: https://git.build2.org/cgit/packaging/openssl/openssl/tree/libcrypto/
 package-url: https://git.build2.org/cgit/packaging/openssl/
 email: openssl-users@openssl.org     ; Mailing list.

@@ -38,11 +38,11 @@ Debian and Fedora distributions. The configuration options defining these sets
 are specified in the Debian's rules and Fedora's RPM .spec files. These files
 can be obtained as follows:
 
-$ wget https://kojipkgs.fedoraproject.org/packages/openssl/3.2.2/1.fc40/src/openssl-3.2.2-1.fc40.src.rpm
-$ rpm2cpio openssl-3.2.2-1.fc40.src.rpm | cpio -civ '*.spec'
+$ wget https://kojipkgs.fedoraproject.org/packages/openssl/3.5.9/1.fc44/src/openssl-3.5.9-1.fc44.src.rpm
+$ rpm2cpio openssl-3.5.9-1.fc44.src.rpm | cpio -civ '*.spec'
 
-$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_3.3.1-1.debian.tar.xz
-$ tar xf openssl_3.3.1-1.debian.tar.xz debian/rules
+$ wget http://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.7-1~deb13u3.debian.tar.xz
+$ tar xf openssl_3.5.7-1~deb13u3.debian.tar.xz debian/rules
 
 As a side note, on Debian and Fedora the libraries, headers and utility are
 packaged as follows:
@@ -58,31 +58,43 @@ Here are the discovered configuration options.
 
 Debian:
 
-  no-idea no-mdc2 no-rc5 no-zlib no-ssl3 enable-unit-test no-ssl3-method
+  no-idea no-mdc2 no-rc5 no-ssl3 enable-unit-test no-ssl3-method
   enable-rfc3779 enable-cms no-capieng no-rdrand enable-tfo enable-zstd
-  enable-zlib
+  enable-zlib enable-fips enable-ec_nistp_64_gcc_128
 
 Fedora:
 
   enable-zlib enable-camellia enable-seed enable-rfc3779 enable-sctp
   enable-cms enable-md2 enable-rc5 enable-ktls enable-fips no-mdc2 no-ec2m
-  no-sm2 no-sm4 enable-buildtest-c++
+  no-sm2 no-sm4 no-atexit enable-buildtest-c++ enable-ec_nistp_64_gcc_128
+
+Note that both distributions only pass enable-ec_nistp_64_gcc_128 for 64-bit
+architectures.
 
 The union of these feature sets translates into the following options, after
 suppressing the defaults:
 
   no-mdc2 enable-rc5 enable-zlib enable-rfc3779 enable-cms enable-zstd
-  enable-sctp enable-md2 enable-ktls enable-fips
+  enable-tfo enable-sctp enable-md2 enable-ktls enable-fips
+  enable-ec_nistp_64_gcc_128
 
 We, however, drop the external dependencies that are not packaged for build2,
 dynamically loaded engines and providers (fips, etc). Besides that, we add
 no-asm to suppress replacing C code with auto-generated ASM code for some
 algorithms. Later, we can potentially pre-generate ASM code for architectures
 we support and get rid of this option. Also we add no-devcryptoeng as
-devcryptoeng is automatically enabled on BSDs. So the resulting options are:
+devcryptoeng is automatically enabled on BSDs. We also omit
+enable-ec_nistp_64_gcc_128 since it is an optimization that relies on the
+128-bit integer type, which is only available for GCC and Clang on 64-bit
+targets, and would make the set of compiled sources compiler-specific. So the
+resulting options are:
 
   no-mdc2 enable-rc5 enable-zlib enable-rfc3779 enable-cms enable-zstd
-  enable-md2 enable-ktls no-dynamic-engine no-legacy no-asm no-devcryptoeng
+  enable-tfo enable-md2 enable-ktls no-dynamic-engine no-legacy no-asm
+  no-devcryptoeng
+
+Note that md2 ends up disabled since no-legacy disables it as a cascade (see
+the `./configdata.pm --options` output mentioned below).
 
 Note that while we can use the upstream/{INSTALL,Configure} files to
 understand which of the 'enable-<feature>' or 'no-<feature>' options are the
@@ -101,8 +113,8 @@ On POSIX and for MinGW GCC:
 $ mkdir build
 $ cd build
 $ ../Configure no-mdc2 enable-rc5 enable-zlib enable-rfc3779 enable-cms \
-  enable-zstd enable-md2 enable-ktls no-dynamic-engine no-legacy no-asm \
-  no-devcryptoeng >build.log 2>&1
+  enable-zstd enable-tfo enable-md2 enable-ktls no-dynamic-engine no-legacy \
+  no-asm no-devcryptoeng >build.log 2>&1
 $ make VERBOSE=1 >>build.log 2>&1
 
 For MSVC:
@@ -110,8 +122,8 @@ For MSVC:
 > mkdir build
 > cd build
 > perl ../Configure VC-WIN64A no-mdc2 enable-rc5 enable-zlib enable-rfc3779 ^
-  enable-cms enable-zstd enable-md2 enable-ktls no-dynamic-engine no-legacy ^
-  no-asm no-devcryptoeng >build.log 2>&1
+  enable-cms enable-zstd enable-tfo enable-md2 enable-ktls no-dynamic-engine ^
+  no-legacy no-asm no-devcryptoeng >build.log 2>&1
 > nmake VERBOSE=1 >>build.log 2>&1
 
 When the packaging is complete, build all the project packages in source tree

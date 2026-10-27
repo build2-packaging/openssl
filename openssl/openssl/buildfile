@@ -9,7 +9,7 @@ tsys   = $c.target.system
 
 windows = ($tclass == 'windows')
 
-exe{openssl}: {h c}{** -vms_* -apps/lib/win32_init}
+exe{openssl}: {h c}{** -**/vms_* -apps/lib/win32_init}
 exe{openssl}: apps/lib/c{win32_init}: include = $windows
 exe{openssl}: $libs
 

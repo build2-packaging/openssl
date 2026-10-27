@@ -13,6 +13,10 @@ $ cd ..
 $ ln -s ../../../../upstream/crypto/thread/arch.c ./
 $ cd ..
 $ ln -s ../../../upstream/crypto/{ctype,getenv,packet,quic_vlint,time}.c ./
+$ mkdir hashtable rbtree siphash
+$ ln -s ../../../../upstream/crypto/hashtable/hashfunc.c hashtable/
+$ ln -s ../../../../upstream/crypto/rbtree/rbtree.c rbtree/
+$ ln -s ../../../../upstream/crypto/siphash/siphash.c siphash/
 $ popd
 
 Copy upstream's auto-generated libssl.{ld,def} into libssl/. Comment out the
